@@ -132,6 +132,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@adobe/uix-docs@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@adobe/uix-docs@workspace:."
+  dependencies:
+    "@adobe/gatsby-theme-aio": ^4.4.4
+    gatsby: ^4.13.0
+    react: ^17.0.0
+    react-dom: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "@algolia/cache-browser-local-storage@npm:4.14.2":
   version: 4.14.2
   resolution: "@algolia/cache-browser-local-storage@npm:4.14.2"
@@ -7519,17 +7530,6 @@ __metadata:
   checksum: 93c40febe714f56711d1fedc2b7a9cc4cbaa0fcddec0509876c46b9dd6099ed6bfd6662a4f35e5fa0301660f48ed516829253ab0fc90b9e79b823dd77786b379
   languageName: node
   linkType: hard
-
-"dev-site-documentation-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "dev-site-documentation-template@workspace:."
-  dependencies:
-    "@adobe/gatsby-theme-aio": ^4.4.4
-    gatsby: ^4.13.0
-    react: ^17.0.0
-    react-dom: ^17.0.0
-  languageName: unknown
-  linkType: soft
 
 "devcert@npm:^1.2.0":
   version: 1.2.2

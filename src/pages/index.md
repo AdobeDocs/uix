@@ -7,11 +7,11 @@ description: UI Extensibility Overview
 
 # UI Extensibility
 
-TBD: UI Extensibility promo text
+UI Extensibility allows 3rd party developers customize and add their own logic to Adobe Experience Cloud services.
 
 ## Overview
 
-TBD: UI Extensibility overview
+UI extensions are JavaScript applications build with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that may be embedded in UI Applications running under[Adobe Experience Cloud](https://experience.adobe.com/) unified shell. UI Applications and UI Extensions implement two-way communication protocol that allows to exchange data, invoke actions and render additional visual blocks.
 
 ## Discover 
 

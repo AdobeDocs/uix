@@ -27,11 +27,11 @@ module.exports = {
         menu: [
           {
             title: 'AEM Content Fragments Console',
-            path: 'services/services/aem-cf-console-admin/'
+            path: 'services/aem-cf-console-admin/'
           },
           {
             title: 'AEM Content Fragments Editor',
-            path: 'services/services/aem-cf-editor/'
+            path: 'services/aem-cf-editor/'
           }
         ]
       }

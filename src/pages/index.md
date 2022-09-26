@@ -29,12 +29,6 @@ Know what to expect when create UI Extension.
     
 Get started with the development of extensions for AEM Content Fragments Console.
 
-<DiscoverBlock slots="link, text"/>
-
-[AEM Content Fragments Editor Extensions Development Guide](services/aem-cf-editor/guides/)
-    
-Create and extension for AEM Content Fragments Editor.
-
 <DiscoverBlock slots="heading, link, text"/> 
 
 ### Explore What to Extend
@@ -42,12 +36,6 @@ Create and extension for AEM Content Fragments Editor.
 [AEM Content Fragments Console Extension Points](services/aem-cf-console-admin/api/) 
      
 Learn extensibility possibilities in AEM Content Fragments Console.
-
-<DiscoverBlock slots="link, text"/>
-
-[AEM Content Fragments Editor Extension Points](services/aem-cf-editor/api/) 
-
-Explore what may be extended and customized for AEM Content Fragments Editor.
 
 <DiscoverBlock slots="heading, link, text"/> 
 

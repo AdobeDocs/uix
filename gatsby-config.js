@@ -28,10 +28,6 @@ module.exports = {
           {
             title: 'AEM Content Fragments Console',
             path: 'services/aem-cf-console-admin/'
-          },
-          {
-            title: 'AEM Content Fragments Editor',
-            path: 'services/aem-cf-editor/'
           }
         ]
       }
@@ -66,32 +62,34 @@ module.exports = {
         path: "overview/community/"
       },
       {
-        title:'AEM Content Fragments Console',
-        path: 'services/aem-cf-console-admin/',
+        title:'Overview',
+        path: 'services/aem-cf-console-admin/'
+      },
+      {
+        title: "Developer Guides",
+        path: "services/aem-cf-console-admin/guides/",
         pages: [
           {
-            title: "Developer Guides",
-            path: "services/aem-cf-console-admin/guides/"
+            title:'Local Environment Set Up',
+            path: 'services/aem-cf-console-admin/guides/dev-env'
           },
           {
-            title: "Extension Points",
-            path: "services/aem-cf-console-admin/api/"
+            title:'First Extension',
+            path: 'services/aem-cf-console-admin/guides/hello-world'
+          },
+          {
+            title:'Implementation Patterns',
+            path: 'services/aem-cf-console-admin/guides/how-to'
+          },
+          {
+            title:'Troubleshooting',
+            path: 'services/aem-cf-console-admin/guides/debug'
           },
         ]
       },
       {
-        title:'AEM Content Fragments Console',
-        path: 'services/aem-cf-editor/',
-        pages: [
-          {
-            title: "Developer Guides",
-            path: "services/aem-cf-editor/guides/"
-          },
-          {
-            title: "Extension Points",
-            path: "services/aem-cf-editor/api/"
-          },
-        ]
+        title: "Extension Points",
+        path: "services/aem-cf-console-admin/api/"
       }
     ],
   },

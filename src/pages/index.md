@@ -1,6 +1,8 @@
 ---
 title: Overview - UI Extensibility
-description: UI Extensibility Overview
+description: Learn what is UI Extensibility and navigate through documentation 
+contributors:
+  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---
 
 <Hero slots="heading, text"/> 

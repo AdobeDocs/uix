@@ -1,6 +1,6 @@
 ---
 title: Why I Need It - UI Extensibility
-description: UI Extensibility Overview
+description: Know why UI Extensibility may be a good solution for you
 contributors:
   - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---

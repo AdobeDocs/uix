@@ -1,0 +1,1 @@
+# AEM Content Fragments Console Extension Implementation Patterns

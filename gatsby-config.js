@@ -23,6 +23,19 @@ module.exports = {
         path: 'overview/',
       },
       {
+        title: 'Guides',
+        menu: [
+          {
+            title: 'UI Extensions Development Flow',
+            path: 'guides/development/'
+          },
+          {
+            title: 'UI Extensions Management',
+            path: 'guides/publication/'
+          },
+        ]
+      },
+      {
         title: 'Extensible Services',
         menu: [
           {

@@ -19,7 +19,7 @@ UI extensions are JavaScript applications built with [Adobe App Builder](https:/
 
 ### Learn How to Create UI Extensions
 
-[UI Extensions Development Flow Overview](overview/guides/development/)
+[UI Extensions Development Flow Overview](guides/development/)
     
 Know what to expect when create UI Extension.
 
@@ -41,7 +41,7 @@ Learn extensibility possibilities in AEM Content Fragments Console.
 
 ### Publish
 
-[UI Extensions Management Guide](overview/guides/publication/) 
+[UI Extensions Management Guide](guides/publication/) 
 
 Know how to deploy and publish UI Extensions for your organization.
 

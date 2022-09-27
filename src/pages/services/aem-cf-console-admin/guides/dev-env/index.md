@@ -1,0 +1,1 @@
+# Set Up Local Environment for AEM Content Fragments Console Extension Development 

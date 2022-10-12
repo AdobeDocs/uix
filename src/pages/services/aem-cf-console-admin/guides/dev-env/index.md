@@ -5,7 +5,7 @@ contributors:
   - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---
 # Set Up Local Environment
-This guide includes instructions for creating setting up a local environment for AEM (Adobe Experience Manager) Content Fragments Console extension development.
+This guide includes instructions for setting up a local environment for AEM (Adobe Experience Manager) Content Fragments Console extension development.
 
 ## Prerequisites
 

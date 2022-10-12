@@ -12,7 +12,7 @@ This guide includes instructions for setting up a local environment for AEM (Ado
 - [NodeJS](https://nodejs.org/en/download/) [>= v14]. It should also install `npm` together. We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage NodeJS installation and versions on your machine.
 - [AIO (Adobe I/O) CLI (Command Line Interface)](https://github.com/adobe/aio-cli)  [>= v9.1.0]
 - [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/overview/index.html) [>= v11]. If you want deploy the actions (in your UI extension) to a local [OpenWhisk](https://openwhisk.apache.org/) instance when performing `aio app run --local`
-- Docker. This is a required dependency to run the OpenWhisk instance with the AIO CLI.
+- Docker. This is a required dependency to run an OpenWhisk instance with the AIO CLI.
 
 
 ## Installation

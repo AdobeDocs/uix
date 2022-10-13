@@ -295,9 +295,11 @@ Waiting for the certificate to be accepted.... timed out
 This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
+
 ![Certification](./images/cert-1.png))
 
 Click on `Advanced`, the nex screen may vary from browser to browser, but you should see a screen like this, where you can click on `Proceed to localhost (unsafe)` to accept the certificate.
+
 ![Certification](./images/cert-2.png)
 
 You may need to exit the current process and run `aio app run` again.

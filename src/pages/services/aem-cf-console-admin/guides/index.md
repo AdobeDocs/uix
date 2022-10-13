@@ -54,7 +54,6 @@ The `Production` workspace is special, as it is used for the submission and dist
 
 > Important Notes:
 > - You need to have AIO CLI version >= 9.1.0 to use the available templates.
-> - You need to be connected to VPN to resolve dependency on a private package `@adobe/uix-guest` if you are outside Adobe’s offices.
 > - Please refer to [Local Environment Set Up](./dev-env/index.md).
 
 To bootstrap the project code, create a directory and run the following commands from that directory:

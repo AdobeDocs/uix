@@ -130,7 +130,7 @@ This means, that the new functionality will be available, for example, in the AE
 ![New functionality in AEM admin panel](publishing-2.png)
 
 More details about publishing are described in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)
-and [Additional Resources](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
+and [Publishing Your First App Builder Application](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
 
 ### Additional Resources
 - [UI Extensibility overview](pages/dx-devex-acceleration/uix-docs/overview/)

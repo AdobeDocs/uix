@@ -12,7 +12,7 @@ After you've completed [developing](https://git.corp.adobe.com/pages/dx-devex-ac
 ## Deploy on Production (CLI)
 
 The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production` in the CLI.
-Please type command in the project folder:
+Type this command in the project folder:
 ```shell script
 aio app use -w Production
 ```
@@ -73,8 +73,6 @@ Also, data about your extension will be added to *Adobe App Registry* and will b
 
 This means, that the new functionality will be available, for example, in the AEM admin panel for **your organization**.
 ![New functionality in AEM admin panel](../development/publishing-2.png)
-
-
 More details about publishing are described in [Publishing Your First App Builder Application](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
 
 ### Additional Resources

@@ -41,38 +41,20 @@ and choose "App Builder"
 
 ![Fill the project data](../../../guides/development/create-project-7.png)
 - `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
-- `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
+- `App Name` will be used as a unique identifier for your application and this value cannot be changed after creating the project.
 
-After creating, you should see a new project generated with 2 default Workspaces.
+After the project creation, you should see a new project with 2 default Workspaces.
 Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed. 
 The `Production` workspace is special, as it is used for the submission and distribution flow.
 
 ![A new project with 2 default Workspaces](../../../guides/development/create-project-8.png)
 
-## Install the AIO CLI
-
-Run the following command to install the latest version of AIO CLI if not installed.
-
-> Important Notes:
-> - You need to have at least version 9.1.0 of AIO CLI to use the available templates.
-
-```shell
-npm install -g @adobe/aio-cli
-```
 
 ## Initialize the UI Extension Project using AIO CLI
 
 > Important Notes:
-> - You need to be connected to VPN to resolve dependency on a private package `@adobe/uix-guest` if you are outside Adobe’s offices.
-> - You’ll also need to set up an NPM configuration in your machine to authenticate with the Adobe's Artifactory repos.
-> - Please refer to `https://wiki.corp.adobe.com/display/Artifactory/NPM` and get your API key from `https://artifactory.corp.adobe.com/`
-
-Run the following commands to set up the required NPM configuration if this is your first time.
-
-```shell
-curl -u<USERNAME>:<API_KEY> https://artifactory.corp.adobe.com/artifactory/api/npm/auth >> ~/.npmrc
-npm config set registry "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-adobe-platform-release/"
-```
+> - You need to have AIO CLI version >= 9.1.0 to use the available templates.
+> - Please refer to [Local Environment Set Up](./dev-env/index.md).
 
 To bootstrap the project code, create a directory and run the following commands from that directory:
 
@@ -222,15 +204,63 @@ To bootstrap the project code, create a directory and run the following commands
     > Tip: you can add more actions, web-assets and events to your project via the 'aio app add' commands
     ```
 
-## Test on Local Environment
-From the same directory, begin by running the following command:
+## Run on Local Environment
+To run the application locally, use one of the following commands from the same directory:
 
+#### First Option:
 ```shell
-aio app run
+➜  demo-extension-project % aio app run --local
 ```
 
-This command will create an action in Adobe I/O Runtime. 
-    
+This will deploy the actions to a local [OpenWhisk](https://openwhisk.apache.org/) instance, which the [CLI](https://github.com/adobe/aio-cli) will automatically download and install. The SPA will be run on the local machine.
+
+```shell
+➜  demo-extension-project % aio app run --local
+  ℹ checking if java is installed...
+  ℹ checking if docker is installed...
+  ℹ checking if docker is running...
+  ℹ starting local OpenWhisk stack...
+  ℹ writing credentials to tmp wskdebug config '/Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/dist/aem-cf-console-admin-1/.env.local'
+  ℹ building actions..
+  ℹ watching action files at /Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/src/aem/cf-console-admin-1/actions...
+  ℹ injecting backend urls into frontend config
+  ℹ bundling /Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/src/aem/cf-console-admin-1/web-src/**/*.html
+  ℹ redeploying actions..
+  ℹ Info: Deploying package [cf-console-admin-1]...
+  ℹ Info: package [cf-console-admin-1] has been successfully deployed.
+
+  ℹ Info: Deploying action [cf-console-admin-1/import]...
+  ℹ Info: action [cf-console-admin-1/import] has been successfully deployed.
+
+  ℹ Info: Deploying action [cf-console-admin-1/export]...
+  ℹ Info: action [cf-console-admin-1/export] has been successfully deployed.
+
+  ℹ Success: Deployment completed successfully.
+  ℹ web actions:
+  ℹ   -> http://localhost:3233/api/v1/web/guest/cf-console-admin-1/import
+  ℹ   -> http://localhost:3233/api/v1/web/guest/cf-console-admin-1/export
+  ℹ serving front-end using bundler serve...
+  ℹ local frontend server running at https://localhost:9080
+  ℹ setting up vscode debug configuration files...
+  ⠋    create .vscode/launch.json
+
+  No change to package.json was detected. No package manager install will be executed.
+  ℹ press CTRL+C to terminate dev environment
+  
+  To view your local application:
+    -> https://localhost:9080
+  To view your deployed application in the Experience Cloud shell:
+    -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://localhost:9080
+  press CTRL+C to terminate dev environment
+```
+
+#### Second Option:
+```shell
+➜  demo-extension-project % aio app run
+```
+
+This will deploy the actions to [Adobe I/O Runtime](/apis/experienceplatform/runtime), while running the UI part on the local machine. 
+
 ```shell
 ➜  demo-extension-project % aio app run
   create .vscode/launch.json
@@ -250,6 +280,28 @@ Now your UI extension is reachable by the displayed URL on the Terminal. You can
 - devMode (development mode): `devMode=true`
 
 **Sample AEM Content Fragment Console URL:** `https://experience.adobe.com/?cq-aem-headless-ui-admin_version=PR-444-df883867ebbbc09c49b2df86018c4bce901c746a&ext=https://localhost:9080&devMode=true&repo=author-p7452-e12437.adobeaemcloud.com#/@sitesinternal/aem/cf/admin/`
+
+#### (First time users) Accepting the Certificate
+
+If you are using this application for the first time, you will see a message similar to
+
+```shell
+success: generated certificate
+A self signed development certificate has been generated, you will need to accept it in your browser in order to use it.
+Waiting for the certificate to be accepted.... timed out
+```
+
+This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+
+If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
+
+![Certification](./images/cert-1.png))
+
+Click on `Advanced`, the nex screen may vary from browser to browser, but you should see a screen like this, where you can click on `Proceed to localhost (unsafe)` to accept the certificate.
+
+![Certification](./images/cert-2.png)
+
+You may need to exit the current process and run `aio app run` again.
 
 ## Deploy on Production
 

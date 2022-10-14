@@ -6,16 +6,16 @@ contributors:
 ---
 #AEM Step-by-step Extension Development
 
-The document helps you understand how to set up local environment and start developing your first [Adobe App Builder App](https://developer.adobe.com/app-builder/docs/overview/).
+The document helps you understand how to set up local environment and start developing your first [Adobe App Builder App](pages/dx-devex-acceleration/uix-docs/overview/).
 
 ## About Application
 
-This example application will use two extension points provided by [AEM (Adobe Experience Manager)](https://experienceleague.adobe.com/docs/experience-manager.html) side.
-We would like to add two buttons, the first button will be added the header menu:
+This example application will use two extension points provided by the [AEM (Adobe Experience Manager)](https://experienceleague.adobe.com/docs/experience-manager.html) app.
+We would like to add two buttons. The first button will be added the header menu:
 
 ![Header menu extension point](../../api/header-menu.png)
 
-second one to a menu that displayed when a content fragment is selected:
+The second one to a menu that displays when a content fragment is selected:
 ![Action bar extension point](../../api/action-bar.png)
 
 After clicking on buttons we would like to show some content in a pop-up:
@@ -36,7 +36,7 @@ $ npm -v
 8.11.0
 ```
 These are the current versions at the moment of creating the documentation.
-Make sure you are using the latest versions when you create the application.
+Make sure you are using the latest versions supported by Adobe IO when you create the application.
 
 
 - [Adobe I/O CLI](https://github.com/adobe/aio-cli). If you already have `Adobe I/O CLI` on your local, please ensure you use the latest version of the library.
@@ -71,7 +71,7 @@ Please complete all the steps described in [Initialize our Application using the
 
 After this step, we will have a generated project structure with necessary npm dependencies are getting installed.
 
-If you have worked with an Adobe App Builder Application before, you will notice that the project structure is the default for projects that implement [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
+If you have worked with an Adobe App Builder App before, you will notice that you have generated a starter project of a UI Extension that implements [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 
 ![App initialization finished](../../../../guides/development/implement-application-1.png)
 ```yaml
@@ -297,7 +297,7 @@ That means that it could be reused by different views. Actions can also contain 
 
 ![Additional logic](additional-logic.png)
 
-It's not a required part, you don't need to do this, if you decide that it's overhead.
+**This is optional.** You only need to implement it if your use case requires it.
 
 ## Test on Local Environment
 From the project directory, begin by running the following command:
@@ -351,7 +351,7 @@ We can use the `ext` parameter (how we did it during testing on a local machine)
 To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
 and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
 
-## Deploy on Production
+## Deploy to Production
 After deploying to `Stage` workgroup and testing, we are ready to deploy our application to `Production`.
 
 The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production`.

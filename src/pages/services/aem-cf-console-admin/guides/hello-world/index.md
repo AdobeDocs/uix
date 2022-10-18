@@ -10,7 +10,7 @@ The document helps you understand how to set up local environment and start deve
 
 ## About Application
 
-This example application will use two extension points provided by the [AEM (Adobe Experience Manager)](https://experienceleague.adobe.com/docs/experience-manager.html) app.
+This example application will use two extension points provided by the [AEM (Adobe Experience Manager)](https://experienceleague.adobe.com/docs/experience-manager.html).
 We would like to add two buttons. The first button will be added the header menu:
 
 ![Header menu extension point](../../api/header-menu.png)
@@ -82,20 +82,20 @@ extensions:
 
 ```
 
-## Overview of generated Components
+## Overview of generated components
 
 ### Routing
 [`src/aem-cf-console-admin-1/web-src/src/components/App.js`](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/App.js)
 
-It's our root component that contains [routing of our application](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/App.js). We always have this generated file.
+The root component contains the [routing of our application](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/App.js). We always have this generated file.
 
 Our extension is responsible for rendering several things:
-- The logic of registering our extension (it's the second required part of the extension)
-- Part of UI responsible for the content of pop-ups when a button is clicked (optional)
+- The logic of registering our extension (it's the second required part of the extension).
+- Any partial UI components that may render inside the host app, for example as the content of a pop-up when a button is clicked (optional).
 
 We will discuss these components in more detail in the points below.
 
-Routing determines which part of the extension should be executed depending on the request.
+[React Routing](https://reactrouter.com/web/guides/quick-start) determines which part of the extension should be executed depending on the request.
 ```js
 import React from "react";
 import ErrorBoundary from "react-error-boundary";
@@ -140,7 +140,7 @@ If you need additional functionality, you can add new entry points and specify t
 ### Extension registration
 [`src/aem-cf-console-admin-1/web-src/src/components/ExtensionRegistration.js`](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/ExtensionRegistration.js)
 
-It's needed fore some hand shaking between AEM instance and our extension for sharing data and for communication with each other.
+This logical component registers our extension with the host AEM instance as soon as it loads, so they can share data and communicate with each other.
 
 ```js
 import React, { useEffect } from "react";
@@ -183,12 +183,12 @@ function ExtensionRegistration() {
 }
 ```
 
-We use [extensibility framework](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk) and call the `register` method for declarations of the buttons which we want to add to AEM admin panel.
-In our extension we would like to add two buttons, thus we defined title of each button, icons and `onClick` handler that will be run inside of the application.
+We use the [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk) and call the `register` method, which connects to the host and declares methods the host can call. The `getButtons()` method describes the buttons which we want to add to the AEM admin panel.
+In our extension we would like to add two buttons, We define the title of each button, its icon, and an `onClick` handler that will be run inside of the application.
 
-In case with action bar, the handler receives selected [`content fragments`](https://experienceleague.adobe.com/docs/experience-manager-64/assets/fragments/content-fragments.html) as the input parameter.
+In the action bar, the handler receives selected [`content fragments`](https://experienceleague.adobe.com/docs/experience-manager-64/assets/fragments/content-fragments.html) as the input parameter.
 
-For displaying popup, we use the **built-in part** of [the extensibility framework](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk), UI modal.
+For displaying a popup, we use the `<GuestUIFrame />` component provided by [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk).
 We indicate that we want to display the modal and specify the url at which the content should be loaded.
 
 Very similar declaration for the second button, but in a different namespace.
@@ -198,7 +198,7 @@ This component was also generated, you can modify it if you need to change or ad
 ### Pop-up content
 [`src/aem-cf-console-admin-1/web-src/src/components/TestContentModal.js`](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/TestContentModal.js)
 
-In the previous step, we indicated that we want to load content for the popup by URL. It is also part of our application.
+In the previous step, we indicated that we want to load content for the popup by URL. That content is also part of our extension application.
 
 These component is optional and will be generated if you chose "adding UI" during project generation.
 
@@ -238,28 +238,28 @@ function TestContentModal() {
 }
 ```
 
-We again use [the extensibility framework](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk), but this time we call the `attach` method, instead of `register`,
-because the extension is already registered and we need to connect to the host to interact with it.
+We again use [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk), but this time we call the `attach` method, instead of `register`.
+The extension is already registered; we only need to connect to the host to interact with it.
 
 The generated content will be displayed inside the popup.
 
-Finally, need to mentioned that everything is based on the [React](https://reactjs.org/) and [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/) frameworks.
+Finally, we need to mention that all of this UI uses the [React](https://reactjs.org/) and [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/) frameworks.
 
 ## Interaction between AEM host and application
 Above we said that the AEM host and the application can interact with each other. Let's look at a couple of examples.
 
-- Work with `sharedObject`.
+- Work with `sharedContext`.
 This object is designed to share data from the host to the extension.
 For example, the object contains the `IMS` data for authentication and the hostname of the AEM instance.
 This means, we can make any requests to existing `AEM HTTP API` to obtain additional data what we need.
 
 ```js
 const guestConnection = await attach({ id: "aem-headless-ui-ext-examples" });
-const languageCopies = await getLanguageCopies(fragmentId, sharedContext.get('auth'), sharedContext.get('aemHost'));
+const languageCopies = await getLanguageCopies(fragmentId, guest.sharedContext.get('auth'), guest.sharedContext.get('aemHost'));
 ```
 
 - Work with `UI modal`.
-UI modal is the **built-in part** of [the extensibility framework](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk).
+UI modal is the **built-in part** of [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk).
 By calling the methods of this object, we can display or close the popup window.
 
 ```js
@@ -340,7 +340,7 @@ This command makes building and deploying of declared actions and frontend files
 aio app deploy
 ```
 
-![aio app deploy](../../../../guides/development/deploy-on-stage-1.png)
+![aio app deploy](deploy-on-stage-1.png)
 
 Now your application is reachable by URL, printed in Terminal.
 You can use this URL for end-to-end testing.      

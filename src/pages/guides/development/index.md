@@ -12,7 +12,7 @@ The document helps you understand how to setup, implement and deploy your own [U
 
 To start writing UI Extensions you will need:
 1. Access to Experience Cloud service. In our example, we will create an extension for Adobe Experience Manager (AEM).
-2. Access to App Builder, which we will use to create an extension
+2. Access to App Builder, which we will use to create an extension.
 
 To do this, you need to fill out the request forms to gain access to these services.
 
@@ -24,24 +24,24 @@ For more details, please refer to [How to Get Access](pages/dx-devex-acceleratio
 In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
 and access to API credentials if you want to access Adobe APIs in your application.
 
-1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID
+1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
 ![Sign in to Adobe Developer Console](create-project-1.png)
 
-2. Choose your account
+2. Choose your account.
 ![Choose your account](create-project-2.png)
 
-3. Choose your profile or organizzation
+3. Choose your profile or organizzation.
 ![Choose your profile](create-project-3.png)
 
 3. Make sure you are in a proper organization (a switcher in the right top corner).
 ![Check organization](create-project-4.png)
 
-4. Click "Create new project" -> "Project from template" 
+4. Click "Create new project" -> "Project from template".
 ![Create project from template](create-project-5.png)
 and choose "App Builder"
 ![Choose "App Builder"](create-project-6.png)
 
-5. Fill the project data
+5. Fill the project data.
 ![Fill the project data](create-project-7.png)
 - `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
 - `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.

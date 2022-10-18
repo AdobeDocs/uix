@@ -8,18 +8,17 @@ contributors:
 
 The document helps you understand how to setup, implement and deploy your own [UI Extension](pages/dx-devex-acceleration/uix-docs/overview/) with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/)
 
-## 1. Get Access to App Builder
+## Get Access 
 
-Requesting access is a simple two-step process:
-1. Complete the [request form](https://developer.adobe.com/app-builder/trial/). As a result, you will retrieve your Organization ID and name.
-![Complete the request form](get-access-1.png)
+To start writing UI Extensions you will need:
+1. Access to Experience Cloud service. In our example, we will create an extension for Adobe Experience Manager (AEM).
+2. Access to App Builder, which we will use to create an extension
 
-2. Login with your Adobe ID to [Adobe Developer Console](https://developer.adobe.com/console) and accept agreement.
-![Accept agreement](get-access-2.png)
+To do this, you need to fill out the request forms to gain access to these services.
 
-For more details, please refer to [How to Get Access](pages/dx-devex-acceleration/uix-docs/overview/requirements/) page.
+For more details, please refer to [How to Get Access](pages/dx-devex-acceleration/uix-docs/overview/requirements/) .
 
-## 2. Create a new project in Adobe Developer Console
+## Create a new project in Adobe Developer Console
 
 > Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
 In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
@@ -52,73 +51,90 @@ Each App Builder project has two default workspaces: `Production` and `Stage`. Y
 The `Production` workspace is special, as it is used for the submission and distribution flow.
 ![A new project with 2 default Workspaces](create-project-8.png)
 
-## 3. Initialize our Application using the CLI for local development
+## Initialize our Application using the CLI for local development
 
 Once your project is set up in [Adobe Developer Console](https://developer.adobe.com/console), we need to initialize our app in a local environment.
-There are several ways how to do it. We will follow [Initializing your project with Extension Points](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#411-initializing-your-project-with-extension-points) option.
+There are several ways how to do it.
+
+We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
+The document [Initialize the UI Extension Project using AIO CLI](/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/#initialize-the-ui-extension-project-using-aio-cli) describes in detail all the steps that you need to follow.
+
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
-Firstly, you need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli):
-1. In your Terminal type the following command:`aio login`.
-A browser window and prompt should open, asking you to sign in with your Adobe ID. If the window does not automatically open,
-you can also copy/paste the URL printed in your browser to log in. 
-![aio login](initialize-application-1.png)
-2. After logging in, you can close the browser window and return to the Terminal. You will see your user token printed in the Terminal. 
-It is automatically stored in the [CLI](https://github.com/adobe/aio-cli) configuration, which allows the [CLI](https://github.com/adobe/aio-cli) to use the token to interact with the [Adobe Developer Console](https://developer.adobe.com/console).
-
-After that, you can [bootstrap your project](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli):
-1. Create a new project folder on your local machine and navigate to it in the Terminal.
-2. Type `aio app init <app_name>`, where *<app_name>* is a name of your app in [Adobe Developer Console](https://developer.adobe.com/console). You will be prompted with a few questions about your `Organization`, `Project` and bootstrapping configuration.
-3. Choose your `Organization` and `Project` (if you have a lot of projects, you can also start typing to shorten the list).
-![Choose Project](initialize-application-3.png)
-4. Select which extension point(s) do you with to implement.
-
-<InlineAlert variant="warning" slots="text" />
-
-Currently `cf-console-admin` extension point is not available in `Production`. You need to choose `DX Experience Cloud SPA v1`.
-
 Once you complete, you should see the build process with necessary npm dependencies are getting installed.
-![App initialization finished](initialize-application-4.png)
 
 Also, [base project structure](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application) will be generated.
+    
+```shell
+Sample code files have been generated.
+    
+Next steps:
+1) Populate your local environment variables in the ".env" file
+2) You can use `aio app run` or `aio app deploy` to see the sample code files in action
+    
+    
+✔ Finished running template @adobe/aem-cf-admin-ui-ext-tpl
+✔ Installed template @adobe/aem-cf-admin-ui-ext-tpl
+Project initialized for Workspace Stage, you can run 'aio app use -w <workspace>' to switch workspace.
+✔ App initialization finished!
+ > Tip: you can add more actions, web-assets and events to your project via the 'aio app add' commands
+```
 
-## 4. Implement logic of Application 
+## Implement logic of Application 
 
-At this step, we need to create a source code of App Builder Application which will implement existing [AEM UI Extension Points](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/).
-A general approach is described in [Introduction to Extensions](https://developer.adobe.com/app-builder/docs/guides/extensions/).
+At this step, we need to implement a logic of App Builder Application which will use existing [AEM UI Extension Points](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/).
+A general approach is described in [App Builder and UI Extensibility](/pages/dx-devex-acceleration/uix-docs/overview/app-builder/).
 
 The process of creating an application is described in [Step-by-step Extension Development](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/hello-world/) guide.
 ![Example of a project structure](implement-application-1.png)
 
-## 5. Test and Deploy on Stage
-Once the application is finished, it can be fully deployed to your development workspace (in our case to `Stage`) for testing. 
-
-This command makes building and deploying of declared actions and frontend files/assets:
-```console
-aio app deploy
-```
-
-![aio app deploy](deploy-on-stage-1.png)
-
-Now your application is reachable by URL, printed in Terminal.
-You can use this URL for end-to-end testing.
-
-To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
-and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
-
-## 6. Deploy on Production
-After deploying to `Stage` workgroup and testing, we are ready to deploy our application to `Production`.
+## Deploy on Production
+After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
 
 The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production`.
-Please type command `aio app use -w Production` in our project folder.
 
-![Publishing](deploy-on-prod-1.png)
+Please type command in our project folder:
 
-After workgroup switching, we can make building and deploying with `aio app deploy` command.
+```shell
+$ aio app use -w Production
 
-![Publishing](deploy-on-prod-2.png)
+You are currently in:
+1. Org: Sites Internal
+2. Project: 562TurquoiseShrimp
+3. Workspace: Stage
+? The file aem-headless-ui-ext-example/.env already exists: Merge
+? The file aem-headless-ui-ext-examples/.aio already exists: Overwrite
 
-## 7. Publish the Application
+✔ Successfully imported configuration for:
+1. Org: Sites Internal
+2. Project: 562TurquoiseShrimp
+3. Workspace: Production.
+```
+**Note:** 
+We chose the `Merge` option for the `.env` file so that we don't lose our environment variables.
+
+After workgroup switching, we can make building and deploying with the command:
+```
+$ aio app deploy
+
+√ Built 3 action(s) for 'aem/cf-console-admin/1'
+√ Building web assets for 'aem/cf-console-admin/1'
+√ Deployed 3 action(s) for 'aem/cf-console-admin/1'
+√ Deploying web assets for 'aem/cf-console-admin/1'
+Your deployed actions:
+web actions:
+  -> https://245265-562turquoiseshrimp.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/get-language-copies
+  -> https://245265-562turquoiseshrimp.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/quick-publish-language-copies
+  -> https://245265-562turquoiseshrimp.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/unpublish-language-copies
+To view your deployed application:
+  -> https://245265-562turquoiseshrimp.adobeio-static.net/index.html
+To view your deployed application in the Experience Cloud shell:
+  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://245265-562turquoiseshrimp.adobeio-static.net/index.html
+New Extension Point(s) in Workspace 'Production': 'aem/cf-console-admin/1'
+Successful deployment 🏄
+```
+
+## Create Approval Request
 When you’re ready to publish your app, you will submit it for an approval from the Production workspace.
 ![Publishing](publishing-1.png)
 
@@ -129,8 +145,7 @@ Also, data about your extension will be added to *Adobe App Registry* and will b
 This means, that the new functionality will be available, for example, in the AEM admin panel for your organization.
 ![New functionality in AEM admin panel](publishing-2.png)
 
-More details about publishing are described in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)
-and [Publishing Your First App Builder Application](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
+These steps are described in more detail in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/).
 
 ### Additional Resources
 - [UI Extensibility overview](pages/dx-devex-acceleration/uix-docs/overview/)

@@ -4,14 +4,14 @@ description: Learn how to setup, implement and deploy your own UI Extensions wit
 contributors:
   - dx-devex-acceleration/uix-docs
 ---
-# UI Extensions Development Flow
+# UI Extensions development flow
 
 The document helps you understand how to setup, implement and deploy your own [UI Extension](pages/dx-devex-acceleration/uix-docs/overview/) with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/)
 
-## Get Access 
+## Get access 
 
 To start writing UI Extensions you will need:
-1. Access to Experience Cloud service. In our example, we will create an extension for Adobe Experience Manager (AEM).
+1. Access to service that we are about to extend, e.g. [Content Fragment Console](/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
 2. Access to App Builder, which we will use to create an extension.
 
 To do this, you need to fill out the request forms to gain access to these services.
@@ -51,7 +51,7 @@ Each App Builder project has two default workspaces: `Production` and `Stage`. Y
 The `Production` workspace is special, as it is used for the submission and distribution flow.
 ![A new project with 2 default Workspaces](create-project-8.png)
 
-## Initialize our Application using the CLI for local development
+## Initialize our application using the CLI for local development
 
 Once your project is set up in [Adobe Developer Console](https://developer.adobe.com/console), we need to initialize our app in a local environment.
 There are several ways how to do it.
@@ -80,12 +80,15 @@ Project initialized for Workspace Stage, you can run 'aio app use -w <workspace>
  > Tip: you can add more actions, web-assets and events to your project via the 'aio app add' commands
 ```
 
-## Implement logic of Application 
+## Implement logic of application and test it on different environments
 
 At this step, we need to implement a logic of App Builder Application which will use existing [AEM UI Extension Points](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/).
 A general approach is described in [App Builder and UI Extensibility](/pages/dx-devex-acceleration/uix-docs/overview/app-builder/).
 
-The process of creating an application is described in [Step-by-step Extension Development](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/hello-world/) guide.
+Also, during implementation we have possibility to run and test extension locally or on `Stage`.
+Moreover, we can see how it works on a `Production` instance without application deployment.
+
+The process of creating and testing an application is described in [Step-by-step Extension Development](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/hello-world/) guide.
 ![Example of a project structure](implement-application-1.png)
 
 ## Deploy on Production
@@ -134,7 +137,7 @@ New Extension Point(s) in Workspace 'Production': 'aem/cf-console-admin/1'
 Successful deployment 🏄
 ```
 
-## Create Approval Request
+## Create approval request
 When you’re ready to publish your app, you will submit it for an approval from the Production workspace.
 ![Publishing](publishing-1.png)
 
@@ -147,7 +150,7 @@ This means, that the new functionality will be available, for example, in the AE
 
 These steps are described in more detail in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/).
 
-### Additional Resources
+### Additional resources
 - [UI Extensibility overview](pages/dx-devex-acceleration/uix-docs/overview/)
 - [Troubleshooting](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/debug/)
 - [FAQ](pages/dx-devex-acceleration/uix-docs/overview/faq/)

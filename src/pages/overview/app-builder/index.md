@@ -33,14 +33,14 @@ In other words, we can say that this is a contract between an Adobe product and 
 
 ## UI Extensibility
 
-With the use of `AEM Content Fragments Console Extension Point`, we can customize the UI of [AEM Content Fragments Console](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/).
+As stated above, UI extensions are a special case of App Builder applications.
 
-Extensions can customize navigation, add own actions on Content Fragments and implement custom UI via Modals etc.
+As an example, using the [AEM Content Fragments Console Extension Point](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/), we can customize navigation, add our own actions on the [Content Fragments Console](/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/) and implement custom UI via Modals, etc.
 ![UI Extensibility in AEM Content Fragments Console](../../guides/development/publishing-2.png)
 
 More details are described in [AEM Content Fragments Console Extension Points](/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/).
      
-### Additional Resources
+### Additional resources
 - [UI Extensions Development Flow](pages/dx-devex-acceleration/uix-docs/guides/development/)
 - [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)
 - [FAQ](pages/dx-devex-acceleration/uix-docs/overview/faq/)

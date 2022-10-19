@@ -56,6 +56,30 @@ The `Production` workspace is special, as it is used for the submission and dist
 > - You need to have AIO CLI version >= 9.1.0 to use the available templates.
 > - Please refer to [Local Environment Set Up](./dev-env/index.md).
 
+Firstly, you need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli):
+1. In your Terminal type the following command:`aio login`.
+A browser window and prompt should open, asking you to sign in with your Adobe ID. If the window does not automatically open,
+you can also copy/paste the URL printed in your browser to log in. 
+    ```shell
+    $ aio login
+    Visit this url to log in:
+    https://aio-login.adobeioruntime.net/api/v1/web/default/applogin?id=78cfd597&port=7341&redirect_uri=https%3A%2F%2Faio-login.adobeioruntime.net%2Fapi%2Fv1%2Fweb%2Fdefault%2Fapplogin%2Flogin-success
+    - Waiting for browser login
+    ```
+2. After logging in, you can close the browser window and return to the Terminal. You will see your user token printed in the Terminal. 
+It is automatically stored in the [CLI](https://github.com/adobe/aio-cli) configuration, which allows the [CLI](https://github.com/adobe/aio-cli) to use the token to interact with the [Adobe Developer Console](https://developer.adobe.com/console).
+    ```shell
+    $ aio login
+    Visit this url to log in:
+    https://aio-login.adobeioruntime.net/api/v1/web/default/applogin?id=78cfd597&port=7341&redirect_uri=https%3A%2F%2Faio-login.adobeioruntime.net%2Fapi%2Fv1%2Fweb%2Fdefault%2Fapplogin%2Flogin-success
+    
+    You are currently in:
+    1. Org: Sites Internal
+    2. Project: 562TurquoiseShrimp
+    3. Workspace: Stage
+    eyJhbGciOiJSUzI...
+    ```
+
 To bootstrap the project code, create a directory and run the following commands from that directory:
 
 1. First, select the appropriate organization.

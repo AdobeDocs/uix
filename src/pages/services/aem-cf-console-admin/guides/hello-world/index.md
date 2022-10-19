@@ -4,13 +4,13 @@ description: Discover how to implement your first extension
 contributors:
   - dx-devex-acceleration/uix-docs
 ---
-#AEM Step-by-step Extension Development
+#AEM step-by-step extension development
 
 The document helps you understand how to set up local environment and start developing your first [Adobe App Builder App](pages/dx-devex-acceleration/uix-docs/overview/).
 
-## About Application
+## About application
 
-This example application will use two extension points provided by the [AEM (Adobe Experience Manager)](https://experienceleague.adobe.com/docs/experience-manager.html).
+This example application will use two extension points provided by the [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html).
 We would like to add two buttons. The first button will be added the header menu:
 
 ![Header menu extension point](../../api/header-menu.png)
@@ -25,7 +25,7 @@ More information about [AEM](https://experienceleague.adobe.com/docs/experience-
 
 You can find the source of [the wholly completed application on GitHub](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples).
 
-## Setting up Local Environment
+## Setting up local environment
 - [Node.js](https://nodejs.org/) + [npm (package manager)](https://www.npmjs.com/). Make sure you are using the latest stable version of `Node.js` and `npm`.
 ```shell
 $ node -v
@@ -53,9 +53,9 @@ If your version is outdated, update your `Adobe I/O CLI` by running
 npm install -g @adobe/aio-cli
 ```
 
-More details are described in [Local Environment Set Up and optional tools](https://developer.adobe.com/app-builder/docs/getting_started/#local-environment-set-up).
+More details are described in [Local environment set up and optional tools](https://developer.adobe.com/app-builder/docs/getting_started/#local-environment-set-up).
 
-## Create a Project in Adobe Developer Console
+## Create a project in Adobe Developer Console
 
 > Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
 In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
@@ -64,7 +64,7 @@ and access to API credentials if you want to access Adobe APIs in your applicati
 We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
 If not, please refer to [UI Extensions Development Flow](https://git.corp.adobe.com/pages/dx-devex-acceleration/uix-docs/guides/development/#1-get-access-to-app-builder).
 
-## Initialize our Application using the CLI and generate a base structure from template
+## Initialize our application using the CLI and generate a base structure from template
 Firstly, we need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and [bootstrap our project](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
 Please complete all the steps described in [Initialize our Application using the CLI](pages/dx-devex-acceleration/uix-docs/guides/development/#3-initialize-our-application-using-the-cli-for-local-development).
@@ -299,7 +299,7 @@ That means that it could be reused by different views. Actions can also contain 
 
 **This is optional.** You only need to implement it if your use case requires it.
 
-## Test on Local Environment
+## Test on local environment
 From the project directory, begin by running the following command:
 
 ```shell
@@ -363,7 +363,7 @@ After workgroup switching, we can make building and deploying with `aio app depl
 
 ![Publishing](../../../../guides/development/deploy-on-prod-2.png)
 
-## Publish the Application
+## Publish the application
 When you’re ready to publish your app, you will submit it for an approval from the Production workspace.
 ![Publishing](../../../../guides/development/publishing-1.png)
 
@@ -377,7 +377,7 @@ This means, that the new functionality will be available in the AEM admin panel 
 More details about publishing are described in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)
 and [Additional Resources](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
      
-### Additional Resources
+### Additional resources
 - [Extension Source](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples)
 - [UI Extensions Development Flow](pages/dx-devex-acceleration/uix-docs/guides/development/)
 - [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)

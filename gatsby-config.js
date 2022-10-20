@@ -27,10 +27,18 @@ module.exports = {
         menu: [
           {
             title: 'UI Extensions Development Flow',
-            path: 'guides/development/'
+            path: 'guides/development-flow/'
           },
           {
-            title: 'UI Extensions Management',
+            title: 'Get Access',
+            path: 'guides/get-access/'
+          },
+          {
+            title: 'Set Up Local Environment',
+            path: 'guides/local-environment/'
+          },
+          {
+            title: 'UI Extension Publication and Management',
             path: 'guides/publication/'
           },
         ]
@@ -59,10 +67,6 @@ module.exports = {
         path: "overview/design/"
       },
       {
-        title: "How to Get Access",
-        path: "overview/requirements/"
-      },
-      {
         title: "App Builder and UI Extensibility",
         path: "overview/app-builder/"
       },
@@ -75,35 +79,25 @@ module.exports = {
         path: "overview/community/"
       },
       {
-        title:'Overview',
-        path: 'services/aem-cf-console-admin/'
-      },
-      {
-        title: "Developer Guides",
-        path: "services/aem-cf-console-admin/guides/",
-        pages: [
-          {
-            title:'Local Environment Set Up',
-            path: 'services/aem-cf-console-admin/guides/dev-env'
-          },
-          {
-            title:'First Extension',
-            path: 'services/aem-cf-console-admin/guides/hello-world'
-          },
-          {
-            title:'Implementation Patterns',
-            path: 'services/aem-cf-console-admin/guides/how-to'
-          },
-          {
-            title:'Troubleshooting',
-            path: 'services/aem-cf-console-admin/guides/debug'
-          },
-        ]
-      },
-      {
         title: "Extension Points",
         path: "services/aem-cf-console-admin/api/"
-      }
+      },
+      {
+        title: "Code Pre-generation Plugin",
+        path: "services/aem-cf-console-admin/code-generation-plugin/"
+      },
+      {
+        title:'Step-by-step Extension Development',
+        path: 'services/aem-cf-console-admin/extension-development'
+      },
+      {
+        title:'Implementation Patterns',
+        path: 'services/aem-cf-console-admin/implementation-patterns'
+      },
+      {
+        title:'Troubleshooting',
+        path: 'services/aem-cf-console-admin/debug'
+      },
     ],
   },
   plugins: [

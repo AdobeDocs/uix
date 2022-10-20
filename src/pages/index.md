@@ -27,7 +27,7 @@ Know what to expect when create UI Extension.
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Content Fragments Console Extensions Development Guide](services/aem-cf-console-admin/guides/)
+[AEM Content Fragments Console Extensions Development Guide](services/aem-cf-console-admin/)
     
 Get started with the development of extensions for AEM Content Fragments Console.
 

@@ -5,6 +5,7 @@ contributors:
   - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---
 # Set Up Local Environment
+
 This guide includes instructions for setting up a local environment for AEM (Adobe Experience Manager) Content Fragments Console extension development.
 
 ## Prerequisites
@@ -41,3 +42,7 @@ The following set up is required if you intend to use the local development feat
 
 - [Visual Studio Code](https://code.visualstudio.com/download) (VS Code) as the supported IDE for editor, debuggger, etc. You can use any other IDE as a code editor, but advanced usage (e.g. debugger) is not yet supported.
 - [Chrome debugger extension in VSCode](https://github.com/Microsoft/vscode-chrome-debug)
+
+### Additional resources
+
+- [App Builder Local Environment Set Up and optional tools](https://developer.adobe.com/app-builder/docs/getting_started/#local-environment-set-up).

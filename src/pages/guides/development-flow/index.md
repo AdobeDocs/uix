@@ -36,9 +36,9 @@ and access to API credentials if you want to access Adobe APIs in your applicati
 3. Make sure you are in a proper organization (a switcher in the right top corner).
 ![Check organization](create-project-4.png)
 
-4. Click "Create new project" -> "Project from template".
+4. Click "Create new project" -> "Project from template":
 ![Create project from template](create-project-5.png)
-and choose "App Builder"
+And choose "App Builder":
 ![Choose "App Builder"](create-project-6.png)
 
 5. Fill the project data.
@@ -57,7 +57,7 @@ Once your project is set up in [Adobe Developer Console](https://developer.adobe
 There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
-The document [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/guides/#initialize-the-ui-extension-project-using-aio-cli) describes in detail all the steps that you need to follow.
+The document [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation-plugin#initialize-the-ui-extension-project-using-aio-cli) describes in detail all the steps that you need to follow.
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -88,7 +88,7 @@ A general approach is described in [App Builder and UI Extensibility](../../over
 Also, during implementation we have possibility to run and test extension locally or on `Stage`.
 Moreover, we can see how it works on a `Production` instance without application deployment.
 
-The process of creating and testing an application is described in [Step-by-step Extension Development](../../services/aem-cf-console-admin/guides/extension-development) guide.
+The process of creating and testing an application is described in [Step-by-step Extension Development](../../services/aem-cf-console-admin/extension-development) guide.
 ![Example of a project structure](implement-application-1.png)
 
 ## Deploy on Production
@@ -152,5 +152,5 @@ These steps are described in more detail in [UI Extensions Management](../public
 
 ### Additional resources
 - [UI Extensibility overview](../../overview)
-- [Troubleshooting](../../services/aem-cf-console-admin/guides/debug)
+- [Troubleshooting](../../services/aem-cf-console-admin/debug)
 - [FAQ](../../overview/faq)

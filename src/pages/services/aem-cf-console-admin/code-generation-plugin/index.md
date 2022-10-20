@@ -8,7 +8,7 @@ contributors:
 
 This guide includes step-by-step instructions for creating a UI (User Interface) extension for AEM (Adobe Experience Manager) Content Fragments Console using an extensibility template.
 
-## Create a New Project in Adobe Developer Console
+## Create a project in Adobe Developer Console
 
 Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
 In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
@@ -18,7 +18,7 @@ We assume that your organization have access to [Adobe App Builder](https://deve
 
 If not, please refer to [Get Access](../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
 
-## Initialize the UI Extension Project using AIO CLI
+## Initialize the UI Extension project using AIO CLI
 
 > Important Notes:
 > - You need to have AIO CLI version >= 9.1.0 to use the available templates.
@@ -287,11 +287,11 @@ This message pops up because we use a development SSL certificate for secure com
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
 
-![Certification](./images/cert-1.png))
+![Certification](../extension-development/cert-1.png))
 
 Click on `Advanced`, the nex screen may vary from browser to browser, but you should see a screen like this, where you can click on `Proceed to localhost (unsafe)` to accept the certificate.
 
-![Certification](./images/cert-2.png)
+![Certification](../extension-development/cert-2.png)
 
 You may need to exit the current process and run `aio app run` again.
 
@@ -300,7 +300,7 @@ You may need to exit the current process and run `aio app run` again.
 After the development is completed, we can test our application on `Stage` before deploying to `Production`.
 For this we will use the `Stage workgroup`.
 
-![Stage workgroup](./extension-development/run-on-stage-1.png)
+![Stage workgroup](../extension-development/run-on-stage-1.png)
 
 Firstly, make sure you are logged in proper organization, and use `Stage` workgroup:
 
@@ -338,7 +338,7 @@ Now your application is reachable by URL, printed in Terminal.
 You can use this URL for end-to-end testing.      
  
 We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
-![Testing on Stage](./extension-development/run-on-stage-2.png)
+![Testing on Stage](../extension-development/run-on-stage-2.png)
 
 To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
 and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).

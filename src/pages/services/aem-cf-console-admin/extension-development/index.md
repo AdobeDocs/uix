@@ -1,27 +1,27 @@
 ---
-title: UI Extensions Development Flow - Step-by-step Extension Development
+title: Step-by-step Extension Development
 description: Discover how to implement your first extension
 contributors:
   - dx-devex-acceleration/uix-docs
 ---
-#AEM step-by-step extension development
+# Step-by-step Extension Development
 
-The document helps you understand how to set up local environment and start developing your first [Adobe App Builder App](../../../../overview).
+The document helps you understand how to set up local environment and start developing your first [UI Extension](../../../overview).
 
 ## About application
 
 This example application will use two extension points provided by the [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html).
 We would like to add two buttons. The first button will be added the header menu:
 
-![Header menu extension point](../../api/header-menu.png)
+![Header menu extension point](../api/header-menu.png)
 
 The second one to a menu that displays when a content fragment is selected:
-![Action bar extension point](../../api/action-bar.png)
+![Action bar extension point](../api/action-bar.png)
 
 After clicking on buttons we would like to show some content in a pop-up:
 ![UI pop-up](introduction-1.png)
 
-More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../../../../services/aem-cf-console-admin/api).
+More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../../../services/aem-cf-console-admin/api).
 
 You can find the source of [the wholly completed application on GitHub](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples).
 
@@ -33,7 +33,7 @@ and access to API credentials if you want to access Adobe APIs in your applicati
 >
 We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
 
-If not, please refer to [Get Access](../../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
+If not, please refer to [Get Access](../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
 
 ## Setting up local environment
 
@@ -63,7 +63,7 @@ If your version is outdated, update your `Adobe I/O CLI` by running
 npm install -g @adobe/aio-cli
 ```
 
-More details are described in [Local environment set up and optional tools](../../../../guides/local-environment).
+More details are described in [Local environment set up](../../../guides/local-environment).
 
 ## Initialize our application using the CLI and generate a base structure from template
 
@@ -74,7 +74,7 @@ After this step, we will have a generated project structure with necessary npm d
 
 If you have worked with an Adobe App Builder App before, you will notice that you have generated a starter project of a UI Extension that implements [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 
-![App initialization finished](../../../../guides/development-flow/implement-application-1.png)
+![App initialization finished](../../../guides/development-flow/implement-application-1.png)
 ```yaml
 # app.config.yaml
 extensions:
@@ -287,7 +287,7 @@ const guestConnection = await register({
 const guestConnection = await attach({ id: "aem-headless-ui-ext-examples" });
 guestConnection.host.modal.close();
 ```
-Additional information can be found in [Connection Object section](../../api/#connection-object).
+Additional information can be found in [Connection Object section](../api/#connection-object).
 
 ## Additional logic
 To add additional logic, you can modify current components or add new ones.
@@ -344,11 +344,11 @@ This message pops up because we use a development SSL certificate for secure com
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
 
-![Certification](../images/cert-1.png)
+![Certification](cert-1.png)
 
 Click on `Advanced`, the nex screen may vary from browser to browser, but you should see a screen like this, where you can click on `Proceed to localhost (unsafe)` to accept the certificate.
 
-![Certification](../images/cert-2.png)
+![Certification](cert-2.png)
 
 ## Run on Stage
 
@@ -401,13 +401,13 @@ and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/de
 ## Deploy on Production and create approval request
 
 After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
-Refer to the [UI Extensions Development Flow](../../../../guides/development-flow#deploy-on-production) to learn how to do this.
+Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
 
 Also in this document you can find the whole development flow of a UI Extensions.
 
 ### Additional resources
 - [Extension Source](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples)
-- [UI Extensions Development Flow](../../../../guides/development-flow)
-- [UI Extensions Management](../../../../guides/publication)
+- [UI Extensions Development Flow](../../../guides/development-flow)
+- [UI Extensions Management](../../../guides/publication)
 - [Troubleshooting](../debug)
-- [FAQ](../../../../overview/faq)      
+- [FAQ](../../../overview/faq)      

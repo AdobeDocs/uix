@@ -6,55 +6,23 @@ contributors:
 ---
 # AEM Content Fragments Console UI Extensions Development Guide
 
-This guide includes step-by-step instructions for creating an UI (User Interface) extension for AEM (Adobe Experience Manager) Content Fragments Console using an extensibility template.
+This guide includes step-by-step instructions for creating a UI (User Interface) extension for AEM (Adobe Experience Manager) Content Fragments Console using an extensibility template.
 
 ## Create a New Project in Adobe Developer Console
 
 Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
-In App Builder, you need access to AIO (Adobe I/O) Runtime credentials used for deploying your application, 
+In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
 and access to API credentials if you want to access Adobe APIs in your application.
+>
+We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
 
-1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID
-
-![Sign in to Adobe Developer Console](../../../guides/development/create-project-1.png)
-
-2. Choose your account
-
-![Choose your account](../../../guides/development/create-project-2.png)
-
-3. Choose your profile or organizzation
-
-![Choose your profile](../../../guides/development/create-project-3.png)
-
-4. Make sure you are in a proper organization (a switcher in the right top corner).
-
-![Check organization](../../../guides/development/create-project-4.png)
-
-5. Click "Create new project" -> "Project from template" 
-
-![Create project from template](../../../guides/development/create-project-5.png)
-and choose "App Builder"
-
-![Choose "App Builder"](../../../guides/development/create-project-6.png)
-
-6. Fill the project data
-
-![Fill the project data](../../../guides/development/create-project-7.png)
-- `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
-- `App Name` will be used as a unique identifier for your application and this value cannot be changed after creating the project.
-
-After the project creation, you should see a new project with 2 default Workspaces.
-Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed. 
-The `Production` workspace is special, as it is used for the submission and distribution flow.
-
-![A new project with 2 default Workspaces](../../../guides/development/create-project-8.png)
-
+If not, please refer to [Get Access](../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
 
 ## Initialize the UI Extension Project using AIO CLI
 
 > Important Notes:
 > - You need to have AIO CLI version >= 9.1.0 to use the available templates.
-> - Please refer to [Local Environment Set Up](./dev-env/index.md).
+> - Please refer to [Local Environment Set Up](../../../guides/local-environment).
 
 Firstly, you need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli):
 1. In your Terminal type the following command:`aio login`.
@@ -327,21 +295,63 @@ Click on `Advanced`, the nex screen may vary from browser to browser, but you sh
 
 You may need to exit the current process and run `aio app run` again.
 
-## Deploy on Production
+## Run on Stage
 
-After deploying to `Stage` workgroup and testing, we are ready to deploy our application to `Production`.
+After the development is completed, we can test our application on `Stage` before deploying to `Production`.
+For this we will use the `Stage workgroup`.
 
-The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production`.
-From the same directory, run the following command.
+![Stage workgroup](./extension-development/run-on-stage-1.png)
+
+Firstly, make sure you are logged in proper organization, and use `Stage` workgroup:
 
 ```shell
-aio app use -w Production
+$ aio where
+
+You are currently in:
+1. Org: Sites Internal
+2. Project: 562TurquoiseShrimp
+3. Workspace: Stage
 ```
 
-After switching the workgroup, we can build and deploy the UI extension with the following command.
-
+After that, we build and deploy declared actions and frontend files/assets:
 ```shell
 aio app deploy
+
+√ Built 3 action(s) for 'aem/cf-console-admin/1'
+√ Building web assets for 'aem/cf-console-admin/1'
+√ Deployed 3 action(s) for 'aem/cf-console-admin/1'
+√ Deploying web assets for 'aem/cf-console-admin/1'
+Your deployed actions:
+web actions:
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/get-language-copies
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/quick-publish-language-copies
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/unpublish-language-copies
+To view your deployed application:
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
+To view your deployed application in the Experience Cloud shell:
+  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
+New Extension Point(s) in Workspace 'Stage': 'aem/cf-console-admin/1'
+Successful deployment 🏄
+```
+
+Now your application is reachable by URL, printed in Terminal.
+You can use this URL for end-to-end testing.      
+ 
+We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
+![Testing on Stage](./extension-development/run-on-stage-2.png)
+
+To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
+and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
+
+## Deploy on Production and create approval request
+
+After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
+Refer to the [UI Extensions Development Flow](../../../guides/development-flow/#deploy-on-production) to learn how to do this.
+
+Also in this document you can find the whole development flow of a UI Extensions.
+
+```shell
+➜  demo-project % aio app use -w Production
 ```
 
 ```shell
@@ -358,50 +368,29 @@ New Extension Point(s) in Workspace 'Stage': 'aem/cf-console-admin/1'
 Successful deployment 🏄
 ```
 
-To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
-and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
-
-## Publish the UI Extension
-
-When you’re ready to publish your UI extension, you will submit it for an approval from the Production workspace.
-
-![Publishing](../../../guides/development/publishing-1.png)
-
-After the approval, your UI extension will be available at [Adobe Experience Cloud](https://experience.adobe.com/).
-
-Also, data about your UI extension will be added to *Adobe App Registry* and will be reachable for Adobe Products.
-
-This means, that the new functionality will be available in the AEM Content Fragment Console for your organization.
-
-![New functionality in AEM admin panel](../../../guides/development/publishing-2.png)
-
-More details about publishing are described in [UI Extensions Management](../../../guides/publication/)
-and [Additional Resources](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
-
-
 ## Further Reading
 
 <DiscoverBlock slots="heading, link, text"/>
 
-[Local Environment Set Up](guides/dev-env)
+[Local Environment Set Up](../../../guides/local-environment)
 
 Prepare your local environment for Content Fragments console UI extension development.
 
 <DiscoverBlock slots="heading, link"/>
 
-[First Extension](guides/hello-world)
+[First Extension](extension-development)
 
 Create your first AEM Content Fragments console UI extension.
 
 
 <DiscoverBlock slots="heading, link"/>
 
-[Implementation Patterns](guides/how-to)
+[Implementation Patterns](how-to)
 
 Explore common use-cases for Content Fragments console UI extensions and how to solve them.
 
 <DiscoverBlock slots="heading, link"/>
 
-[Troubleshooting](guides/debug)
+[Troubleshooting](debug)
 
 Resolve issue with Content Fragments console UI extension.

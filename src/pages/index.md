@@ -21,7 +21,7 @@ UI extensions are JavaScript applications built with [Adobe App Builder](https:/
 
 ### Learn How to Create UI Extensions
 
-[UI Extensions Development Flow Overview](guides/development/)
+[UI Extensions Development Flow Overview](guides/development-flow/)
     
 Know what to expect when create UI Extension.
 

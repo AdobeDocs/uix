@@ -6,17 +6,17 @@ contributors:
 ---
 # UI Extensions development flow
 
-The document helps you understand how to setup, implement and deploy your own [UI Extension](pages/dx-devex-acceleration/uix-docs/overview/) with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/)
+The document helps you understand how to setup, implement and deploy your own [UI Extension](../../overview) with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/)
 
-## Get access 
+## Get access
 
 To start writing UI Extensions you will need:
-1. Access to service that we are about to extend, e.g. [Content Fragment Console](/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
+1. Access to service that we are about to extend, e.g. [Content Fragment Console](../../services/aem-cf-console-admin) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
 2. Access to App Builder, which we will use to create an extension.
 
 To do this, you need to fill out the request forms to gain access to these services.
 
-For more details, please refer to [How to Get Access](pages/dx-devex-acceleration/uix-docs/overview/requirements/) .
+For more details, please refer to [How to Get Access](../get-access).
 
 ## Create a new project in Adobe Developer Console
 
@@ -57,7 +57,7 @@ Once your project is set up in [Adobe Developer Console](https://developer.adobe
 There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
-The document [Initialize the UI Extension Project using AIO CLI](/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/#initialize-the-ui-extension-project-using-aio-cli) describes in detail all the steps that you need to follow.
+The document [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/guides/#initialize-the-ui-extension-project-using-aio-cli) describes in detail all the steps that you need to follow.
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -82,13 +82,13 @@ Project initialized for Workspace Stage, you can run 'aio app use -w <workspace>
 
 ## Implement logic of application and test it on different environments
 
-At this step, we need to implement a logic of App Builder Application which will use existing [AEM UI Extension Points](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/).
-A general approach is described in [App Builder and UI Extensibility](/pages/dx-devex-acceleration/uix-docs/overview/app-builder/).
+At this step, we need to implement a logic of App Builder Application which will use existing [AEM UI Extension Points](../../services/aem-cf-console-admin/api).
+A general approach is described in [App Builder and UI Extensibility](../../overview/app-builder).
 
 Also, during implementation we have possibility to run and test extension locally or on `Stage`.
 Moreover, we can see how it works on a `Production` instance without application deployment.
 
-The process of creating and testing an application is described in [Step-by-step Extension Development](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/hello-world/) guide.
+The process of creating and testing an application is described in [Step-by-step Extension Development](../../services/aem-cf-console-admin/guides/extension-development) guide.
 ![Example of a project structure](implement-application-1.png)
 
 ## Deploy on Production
@@ -148,9 +148,9 @@ Also, data about your extension will be added to *Adobe App Registry* and will b
 This means, that the new functionality will be available, for example, in the AEM admin panel for your organization.
 ![New functionality in AEM admin panel](publishing-2.png)
 
-These steps are described in more detail in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/).
+These steps are described in more detail in [UI Extensions Management](../publication).
 
 ### Additional resources
-- [UI Extensibility overview](pages/dx-devex-acceleration/uix-docs/overview/)
-- [Troubleshooting](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/debug/)
-- [FAQ](pages/dx-devex-acceleration/uix-docs/overview/faq/)
+- [UI Extensibility overview](../../overview)
+- [Troubleshooting](../../services/aem-cf-console-admin/guides/debug)
+- [FAQ](../../overview/faq)

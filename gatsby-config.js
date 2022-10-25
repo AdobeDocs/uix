@@ -83,6 +83,10 @@ module.exports = {
         title: 'UI Extension Publication and Management',
         path: 'guides/publication/'
       },
+      {
+        title: 'Troubleshooting the most common issues',
+        path: 'guides/common-issues/'
+      },
       // Services
       {
         title: "Extension Points",

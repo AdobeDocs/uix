@@ -12,3 +12,4 @@ contributors:
 * [Set Up Local Environment](local-environment). Prepare your local environment for UI extension development.
 * [Code Generation Plugin](code-generation). Learn how to generate base structure of UI Extension.
 * [UI Extension Publication and Management](publication). Know how to bring your extension to users and manage it.
+* [Troubleshooting the most common issues](common-issues). Discover troubleshooting guide for some of the most common issues.

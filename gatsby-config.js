@@ -15,33 +15,16 @@ module.exports = {
   siteMetadata: {
     home: {
       title: 'UI Extensibility',
-      path: '/'
+      path: '/pages/dx-devex-acceleration/uix-docs/overview'
     },
     pages: [
       {
         title: 'Overview',
-        path: 'overview/',
+        path: 'overview',
       },
       {
         title: 'Guides',
-        menu: [
-          {
-            title: 'UI Extensions Development Flow',
-            path: 'guides/development-flow/'
-          },
-          {
-            title: 'Get Access',
-            path: 'guides/get-access/'
-          },
-          {
-            title: 'Set Up Local Environment',
-            path: 'guides/local-environment/'
-          },
-          {
-            title: 'UI Extension Publication and Management',
-            path: 'guides/publication/'
-          },
-        ]
+        path: 'guides'
       },
       {
         title: 'Extensible Services',
@@ -54,6 +37,7 @@ module.exports = {
       }
     ],
     subPages: [
+      // Overview
       {
         title: "Overview",
         path: "overview/"
@@ -78,13 +62,31 @@ module.exports = {
         title: "Community",
         path: "overview/community/"
       },
+      // Common guides
+      {
+        title: 'UI Extensions Development Flow',
+        path: 'guides/development-flow/'
+      },
+      {
+        title: 'Get Access',
+        path: 'guides/get-access/'
+      },
+      {
+        title: 'Set Up Local Environment',
+        path: 'guides/local-environment/'
+      },
+      {
+        title: "Code Generation Plugin",
+        path: "guides/code-generation/"
+      },
+      {
+        title: 'UI Extension Publication and Management',
+        path: 'guides/publication/'
+      },
+      // Services
       {
         title: "Extension Points",
         path: "services/aem-cf-console-admin/api/"
-      },
-      {
-        title: "Code Pre-generation Plugin",
-        path: "services/aem-cf-console-admin/code-generation-plugin/"
       },
       {
         title:'Step-by-step Extension Development',

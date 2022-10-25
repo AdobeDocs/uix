@@ -1,28 +1,18 @@
 ---
 title: Extensions Development Guide - AEM Content Fragments Console Extensibility
-description: Learn how to create extensions for AEM Content Fragments Console.
+description: Learn how to generate base structure of UI Extension.
 contributors:
   - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---
-# AEM Content Fragments Console UI Extensions Development Guide
+# How to generate base structure of UI Extension
 
-This guide includes step-by-step instructions for creating a UI (User Interface) extension for AEM (Adobe Experience Manager) Content Fragments Console using an extensibility template.
-
-## Create a project in Adobe Developer Console
-
-Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
-In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
-and access to API credentials if you want to access Adobe APIs in your application.
->
-We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
-
-If not, please refer to [Get Access](../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
+The [generators](https://github.com/adobe/generator-aio-app) help developers to bootstrap their App Builder apps when using the [CLI](https://github.com/adobe/aio-cli).
 
 ## Initialize the UI Extension project using AIO CLI
 
 > Important Notes:
 > - You need to have AIO CLI version >= 9.1.0 to use the available templates.
-> - Please refer to [Local Environment Set Up](../../../guides/local-environment).
+> - Please refer to [Local Environment Set Up](../local-environment).
 
 Firstly, you need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli):
 1. In your Terminal type the following command:`aio login`.
@@ -287,110 +277,10 @@ This message pops up because we use a development SSL certificate for secure com
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
 
-![Certification](../extension-development/cert-1.png))
+![Certification](../../services/aem-cf-console-admin/extension-development/cert-1.png))
 
 Click on `Advanced`, the nex screen may vary from browser to browser, but you should see a screen like this, where you can click on `Proceed to localhost (unsafe)` to accept the certificate.
 
-![Certification](../extension-development/cert-2.png)
+![Certification](../../services/aem-cf-console-admin/extension-development/cert-2.png)
 
 You may need to exit the current process and run `aio app run` again.
-
-## Run on Stage
-
-After the development is completed, we can test our application on `Stage` before deploying to `Production`.
-For this we will use the `Stage workgroup`.
-
-![Stage workgroup](../extension-development/run-on-stage-1.png)
-
-Firstly, make sure you are logged in proper organization, and use `Stage` workgroup:
-
-```shell
-$ aio where
-
-You are currently in:
-1. Org: Sites Internal
-2. Project: 562TurquoiseShrimp
-3. Workspace: Stage
-```
-
-After that, we build and deploy declared actions and frontend files/assets:
-```shell
-aio app deploy
-
-√ Built 3 action(s) for 'aem/cf-console-admin/1'
-√ Building web assets for 'aem/cf-console-admin/1'
-√ Deployed 3 action(s) for 'aem/cf-console-admin/1'
-√ Deploying web assets for 'aem/cf-console-admin/1'
-Your deployed actions:
-web actions:
-  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/get-language-copies
-  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/quick-publish-language-copies
-  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/unpublish-language-copies
-To view your deployed application:
-  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
-To view your deployed application in the Experience Cloud shell:
-  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
-New Extension Point(s) in Workspace 'Stage': 'aem/cf-console-admin/1'
-Successful deployment 🏄
-```
-
-Now your application is reachable by URL, printed in Terminal.
-You can use this URL for end-to-end testing.      
- 
-We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
-![Testing on Stage](../extension-development/run-on-stage-2.png)
-
-To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
-and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
-
-## Deploy on Production and create approval request
-
-After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
-Refer to the [UI Extensions Development Flow](../../../guides/development-flow/#deploy-on-production) to learn how to do this.
-
-Also in this document you can find the whole development flow of a UI Extensions.
-
-```shell
-➜  demo-project % aio app use -w Production
-```
-
-```shell
-➜  demo-project % aio app deploy
-ℹ no backend or a build already exists, skipping action build for 'aem/cf-console-admin/1'
-✔ Building web assets for 'aem/cf-console-admin/1'
-no backend, skipping action deploy 'aem/cf-console-admin/1'
-✔ Deploying web assets for 'aem/cf-console-admin/1'
-To view your deployed application:
-  -> https://245265-959magentaaardwolf-stage.adobeio-static.net/index.html
-To view your deployed application in the Experience Cloud shell:
-  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://245265-959magentaaardwolf-stage.adobeio-static.net/index.html
-New Extension Point(s) in Workspace 'Stage': 'aem/cf-console-admin/1'
-Successful deployment 🏄
-```
-
-## Further Reading
-
-<DiscoverBlock slots="heading, link, text"/>
-
-[Local Environment Set Up](../../../guides/local-environment)
-
-Prepare your local environment for Content Fragments console UI extension development.
-
-<DiscoverBlock slots="heading, link"/>
-
-[First Extension](extension-development)
-
-Create your first AEM Content Fragments console UI extension.
-
-
-<DiscoverBlock slots="heading, link"/>
-
-[Implementation Patterns](how-to)
-
-Explore common use-cases for Content Fragments console UI extensions and how to solve them.
-
-<DiscoverBlock slots="heading, link"/>
-
-[Troubleshooting](debug)
-
-Resolve issue with Content Fragments console UI extension.

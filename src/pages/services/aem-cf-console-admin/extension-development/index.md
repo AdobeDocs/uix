@@ -1,31 +1,42 @@
 ---
-title: UI Extensions Development Flow - Step-by-step Extension Development
+title: Step-by-step Extension Development
 description: Discover how to implement your first extension
 contributors:
   - dx-devex-acceleration/uix-docs
 ---
-#AEM step-by-step extension development
+# Step-by-step Extension Development
 
-The document helps you understand how to set up local environment and start developing your first [Adobe App Builder App](pages/dx-devex-acceleration/uix-docs/overview/).
+The document helps you understand how to set up local environment and start developing your first [UI Extension](../../../overview).
 
 ## About application
 
 This example application will use two extension points provided by the [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html).
 We would like to add two buttons. The first button will be added the header menu:
 
-![Header menu extension point](../../api/header-menu.png)
+![Header menu extension point](../api/header-menu.png)
 
 The second one to a menu that displays when a content fragment is selected:
-![Action bar extension point](../../api/action-bar.png)
+![Action bar extension point](../api/action-bar.png)
 
 After clicking on buttons we would like to show some content in a pop-up:
 ![UI pop-up](introduction-1.png)
 
-More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/).
+More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../../../services/aem-cf-console-admin/api).
 
 You can find the source of [the wholly completed application on GitHub](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples).
 
+## Create a project in Adobe Developer Console
+
+Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
+In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
+and access to API credentials if you want to access Adobe APIs in your application.
+>
+We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
+
+If not, please refer to [Get Access](../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
+
 ## Setting up local environment
+
 - [Node.js](https://nodejs.org/) + [npm (package manager)](https://www.npmjs.com/). Make sure you are using the latest stable version of `Node.js` and `npm`.
 ```shell
 $ node -v
@@ -37,7 +48,6 @@ $ npm -v
 ```
 These are the current versions at the moment of creating the documentation.
 Make sure you are using the latest versions supported by Adobe IO when you create the application.
-
 
 - [Adobe I/O CLI](https://github.com/adobe/aio-cli). If you already have `Adobe I/O CLI` on your local, please ensure you use the latest version of the library.
 You can check the version through:
@@ -53,34 +63,26 @@ If your version is outdated, update your `Adobe I/O CLI` by running
 npm install -g @adobe/aio-cli
 ```
 
-More details are described in [Local environment set up and optional tools](https://developer.adobe.com/app-builder/docs/getting_started/#local-environment-set-up).
-
-## Create a project in Adobe Developer Console
-
-> Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
-In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
-and access to API credentials if you want to access Adobe APIs in your application.
->
-We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
-If not, please refer to [UI Extensions Development Flow](https://git.corp.adobe.com/pages/dx-devex-acceleration/uix-docs/guides/development/#1-get-access-to-app-builder).
+More details are described in [Local environment set up](../../../guides/local-environment).
 
 ## Initialize our application using the CLI and generate a base structure from template
-Firstly, we need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and [bootstrap our project](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
-Please complete all the steps described in [Initialize our Application using the CLI](pages/dx-devex-acceleration/uix-docs/guides/development/#3-initialize-our-application-using-the-cli-for-local-development).
+Firstly, we need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
+Please complete all the steps described in [Initialize our Application using the CLI](../index.md#initialize-the-ui-extension-project-using-aio-cli).
 
 After this step, we will have a generated project structure with necessary npm dependencies are getting installed.
 
 If you have worked with an Adobe App Builder App before, you will notice that you have generated a starter project of a UI Extension that implements [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 
-![App initialization finished](../../../../guides/development/implement-application-1.png)
+![App initialization finished](../../../guides/development-flow/implement-application-1.png)
 ```yaml
 # app.config.yaml
 extensions:
   aem/cf-console-admin/1:
     $include: src/aem-cf-console-admin-1/ext.config.yaml
-
 ```
+
+If necessary, you can find other bootstrap options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
 ## Overview of generated components
 
@@ -285,7 +287,7 @@ const guestConnection = await register({
 const guestConnection = await attach({ id: "aem-headless-ui-ext-examples" });
 guestConnection.host.modal.close();
 ```
-Additional information can be found in [Connection Object section](https://git.corp.adobe.com/pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/api/#connection-object).
+Additional information can be found in [Connection Object section](../api/#connection-object).
 
 ## Additional logic
 To add additional logic, you can modify current components or add new ones.
@@ -328,19 +330,64 @@ Now your UI extension is reachable by the displayed URL on the Terminal. You can
 
 **Sample AEM Content Fragment Console URL:** `https://experience.adobe.com/?cq-aem-headless-ui-admin_version=PR-444-df883867ebbbc09c49b2df86018c4bce901c746a&ext=https://localhost:9080&devMode=true&repo=author-p7452-e12437.adobeaemcloud.com#/@sitesinternal/aem/cf/admin/`
 
+#### Accepting the certificate (First time users)
+
+If you are using this application for the first time, you will see a message similar to
+
+```shell
+success: generated certificate
+A self signed development certificate has been generated, you will need to accept it in your browser in order to use it.
+Waiting for the certificate to be accepted.... timed out
+```
+
+This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+
+If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
+
+![Certification](cert-1.png)
+
+Click on `Advanced`, the nex screen may vary from browser to browser, but you should see a screen like this, where you can click on `Proceed to localhost (unsafe)` to accept the certificate.
+
+![Certification](cert-2.png)
 
 ## Run on Stage
+
 After the development is completed, we can test our application on `Stage` before deploying to `Production`.
 For this we will use the `Stage workgroup`.
 
 ![Stage workgroup](run-on-stage-1.png)
 
-This command makes building and deploying of declared actions and frontend files/assets:
+Firstly, make sure you are logged in proper organization, and use `Stage` workgroup:
+
 ```shell
-aio app deploy
+$ aio where
+
+You are currently in:
+1. Org: Sites Internal
+2. Project: 562TurquoiseShrimp
+3. Workspace: Stage
 ```
 
-![aio app deploy](deploy-on-stage-1.png)
+After that, we build and deploy declared actions and frontend files/assets:
+```shell
+aio app deploy
+
+√ Built 3 action(s) for 'aem/cf-console-admin/1'
+√ Building web assets for 'aem/cf-console-admin/1'
+√ Deployed 3 action(s) for 'aem/cf-console-admin/1'
+√ Deploying web assets for 'aem/cf-console-admin/1'
+Your deployed actions:
+web actions:
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/get-language-copies
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/quick-publish-language-copies
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/unpublish-language-copies
+To view your deployed application:
+  -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
+To view your deployed application in the Experience Cloud shell:
+  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
+New Extension Point(s) in Workspace 'Stage': 'aem/cf-console-admin/1'
+Successful deployment 🏄
+```
 
 Now your application is reachable by URL, printed in Terminal.
 You can use this URL for end-to-end testing.      
@@ -351,35 +398,16 @@ We can use the `ext` parameter (how we did it during testing on a local machine)
 To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
 and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
 
-## Deploy to Production
-After deploying to `Stage` workgroup and testing, we are ready to deploy our application to `Production`.
+## Deploy on Production and create approval request
 
-The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production`.
-Please type command `aio app use -w Production` in our project folder.
+After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
+Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
 
-![Publishing](../../../../guides/development/deploy-on-prod-1.png)
+Also in this document you can find the whole development flow of a UI Extensions.
 
-After workgroup switching, we can make building and deploying with `aio app deploy` command.
-
-![Publishing](../../../../guides/development/deploy-on-prod-2.png)
-
-## Publish the application
-When you’re ready to publish your app, you will submit it for an approval from the Production workspace.
-![Publishing](../../../../guides/development/publishing-1.png)
-
-After the approval, your app will be available at [Adobe Experience Cloud](https://experience.adobe.com/).
-
-Also, data about your extension will be added to *Adobe App Registry* and will be reachable for Adobe Products.
-
-This means, that the new functionality will be available in the AEM admin panel for **your organization**.
-![New functionality in AEM admin panel](../../../../guides/development/publishing-2.png)
-
-More details about publishing are described in [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)
-and [Additional Resources](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
-     
 ### Additional resources
 - [Extension Source](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples)
-- [UI Extensions Development Flow](pages/dx-devex-acceleration/uix-docs/guides/development/)
-- [UI Extensions Management](pages/dx-devex-acceleration/uix-docs/guides/publication/)
-- [Troubleshooting](pages/dx-devex-acceleration/uix-docs/services/aem-cf-console-admin/guides/debug/)
-- [FAQ](pages/dx-devex-acceleration/uix-docs/overview/faq/)      
+- [UI Extensions Development Flow](../../../guides/development-flow)
+- [UI Extensions Management](../../../guides/publication)
+- [Troubleshooting](../debug)
+- [FAQ](../../../overview/faq)      

@@ -15,25 +15,16 @@ module.exports = {
   siteMetadata: {
     home: {
       title: 'UI Extensibility',
-      path: '/'
+      path: '/pages/dx-devex-acceleration/uix-docs/overview'
     },
     pages: [
       {
         title: 'Overview',
-        path: 'overview/',
+        path: 'overview',
       },
       {
         title: 'Guides',
-        menu: [
-          {
-            title: 'UI Extensions Development Flow',
-            path: 'guides/development/'
-          },
-          {
-            title: 'UI Extensions Management',
-            path: 'guides/publication/'
-          },
-        ]
+        path: 'guides'
       },
       {
         title: 'Extensible Services',
@@ -46,6 +37,7 @@ module.exports = {
       }
     ],
     subPages: [
+      // Overview
       {
         title: "Overview",
         path: "overview/"
@@ -59,10 +51,6 @@ module.exports = {
         path: "overview/design/"
       },
       {
-        title: "How to Get Access",
-        path: "overview/requirements/"
-      },
-      {
         title: "App Builder and UI Extensibility",
         path: "overview/app-builder/"
       },
@@ -74,36 +62,44 @@ module.exports = {
         title: "Community",
         path: "overview/community/"
       },
+      // Common guides
       {
-        title:'Overview',
-        path: 'services/aem-cf-console-admin/'
+        title: 'UI Extensions Development Flow',
+        path: 'guides/development-flow/'
       },
       {
-        title: "Developer Guides",
-        path: "services/aem-cf-console-admin/guides/",
-        pages: [
-          {
-            title:'Local Environment Set Up',
-            path: 'services/aem-cf-console-admin/guides/dev-env'
-          },
-          {
-            title:'First Extension',
-            path: 'services/aem-cf-console-admin/guides/hello-world'
-          },
-          {
-            title:'Implementation Patterns',
-            path: 'services/aem-cf-console-admin/guides/how-to'
-          },
-          {
-            title:'Troubleshooting',
-            path: 'services/aem-cf-console-admin/guides/debug'
-          },
-        ]
+        title: 'Get Access',
+        path: 'guides/get-access/'
       },
+      {
+        title: 'Set Up Local Environment',
+        path: 'guides/local-environment/'
+      },
+      {
+        title: "Code Generation Plugin",
+        path: "guides/code-generation/"
+      },
+      {
+        title: 'UI Extension Publication and Management',
+        path: 'guides/publication/'
+      },
+      // Services
       {
         title: "Extension Points",
         path: "services/aem-cf-console-admin/api/"
-      }
+      },
+      {
+        title:'Step-by-step Extension Development',
+        path: 'services/aem-cf-console-admin/extension-development'
+      },
+      {
+        title:'Implementation Patterns',
+        path: 'services/aem-cf-console-admin/implementation-patterns'
+      },
+      {
+        title:'Troubleshooting',
+        path: 'services/aem-cf-console-admin/debug'
+      },
     ],
   },
   plugins: [

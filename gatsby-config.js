@@ -97,6 +97,10 @@ module.exports = {
         path: 'services/aem-cf-console-admin/extension-development'
       },
       {
+        title:'Slack Import/Export Demo Set Up',
+        path: 'services/aem-cf-console-admin/slack-import-export-demo'
+      },
+      {
         title:'Implementation Patterns',
         path: 'services/aem-cf-console-admin/implementation-patterns'
       },

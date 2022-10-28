@@ -78,7 +78,7 @@ If you have worked with an Adobe App Builder App before, you will notice that yo
 ```yaml
 # app.config.yaml
 extensions:
-  aem/cf-console-admin/1:
+  aem-cf-console-admin-1:
     $include: src/aem-cf-console-admin-1/ext.config.yaml
 ```
 
@@ -372,10 +372,10 @@ After that, we build and deploy declared actions and frontend files/assets:
 ```shell
 aio app deploy
 
-√ Built 3 action(s) for 'aem/cf-console-admin/1'
-√ Building web assets for 'aem/cf-console-admin/1'
-√ Deployed 3 action(s) for 'aem/cf-console-admin/1'
-√ Deploying web assets for 'aem/cf-console-admin/1'
+√ Built 3 action(s) for 'aem-cf-console-admin-1'
+√ Building web assets for 'aem-cf-console-admin-1'
+√ Deployed 3 action(s) for 'aem-cf-console-admin-1'
+√ Deploying web assets for 'aem-cf-console-admin-1'
 Your deployed actions:
 web actions:
   -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/api/v1/web/aem-headless-ui-ext-examples/get-language-copies
@@ -385,7 +385,7 @@ To view your deployed application:
   -> https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
 To view your deployed application in the Experience Cloud shell:
   -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://245265-562turquoiseshrimp-stage.adobeio-static.net/index.html
-New Extension Point(s) in Workspace 'Stage': 'aem/cf-console-admin/1'
+New Extension Point(s) in Workspace 'Stage': 'aem-cf-console-admin-1'
 Successful deployment 🏄
 ```
 

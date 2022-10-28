@@ -157,17 +157,17 @@ To bootstrap the project code, create a directory and run the following commands
     }
         force package.json
       create app.config.yaml
-      create src/aem/cf-console-admin-1/ext.config.yaml
-      create src/aem/cf-console-admin-1/web-src/index.html
-      create src/aem/cf-console-admin-1/web-src/src/config.json
-      create src/aem/cf-console-admin-1/web-src/src/exc-runtime.js
-      create src/aem/cf-console-admin-1/web-src/src/index.css
-      create src/aem/cf-console-admin-1/web-src/src/index.js
-      create src/aem/cf-console-admin-1/web-src/src/utils.js
-      create src/aem/cf-console-admin-1/web-src/src/components/Constants.js
-      create src/aem/cf-console-admin-1/web-src/src/components/Spinner.js
-      create src/aem/cf-console-admin-1/web-src/src/components/App.js
-      create src/aem/cf-console-admin-1/web-src/src/components/ExtensionRegistration.js
+      create src/aem-cf-console-admin-1/ext.config.yaml
+      create src/aem-cf-console-admin-1/web-src/index.html
+      create src/aem-cf-console-admin-1/web-src/src/config.json
+      create src/aem-cf-console-admin-1/web-src/src/exc-runtime.js
+      create src/aem-cf-console-admin-1/web-src/src/index.css
+      create src/aem-cf-console-admin-1/web-src/src/index.js
+      create src/aem-cf-console-admin-1/web-src/src/utils.js
+      create src/aem-cf-console-admin-1/web-src/src/components/Constants.js
+      create src/aem-cf-console-admin-1/web-src/src/components/Spinner.js
+      create src/aem-cf-console-admin-1/web-src/src/components/App.js
+      create src/aem-cf-console-admin-1/web-src/src/components/ExtensionRegistration.js
       create .babelrc
     ...
     found 0 vulnerabilities
@@ -204,23 +204,23 @@ This will deploy the actions to a local [OpenWhisk](https://openwhisk.apache.org
   ℹ starting local OpenWhisk stack...
   ℹ writing credentials to tmp wskdebug config '/Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/dist/aem-cf-console-admin-1/.env.local'
   ℹ building actions..
-  ℹ watching action files at /Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/src/aem/cf-console-admin-1/actions...
+  ℹ watching action files at /Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/src/aem-cf-console-admin-1/actions...
   ℹ injecting backend urls into frontend config
-  ℹ bundling /Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/src/aem/cf-console-admin-1/web-src/**/*.html
+  ℹ bundling /Users/akayastha/Developer/Work/Projects/demos/cf-admin-console-demo-proj/src/aem-cf-console-admin-1/web-src/**/*.html
   ℹ redeploying actions..
-  ℹ Info: Deploying package [cf-console-admin-1]...
-  ℹ Info: package [cf-console-admin-1] has been successfully deployed.
+  ℹ Info: Deploying package [aem-cf-console-admin-1]...
+  ℹ Info: package [aem-cf-console-admin-1] has been successfully deployed.
 
-  ℹ Info: Deploying action [cf-console-admin-1/import]...
-  ℹ Info: action [cf-console-admin-1/import] has been successfully deployed.
+  ℹ Info: Deploying action [aem-cf-console-admin-1/import]...
+  ℹ Info: action [aem-cf-console-admin-1/import] has been successfully deployed.
 
-  ℹ Info: Deploying action [cf-console-admin-1/export]...
-  ℹ Info: action [cf-console-admin-1/export] has been successfully deployed.
+  ℹ Info: Deploying action [aem-cf-console-admin-1/export]...
+  ℹ Info: action [aem-cf-console-admin-1/export] has been successfully deployed.
 
   ℹ Success: Deployment completed successfully.
   ℹ web actions:
-  ℹ   -> http://localhost:3233/api/v1/web/guest/cf-console-admin-1/import
-  ℹ   -> http://localhost:3233/api/v1/web/guest/cf-console-admin-1/export
+  ℹ   -> http://localhost:3233/api/v1/web/guest/aem-cf-console-admin-1/import
+  ℹ   -> http://localhost:3233/api/v1/web/guest/aem-cf-console-admin-1/export
   ℹ serving front-end using bundler serve...
   ℹ local frontend server running at https://localhost:9080
   ℹ setting up vscode debug configuration files...

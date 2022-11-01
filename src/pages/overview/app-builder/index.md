@@ -2,7 +2,7 @@
 title: App Builder and UI Extensibility - UI Extensibility
 description: Learn how UI Extensibility and App Builder are related to each other
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 # App Builder and UI Extensibility
 
@@ -38,12 +38,12 @@ In other words, we can say that this is a contract between an Adobe product and 
 As stated above, UI extensions are a special case of App Builder applications.
 
 As an example, using the [AEM Content Fragments Console Extension Point](../../services/aem-cf-console-admin/api), we can customize navigation, add our own actions on the [Content Fragments Console](../../services/aem-cf-console-admin) and implement custom UI via Modals, etc.
-![UI Extensibility in AEM Content Fragments Console](../../guides/development-flow/publishing-2.png)
+![UI Extensibility in AEM Content Fragments Console](published-extension.png)
 
 More details are described in [AEM Content Fragments Console Extension Points](../../services/aem-cf-console-admin/api).
      
 ### Additional resources
 - [UI Extensions Development Flow](../../guides/development-flow)
 - [UI Extensions Management](../../guides/publication)
-- [FAQ](../faq)
+- [FAQ](../../faq)
 - [Introduction to Extensions](https://developer.adobe.com/app-builder/docs/guides/extensions/)

@@ -4,9 +4,10 @@ description: Discover how to implement your first extension
 contributors:
   - dx-devex-acceleration/uix-docs
 ---
-# Step-by-step Extension Development
 
-The document helps you understand how to set up local environment and start developing your first [UI Extension](../../../overview).
+# Step-by-step AEM Content Fragments Console Extension Development
+
+The document helps you understand how to set up local environment and start developing your first UI Extension.
 
 ## About application
 
@@ -22,8 +23,6 @@ After clicking on buttons we would like to show some content in a pop-up:
 ![UI pop-up](introduction-1.png)
 
 More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../../../services/aem-cf-console-admin/api).
-
-You can find the source of [the wholly completed application on GitHub](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples).
 
 ## Create a project in Adobe Developer Console
 
@@ -110,9 +109,10 @@ If necessary, you can find other bootstrap options in [Bootstrapping new App usi
 ## Overview of generated components
 
 ### Routing
-[`src/aem-cf-console-admin-1/web-src/src/components/App.js`](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/App.js)
 
-The root component contains the [routing of our application](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/App.js). We always have this generated file.
+
+
+The root component `src/aem-cf-console-admin-1/web-src/src/components/App.js` contains the routing of our application. We always have this generated file.
 
 Our extension is responsible for rendering several things:
 - The logic of registering our extension (it's the second required part of the extension).
@@ -163,9 +163,8 @@ function App() {
 If you need additional functionality, you can add new entry points and specify them in the routing after a generation.
 
 ### Extension registration
-[`src/aem-cf-console-admin-1/web-src/src/components/ExtensionRegistration.js`](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/ExtensionRegistration.js)
 
-This logical component registers our extension with the host AEM instance as soon as it loads, so they can share data and communicate with each other.
+This logical component `src/aem-cf-console-admin-1/web-src/src/components/ExtensionRegistration.js` registers our extension with the host AEM instance as soon as it loads, so they can share data and communicate with each other.
 
 ```js
 import React, { useEffect } from "react";
@@ -208,12 +207,12 @@ function ExtensionRegistration() {
 }
 ```
 
-We use the [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk) and call the `register` method, which connects to the host and declares methods the host can call. The `getButtons()` method describes the buttons which we want to add to the AEM admin panel.
+We use the [UIX SDK Guest library](https://github.com/adobe/uix-sdk) and call the `register` method, which connects to the host and declares methods the host can call. The `getButtons()` method describes the buttons which we want to add to the AEM admin panel.
 In our extension we would like to add two buttons, We define the title of each button, its icon, and an `onClick` handler that will be run inside of the application.
 
 In the action bar, the handler receives selected [`content fragments`](https://experienceleague.adobe.com/docs/experience-manager-64/assets/fragments/content-fragments.html) as the input parameter.
 
-For displaying a popup, we use the `<GuestUIFrame />` component provided by [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk).
+For displaying a popup, we use the `<GuestUIFrame />` component provided by [UIX SDK Guest library](https://github.com/adobe/uix-sdk).
 We indicate that we want to display the modal and specify the url at which the content should be loaded.
 
 Very similar declaration for the second button, but in a different namespace.
@@ -221,7 +220,6 @@ Very similar declaration for the second button, but in a different namespace.
 This component was also generated, you can modify it if you need to change or add new logic.
 
 ### Pop-up content
-[`src/aem-cf-console-admin-1/web-src/src/components/TestContentModal.js`](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/blob/main/src/aem-cf-console-admin-1/web-src/src/components/TestContentModal.js)
 
 In the previous step, we indicated that we want to load content for the popup by URL. That content is also part of our extension application.
 
@@ -263,7 +261,7 @@ function TestContentModal() {
 }
 ```
 
-We again use [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk), but this time we call the `attach` method, instead of `register`.
+We again use [UIX SDK Guest library](https://github.com/adobe/uix-sdk), but this time we call the `attach` method, instead of `register`.
 The extension is already registered; we only need to connect to the host to interact with it.
 
 The generated content will be displayed inside the popup.
@@ -284,7 +282,7 @@ const languageCopies = await getLanguageCopies(fragmentId, guest.sharedContext.g
 ```
 
 - Work with `UI modal`.
-UI modal is the **built-in part** of [UIX SDK Guest library](https://git.corp.adobe.com/dx-devex-acceleration/uix-sdk).
+UI modal is the **built-in part** of [UIX SDK Guest library](https://github.com/adobe/uix-sdk).
 By calling the methods of this object, we can display or close the popup window.
 
 ```js
@@ -315,7 +313,7 @@ Additional information can be found in [Connection Object section](../api/#conne
 ## Additional logic
 To add additional logic, you can modify current components or add new ones.
 
-In [our example](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples/tree/main/src/aem-cf-console-admin-1/actions), we have separated the UI logic and the logic of requests to the AEM instance.
+In our example, we have separated the UI logic and the logic of requests to the AEM instance.
 We have encapsulated all the requests in [App Builder actions](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application). 
 That means that it could be reused by different views. Actions can also contain logic for making calls to any 3rd party system.
 
@@ -347,11 +345,11 @@ press CTRL+C to terminate dev environment
 ```
 
 Now your UI extension is reachable by the displayed URL on the Terminal. You can test your UI extension within your AEM Content Fragment Consle by passing the following parameters to your AEM Content Fragment Console URL:
-- repo (host name of AEM instance): `repo=author-p7452-e12437.adobeaemcloud.com`
+- repo (host name of AEM instance): `repo=author-p1234-e12345.adobeaemcloud.com`
 - ext (extension): `ext=https://localhost:9080`
 - devMode (development mode): `devMode=true`
 
-**Sample AEM Content Fragment Console URL:** `https://experience.adobe.com/?cq-aem-headless-ui-admin_version=PR-444-df883867ebbbc09c49b2df86018c4bce901c746a&ext=https://localhost:9080&devMode=true&repo=author-p7452-e12437.adobeaemcloud.com#/@sitesinternal/aem/cf/admin/`
+**Sample AEM Content Fragment Console URL:** `https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&repo=author-p1234-e12345.adobeaemcloud.com#/@sitesinternal/aem/cf/admin/`
 
 #### Accepting the certificate (First time users)
 
@@ -429,8 +427,7 @@ Refer to the [UI Extensions Development Flow](../../../guides/development-flow#d
 Also in this document you can find the whole development flow of a UI Extensions.
 
 ### Additional resources
-- [Extension Source](https://git.corp.adobe.com/dx-devex-acceleration/aem-headless-ui-ext-examples)
 - [UI Extensions Development Flow](../../../guides/development-flow)
 - [UI Extensions Management](../../../guides/publication)
 - [Troubleshooting](../debug)
-- [FAQ](../../../overview/faq)      
+- [FAQ](../../../faq)      

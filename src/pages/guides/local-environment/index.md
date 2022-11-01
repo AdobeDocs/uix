@@ -2,7 +2,7 @@
 title: Local Environment Set Up - AEM Content Fragments Console Extensibility
 description: Prepare your local environment for UI extension development.
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 # Set Up Local Environment
 

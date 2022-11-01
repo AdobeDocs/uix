@@ -2,7 +2,7 @@
 title: Overview - AEM Content Fragments Console Extensibility
 description: Meet Content Fragments console, multitenant UI service for managing Adobe Experience Manager Content Fragments
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 
 # AEM Content Fragments Console Overview

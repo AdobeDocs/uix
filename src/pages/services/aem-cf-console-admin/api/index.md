@@ -4,6 +4,7 @@ description: Learn what is possible to extend and customize in AEM Content Fragm
 contributors:
   - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---
+
 # AEM Content Fragments Console Extension Points
 
 Learn what is possible to extend and customize in AEM Content Fragments console.

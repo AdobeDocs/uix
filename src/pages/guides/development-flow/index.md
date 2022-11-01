@@ -6,7 +6,7 @@ contributors:
 ---
 # UI Extensions Development Flow
 
-The document provide high level overview for developers what to expect when creating [UI Extension](../../overview). For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
+The document provide high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
 
 ## Get access
 
@@ -16,7 +16,7 @@ To start writing UI Extensions you will need the:
 3. Assign developer roles to these IMS organization members who will create UI Extensions.
 4. Ensure that users who should be able to [publish](../publication/) UI Extensions have a `system admin` role.
 
-For more details, please refer to [How to Get Access](../overview/get-access).
+For more details, please refer to [How to Get Access](../overview/get-access/).
 
 ## Create a new project in Adobe Developer Console
 
@@ -33,7 +33,7 @@ Once your project is set up in [Adobe Developer Console](https://developer.adobe
 There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
-You may find detailed guide at [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation-plugin#initialize-the-ui-extension-project-using-aio-cli).
+You may find detailed guide at [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation#launch-code-generation-during-project-initialization).
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -132,5 +132,5 @@ These steps are described in more detail in [UI Extensions Management](../public
 
 ## Additional resources
 - [Step-by-step Extension Development Guide](../../services/aem-cf-console-admin/extension-development/)
-- [UI Extensibility overview](../../overview)
-- [FAQ](../../overview/faq)
+- [UI Extensibility Overview](../)
+- [FAQ](../../faq/)

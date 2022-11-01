@@ -2,11 +2,11 @@
 title: UI Extensions Management - UI Extensibility
 description: Know how to bring your extension to users and manage it
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 # UI Extension Publication and Management
 
-After you've completed [developing and testing](../../services/aem-cf-console-admin/extension-development) your application, you're ready to deploy to production and publish it.
+After you've completed [developing and testing](../development-flow) your application, you're ready to deploy to production and publish it.
 
 ## Deploy on Production (CLI)
 
@@ -101,8 +101,9 @@ This means, that the new functionality will be available, for example, in the AE
 ![New functionality in AEM admin panel](../development-flow/publishing-2.png)
 More details about publishing are described in [Publishing Your First App Builder Application](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
 
-### Additional Resources
+## Additional Resources
+
 - [UI Extensions Development Flow](../development-flow)
-- [UI Extensibility overview](../../overview)
+- [UI Extensibility Overview](../../)
 - [Troubleshooting](../../services/aem-cf-console-admin/debug)
-- [FAQ](../../overview/faq)
+- [FAQ](../overview/faq)

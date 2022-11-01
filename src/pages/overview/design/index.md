@@ -1,8 +1,8 @@
 ---
 title: How It Works - UI Extensibility
-description: Discover how UI Extensibility works
+description: Explore how UI Extensibility works
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 # How It Works
 

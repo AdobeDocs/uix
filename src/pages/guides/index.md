@@ -2,7 +2,7 @@
 title: Guides - UI Extensibility
 description: Learn what is UI Extensibility and navigate through guides 
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 
 # Guides

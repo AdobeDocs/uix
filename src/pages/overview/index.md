@@ -1,58 +1,40 @@
 ---
-title: Overview - UI Extensibility
-description: Learn what is UI Extensibility and navigate through documentation 
+title: UI Extensibility
+description: Learn basics of UI Extensibility
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 
-<Hero slots="heading, text"/> 
+# Overview
 
-# UI Extensibility
-
-UI Extensibility allows 3rd party developers to customize and add their own logic to Adobe Experience Cloud services.
-
-## Overview
-
-UI extensions are JavaScript applications built with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that may be embedded in UI Applications running under [Adobe Experience Cloud](https://experience.adobe.com/) unified shell. Adobe UI Services and UI Extensions implement a two-way communication protocol that allows to exchange of data, invoking actions, and rendering additional visual blocks.
-
-<InlineAlert slots="text" />
-
-UI Extensibility is currently available for early preview as a beta release. In case of any issues or to request new extension point please contact us at uix@adobe.com.
-
-## Discover 
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Learn How to Create UI Extensions
-
-[UI Extensions Development Flow Overview](guides/development-flow/)
-    
-Know what to expect when create UI Extension.
+Begin your journey with UI Extensibility by exploring main capabilities and finding answers to your questions.
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Content Fragments Console Extensions Development Guide](services/aem-cf-console-admin/)
-    
-Get started with the development of extensions for AEM Content Fragments Console.
+[Why I Need It](reason)
 
-<DiscoverBlock slots="heading, link, text"/> 
+Know why UI Extensibility may be a good solution for you
 
-### Explore What to Extend
+<DiscoverBlock slots="link, text"/>
 
-[AEM Content Fragments Console Extension Points](services/aem-cf-console-admin/api/) 
-     
-Learn extensibility possibilities in AEM Content Fragments Console.
+[How It Works](design)
 
-<DiscoverBlock slots="heading, link, text"/> 
+Explore how UI Extensibility works
 
-### Publish
+<DiscoverBlock slots="link, text"/>
 
-[UI Extensions Management Guide](guides/publication/) 
+[How to Get Access](get-access)
 
-Know how to deploy and publish UI Extensions for your organization.
+Discover what is needed to use UI Extensibility
 
-## Contribute 
+<DiscoverBlock slots="link, text"/>
 
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions 
-or deletions for this documentation, check out the source from [this github repo](https://git.corp.adobe.com/dx-devex-acceleration/uix-docs), and submit a pull 
-request with your contribution.
+[App Builder and UI Extensibility](app-builder)
+
+Learn how UI Extensibility and App Builder are related to each other
+
+<DiscoverBlock slots="link, text"/>
+
+[FAQ](faq)
+
+Find answers to most frequent questions about UI Extensibility

@@ -2,9 +2,9 @@
 title: Extensions Development Guide - AEM Content Fragments Console Extensibility
 description: Learn how to generate base structure of UI Extension.
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
-# How to generate base structure of UI Extension
+# Code Generation for AEM Content Fragments Console Extension 
 
 The [AEM Content Fragment Console Extension Template](https://github.com/adobe/aem-cf-admin-ui-ext-tpl) help developers to bootstrap their App Builder apps when using the [CLI](https://github.com/adobe/aio-cli) and generates basic extension structure and all required code.
 
@@ -19,7 +19,7 @@ Template provides code generation capabilities targeted to 3 main developers gro
 
 <InlineAlert slots="text" />
 
-You need to have AIO CLI version >= 9.1.0 to use the available templates. Please refer to [Local Environment Set Up](../local-environment).
+You need to have AIO CLI version >= 9.1.0 to use the available templates. Please refer to [Local Environment Set Up](../../guides/local-environment).
 
 You may access code generation functionality during project initialization. 
 

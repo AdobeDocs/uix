@@ -2,7 +2,7 @@
 title: Troubleshooting - AEM Content Fragments Console Extensibility
 description: Resolve issue with Content Fragments console extension
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 # Debug Contents Fragment Console Extension
 

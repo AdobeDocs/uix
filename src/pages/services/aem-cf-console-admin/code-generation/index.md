@@ -77,7 +77,7 @@ Create a directory and run the following commands from that directory:
     |  - | @adobe/generator-app-asset-compute * | Extensibility template for generator-aio-app               | dx/asset-compute/worker/1 | action               |
 
     * = recommended by Adobe; to learn more about the templates, go to https://adobe.ly/templates
-    Bootstrapping code in: /Users/akayastha/Developer/Work/Projects/demos/demo-project
+    Bootstrapping code in: project
       create package.json
       create README.md
       create jest.setup.js

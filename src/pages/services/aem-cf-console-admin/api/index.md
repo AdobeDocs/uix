@@ -8,7 +8,7 @@ contributors:
 
 Learn what is possible to extend and customize in AEM Content Fragments console.
 
-The AEM Content Fragments console is dedicated to managing, searching for, and creating Content Fragments. It has been optimized for use in a Headless context, but is also used when creating Content Fragments for use in page authoring. 
+The AEM Content Fragments console is dedicated to managing, searching for, and creating Content Fragments. It has been optimized for use in a Headless context, but is also used when creating Content Fragments for use in page authoring.
 
 Extensions can customize navigation, add own actions on Content Fragments and implement custom UI via Modals etc.
 
@@ -42,7 +42,7 @@ Header Menu is area above Content Fragments list meant for action items unrelate
 
 ![Header Menu](header-menu.png)
 
-Header menu can be customized via methods defined in `headerMenu` namespace. 
+Header menu can be customized via methods defined in `headerMenu` namespace.
 
 First, define your button in getButton method:
 
@@ -67,7 +67,7 @@ const guestConnection = await register({
 });
 ```
 
-This method must define button unique ID, label and icon.
+This method must define button unique ID and label.
 
 Now, you can define button's callback in onClick method.
 
@@ -101,6 +101,16 @@ The callback is invoked when user clicks on the button and does not receive any 
 
 At the moment an extension can only define a single button.
 
+
+**API Reference**
+
+| Field | Type | Required | Description |
+| ----- | ---- | -------- | ----------- |
+| id | `string` | ✔️    | **Must be unique** across all extensions. Consider adding vendor prefix to this field. |
+| label | `string` | ✔️    | Button label that will be visible on UI |
+| icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
+| variant | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button |
+
 ### Action Bar
 
 Action Bar is area above content fragment list meant for action items which can be executed on selected content fragments, for example: editing, deleting, exporting or cloning. Action Bar appears over Header Menu when one or multiple content fragments are selected.
@@ -132,7 +142,7 @@ const guestConnection = await register({
 });
 ```
 
-This method must define unique ID, button label and icon displayed next to it. Now, you can define button's callback in onClick method.
+This method must define unique ID and button label. Now, you can define button's callback in onClick method.
 
 ```JavaScript
 import { register } from "@adobe/uix-guest";
@@ -163,6 +173,15 @@ The callback is invoked when user clicks on the button and receives list of cont
 <InlineAlert variant="warning" slots="text" />
 
 At the moment an extension can only define a single button.
+
+
+**API Reference**
+
+| Field | Type | Required | Description |
+| ----- | ---- | -------- | ----------- |
+| id | `string` | ✔️    | **Must be unique** across all extensions. Consider adding vendor prefix to this field. |
+| label | `string` | ✔️    | Button label that will be visible on UI |
+| icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 
 ## Extension UI
 

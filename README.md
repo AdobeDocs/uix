@@ -10,7 +10,7 @@ UI Extensibility allows to injection of 3rd-party UI implemented as App Builder 
 For local development, simply use :
 ```
 $ npm install
-$ npm run dev
+TBD
 ```
 ## Adobe I/O Documentation Template
 

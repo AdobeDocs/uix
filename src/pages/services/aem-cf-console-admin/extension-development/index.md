@@ -27,13 +27,36 @@ You can find the source of [the wholly completed application on GitHub](https://
 
 ## Create a project in Adobe Developer Console
 
-Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
-In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
-and access to API credentials if you want to access Adobe APIs in your application.
->
-We assume that your organization have access to [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) and you created a project in [Adobe Developer Console](https://developer.adobe.com/console).
+UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
-If not, please refer to [Get Access](../../../guides/get-access) and [Create a new project in Adobe Developer Console](../../../guides/development-flow#create-a-new-project-in-adobe-developer-console).
+So at first we will need to create a new Project which will supply us with configuration and resources.
+
+1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
+![Sign in to Adobe Developer Console](create-project-1.png)
+
+2. Choose your account.
+![Choose your account](create-project-2.png)
+
+3. Choose your profile or organization.
+![Choose your profile](create-project-3.png)
+
+3. Make sure you are in a proper organization (a switcher in the right top corner).
+![Check organization](create-project-4.png)
+
+4. Click "Create new project" -> "Project from template":
+![Create project from template](create-project-5.png)
+And choose "App Builder":
+![Choose "App Builder"](create-project-6.png)
+
+5. Fill the project data.
+![Fill the project data](create-project-7.png)
+- `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
+- `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
+
+After creating, you should see a new project generated with 2 default Workspaces.
+Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed. 
+The `Production` workspace is special, as it is used for the submission and distribution flow.
+![A new project with 2 default Workspaces](create-project-8.png)
 
 ## Setting up local environment
 
@@ -74,7 +97,7 @@ After this step, we will have a generated project structure with necessary npm d
 
 If you have worked with an Adobe App Builder App before, you will notice that you have generated a starter project of a UI Extension that implements [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 
-![App initialization finished](../../../guides/development-flow/implement-application-1.png)
+![App initialization finished](implement-application-1.png)
 ```yaml
 # app.config.yaml
 extensions:

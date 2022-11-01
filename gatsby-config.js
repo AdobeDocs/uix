@@ -11,27 +11,27 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/pages/dx-devex-acceleration/uix-docs/',
+  pathPrefix: process.env.PATH_PREFIX || "/pages/dx-devex-acceleration/uix-docs/",
   siteMetadata: {
     home: {
-      title: 'UI Extensibility',
-      path: '/pages/dx-devex-acceleration/uix-docs/overview'
+      title: "UI Extensibility",
+      path: "/"
     },
     pages: [
       {
-        title: 'Overview',
-        path: 'overview',
+        title: "Overview",
+        path: "overview/",
       },
       {
-        title: 'Guides',
-        path: 'guides'
+        title: "Guides",
+        path: "guides/"
       },
       {
-        title: 'Extensible Services',
+        title: "Extensible Services",
         menu: [
           {
-            title: 'AEM Content Fragments Console',
-            path: 'services/aem-cf-console-admin/'
+            title: "AEM Content Fragments Console",
+            path: "services/aem-cf-console-admin/"
           }
         ]
       }
@@ -51,6 +51,10 @@ module.exports = {
         path: "overview/design/"
       },
       {
+        title: "How to Get Access",
+        path: "overview/get-access/"
+      },
+      {
         title: "App Builder and UI Extensibility",
         path: "overview/app-builder/"
       },
@@ -58,34 +62,22 @@ module.exports = {
         title: "FAQ",
         path: "overview/faq/"
       },
-      {
-        title: "Community",
-        path: "overview/community/"
-      },
       // Common guides
       {
-        title: 'UI Extensions Development Flow',
-        path: 'guides/development-flow/'
+        title: "Guides Overview",
+        path: "guides/"
       },
       {
-        title: 'Get Access',
-        path: 'guides/get-access/'
+        title: "UI Extensions Development Flow",
+        path: "guides/development-flow/"
       },
       {
-        title: 'Set Up Local Environment',
-        path: 'guides/local-environment/'
+        title: "UI Extension Publication and Management",
+        path: "guides/publication/"
       },
       {
-        title: "Code Generation Plugin",
-        path: "guides/code-generation/"
-      },
-      {
-        title: 'UI Extension Publication and Management',
-        path: 'guides/publication/'
-      },
-      {
-        title: 'Troubleshooting the most common issues',
-        path: 'guides/common-issues/'
+        title: "Set Up Local Environment",
+        path: "guides/local-environment/"
       },
       // Services
       {
@@ -93,24 +85,20 @@ module.exports = {
         path: "services/aem-cf-console-admin/api/"
       },
       {
-        title:'Step-by-step Extension Development',
-        path: 'services/aem-cf-console-admin/extension-development'
+        title: "Step-by-step Extension Development",
+        path: "services/aem-cf-console-admin/extension-development/"
       },
       {
-        title:'Slack Import/Export Demo Set Up',
-        path: 'services/aem-cf-console-admin/slack-import-export-demo'
+        title: "Code Generation",
+        path: "services/aem-cf-console-admin/code-generation/"
       },
       {
-        title:'Implementation Patterns',
-        path: 'services/aem-cf-console-admin/implementation-patterns'
-      },
-      {
-        title:'Troubleshooting',
-        path: 'services/aem-cf-console-admin/debug'
+        title: "Troubleshooting",
+        path: "services/aem-cf-console-admin/debug/"
       },
     ],
   },
   plugins: [
-    `@adobe/gatsby-theme-aio`
+    "@adobe/gatsby-theme-aio/"
   ]
 };

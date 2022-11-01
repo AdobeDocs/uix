@@ -5,11 +5,24 @@ contributors:
   - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
 ---
 
-### UI Extensions guide references
+# Guides
 
-* [UI Extensions development flow](development-flow). Learn how to implement, test and deploy your own UI Extensions.
-* [How to Get Access](get-access). Discover what is needed to use UI Extensibility.
-* [Set Up Local Environment](local-environment). Prepare your local environment for UI extension development.
-* [Code Generation Plugin](code-generation). Learn how to generate base structure of UI Extension.
-* [UI Extension Publication and Management](publication). Know how to bring your extension to users and manage it.
-* [Troubleshooting the most common issues](common-issues). Discover troubleshooting guide for some of the most common issues.
+The guides below provide you with general information regarding UI Extensibility. For detailed information regarding particular Adobe Service please see `Extensible Services`.
+
+<DiscoverBlock slots="link, text"/>
+
+[UI Extensions Development Flow](development-flow)
+    
+Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder
+
+<DiscoverBlock slots="link, text"/>
+
+[UI Extension Publication and Management](publication)
+    
+Know how to bring your extension to users and manage it
+
+<DiscoverBlock slots="link, text"/>
+
+[Set Up Local Environment](publication)
+    
+Prepare your local environment for UI extension development

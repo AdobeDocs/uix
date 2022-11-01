@@ -4,52 +4,28 @@ description: Learn how to implement, test and deploy your own UI Extensions with
 contributors:
   - dx-devex-acceleration/uix-docs
 ---
-# UI Extensions development flow
+# UI Extensions Development Flow
 
-The document helps you understand how to setup, implement and deploy your own [UI Extension](../../overview) with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/)
+The document provide high level overview for developers what to expect when creating [UI Extension](../../overview). For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
 
 ## Get access
 
-To start writing UI Extensions you will need:
+To start writing UI Extensions you will need the:
 1. Access to service that we are about to extend, e.g. [Content Fragment Console](../../services/aem-cf-console-admin) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
 2. Access to App Builder, which we will use to create an extension.
+3. Assign developer roles to these IMS organization members who will create UI Extensions.
+4. Ensure that users who should be able to [publish](../publication/) UI Extensions have a `system admin` role.
 
-To do this, you need to fill out the request forms to gain access to these services.
-
-For more details, please refer to [How to Get Access](../get-access).
+For more details, please refer to [How to Get Access](../overview/get-access).
 
 ## Create a new project in Adobe Developer Console
 
-> Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products. 
-In App Builder, you need access to Adobe I/O Runtime credentials used for deploying your application, 
-and access to API credentials if you want to access Adobe APIs in your application.
+UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
-1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
-![Sign in to Adobe Developer Console](create-project-1.png)
+Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products.
 
-2. Choose your account.
-![Choose your account](create-project-2.png)
-
-3. Choose your profile or organizzation.
-![Choose your profile](create-project-3.png)
-
-3. Make sure you are in a proper organization (a switcher in the right top corner).
-![Check organization](create-project-4.png)
-
-4. Click "Create new project" -> "Project from template":
-![Create project from template](create-project-5.png)
-And choose "App Builder":
-![Choose "App Builder"](create-project-6.png)
-
-5. Fill the project data.
-![Fill the project data](create-project-7.png)
-- `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
-- `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
-
-After creating, you should see a new project generated with 2 default Workspaces.
-Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed. 
+Each App Builder project has two default workspaces: `Production` and `Stage` which you may use during different life cycles of your project. You can add more workspaces for feature development as needed. 
 The `Production` workspace is special, as it is used for the submission and distribution flow.
-![A new project with 2 default Workspaces](create-project-8.png)
 
 ## Initialize our application using the CLI for local development
 
@@ -57,7 +33,7 @@ Once your project is set up in [Adobe Developer Console](https://developer.adobe
 There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
-The document [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation-plugin#initialize-the-ui-extension-project-using-aio-cli) describes in detail all the steps that you need to follow.
+You may find detailed guide at [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation-plugin#initialize-the-ui-extension-project-using-aio-cli).
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -80,19 +56,23 @@ Project initialized for Workspace Stage, you can run 'aio app use -w <workspace>
  > Tip: you can add more actions, web-assets and events to your project via the 'aio app add' commands
 ```
 
-## Implement logic of application and test it on different environments
+During project initialization, you will be able to select a specific template for UI Extension that will generate boilerplate code for you so you will be ready to start business logic implementation right away.
 
-At this step, we need to implement a logic of App Builder Application which will use existing [AEM UI Extension Points](../../services/aem-cf-console-admin/api).
-A general approach is described in [App Builder and UI Extensibility](../../overview/app-builder).
+## Implement logic of application
 
-Also, during implementation we have possibility to run and test extension locally or on `Stage`.
-Moreover, we can see how it works on a `Production` instance without application deployment.
+As the next step, we need to implement a logic which will use existing [Extension Points](../../services/aem-cf-console-admin/api) and provide necessary functionality.
+UI Extensions has default structure and preselected technology stack such as [React Spectrum](https://developer.adobe.com/app-builder/docs/resources/spectrum-intro/lesson3/) but developers are free to choose tools that they prefer to. The only requirements to make a proper UI Extension:
+1. Supply configuration file that will declare application as an [extension](https://developer.adobe.com/app-builder/docs/guides/extensions/).
+2. Use `@adobe/uix-guest` library for proper UI Extension initialization and interaction with Adobe service.
 
-The process of creating and testing an application is described in [Step-by-step Extension Development](../../services/aem-cf-console-admin/extension-development) guide.
-![Example of a project structure](implement-application-1.png)
+## Verify your application
+
+After development is done you may check yor application locally (`aio app run`) or at `Stage` or any other workspace at Adobe I/O (`aio app deploy`).
+
+Once you've started or deployed application  AIO CLI will return you an extension endpoint URL that you may use to embed UI Extension into production Adobe Service. As it is not always suitable to test extensions with production data, extensible service as well provide configuration parameters that allows to change data source. For example, AEM Content Fragments Console [allows to target development environment](../../services/aem-cf-console-admin/debug/).
 
 ## Deploy on Production
-After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
+After the application has been completed, tested locally or on `Stage`, we are ready to deploy it to `Production`.
 
 The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production`.
 
@@ -150,7 +130,7 @@ This means, that the new functionality will be available, for example, in the AE
 
 These steps are described in more detail in [UI Extensions Management](../publication).
 
-### Additional resources
+## Additional resources
+- [Step-by-step Extension Development Guide](../../services/aem-cf-console-admin/extension-development/)
 - [UI Extensibility overview](../../overview)
-- [Troubleshooting](../../services/aem-cf-console-admin/debug)
 - [FAQ](../../overview/faq)

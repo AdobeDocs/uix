@@ -10,7 +10,8 @@ After you've completed [developing and testing](../../services/aem-cf-console-ad
 
 ## Deploy on Production (CLI)
 
-The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production` in the CLI.
+The process of deploying to `Production` workspace is the same as for deploying to `Stage` and other, but first you need to ensure that your local environment is targeting right workspace.
+
 Type this command in the project folder:
 ```shell
 $ aio app use -w Production

@@ -6,17 +6,19 @@ contributors:
 ---
 # Set Up Local Environment
 
-This guide includes instructions for setting up a local environment for AEM (Adobe Experience Manager) Content Fragments Console extension development.
+This guide includes instructions for setting up a local environment for UI Extension development.
 
-## Prerequisites
+To create UI Extension you must install:
 
-- [NodeJS](https://nodejs.org/en/download/) [>= v14]. It should also install `npm` together. We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage NodeJS installation and versions on your machine.
-- [AIO (Adobe I/O) CLI (Command Line Interface)](https://github.com/adobe/aio-cli)  [>= v9.1.0]
-- [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/overview/index.html) [>= v11]. JDK is required if you want to deploy the actions (in your UI extension) to a local [OpenWhisk](https://openwhisk.apache.org/) instance via `aio app run --local` command.
-- Docker. This is a required dependency in order to run a local OpenWhisk instance via `aio app run --local` command.
+1. [NodeJS](https://nodejs.org/en/download/) [>= v14]. It should also install `npm` together. We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage NodeJS installation and versions on your machine.
+2. [AIO (Adobe I/O) CLI (Command Line Interface)](https://github.com/adobe/aio-cli)  [>= v9.1.0]
 
 
-## Installation
+If your extension needs some server-side logic and you want to be able to use `aio app run --local` to run the application locally without deploying code to [Adobe I/O Runtime](https://developer.adobe.com/runtime/docs/) you will also need:
+1. [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/overview/index.html) [>= v11].
+2. [Docker](https://docs.docker.com/engine/install/).
+
+## Manage AIO CLI Tool
 
 Run the following command to install the latest version of AIO CLI if not installed.
 
@@ -43,6 +45,6 @@ The following set up is required if you intend to use the local development feat
 - [Visual Studio Code](https://code.visualstudio.com/download) (VS Code) as the supported IDE for editor, debuggger, etc. You can use any other IDE as a code editor, but advanced usage (e.g. debugger) is not yet supported.
 - [Chrome debugger extension in VSCode](https://github.com/Microsoft/vscode-chrome-debug)
 
-### Additional resources
+## Additional resources
 
 - [App Builder Local Environment Set Up and optional tools](https://developer.adobe.com/app-builder/docs/getting_started/#local-environment-set-up).

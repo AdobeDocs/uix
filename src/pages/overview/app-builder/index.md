@@ -6,6 +6,8 @@ contributors:
 ---
 # App Builder and UI Extensibility
 
+UI Extensions are specific types of applications created with Adobe App Builder. All information available for App Builder is valid for UI Extensions as well. 
+
 ## What is App Builder
 [App Builder](https://developer.adobe.com/app-builder/docs/overview/) is a framework that enables developers to build custom web applications, deploy and run it on Adobe infrastructure.
 

@@ -1,84 +1,87 @@
 ---
-title: Overview - Cat Analytics
-description: This is the overview page of Cat Analytics
+title: UI Extensibility
+description: Learn what is UI Extensibility and navigate through documentation 
 contributors:
-  - https://github.com/icaraps 
+  - https://github.com/AdobeDocs/uix
 ---
 
 <Hero slots="heading, text"/> 
 
-# Cat Analytics API
+# UI Extensibility
 
-Cat Product API offers limitless ways to integrate your most important customer data into key business processes. Cat Product API offer limitless ways.
+UI Extensibility allows 3rd party developers to customize and add their own logic to Adobe Experience Cloud services.
 
-<Resources slots="heading, links"/>
+UI extensions are JavaScript applications built with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that may be embedded in UI Applications running under [Adobe Experience Cloud](https://experience.adobe.com/) unified shell. Adobe UI Services and UI Extensions implement a two-way communication protocol that allows to exchange of data, invoking actions, and rendering additional visual blocks.
 
-#### Resources
+<InlineAlert slots="text" />
 
-* [Quickstart Guide](https://developer.adobe.com)
-* [Cat Analytics Github Repo](https://github.com/AdobeDocs/dev-site)
+UI Extensibility is currently available for early preview as a beta release. In case of any issues or to request new extension point please contact us at uix@adobe.com.
 
-## Overview
+<DiscoverBlock slots="heading, link, text"/>
 
-This documentation provides instructions for Catt Analytics 2.0 APIs. For working with Cat Analytics APIs, see [Cat Analytics API Documentation](https://github.com/AdobeDocs/dev-site).
+## Get to Know
 
-The Cat Analytics APIs are a collection of APIs that power Cat Analytics products like Cat Workspace. 
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+[Why I Need It](overview/reason)
 
+Know why UI Extensibility may be a good solution for you
+
+<DiscoverBlock slots="link, text"/>
+
+[How It Works](overview/design)
+
+Explore how UI Extensibility works
+
+<DiscoverBlock slots="link, text"/>
+
+[How to Get Access](overview/get-access)
+
+Discover what is needed to use UI Extensibility
+
+<DiscoverBlock slots="link, text"/>
+
+[App Builder and UI Extensibility](overview/app-builder)
+
+Learn how UI Extensibility and App Builder are related to each other
+
+<DiscoverBlock slots="link, text"/>
+
+[FAQ](overview/faq)
+
+Find answers to most frequent questions about UI Extensibility
 ## Discover 
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+<DiscoverBlock slots="heading, link, text"/>
 
-### Get Started
+### Learn How to Create UI Extensions
 
-[Quickstart Guide](guides/)
+[UI Extensions Development Flow Overview](guides/development-flow/)
     
-Get started with the Cat Analytics APIs.
+Know what to expect when create UI Extension.
+
+<DiscoverBlock slots="link, text"/>
+
+[AEM Content Fragments Console Extensions Development Guide](services/aem-cf-console-admin/)
+    
+Get started with the development of extensions for AEM Content Fragments Console.
 
 <DiscoverBlock slots="heading, link, text"/> 
 
-### Guides
+### Explore What to Extend
 
-[Calculated Metrics API](guides/calculated_metrics_api/) 
+[AEM Content Fragments Console Extension Points](services/aem-cf-console-admin/api/) 
      
-Returns information on the user's company that is necessary for making other Cat Analytics API calls.
+Learn extensibility possibilities in AEM Content Fragments Console.
 
-<DiscoverBlock slots="link, text"/>
+<DiscoverBlock slots="heading, link, text"/> 
 
-[Segments API](guides/segments_api/) 
+### Publish
 
-Provides configuration guidance and best practices for the /segments endpoint.
+[UI Extensions Management Guide](guides/publication/) 
 
-<DiscoverBlock slots="link, text"/>
+Know how to deploy and publish UI Extensions for your organization.
 
-[Reporting Guide API](guides/reporting_api/)
-
-Provides configuration guidance and best practices for the /reports endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Migrating from 1.4 to 2.0](guides/migrating/)
-
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.   
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### API References
-
-[Try the API](api/) 
-
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
-
-## Contributing 
+## Contribute 
 
 We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions 
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull 
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit for an Cat Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`    
+or deletions for this documentation, check out the source from [this github repo](https://github.com/AdobeDocs/uix), and submit a pull 
+request with your contribution.

@@ -11,101 +11,91 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/dev-site-documentation-template/',
+  pathPrefix: process.env.PATH_PREFIX || "/uix/",
   siteMetadata: {
-    versions: [
-      {
-        title: 'v2.0',
-        selected: true
-      },
-      {
-        title: 'v1.4',
-        path: 'https://github.com/AdobeDocs/dev-site'
-      }
-    ],
     pages: [
       {
-        title: 'Cat Analytics',
-        path: '/'
+        title: "UI Extensibility",
+        path: "/",
       },
       {
-        title: 'Guides',
-        path: '/guides/'
+        title: "Overview",
+        path: "/overview/"
       },
       {
-        title: 'API Reference',
+        title: "Guides",
+        path: "/guides/"
+      },
+      {
+        title: "Extensible Services",
         menu: [
           {
-            title: 'Cat Reference v2.0',
-            description: 'Cat Reporting API',
-            path: '/api/index.md'
-          },
-          {
-            title: 'Cat Reference v1.4',
-            description: 'Cat API Spec',
-            path: '/api/1.4.md'
+            title: "AEM Content Fragments Console",
+            path: "/services/aem-cf-console-admin/"
           }
         ]
-      },
-      {
-        title: 'Support',
-        path: '/support/'
       }
     ],
     subPages: [
-      {
-        title: 'Get Started',
-        path: '/guides/',
-        pages: [
+      // Overview
           {
-            title: 'Dummy an OAuth Client',
-            path: '/guides/dummy_oauth_client/'
+            title: "Why I Need It",
+            path: "/overview/reason/"
           },
           {
-            title: 'Dummy OAuth using POSTMAN',
-            path: '/guides/dummy_using_postman/'
-          }
-        ]
-      },
-      {
-        title: 'Cat Metrics API',
-        path: '/guides/dummy_metrics_api/'
-      },
-      {
-        title: 'Migrating',
-        path: '/guides/migrating/'
-      },
-      {
-        title: 'Overview',
-        path: '/support/',
-        header: true,
-        pages: [
-          {
-            title: 'Help',
-            path: '/support/'
+            title: "How It Works",
+            path: "/overview/design/"
           },
           {
-            title: 'FAQ',
-            path: '/support/FAQ/'
+            title: "How to Get Access",
+            path: "/overview/get-access/"
           },
           {
-            title: 'How to contribute',
-            path: '/support/contribute/'
-          }
-        ]
+            title: "App Builder and UI Extensibility",
+            path: "/overview/app-builder/"
+          },
+          {
+            title: "FAQ",
+            path: "/overview/faq/"
+          },
+      // Common guides
+      {
+        title: "UI Extensions Development Flow",
+        path: "/guides/development-flow/"
       },
       {
-        title: 'Community',
-        path: '/support/community/',
-        header: true,
-        pages: [
-          {
-            title: 'Information',
-            path: '/support/community/'
-          }
-        ]
+        title: "UI Extension Publication and Management",
+        path: "/guides/publication/"
+      },
+      {
+        title: "Set Up Local Environment",
+        path: "/guides/local-environment/"
+      },
+      // Services
+      {
+        title: "Extensible Services",
+        path: "/services/",
+        header: true
+      },
+      {
+        title: "Extension Points",
+        path: "/services/aem-cf-console-admin/api/"
+      },
+      {
+        title: "Step-by-step Extension Development",
+        path: "/services/aem-cf-console-admin/extension-development/"
+      },
+      {
+        title: "Code Generation",
+        path: "/services/aem-cf-console-admin/code-generation/"
+      },
+      {
+        title: "Troubleshooting",
+        path: "/services/aem-cf-console-admin/debug/"
       }
     ]
   },
-  plugins: [`@adobe/gatsby-theme-aio`]
+  plugins: [
+    "@adobe/gatsby-theme-aio/"
+  ]
 };

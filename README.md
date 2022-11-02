@@ -1,42 +1,49 @@
-# Adobe I/O Documentation Template
+# UI Extensibility Developers Documentation
 
-This is a site template built with the [Adobe I/O Theme](https://github.com/adobe/aio-theme).
+This is the documentation for the UI Extensibility framework and extensibility capabilities of services integrated with it.
 
-View the [demo](https://adobedocs.github.io/dev-site-documentation-template/) running on Github Pages.  
+UI Extensibility allows to injection of 3rd-party UI implemented as App Builder applications into Adobe Services.
 
-## Where to ask for help
+# Contribution
+## Local Development
 
-The slack channel #adobeio-onsite-onboarding is our main point of contact for help. Feel free to join the channel and ask any questions. 
+### Prerequisites
 
-## How to develop
+This project uses Yarn 3 to manage package dependencies. If you do not have Yarn 3 installed, follow these instructions:
 
-For local development, simply use :
+1. Install [Node.js LTS](https://nodejs.org/en/download/). At the time of writing, the latest LTS version is `v16.15.1`.
+2. Install Yarn 3 by running the following command:
+
+   ```bash
+   corepack enable
+   ```
+
+Corepack is a binary shipped with all Node.js releases starting from 16.10.
+
+3. Update Yarn to the latest version by running the following command:
+
+   ```bash
+   yarn set version stable
+   ```
+
+4. Make sure you are now using version 3.2.1 of Yarn:.
+
+   ```bash
+   yarn --version
+   ```
+
+That's it. For more information on Yarn 3 usage, see [Yarn usage](https://yarnpkg.com/getting-started/usage).
+
+### Run development server
+
+For local development, simply use:
+
 ```
-$ npm install
-$ npm run dev
+$ yarn install
+$ yarn dev
 ```
+## Adobe I/O Documentation Template
 
-For the documentation developer, please read these sections on how to:
-- [Arrange the structure content of your docs](https://github.com/adobe/aio-theme#content-structure)
-- [Linking to pages](https://github.com/adobe/aio-theme#links)
-- [Using assets](https://github.com/adobe/aio-theme-aio#assets)
-- [Setting Global Navigation](https://github.com/adobe/aio-theme#global-navigation)
-- [Setting Side Navigation](https://github.com/adobe/aio-theme#side-navigation)
-- [Using content blocks](https://github.com/adobe/aio-theme#jsx-blocks)
-- [Notes on using Markdown](https://github.com/adobe/aio-theme#writing-enhanced-markdown)
+This is a site build with the [Adobe I/O Documentation Template](https://github.com/adobedocs/dev-site-documentation-template/) template for the [Adobe I/O Theme](https://github.com/adobe/aio-theme).
 
-For more in-depth [instructions](https://github.com/adobe/aio-theme#getting-started).
-
-## How to deploy
-
-For any team that wishes to deploy to the adobe.io and stage.adobe.io website, they must be in contact with the dev-site team. Teams will be given a path that will follow the pattern `adobe.io/{product}/`. This will allow doc developers to setup their subpaths to look something like:
-```
-adobe.io/{product}/docs
-adobe.io/{product}/community
-adobe.io/{product}/community/code_of_conduct
-adobe.io/{product}/community/contribute
-```
-
-### Launching a deploy
-
-You can deploy using the GitHub actions deploy workflow see [deploy instructions](https://github.com/adobe/aio-theme#deploy-to-azure-storage-static-websites).
+Please reference for corresponding documentation for more details regarding content requirements and development flow.

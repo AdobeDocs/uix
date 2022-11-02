@@ -1,15 +1,11 @@
 {
   "private": true,
-  "name": "dev-site-documentation-template",
+  "name": "@adobe/uix-docs",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-site-documentation-template"
-  },
-  "author": {
-    "name": "Stephan Ringel",
-    "url": "https://github.com/icaraps"
+    "url": "https://github.com/AdobeDocs/uix"
   },
   "dependencies": {
     "@adobe/gatsby-theme-aio": "^4.6.6",
@@ -24,7 +20,11 @@
     "dev:https": "gatsby develop --https --host localhost.corp.adobe.com --port 9000",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.3",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }

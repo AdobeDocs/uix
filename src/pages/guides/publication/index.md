@@ -106,4 +106,4 @@ More details about publishing are described in [Publishing Your First App Builde
 - [UI Extensions Development Flow](../development-flow)
 - [UI Extensibility Overview](../../)
 - [Troubleshooting](../../services/aem-cf-console-admin/debug)
-- [FAQ](../overview/faq)
+- [FAQ](../../overview/faq)

@@ -132,5 +132,5 @@ These steps are described in more detail in [UI Extensions Management](../public
 
 ## Additional resources
 - [Step-by-step Extension Development Guide](../../services/aem-cf-console-admin/extension-development/)
-- [UI Extensibility Overview](../)
+- [UI Extensibility Overview](../../)
 - [FAQ](../../overview/faq/)

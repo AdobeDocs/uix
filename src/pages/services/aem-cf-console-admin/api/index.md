@@ -24,7 +24,7 @@ Extension registration data must include:
 - `id` - string with random extension identifier. This identifier useful for debugging of interaction between Content Fragments console and extension and needed if extension provides custom UI.
 - `methods` - objects with extension code exposed to Content Fragments console. All methods are grouped into namespaces that represents extension points provided by Content Fragments console.
 
-```JavaScript
+```js
 import { register } from "@adobe/uix-guest";
 
 // ...
@@ -47,7 +47,7 @@ Header menu can be customized via methods defined in `headerMenu` namespace.
 
 First, define your button in getButton method:
 
-```JavaScript
+```js
 import { register } from "@adobe/uix-guest";
 
 // ...
@@ -72,7 +72,7 @@ This method must define button unique ID and label.
 
 Now, you can define button's callback in onClick method.
 
-```JavaScript
+```js
 import { register } from "@adobe/uix-guest";
 
 // ...
@@ -122,7 +122,7 @@ Header menu can be customized via methods defined in `actionBar` namespace. 
 
 First, define your button in getButton method:
 
-```JavaScript
+```js
 import { register } from "@adobe/uix-guest";
 
 // ...
@@ -145,7 +145,7 @@ const guestConnection = await register({
 
 This method must define unique ID and button label. Now, you can define button's callback in onClick method.
 
-```JavaScript
+```js
 import { register } from "@adobe/uix-guest";
 
 // ...
@@ -184,13 +184,52 @@ At the moment an extension can only define a single button.
 | label | `string` | ✔️    | Button label that will be visible on UI |
 | icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 
+### Progress Circle
+A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
+
+![Action Bar](progress-circle.png)
+
+The API consist of two methods `start` and `stop` which allow to start the progress circle or stop it respectively. An example below introduces a button that starts the progress circle and stops it in 5 seconds.
+
+```js
+const guestConnection = await register({
+  id: "aem-headless-ui-ext-examples-progress-circle",
+  methods: {
+    headerMenu: {
+      getButton() {
+        return {
+          id: "progress-circle-action",
+          label: "Start circle",
+          icon: 'OpenIn'
+        };
+      },
+
+      onClick() {
+        guestConnection.host.progressCircle.start();
+        setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
+      }
+    },
+  }
+});
+```
+
+Please keep in mind, multiple extensions may use the progress circle simultaneously. The progress circle will not disappear until all involved extensions call `stop` method.
+
+**API Reference**
+
+| Method | Arguments  | Description |
+| ----- | -------- | ----------- |
+| start |  | Shows progress circle and blocks all user input |
+| stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
+
+
 ## Extension UI
 
 For use-cases when UI Extension provides any data handling or send data to remote service `register` is the only method that is expected to be invoked.
 
 If UI Extension implements own UI it should be provided as separate page. If this UI requires data from Content Fragments console or need to invoke any logic it should establish connection with `attach` method.
 
-```JavaScript
+```js
 import { attach } from "@adobe/uix-guest";
 
 const guestConnection = await attach({ id: "id-used-during-extension-registration" });
@@ -212,7 +251,7 @@ Content of the modal is rendered in an iframe with source defined by extension. 
 
 In order to display modal dialog extension must call `showUrl` method in `modal` namespace.
 
-```JavaScript
+```js
 import { register } from "@adobe/uix-guest";
 
 const guestConnection = await register({
@@ -230,7 +269,7 @@ guestConnection.host.modal.showUrl({
 
 Modal may be closed by `close` method
 
-```JavaScript
+```js
 import { attach } from "@adobe/uix-guest";
 
 const guestConnection = await attach({
@@ -244,7 +283,7 @@ guestConnection.host.modal.close();
 
 In order to empower UI Extensions perform useful actions Content Fragments console provides access to data that simplifies user authentication and usage of AEM API. Such data may be accessed through `sharedContext` property of `host`.
 
-```JavaScript
+```js
 import { attach } from "@adobe/uix-guest";
 
 const guestConnection = await attach({
@@ -256,7 +295,7 @@ const aemHost = context.get("aemHost");
 
 Available shared context data:
 
-```JavaScript
+```js
 {
     aemHost: string, // hostname of connected AEM environment
     locale: string, // locale of current user

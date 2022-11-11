@@ -39,8 +39,8 @@ That's it. For more information on Yarn 3 usage, see [Yarn usage](https://yarnpk
 For local development, simply use:
 
 ```
-$ yarn install
-$ yarn dev
+$ yarn
+yarn dev
 ```
 ## Adobe I/O Documentation Template
 

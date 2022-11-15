@@ -101,6 +101,30 @@ This means, that the new functionality will be available, for example, in the AE
 ![New functionality in AEM admin panel](../development-flow/publishing-2.png)
 More details about publishing are described in [Publishing Your First App Builder Application](https://developer.adobe.com/app-builder/docs/getting_started/publish_app/).
 
+## Enabling extension only on specific AEM environments
+
+At the moment any approved and published extension will be available on all AEM programs and environments within organisation.
+
+You can modify your extension to initialize itself only for specific AEM programs and/or environments by checking `repo` query parameter in the extension registration component.
+
+```js
+// ExtensionRegistration component
+function ExtensionRegistration() {
+  const search = new URISearchParams(window.location.search);
+  if (search.get('repo') != 'author-p0052-e12345.adobeaemcloud.com') {
+    return; // skip extension registration if repo does not match desired one 
+  }
+
+  const init = async () => {
+    const apis = await register({
+      id: extensionId,
+      methods: {
+        // Configure your Action Bar button here
+        ...
+```
+
+This code snippet demonstrates how to retrieve `repo` parameter and prevent extension registration if it does not match desired value.
+
 ## Additional Resources
 
 - [UI Extensions Development Flow](../development-flow)

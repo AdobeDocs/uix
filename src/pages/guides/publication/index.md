@@ -130,4 +130,4 @@ This code snippet demonstrates how to retrieve `repo` parameter and prevent exte
 - [UI Extensions Development Flow](../development-flow)
 - [UI Extensibility Overview](../../)
 - [Troubleshooting](../../services/aem-cf-console-admin/debug)
-- [FAQ](../overview/faq)
+- [FAQ](../../overview/faq)

@@ -430,4 +430,4 @@ Also in this document you can find the whole development flow of a UI Extensions
 - [UI Extensions Development Flow](../../../guides/development-flow)
 - [UI Extensions Management](../../../guides/publication)
 - [Troubleshooting](../debug)
-- [FAQ](../../../faq)      
+- [FAQ](../../../overview/faq)      

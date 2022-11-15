@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || "/uix/",
+  pathPrefix: process.env.PATH_PREFIX || "/uix/docs/",
   siteMetadata: {
     pages: [
       {

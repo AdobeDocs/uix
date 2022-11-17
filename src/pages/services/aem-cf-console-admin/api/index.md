@@ -102,7 +102,6 @@ The callback is invoked when user clicks on the button and does not receive any 
 
 At the moment an extension can only define a single button.
 
-
 **API Reference**
 
 | Field | Type | Required | Description |
@@ -118,7 +117,7 @@ Action Bar is area above content fragment list meant for action items which can 
 
 ![Action Bar](action-bar.png)
 
-Header menu can be customized via methods defined in `actionBar` namespace. 
+Header menu can be customized via methods defined in `actionBar` namespace.
 
 First, define your button in getButton method:
 
@@ -175,7 +174,6 @@ The callback is invoked when user clicks on the button and receives list of cont
 
 At the moment an extension can only define a single button.
 
-
 **API Reference**
 
 | Field | Type | Required | Description |
@@ -185,6 +183,7 @@ At the moment an extension can only define a single button.
 | icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 
 ### Progress Circle
+
 A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
 
 ![Action Bar](progress-circle.png)
@@ -222,7 +221,6 @@ Please keep in mind, multiple extensions may use the progress circle simultaneou
 | start |  | Shows progress circle and blocks all user input |
 | stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
 
-
 ## Extension UI
 
 For use-cases when UI Extension provides any data handling or send data to remote service `register` is the only method that is expected to be invoked.
@@ -245,7 +243,7 @@ Both `register` and `attach` function of `@adobe/uix-guest` returns same connect
 
 ### Modal
 
-Content Fragments console provides API for showing modal dialogs with custom UI defined by an extension. These modals can be triggered by a click on the button or other events. Modal API is defined in the `modal` namespace. 
+Content Fragments console provides API for showing modal dialogs with custom UI defined by an extension. These modals can be triggered by a click on the button or other events. Modal API is defined in the `modal` namespace.
 
 Content of the modal is rendered in an iframe with source defined by extension. Before showing modal you should create a page which renders Modal UI. This UI should use Adobe Spectrum UI library to provide consistent experiense to the user.
 
@@ -278,6 +276,36 @@ const guestConnection = await attach({
 
 guestConnection.host.modal.close();
 ```
+
+### Toaster
+
+Content Fragments console provides an API for showing small informational messages (toasts) in the bottom part of the UI. These messages are meant to communicate errors, confirm actions and show other notifications to the user. Toaster API is defined in the `toaster` namespace.
+
+In order to display a message an extension must call `display` method in `toaster` namespace.
+
+```js
+import { register } from "@adobe/uix-guest";
+
+const guestConnection = await register({
+    id: "my.company.extension-with-taster",
+    {
+        //...
+    }
+}
+
+guestConnection.host.toaster.display({
+    variant: "positive",
+    message: "Toast displayed successfully!",
+})
+```
+
+**API Reference**
+
+| Field   | Type                                                        | Required | Description                                                                                                                      |
+|---------|-------------------------------------------------------------| -------- |----------------------------------------------------------------------------------------------------------------------------------|
+| variant | `neutral` <br /> `info` <br /> `negative` <br /> `positive` | ✔️    | Defines type of the message, based on this parameter message will be shown in a different color and different icon               |
+| message | `string`                                                    | ✔️    | Text of the message                                                                                                              |
+| timeout | `number`                                                    |     | An optional timeout in milliseconds when message should automatically disappear. If not set, default timeout value will be used. |
 
 ### Shared Context
 

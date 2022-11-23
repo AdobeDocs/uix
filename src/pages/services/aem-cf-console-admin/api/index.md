@@ -222,6 +222,61 @@ Please keep in mind, multiple extensions may use the progress circle simultaneou
 | start |  | Shows progress circle and blocks all user input |
 | stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
 
+### Content Fragment Grid Columns
+
+The content fragement grid is area above below the action bar. It host the list of all the content fragments in the current view.
+
+```js
+const guestConnection = await register({
+  id: "aem-headless-ui-ext-examples-progress-circle",
+  methods: {
+    contentFragmentGrid: {
+        getColumns() {
+        return [
+            {
+                key: "extended",
+                labelMessage: "Extended",
+                render: {
+                    type: 'mapToField'
+                    value: 'extended',
+                }
+            },
+            {
+                key: "second",
+                labelMessage: "From extension",
+                render: {
+                    type: 'fillWith',
+                    value: 'Extension was here'
+                }
+            }
+        ]
+        }
+    }
+    },
+  }
+});
+```
+
+**API Reference**
+
+| Field | Type | Required | Description |
+| ----- | ---- | -------- | ----------- |
+| key | `string` | ✔️      | Key of the column, must be unique between all extensions |
+| labelMessage | `string` | ✔️ | Label of the column as seen by the user |
+| sortable | `boolean` |  | Wether the column is sortable or not |
+| defaultSortOrder | `ascending`, `descending` | Default order in which to sort the column |
+| render | `RenderType` | | Configuration on how cell content should be rendered |
+
+**RenderType **
+| Field | Type | Required | Description |
+| ----- | ---- | -------- | ----------- |
+| type  | `fillWith`, `mapToField` | ✔️ | Type of rendering of the cell |
+| value | `string` | ✔️ | Value used in the rendering (see below) |
+
+Type of rendering:
+- `fillWith` will fill the cell with the value of the `value` property
+- `mapToField` will fill the cell with the value of the `value` property of each fragment
+
 
 ## Extension UI
 

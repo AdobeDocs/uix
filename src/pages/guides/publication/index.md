@@ -13,6 +13,7 @@ After you've completed [developing and testing](../development-flow) your applic
 The process of deploying to `Production` workspace is the same as for deploying to `Stage` and other, but first you need to ensure that your local environment is targeting right workspace.
 
 Type this command in the project folder:
+
 ```shell
 $ aio app use -w Production
 
@@ -28,11 +29,13 @@ You are currently in:
 2. Project: 562TurquoiseShrimp
 3. Workspace: Production.
 ```
-**Note:** 
+
+**Note:**
 We chose the `Merge` option for the `.env` file so that we don't lose our environment variables.
 
 After workgroup switching, we can make building and deploying with the command:
-```
+
+```shell
 $ aio app deploy
 
 √ Built 3 action(s) for 'aem/cf-console-admin/1'
@@ -53,12 +56,13 @@ Successful deployment 🏄
 ```
 
 You can also undeploy your app with:
+
 ```shell script
 aio app undeploy
-``` 
+```
 
-To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
-and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/). 
+To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application)
+and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
 
 ## Create approval request (Adobe Developer Console)
 
@@ -76,16 +80,18 @@ Once reviewed by your organization's administrator, your app will either be appr
 
 ## Administrator review (MyExchange)
 
-Once the application is submitted for the approval, organization's administrator will see the app in 
-```
+Once the application is submitted for the approval, organization's administrator will see the app in
+
+```text
 My Exchange -> Experience Cloud Apps -> Pending Review
 ```
+
 ![Pending Review](pending-review.png)
 
 The reviewer could review this app, either approve it or reject it.
 ![Review form](review-form.png)
 
-Once an app is approved, administrator will see it under **Approved**. 
+Once an app is approved, administrator will see it under **Approved**.
 The reviewer may revoke this application to unpublish it. The application owner can resubmit the application for review.
 ![Approved](status-approved.png)
 
@@ -112,7 +118,7 @@ You can modify your extension to initialize itself only for specific AEM program
 function ExtensionRegistration() {
   const search = new URLSearchParams(window.location.search);
   if (search.get('repo') != 'author-p0052-e12345.adobeaemcloud.com') {
-    return; // skip extension registration if repo does not match desired one 
+    return; // skip extension registration if repo does not match desired one
   }
 
   const init = async () => {

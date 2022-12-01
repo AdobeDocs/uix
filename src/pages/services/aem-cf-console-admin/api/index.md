@@ -102,7 +102,6 @@ The callback is invoked when user clicks on the button and does not receive any 
 
 At the moment an extension can only define a single button.
 
-
 **API Reference**
 
 | Field | Type | Required | Description |
@@ -118,7 +117,7 @@ Action Bar is area above content fragment list meant for action items which can 
 
 ![Action Bar](action-bar.png)
 
-Header menu can be customized via methods defined in `actionBar` namespace. 
+Header menu can be customized via methods defined in `actionBar` namespace.
 
 First, define your button in getButton method:
 
@@ -175,7 +174,6 @@ The callback is invoked when user clicks on the button and receives list of cont
 
 At the moment an extension can only define a single button.
 
-
 **API Reference**
 
 | Field | Type | Required | Description |
@@ -185,6 +183,7 @@ At the moment an extension can only define a single button.
 | icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 
 ### Progress Circle
+
 A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
 
 ![Action Bar](progress-circle.png)
@@ -267,16 +266,17 @@ const guestConnection = await register({
 | defaultSortOrder | `ascending`, `descending` | Default order in which to sort the column |
 | render | `RenderType` | | Configuration on how cell content should be rendered |
 
-**RenderType **
+**RenderType**
+
 | Field | Type | Required | Description |
 | ----- | ---- | -------- | ----------- |
 | type  | `fillWith`, `mapToField` | ✔️ | Type of rendering of the cell |
 | value | `string` | ✔️ | Value used in the rendering (see below) |
 
 Type of rendering:
+
 - `fillWith` will fill the cell with the value of the `value` property
 - `mapToField` will fill the cell with the value of the `value` property of each fragment
-
 
 ## Extension UI
 
@@ -300,7 +300,7 @@ Both `register` and `attach` function of `@adobe/uix-guest` returns same connect
 
 ### Modal
 
-Content Fragments console provides API for showing modal dialogs with custom UI defined by an extension. These modals can be triggered by a click on the button or other events. Modal API is defined in the `modal` namespace. 
+Content Fragments console provides API for showing modal dialogs with custom UI defined by an extension. These modals can be triggered by a click on the button or other events. Modal API is defined in the `modal` namespace.
 
 Content of the modal is rendered in an iframe with source defined by extension. Before showing modal you should create a page which renders Modal UI. This UI should use Adobe Spectrum UI library to provide consistent experiense to the user.
 

@@ -14,3 +14,8 @@ updates:
     ignore:
       # Ignore updates to package
       - dependency-name: "gatsby"
+        type: version-update:semver-major
+      - dependency-name: "react"
+        type: version-update:semver-major
+      - dependency-name: "react-dom"
+        type: version-update:semver-major

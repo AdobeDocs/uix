@@ -1,3 +1,4 @@
+---
 version: 2
 updates:
   # Enable version updates for npm
@@ -14,3 +15,8 @@ updates:
     ignore:
       # Ignore updates to package
       - dependency-name: "gatsby"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]

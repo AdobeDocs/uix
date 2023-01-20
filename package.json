@@ -25,6 +25,6 @@
   },
   "packageManager": "yarn@3.2.3",
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^5.0.0"
   }
 }

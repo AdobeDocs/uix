@@ -64,6 +64,12 @@ Know what to expect when create UI Extension.
     
 Get started with the development of extensions for AEM Content Fragments Console.
 
+<DiscoverBlock slots="link, text"/>
+
+[AEM Content Fragments Console Developer Videos and Samples](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/developing/extensibility/content-fragments/overview.html)
+
+View helpful videos and step by step instructions on building extensions for AEM Content Fragments Console.
+
 <DiscoverBlock slots="heading, link, text"/> 
 
 ### Explore What to Extend

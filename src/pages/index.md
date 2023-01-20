@@ -5,7 +5,7 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-<Hero slots="heading, text"/> 
+<Hero slots="heading, text"/>
 
 # UI Extensibility
 
@@ -48,20 +48,21 @@ Learn how UI Extensibility and App Builder are related to each other
 [FAQ](overview/faq)
 
 Find answers to most frequent questions about UI Extensibility
-## Discover 
+
+## Discover
 
 <DiscoverBlock slots="heading, link, text"/>
 
 ### Learn How to Create UI Extensions
 
 [UI Extensions Development Flow Overview](guides/development-flow/)
-    
+
 Know what to expect when create UI Extension.
 
 <DiscoverBlock slots="link, text"/>
 
 [AEM Content Fragments Console Extensions Development Guide](services/aem-cf-console-admin/)
-    
+
 Get started with the development of extensions for AEM Content Fragments Console.
 
 <DiscoverBlock slots="link, text"/>
@@ -70,24 +71,22 @@ Get started with the development of extensions for AEM Content Fragments Console
 
 View helpful videos and step by step instructions on building extensions for AEM Content Fragments Console.
 
-<DiscoverBlock slots="heading, link, text"/> 
+<DiscoverBlock slots="heading, link, text"/>
 
 ### Explore What to Extend
 
-[AEM Content Fragments Console Extension Points](services/aem-cf-console-admin/api/) 
-     
+[AEM Content Fragments Console Extension Points](services/aem-cf-console-admin/api/)
+
 Learn extensibility possibilities in AEM Content Fragments Console.
 
-<DiscoverBlock slots="heading, link, text"/> 
+<DiscoverBlock slots="heading, link, text"/>
 
 ### Publish
 
-[UI Extensions Management Guide](guides/publication/) 
+[UI Extensions Management Guide](guides/publication/)
 
 Know how to deploy and publish UI Extensions for your organization.
 
-## Contribute 
+## Contribute
 
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions 
-or deletions for this documentation, check out the source from [this github repo](https://github.com/AdobeDocs/uix), and submit a pull 
-request with your contribution.
+We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions or deletions for this documentation, check out the source from [this github repo](https://github.com/AdobeDocs/uix), and submit a pull request with your contribution.

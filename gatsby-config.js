@@ -32,6 +32,10 @@ module.exports = {
           {
             title: "AEM Content Fragments Console",
             path: "/services/aem-cf-console-admin/"
+          },
+          {
+            title: "AEM Content Fragments Editor",
+            path: "/services/aem-cf-editor/"
           }
         ]
       }
@@ -92,6 +96,16 @@ module.exports = {
       {
         title: "Troubleshooting",
         path: "/services/aem-cf-console-admin/debug/"
+      },
+      {
+        title: "Extension Points",
+        path: "/services/aem-cf-editor/api/",
+        pages: [
+          {
+            title: "Rich Text Editor Toolbar",
+            path: "/services/aem-cf-editor/api/rte-toolbar/"
+          }
+        ]
       }
     ]
   },

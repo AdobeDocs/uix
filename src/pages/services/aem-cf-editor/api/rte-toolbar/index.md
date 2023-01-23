@@ -2,7 +2,7 @@
 title: Rich Text Editor Toolbar - AEM Content Fragments Editor Extensibility
 description: Learn what is possible to extend and customize in AEM Content Fragments Editor
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 
 # Rich Text Editor Toolbar
@@ -16,7 +16,7 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
       text: "Test button", //optional text near button
       tooltip: "Button alt text",
       icon: 'Airplane', //Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
-      onClick: () => {
+      onClick: (state) => {
         return [{
           type: "replaceContent",
           value: state.html + "<p> some new HTML </p>"
@@ -26,6 +26,7 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
   }
 }
 ```
+
 ![](./rte-content-extension.gif)
 
 

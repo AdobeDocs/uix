@@ -2,7 +2,7 @@
 title: Extension Points - AEM Content Fragments Editor Extensibility
 description: Learn what is possible to extend and customize in AEM Content Fragments Editor
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - https://github.com/AdobeDocs/uix
 ---
 
 # AEM Content Fragments Editor Extension Points

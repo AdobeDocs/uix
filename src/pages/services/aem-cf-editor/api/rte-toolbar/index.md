@@ -8,6 +8,7 @@ contributors:
 # Rich Text Editor Toolbar
 
 A Rich Text Editor is a core part of content editing software. With toolbar extensions you can add new buttons which modify the content:
+
 ```js
 {
   rte: {
@@ -29,7 +30,6 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
 
 ![](./rte-content-extension.gif)
 
-
 ## API Reference
 
 **Extension API**
@@ -42,7 +42,6 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
 | icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 | onClick | `callback(state): Instruction[]` |  ✔️  |  A callback for a button `onClick` event. The callback receives the editor `state` object as an argument and may return a list of instructions |
 
-
 **`onClick` `state` argument API**
 
 | Field | Type |  Description |
@@ -51,7 +50,6 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
 | text | `string` | Text representation of editor's content |
 | selectedHtml | `string` | HTML representation of selected editor's content. Empty when there is no selection |
 | selectedText | `string` | Text representation of selected editor's content. Empty when there is no selection |
-
 
 **`onClick` instructions API**
 

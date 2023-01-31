@@ -59,7 +59,6 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
 | ----- | ---- | ----------- |
 | `replaceContent` | `string` | Replaces current editor content with a content provided in `value` property |
 
-
 # Rich Text Editor Toolbar Standard Buttons
 
 You can also add or remove standard Rich Text Editor buttons using a following contract:

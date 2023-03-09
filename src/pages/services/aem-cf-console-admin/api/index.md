@@ -182,45 +182,6 @@ At the moment an extension can only define a single button.
 | label | `string` | ✔️    | Button label that will be visible on UI |
 | icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 
-### Progress Circle
-
-A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
-
-![Action Bar](progress-circle.png)
-
-The API consist of two methods `start` and `stop` which allow to start the progress circle or stop it respectively. An example below introduces a button that starts the progress circle and stops it in 5 seconds.
-
-```js
-const guestConnection = await register({
-  id: "aem-headless-ui-ext-examples-progress-circle",
-  methods: {
-    headerMenu: {
-      getButton() {
-        return {
-          id: "progress-circle-action",
-          label: "Start circle",
-          icon: 'OpenIn'
-        };
-      },
-
-      onClick() {
-        guestConnection.host.progressCircle.start();
-        setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
-      }
-    },
-  }
-});
-```
-
-Please keep in mind, multiple extensions may use the progress circle simultaneously. The progress circle will not disappear until all involved extensions call `stop` method.
-
-**API Reference**
-
-| Method | Arguments  | Description |
-| ----- | -------- | ----------- |
-| start |  | Shows progress circle and blocks all user input |
-| stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
-
 ### Content Fragment Grid Columns
 
 The content fragement grid is area above below the action bar. It host the list of all the content fragments in the current view.
@@ -333,6 +294,75 @@ const guestConnection = await attach({
 
 guestConnection.host.modal.close();
 ```
+
+### Progress Circle
+
+A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
+
+![Action Bar](progress-circle.png)
+
+The API consist of two methods `start` and `stop` which allow to start the progress circle or stop it respectively. An example below introduces a button that starts the progress circle and stops it in 5 seconds.
+
+```js
+const guestConnection = await register({
+  id: "aem-headless-ui-ext-examples-progress-circle",
+  methods: {
+    headerMenu: {
+      getButton() {
+        return {
+          id: "progress-circle-action",
+          label: "Start circle",
+          icon: 'OpenIn'
+        };
+      },
+
+      onClick() {
+        guestConnection.host.progressCircle.start();
+        setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
+      }
+    },
+  }
+});
+```
+
+Please keep in mind, multiple extensions may use the progress circle simultaneously. The progress circle will not disappear until all involved extensions call `stop` method.
+
+**API Reference**
+
+| Method | Arguments  | Description |
+| ----- | -------- | ----------- |
+| start |  | Shows progress circle and blocks all user input |
+| stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
+
+### Toaster
+
+Content Fragments console provides an API for showing small informational messages (toasts) in the bottom part of the UI. These messages are meant to communicate errors, confirm actions and show other notifications to the user. Toaster API is defined in the `toaster` namespace.
+
+In order to display a message an extension must call `display` method in `toaster` namespace.
+
+```js
+import { register } from "@adobe/uix-guest";
+
+const guestConnection = await register({
+    id: "my.company.extension-with-taster",
+    {
+        //...
+    }
+}
+
+guestConnection.host.toaster.display({
+    variant: "positive",
+    message: "Toast displayed successfully!",
+})
+```
+
+**API Reference**
+
+| Field   | Type                                                        | Required | Description                                                                                                                      |
+|---------|-------------------------------------------------------------| -------- |----------------------------------------------------------------------------------------------------------------------------------|
+| variant | `neutral` <br /> `info` <br /> `negative` <br /> `positive` | ✔️    | Defines type of the message, based on this parameter message will be shown in a different color and different icon               |
+| message | `string`                                                    | ✔️    | Text of the message                                                                                                              |
+| timeout | `number`                                                    |     | An optional timeout in milliseconds when message should automatically disappear. If not set, default timeout value will be used. |
 
 ### Shared Context
 

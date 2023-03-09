@@ -182,44 +182,62 @@ At the moment an extension can only define a single button.
 | label | `string` | ✔️    | Button label that will be visible on UI |
 | icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 
-### Progress Circle
+### Content Fragment Grid Columns
 
-A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
-
-![Action Bar](progress-circle.png)
-
-The API consist of two methods `start` and `stop` which allow to start the progress circle or stop it respectively. An example below introduces a button that starts the progress circle and stops it in 5 seconds.
+The content fragement grid is area above below the action bar. It host the list of all the content fragments in the current view.
 
 ```js
 const guestConnection = await register({
   id: "aem-headless-ui-ext-examples-progress-circle",
   methods: {
-    headerMenu: {
-      getButton() {
-        return {
-          id: "progress-circle-action",
-          label: "Start circle",
-          icon: 'OpenIn'
-        };
-      },
-
-      onClick() {
-        guestConnection.host.progressCircle.start();
-        setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
-      }
+    contentFragmentGrid: {
+        getColumns() {
+        return [
+            {
+                key: "extended",
+                labelMessage: "Extended",
+                render: {
+                    type: 'mapToField'
+                    value: 'extended',
+                }
+            },
+            {
+                key: "second",
+                labelMessage: "From extension",
+                render: {
+                    type: 'fillWith',
+                    value: 'Extension was here'
+                }
+            }
+        ]
+        }
+    }
     },
   }
 });
 ```
 
-Please keep in mind, multiple extensions may use the progress circle simultaneously. The progress circle will not disappear until all involved extensions call `stop` method.
-
 **API Reference**
 
-| Method | Arguments  | Description |
-| ----- | -------- | ----------- |
-| start |  | Shows progress circle and blocks all user input |
-| stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
+| Field | Type | Required | Description |
+| ----- | ---- | -------- | ----------- |
+| key | `string` | ✔️      | Key of the column, must be unique between all extensions |
+| labelMessage | `string` | ✔️ | Label of the column as seen by the user |
+| sortable | `boolean` |  | Wether the column is sortable or not |
+| defaultSortOrder | `ascending`, `descending` | Default order in which to sort the column |
+| render | `RenderType` | | Configuration on how cell content should be rendered |
+
+**RenderType**
+
+| Field | Type | Required | Description |
+| ----- | ---- | -------- | ----------- |
+| type  | `fillWith`, `mapToField` | ✔️ | Type of rendering of the cell |
+| value | `string` | ✔️ | Value used in the rendering (see below) |
+
+Type of rendering:
+
+- `fillWith` will fill the cell with the value of the `value` property
+- `mapToField` will fill the cell with the value of the `value` property of each fragment
 
 ## Extension UI
 
@@ -276,6 +294,45 @@ const guestConnection = await attach({
 
 guestConnection.host.modal.close();
 ```
+
+### Progress Circle
+
+A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.
+
+![Action Bar](progress-circle.png)
+
+The API consist of two methods `start` and `stop` which allow to start the progress circle or stop it respectively. An example below introduces a button that starts the progress circle and stops it in 5 seconds.
+
+```js
+const guestConnection = await register({
+  id: "aem-headless-ui-ext-examples-progress-circle",
+  methods: {
+    headerMenu: {
+      getButton() {
+        return {
+          id: "progress-circle-action",
+          label: "Start circle",
+          icon: 'OpenIn'
+        };
+      },
+
+      onClick() {
+        guestConnection.host.progressCircle.start();
+        setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
+      }
+    },
+  }
+});
+```
+
+Please keep in mind, multiple extensions may use the progress circle simultaneously. The progress circle will not disappear until all involved extensions call `stop` method.
+
+**API Reference**
+
+| Method | Arguments  | Description |
+| ----- | -------- | ----------- |
+| start |  | Shows progress circle and blocks all user input |
+| stop |  | Stops progress circle and release user input if all other extensions stopped their progress circles |
 
 ### Toaster
 

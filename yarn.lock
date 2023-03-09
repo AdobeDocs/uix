@@ -141,7 +141,7 @@ __metadata:
   resolution: "@adobe/uix-docs@workspace:."
   dependencies:
     "@adobe/gatsby-theme-aio": ^4.8.3
-    gatsby: ^4.25.4
+    gatsby: ^4.25.5
     gh-pages: ^5.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -9961,9 +9961,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^4.25.4":
-  version: 4.25.4
-  resolution: "gatsby@npm:4.25.4"
+"gatsby@npm:^4.25.5":
+  version: 4.25.5
+  resolution: "gatsby@npm:4.25.5"
   dependencies:
     "@babel/code-frame": ^7.14.0
     "@babel/core": ^7.15.5
@@ -10139,7 +10139,7 @@ __metadata:
       optional: true
   bin:
     gatsby: ./cli.js
-  checksum: 724721048f4dc59188e9c0b176b40862b70544ef3f82174632ca1103bc5bc8c4e3fa7c023f6f42537bb3fafa9be3bc9756a86c4aff3a78c2f4d964bd2e3276b3
+  checksum: 9ea3d0d9e40b945590ce5d7d5e0d28b8d1f1c8c744f0079542ad3f7036720b243554535e7ad819e4055e6f5965e4d1bf6e2b54e3373267a5180b4976f1f3f8a8
   languageName: node
   linkType: hard
 

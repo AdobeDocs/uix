@@ -194,25 +194,18 @@ const guestConnection = await register({
         getColumns() {
         return [
             {
-                key: "extended",
-                labelMessage: "Extended",
-                render: {
-                    type: 'mapToField'
-                    value: 'extended',
-                }
-            },
-            {
-                key: "second",
-                labelMessage: "From extension",
-                render: {
-                    type: 'fillWith',
-                    value: 'Extension was here'
+                id: "extended",
+                label: "Extended",
+                render: async function (fragments) {
+                    return fragments.reduce((accumulator, fragment) => {
+                        accumulator[fragment.id] = fragment.name + '-extension-one';
+                        return accumulator;
+                    })
                 }
             }
         ]
         }
     }
-    },
   }
 });
 ```
@@ -225,19 +218,22 @@ const guestConnection = await register({
 | labelMessage | `string` | ✔️ | Label of the column as seen by the user |
 | sortable | `boolean` |  | Wether the column is sortable or not |
 | defaultSortOrder | `ascending`, `descending` | Default order in which to sort the column |
-| render | `RenderType` | | Configuration on how cell content should be rendered |
+| render | `function` | | Function that will be used to render the column |
 
-**RenderType**
+**Render Function**
 
-| Field | Type | Required | Description |
-| ----- | ---- | -------- | ----------- |
-| type  | `fillWith`, `mapToField` | ✔️ | Type of rendering of the cell |
-| value | `string` | ✔️ | Value used in the rendering (see below) |
+The render function will receive the list of fragment currently in the state of the application and will need to
+return an object with keys the id of the fragment (`frament.id`) and with property being of type `string`. If the value
+would be casted to `string`.
 
-Type of rendering:
-
-- `fillWith` will fill the cell with the value of the `value` property
-- `mapToField` will fill the cell with the value of the `value` property of each fragment
+```
+async function (fragments) {
+    return fragments.reduce((accumulator, fragment) => {
+        accumulator[fragment.id] = fragment.name + '-extension-one';
+        return accumulator;
+    })
+}
+```
 
 ## Extension UI
 

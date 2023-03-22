@@ -226,7 +226,7 @@ The render function will receive the list of fragment currently in the state of 
 return an object with keys the id of the fragment (`frament.id`) and with property being of type `string`. If the value
 would be casted to `string`.
 
-```
+```js
 async function (fragments) {
     return fragments.reduce((accumulator, fragment) => {
         accumulator[fragment.id] = fragment.name + '-extension-one';

@@ -6,7 +6,7 @@ contributors:
 ---
 # UI Extensions Development Flow
 
-The document provide high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
+The document provides high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
 
 ## Get access
 
@@ -101,7 +101,7 @@ We chose the `Merge` option for the `.env` file so that we don't lose our enviro
 
 After workgroup switching, we can make building and deploying with the command:
 
-```
+```shell
 $ aio app deploy
 
 √ Built 3 action(s) for 'aem/cf-console-admin/1'

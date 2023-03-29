@@ -2,7 +2,7 @@
 title: Step-by-step Extension Development
 description: Discover how to implement your first extension
 contributors:
-  - dx-devex-acceleration/uix-docs
+  - AdobeDocs/uix
 ---
 
 # Step-by-step AEM Content Fragments Console Extension Development

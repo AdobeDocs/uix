@@ -2,7 +2,7 @@
 title: UI Extensions Development Flow - UI Extensibility
 description: Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder
 contributors:
-  - dx-devex-acceleration/uix-docs
+  - AdobeDocs/uix
 ---
 # UI Extensions Development Flow
 

@@ -2,7 +2,7 @@
 title: Extension Points - AEM Content Fragments Console Extensibility
 description: Learn what is possible to extend and customize in AEM Content Fragments console
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - AdobeDocs/uix
 ---
 
 # AEM Content Fragments Console Extension Points

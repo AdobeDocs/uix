@@ -43,5 +43,3 @@ Widget window **MAY** call a `connection.host.rte.applyInstructions` method and 
 | ----- | ---- | ----------- |
 | `replaceContent` | `string` | Replaces current editor content with a content provided in `value` property |
 | `insertContent` | `string` | Inserts a content provided in `value` property in current carret position |
-
-

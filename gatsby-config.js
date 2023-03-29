@@ -112,7 +112,7 @@ module.exports = {
           {
             title: "Rich Text Editor Badges",
             path: "/services/aem-cf-editor/api/rte-badges/"
-          }
+          },
           {
             title: "Header Menu",
             path: "/services/aem-cf-editor/api/header-menu/"

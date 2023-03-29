@@ -176,25 +176,27 @@ function ExtensionRegistration() {
   useEffect(() => {
     const init = async () => {
       const guestConnection = await register({
-        id: "aem-headless-ui-ext-examples",
+        id: "my.company.extension-with-action-bar-button",
         methods: {
           actionBar: {
-            getButton() {
-              return {
-                id: "manage-language-copies",
-                label: "Manage Language Copies",
-                icon: 'PublishCheck',
-              };
-            },
-            onClick(selections) {
-              const url = "/index.html#" + generatePath("/content-fragment/:fragmentId/language-copies", {
-                fragmentId: encodeURIComponent(selections[0].id),
-              });
+            getButtons() {
+              return [
+                {
+                   id: "my.company.manage-language-copies",
+                   label: "Manage Language Copies",
+                   icon: 'PublishCheck', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
+                   onClick: (selections) => { // button's onClick callback
+                       const url = "/index.html#" + generatePath("/content-fragment/:fragmentId/language-copies", {
+                           fragmentId: encodeURIComponent(selections[0].id),
+                       });
 
-              guestConnection.host.modal.showUrl({
-                title: 'Manage Language Copy: ' + selections[0].name,
-                url: url,
-              })
+                       guestConnection.host.modal.showUrl({
+                           title: 'Manage Language Copy: ' + selections[0].name,
+                           url: url,
+                       })
+                   },
+                },
+              ];
             },
           },
           headerMenu: {...},
@@ -207,6 +209,8 @@ function ExtensionRegistration() {
 }
 ```
 
+More details about [declaration API](../api/).
+
 We use the [UIX SDK Guest library](https://github.com/adobe/uix-sdk) and call the `register` method, which connects to the host and declares methods the host can call. The `getButtons()` method describes the buttons which we want to add to the AEM admin panel.
 In our extension we would like to add two buttons, We define the title of each button, its icon, and an `onClick` handler that will be run inside of the application.
 
@@ -215,7 +219,7 @@ In the action bar, the handler receives selected [`content fragments`](https://e
 For displaying a popup, we use the `<GuestUIFrame />` component provided by [UIX SDK Guest library](https://github.com/adobe/uix-sdk).
 We indicate that we want to display the modal and specify the url at which the content should be loaded.
 
-Very similar declaration for the second button, but in a different namespace.
+Very similar declaration for the second button, but in a different namespace `headerMenu`.
 
 This component was also generated, you can modify it if you need to change or add new logic.
 
@@ -291,15 +295,22 @@ const guestConnection = await register({
   id: "aem-headless-ui-ext-examples",
   methods: {
     headerMenu: {
-      ...
-      onClick() {
-        guestConnection.host.modal.showUrl({
-          title: 'Header button modal title',
-          url: "/index.html#/modal-test-content",
-        })
-      }
+      getButtons() {
+          return [
+              {
+                  id: "my.company.export-button",
+                  // ...
+                  onClick() {
+                      guestConnection.host.modal.showUrl({
+                          title: 'Header button modal title',
+                          url: "/index.html#/modal-test-content",
+                      });
+                  },
+              },    
+          ];        
+      }, 
     },
-  }
+  },
 });
 ```
 

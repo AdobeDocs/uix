@@ -104,6 +104,10 @@ module.exports = {
           {
             title: "Rich Text Editor Toolbar",
             path: "/services/aem-cf-editor/api/rte-toolbar/"
+          },
+          {
+            title: "Header Menu",
+            path: "/services/aem-cf-editor/api/header-menu/"
           }
         ]
       }

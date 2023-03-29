@@ -108,10 +108,10 @@ const guestConnection = await register({
 | icon     | `string`                                                                    |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                      |
 
-
 # Extension Points API
 
 In our example, we used snippet:
+
 ```js
 const contentFragment = await guestConnection.host.contentFragment.getContentFragment();`
 ```

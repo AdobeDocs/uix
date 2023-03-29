@@ -74,7 +74,6 @@ init().catch(console.error)
 
 This `contentFragment` object holds the last received state from AEM instance. It does not contain recent changes from Editor (no edits form Canvas, sidebar or changes on Variations) **until they are successfully saved** in AEM.
 
-
 <InlineAlert variant="warning" slots="text" />
 
-The API is experimental and might change or disappear at any time. The result object structure is part of a low level API that could be changed in the future. 
+The API is experimental and might change or disappear at any time. The result object structure is part of a low level API that could be changed in the future.

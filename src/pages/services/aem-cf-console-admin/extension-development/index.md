@@ -49,6 +49,7 @@ And choose "App Builder":
 
 5. Fill the project data.
 ![Fill the project data](create-project-7.png)
+
 - `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
 - `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
 
@@ -60,10 +61,12 @@ The `Production` workspace is special, as it is used for the submission and dist
 ## Setting up local environment
 
 - [Node.js](https://nodejs.org/) + [npm (package manager)](https://www.npmjs.com/). Make sure you are using the latest stable version of `Node.js` and `npm`.
+
 ```shell
 $ node -v
  v16.15.1
 ```
+
 ```shell
 $ npm -v
 8.11.0
@@ -73,14 +76,18 @@ Make sure you are using the latest versions supported by Adobe IO when you creat
 
 - [Adobe I/O CLI](https://github.com/adobe/aio-cli). If you already have `Adobe I/O CLI` on your local, please ensure you use the latest version of the library.
 You can check the version through:
+- 
 ```shell
 aio -v
 ```
+
 and compare it with 
+
 ```shell
 npm show @adobe/aio-cli
 ```
-If your version is outdated, update your `Adobe I/O CLI` by running 
+If your version is outdated, update your `Adobe I/O CLI` by running
+
 ```shell
 npm install -g @adobe/aio-cli
 ```
@@ -97,6 +104,7 @@ After this step, we will have a generated project structure with necessary npm d
 If you have worked with an Adobe App Builder App before, you will notice that you have generated a starter project of a UI Extension that implements [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 
 ![App initialization finished](implement-application-1.png)
+
 ```yaml
 # app.config.yaml
 extensions:
@@ -319,6 +327,7 @@ const guestConnection = await register({
 const guestConnection = await attach({ id: "aem-headless-ui-ext-examples" });
 guestConnection.host.modal.close();
 ```
+
 Additional information can be found in [Connection Object section](../api/#connection-object).
 
 ## Additional logic
@@ -441,4 +450,4 @@ Also in this document you can find the whole development flow of a UI Extensions
 - [UI Extensions Development Flow](../../../guides/development-flow)
 - [UI Extensions Management](../../../guides/publication)
 - [Troubleshooting](../debug)
-- [FAQ](../../../overview/faq)      
+- [FAQ](../../../overview/faq)

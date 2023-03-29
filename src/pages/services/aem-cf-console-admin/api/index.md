@@ -253,6 +253,7 @@ A single button declaration with `getButton` and `onClick` methods is deprecated
 **ContentFragment API**
 
 The structure details can be found in `@aem-sites/headless-sdk`
+
 ```js
 import { ContentFragment } from "@aem-sites/headless-sdk";
 ```

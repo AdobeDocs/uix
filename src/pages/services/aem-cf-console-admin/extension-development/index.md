@@ -123,6 +123,7 @@ If necessary, you can find other bootstrap options in [Bootstrapping new App usi
 The root component `src/aem-cf-console-admin-1/web-src/src/components/App.js` contains the routing of our application. We always have this generated file.
 
 Our extension is responsible for rendering several things:
+
 - The logic of registering our extension (it's the second required part of the extension).
 - Any partial UI components that may render inside the host app, for example as the content of a pop-up when a button is clicked (optional).
 
@@ -337,7 +338,7 @@ Additional information can be found in [Connection Object section](../api/#conne
 To add additional logic, you can modify current components or add new ones.
 
 In our example, we have separated the UI logic and the logic of requests to the AEM instance.
-We have encapsulated all the requests in [App Builder actions](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application). 
+We have encapsulated all the requests in [App Builder actions](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application).
 That means that it could be reused by different views. Actions can also contain logic for making calls to any 3rd party system.
 
 ![Additional logic](additional-logic.png)
@@ -352,8 +353,8 @@ From the project directory, begin by running the following command:
 aio app run
 ```
 
-This command will create an action in Adobe I/O Runtime. 
-    
+This command will create an action in Adobe I/O Runtime.
+
 ```shell
 ➜  demo-extension-project % aio app run
   create .vscode/launch.json
@@ -367,7 +368,8 @@ To view your deployed application in the Experience Cloud shell:
 press CTRL+C to terminate dev environment
 ```
 
-Now your UI extension is reachable by the displayed URL on the Terminal. You can test your UI extension within your AEM Content Fragment Consle by passing the following parameters to your AEM Content Fragment Console URL:
+Now your UI extension is reachable by the displayed URL on the Terminal. You can test your UI extension within your AEM Content Fragment Console by passing the following parameters to your AEM Content Fragment Console URL:
+
 - repo (host name of AEM instance): `repo=author-p1234-e12345.adobeaemcloud.com`
 - ext (extension): `ext=https://localhost:9080`
 - devMode (development mode): `devMode=true`
@@ -436,11 +438,11 @@ Successful deployment 🏄
 
 Now your application is reachable by URL, printed in Terminal.
 You can use this URL for end-to-end testing.
- 
+
 We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
 ![Testing on Stage](run-on-stage-2.png)
 
-To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
+To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application)
 and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
 
 ## Deploy on Production and create approval request

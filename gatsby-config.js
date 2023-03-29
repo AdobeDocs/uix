@@ -104,6 +104,14 @@ module.exports = {
           {
             title: "Rich Text Editor Toolbar",
             path: "/services/aem-cf-editor/api/rte-toolbar/"
+          },
+          {
+            title: "Rich Text Editor Widgets",
+            path: "/services/aem-cf-editor/api/rte-widgets/"
+          },
+          {
+            title: "Rich Text Editor Badges",
+            path: "/services/aem-cf-editor/api/rte-badges/"
           }
         ]
       }

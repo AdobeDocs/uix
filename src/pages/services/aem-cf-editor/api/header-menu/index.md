@@ -115,4 +115,5 @@ In our example, we used snippet:
 ```js
 const contentFragment = await guestConnection.host.contentFragment.getContentFragment();`
 ```
+
 [More details](../index.md) about it and the other Extension Points API.

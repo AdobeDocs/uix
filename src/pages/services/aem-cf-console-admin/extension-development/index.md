@@ -54,7 +54,7 @@ And choose "App Builder":
 - `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
 
 After creating, you should see a new project generated with 2 default Workspaces.
-Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed. 
+Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed.
 The `Production` workspace is special, as it is used for the submission and distribution flow.
 ![A new project with 2 default Workspaces](create-project-8.png)
 
@@ -71,21 +71,23 @@ $ node -v
 $ npm -v
 8.11.0
 ```
+
 These are the current versions at the moment of creating the documentation.
 Make sure you are using the latest versions supported by Adobe IO when you create the application.
 
 - [Adobe I/O CLI](https://github.com/adobe/aio-cli). If you already have `Adobe I/O CLI` on your local, please ensure you use the latest version of the library.
 You can check the version through:
-- 
+
 ```shell
 aio -v
 ```
 
-and compare it with 
+and compare it with
 
 ```shell
 npm show @adobe/aio-cli
 ```
+
 If your version is outdated, update your `Adobe I/O CLI` by running
 
 ```shell
@@ -118,8 +120,6 @@ If necessary, you can find other bootstrap options in [Bootstrapping new App usi
 
 ### Routing
 
-
-
 The root component `src/aem-cf-console-admin-1/web-src/src/components/App.js` contains the routing of our application. We always have this generated file.
 
 Our extension is responsible for rendering several things:
@@ -129,6 +129,7 @@ Our extension is responsible for rendering several things:
 We will discuss these components in more detail in the points below.
 
 [React Routing](https://reactrouter.com/web/guides/quick-start) determines which part of the extension should be executed depending on the request.
+
 ```js
 import React from "react";
 import ErrorBoundary from "react-error-boundary";
@@ -281,6 +282,7 @@ The generated content will be displayed inside the popup.
 Finally, we need to mention that all of this UI uses the [React](https://reactjs.org/) and [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/) frameworks.
 
 ## Interaction between AEM host and application
+
 Above we said that the AEM host and the application can interact with each other. Let's look at a couple of examples.
 
 - Work with `sharedContext`.
@@ -331,18 +333,19 @@ guestConnection.host.modal.close();
 Additional information can be found in [Connection Object section](../api/#connection-object).
 
 ## Additional logic
+
 To add additional logic, you can modify current components or add new ones.
 
 In our example, we have separated the UI logic and the logic of requests to the AEM instance.
 We have encapsulated all the requests in [App Builder actions](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application). 
 That means that it could be reused by different views. Actions can also contain logic for making calls to any 3rd party system.
 
-
 ![Additional logic](additional-logic.png)
 
 **This is optional.** You only need to implement it if your use case requires it.
 
 ## Test on local environment
+
 From the project directory, begin by running the following command:
 
 ```shell
@@ -410,6 +413,7 @@ You are currently in:
 ```
 
 After that, we build and deploy declared actions and frontend files/assets:
+
 ```shell
 aio app deploy
 
@@ -431,7 +435,7 @@ Successful deployment 🏄
 ```
 
 Now your application is reachable by URL, printed in Terminal.
-You can use this URL for end-to-end testing.      
+You can use this URL for end-to-end testing.
  
 We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
 ![Testing on Stage](run-on-stage-2.png)
@@ -447,6 +451,7 @@ Refer to the [UI Extensions Development Flow](../../../guides/development-flow#d
 Also in this document you can find the whole development flow of a UI Extensions.
 
 ### Additional resources
+
 - [UI Extensions Development Flow](../../../guides/development-flow)
 - [UI Extensions Management](../../../guides/publication)
 - [Troubleshooting](../debug)

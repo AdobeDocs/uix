@@ -194,8 +194,8 @@ function ExtensionRegistration() {
                 {
                    id: "my.company.manage-language-copies",
                    label: "Manage Language Copies",
-                   icon: 'PublishCheck', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
-                   onClick: (selections) => { // button's onClick callback
+                   icon: 'PublishCheck',
+                   onClick: (selections) => {
                        const url = "/index.html#" + generatePath("/content-fragment/:fragmentId/language-copies", {
                            fragmentId: encodeURIComponent(selections[0].id),
                        });
@@ -229,7 +229,7 @@ In the action bar, the handler receives selected [`content fragments`](https://e
 For displaying a popup, we use the `<GuestUIFrame />` component provided by [UIX SDK Guest library](https://github.com/adobe/uix-sdk).
 We indicate that we want to display the modal and specify the url at which the content should be loaded.
 
-Very similar declaration for the second button, but in a different namespace `headerMenu`.
+The declaration for the second button is very similar, but in the namespace `headerMenu` instead of `actionBar`.
 
 This component was also generated, you can modify it if you need to change or add new logic.
 

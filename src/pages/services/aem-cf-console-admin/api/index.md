@@ -61,8 +61,8 @@ const guestConnection = await register({
                     {
                         id: "my.company.export-button",
                         label: "Export",
-                        icon: 'Export', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
-                        onClick: () => { // button's onClick callback
+                        icon: 'Export',
+                        onClick: () => {
                             console.log('Export button has been pressed.');
                         },
                     },
@@ -89,7 +89,7 @@ const guestConnection = await register({
                     {
                         id: "my.company.export-button",
                         label: "Export",
-                        icon: 'Export', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
+                        icon: 'Export',
                         subItems: [
                             {
                                 id: 'xml',
@@ -116,24 +116,24 @@ const guestConnection = await register({
 });
 ```
 
-The `onClick` callback is invoked when user clicks on the button and does not receive any extra parameters.
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
 
 <InlineAlert variant="warning" slots="text" />
 
-A single button declaration with `getButton` and `onClick` methods is deprecated.
+The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
 
 #### API Reference
 
 **Button API**
 
-| Field    | Type                                                                        | Required | Description                                                                                               |
-|----------|-----------------------------------------------------------------------------| ------ |-----------------------------------------------------------------------------------------------------------|
-| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding vendor prefix to this field                     |
-| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                   |
-| icon     | `string`                                                                    |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
-| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                         |
-| subItems | `array`                                                                     |    | A lsit with sub menu items                                                                                |
-| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                   |
+| Field    | Type                                                                        | Required | Description                                                                                                                   |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
+| subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
+| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
 
 **Sub menu item API**
 
@@ -141,7 +141,7 @@ A single button declaration with `getButton` and `onClick` methods is deprecated
 |----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------|
 | id       | `string`                                                                    | ✔️  | **Must be unique** across the current button sub menu                                                       |
 | label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                     |
-| icon     | `string`                                                                    |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                     |
 
 ### Action Bar
@@ -168,8 +168,8 @@ const guestConnection = await register({
                     {
                         id: "my.company.export-button",
                         label: "Export",
-                        icon: 'Export', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
-                        onClick: (selections) => { // button's onClick callback
+                        icon: 'Export',
+                        onClick: (selections) => {
                             console.log('Export button has been pressed', selections);
                         },
                     },
@@ -196,7 +196,7 @@ const guestConnection = await register({
                     {
                         id: "my.company.export-button",
                         label: "Export",
-                        icon: 'Export', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
+                        icon: 'Export',
                         subItems: [
                             {
                                 id: 'xml',
@@ -227,19 +227,19 @@ The callback is invoked when user clicks on the button and receives list of cont
 
 <InlineAlert variant="warning" slots="text" />
 
-A single button declaration with `getButton` and `onClick` methods is deprecated.
+The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
 
 #### API Reference
 
 **Button API**
 
-| Field    | Type                                                                        | Required | Description                                                                                                 |
-|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------|
-| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding vendor prefix to this field                       |
-| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                     |
-| icon     | `string`                                                                    |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
-| subItems | `array`                                                                     |    | A lsit with sub menu items                                                                                  |
-| onClick  | `callback(selections): void`                                                          |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list            |
+| Field    | Type                                                                        | Required | Description                                                                                                                   |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
+| onClick  | `callback(selections): void`                                                          |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list                              |
 
 **Sub menu item API**
 
@@ -247,20 +247,12 @@ A single button declaration with `getButton` and `onClick` methods is deprecated
 |----------|------------------------------| ------ |--------------------------------------------------------------------------------------------------------------|
 | id       | `string`                     | ✔️  | **Must be unique** across the current button sub menu                                                        |
 | label    | `string`                     | ✔️  | Button label that will be visible on UI                                                                      |
-| icon     | `string`                     |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
+| icon     | `string`                     |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
 | onClick  | `callback(selections): void` |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list             |
-
-**ContentFragment API**
-
-The structure details can be found in `@aem-sites/headless-sdk`
-
-```js
-import { ContentFragment } from "@aem-sites/headless-sdk";
-```
 
 ### Content Fragment Grid Columns
 
-The content fragment grid is area above below the action bar. It host the list of all the content fragments in the current view.
+The content fragment grid is area above below the action bar. It contains the list of all the content fragments in the current view.
 
 ```js
 const guestConnection = await register({
@@ -386,7 +378,7 @@ const guestConnection = await register({
             id: "my.company.progress-circle-action",
             label: "Start circle",
             icon: 'OpenIn',
-            onClick: () => { // button's onClick callback
+            onClick: () => {
               guestConnection.host.progressCircle.start();
               setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
             },

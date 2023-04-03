@@ -40,7 +40,7 @@ Available shared context data:
 
 ### Get Content Fragment
 
-You can access data about the Content Fragment that is currently being edited by using API method in an extension:
+You can access data about the Content Fragment that is currently being edited by using the `host.contentFragment.getContentFragment()` method in an extension:
 
 ```js
 import { register } from "@adobe/uix-guest";
@@ -72,7 +72,7 @@ init().catch(console.error)
 
 #### Result object
 
-This `contentFragment` object holds the last received state from AEM instance. It does not contain recent changes from Editor (no edits form Canvas, sidebar or changes on Variations) **until they are successfully saved** in AEM.
+This `contentFragment` object holds the last received state from AEM instance. It does not contain recent changes from the Editor (no edits from the canvas, sidebar or changes to variations) **until they are successfully saved** in AEM.
 
 <InlineAlert variant="warning" slots="text" />
 

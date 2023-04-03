@@ -25,8 +25,8 @@ const guestConnection = await register({
                     {
                         id: "my.company.export-button",
                         label: "Export",
-                        icon: 'Export', // Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
-                        onClick: () => { // button's onClick callback
+                        icon: 'Export',
+                        onClick: () => {
                             console.log('Export button has been pressed.');
                         },
                     },
@@ -37,7 +37,7 @@ const guestConnection = await register({
 });
 ```
 
-The `onClick` callback is invoked when user clicks on the button and does not receive any extra parameters.
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
 
 ![Header menu item](./header-menu-item.png)
 
@@ -90,30 +90,24 @@ const guestConnection = await register({
 
 **Button API**
 
-| Field    | Type                                                                        | Required | Description                                                                                                   |
-|----------|-----------------------------------------------------------------------------| ------ |---------------------------------------------------------------------------------------------------------------|
-| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding vendor prefix to this field                         |
-| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                       |
-| icon     | `string`                                                                    |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
-| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                             |
-| subItems | `array`                                                                     |    | A lsit with sub menu items.                                                                                   |
-| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                       |
+| Field    | Type                                                                        | Required | Description                                                                                                                   |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
+| subItems | `array`                                                                     |    | A list with sub menu items.                                                                                                   |
+| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
 
 **Sub menu item API**
 
-| Field    | Type                                                                        | Required | Description                                                                                                  |
-|----------|-----------------------------------------------------------------------------| ------ |--------------------------------------------------------------------------------------------------------------|
-| id       | `string`                                                                    | ✔️  | **Must be unique** across the current button sub menu                                                        |
-| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                      |
-| icon     | `string`                                                                    |    | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
-| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                      |
+| Field    | Type                                                                    | Required | Description                                                                                                  |
+|----------|-------------------------------------------------------------------------| ------ |--------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                | ✔️  | **Must be unique** across the current button sub menu                                                        |
+| label    | `string`                                                                | ✔️  | Button label that will be visible on UI                                                                      |
+| icon     | `string`                                                                |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| onClick  | `callback(): void`                                                      |  ✔️ | A callback for a button `onClick` event                                                                      |
 
 # Extension Points API
 
-In our example, we used snippet:
-
-```js
-const contentFragment = await guestConnection.host.contentFragment.getContentFragment();`
-```
-
-[More details](../index.md) about it and the other Extension Points API.
+[More details](../index.md) about Extension Points APIs.

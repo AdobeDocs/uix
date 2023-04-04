@@ -1,4 +1,3 @@
----
 version: 2
 updates:
   # Enable version updates for npm
@@ -8,6 +7,8 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
+    allow:
+      - dependency-name: "@adobe/gatsby-theme-aio"
     versioning-strategy: increase
     open-pull-requests-limit: 25
     labels:
@@ -15,8 +16,3 @@ updates:
     ignore:
       # Ignore updates to package
       - dependency-name: "gatsby"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "react"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "react-dom"
-        update-types: ["version-update:semver-major"]

@@ -16,7 +16,7 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
       id: "test-id",
       text: "Test button", //optional text near button
       tooltip: "Button alt text",
-      icon: 'Airplane', //Spectrum workflow icon code from https://spectrum.adobe.com/page/icons/
+      icon: 'Airplane',
       onClick: (state) => {
         return [{
           type: "replaceContent",

@@ -2,7 +2,7 @@
 title: Extension Points - AEM Content Fragments Console Extensibility
 description: Learn what is possible to extend and customize in AEM Content Fragments console
 contributors:
-  - https://git.corp.adobe.com/dx-devex-acceleration/uix-docs
+  - AdobeDocs/uix
 ---
 
 # AEM Content Fragments Console Extension Points
@@ -45,7 +45,7 @@ Header Menu is area above Content Fragments list meant for action items unrelate
 
 Header menu can be customized via methods defined in `headerMenu` namespace.
 
-First, define your button in getButton method:
+#### Custom button with callback
 
 ```js
 import { register } from "@adobe/uix-guest";
@@ -56,60 +56,93 @@ const guestConnection = await register({
     id: "my.company.extension-with-header-menu-button",
     methods: {
         headerMenu: {
-            getButton() {
-                return {
-                    id: "import",
-                    label: "Import",
-                    icon: 'OpenIn',
-                };
-            }
-        },
-    }
-});
-```
-
-This method must define button unique ID and label.
-
-Now, you can define button's callback in onClick method.
-
-```js
-import { register } from "@adobe/uix-guest";
-
-// ...
-
-const guestConnection = await register({
-    id: "my.company.extension-with-header-menu-button",
-    methods: {
-        headerMenu: {
-            getButton() {
-                return {
-                    id: "import",
-                    label: "Import",
-                    icon: 'OpenIn',
-                };
+            getButtons() {
+                return [
+                    {
+                        id: "my.company.export-button",
+                        label: "Export",
+                        icon: 'Export',
+                        onClick: () => {
+                            console.log('Export button has been pressed.');
+                        },
+                    },
+                ];
             },
-            onClick() {
-                console.log('Import button has been pressed');
-            }
         },
-    }
+    },
 });
 ```
 
-The callback is invoked when user clicks on the button and does not receive any extra parameters.
+#### Custom button with sub menu
+
+```js
+import { register } from "@adobe/uix-guest";
+
+// ...
+
+const guestConnection = await register({
+    id: "my.company.extension-with-header-menu-button",
+    methods: {
+        headerMenu: {
+            getButtons() {
+                return [
+                    {
+                        id: "my.company.export-button",
+                        label: "Export",
+                        icon: 'Export',
+                        subItems: [
+                            {
+                                id: 'xml',
+                                label: 'XML',
+                                onClick: async () => {
+                                    console.log('Export in XML button has been pressed.');
+                                    // ...
+                                },
+                            },
+                            {
+                                id: 'csv',
+                                label: 'CSV',
+                                onClick: async () => {
+                                    console.log('Export in CSV button has been pressed.');
+                                    // ...
+                                },
+                            },
+                        ],
+                    },
+                ];
+            },
+        },
+    },
+});
+```
+
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
 
 <InlineAlert variant="warning" slots="text" />
 
-At the moment an extension can only define a single button.
+The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
 
-**API Reference**
+#### API Reference
 
-| Field | Type | Required | Description |
-| ----- | ---- | -------- | ----------- |
-| id | `string` | ✔️    | **Must be unique** across all extensions. Consider adding vendor prefix to this field. |
-| label | `string` | ✔️    | Button label that will be visible on UI |
-| icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
-| variant | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button |
+**Button API**
+
+| Field    | Type                                                                        | Required | Description                                                                                                                   |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
+| subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
+| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
+
+**Sub menu item API**
+
+| Field    | Type                                                                        | Required | Description                                                                                                 |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across the current button sub menu                                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                     |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                     |
 
 ### Action Bar
 
@@ -117,9 +150,9 @@ Action Bar is area above content fragment list meant for action items which can 
 
 ![Action Bar](action-bar.png)
 
-Header menu can be customized via methods defined in `actionBar` namespace.
+Action bar can be customized via methods defined in `actionBar` namespace.
 
-First, define your button in getButton method:
+#### Custom button with callback
 
 ```js
 import { register } from "@adobe/uix-guest";
@@ -129,20 +162,25 @@ import { register } from "@adobe/uix-guest";
 const guestConnection = await register({
     id: "my.company.extension-with-action-bar-button",
     methods: {
-        headerMenu: {
-            getButton() {
-                return {
-                    id: "export",
-                    label: "Export",
-                    icon: 'OpenIn',
-                };
-            }
+        actionBar: {
+            getButtons() {
+                return [
+                    {
+                        id: "my.company.export-button",
+                        label: "Export",
+                        icon: 'Export',
+                        onClick: (selections) => {
+                            console.log('Export button has been pressed', selections);
+                        },
+                    },
+                ];
+            },
         },
-    }
+    },
 });
 ```
 
-This method must define unique ID and button label. Now, you can define button's callback in onClick method.
+#### Custom button with sub menu
 
 ```js
 import { register } from "@adobe/uix-guest";
@@ -152,19 +190,36 @@ import { register } from "@adobe/uix-guest";
 const guestConnection = await register({
     id: "my.company.extension-with-action-bar-button",
     methods: {
-        headerMenu: {
-            getButton() {
-                return {
-                    id: "export",
-                    label: "Export",
-                    icon: 'OpenIn',
-                };
+        actionBar: {
+            getButtons() {
+                return [
+                    {
+                        id: "my.company.export-button",
+                        label: "Export",
+                        icon: 'Export',
+                        subItems: [
+                            {
+                                id: 'xml',
+                                label: 'XML',
+                                onClick: (selections) => {
+                                    console.log('Export in XML button has been pressed.', selections);
+                                    // ...
+                                },
+                            },
+                            {
+                                id: 'csv',
+                                label: 'CSV',
+                                onClick: (selections) => {
+                                    console.log('Export in CSV button has been pressed.', selections);
+                                    // ...
+                                },
+                            },
+                        ],
+                    },
+                ];
             },
-            onClick: (selection) => {
-                console.log('Export button has been pressed', {selection});
-            }
         },
-    }
+    },
 });
 ```
 
@@ -172,19 +227,32 @@ The callback is invoked when user clicks on the button and receives list of cont
 
 <InlineAlert variant="warning" slots="text" />
 
-At the moment an extension can only define a single button.
+The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
 
-**API Reference**
+#### API Reference
 
-| Field | Type | Required | Description |
-| ----- | ---- | -------- | ----------- |
-| id | `string` | ✔️    | **Must be unique** across all extensions. Consider adding vendor prefix to this field. |
-| label | `string` | ✔️    | Button label that will be visible on UI |
-| icon | `string` |     | An icon field accepts workflow icon code from @spectrum-icons library - https://spectrum.adobe.com/page/icons/ |
+**Button API**
+
+| Field    | Type                                                                        | Required | Description                                                                                                                   |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
+| onClick  | `callback(selections): void`                                                          |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list                              |
+
+**Sub menu item API**
+
+| Field    | Type                         | Required | Description                                                                                                  |
+|----------|------------------------------| ------ |--------------------------------------------------------------------------------------------------------------|
+| id       | `string`                     | ✔️  | **Must be unique** across the current button sub menu                                                        |
+| label    | `string`                     | ✔️  | Button label that will be visible on UI                                                                      |
+| icon     | `string`                     |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| onClick  | `callback(selections): void` |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list             |
 
 ### Content Fragment Grid Columns
 
-The content fragement grid is area above below the action bar. It host the list of all the content fragments in the current view.
+The content fragment grid is area above below the action bar. It contains the list of all the content fragments in the current view.
 
 ```js
 const guestConnection = await register({
@@ -304,20 +372,21 @@ const guestConnection = await register({
   id: "aem-headless-ui-ext-examples-progress-circle",
   methods: {
     headerMenu: {
-      getButton() {
-        return {
-          id: "progress-circle-action",
-          label: "Start circle",
-          icon: 'OpenIn'
-        };
+      getButtons() {
+        return [
+          {
+            id: "my.company.progress-circle-action",
+            label: "Start circle",
+            icon: 'OpenIn',
+            onClick: () => {
+              guestConnection.host.progressCircle.start();
+              setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
+            },
+          },
+        ];
       },
-
-      onClick() {
-        guestConnection.host.progressCircle.start();
-        setTimeout(() => guestConnection.host.progressCircle.stop(), 5000);
-      }
     },
-  }
+  },
 });
 ```
 

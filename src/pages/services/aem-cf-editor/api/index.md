@@ -37,3 +37,43 @@ Available shared context data:
     }
 }
 ```
+
+### Get Content Fragment
+
+You can access data about the Content Fragment that is currently being edited by using the `host.contentFragment.getContentFragment()` method in an extension:
+
+```js
+import { register } from "@adobe/uix-guest";
+// ...
+const init = async () => {
+    const registrationConfig = {
+        id: extensionId,
+        methods: {
+            headerMenu: {
+                async getButtons() {
+                    return [
+                        {
+                            id: "get-active-cf",
+                            label: "Get Active CF / Canvas",
+                            onClick: async () => {
+                                // Get Content Fragment
+                                const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
+                            },
+                        },
+                    ];
+                },
+            },
+        },
+    };
+    const guestConnection = await register(registrationConfig);
+}
+init().catch(console.error)
+```
+
+#### Result object
+
+This `contentFragment` object holds the last received state from AEM instance. It does not contain recent changes from the Editor (no edits from the canvas, sidebar or changes to variations) **until they are successfully saved** in AEM.
+
+<InlineAlert variant="warning" slots="text" />
+
+The API is experimental and might change or disappear at any time. The result object structure is part of a low level API that could be changed in the future.

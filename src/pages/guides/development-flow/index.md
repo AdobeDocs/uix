@@ -2,15 +2,16 @@
 title: UI Extensions Development Flow - UI Extensibility
 description: Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder
 contributors:
-  - dx-devex-acceleration/uix-docs
+  - AdobeDocs/uix
 ---
 # UI Extensions Development Flow
 
-The document provide high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
+The document provides high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
 
 ## Get access
 
 To start writing UI Extensions you will need the:
+
 1. Access to service that we are about to extend, e.g. [Content Fragment Console](../../services/aem-cf-console-admin) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
 2. Access to App Builder, which we will use to create an extension.
 3. Assign developer roles to these IMS organization members who will create UI Extensions.
@@ -24,7 +25,7 @@ UI Extensions, as any App Builder application, are represented as projects in [A
 
 Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products.
 
-Each App Builder project has two default workspaces: `Production` and `Stage` which you may use during different life cycles of your project. You can add more workspaces for feature development as needed. 
+Each App Builder project has two default workspaces: `Production` and `Stage` which you may use during different life cycles of your project. You can add more workspaces for feature development as needed.
 The `Production` workspace is special, as it is used for the submission and distribution flow.
 
 ## Initialize our application using the CLI for local development
@@ -40,15 +41,14 @@ If necessary, you can find other options in [Bootstrapping new App using the CLI
 Once you complete, you should see the build process with necessary npm dependencies are getting installed.
 
 Also, [base project structure](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application) will be generated.
-    
+
 ```shell
 Sample code files have been generated.
     
 Next steps:
 1) Populate your local environment variables in the ".env" file
 2) You can use `aio app run` or `aio app deploy` to see the sample code files in action
-    
-    
+
 ✔ Finished running template @adobe/aem-cf-admin-ui-ext-tpl
 ✔ Installed template @adobe/aem-cf-admin-ui-ext-tpl
 Project initialized for Workspace Stage, you can run 'aio app use -w <workspace>' to switch workspace.
@@ -62,6 +62,7 @@ During project initialization, you will be able to select a specific template fo
 
 As the next step, we need to implement a logic which will use existing [Extension Points](../../services/aem-cf-console-admin/api) and provide necessary functionality.
 UI Extensions has default structure and preselected technology stack such as [React Spectrum](https://developer.adobe.com/app-builder/docs/resources/spectrum-intro/lesson3/) but developers are free to choose tools that they prefer to. The only requirements to make a proper UI Extension:
+
 1. Supply configuration file that will declare application as an [extension](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 2. Use `@adobe/uix-guest` library for proper UI Extension initialization and interaction with Adobe service.
 
@@ -72,6 +73,7 @@ After development is done you may check yor application locally (`aio app run`) 
 Once you've started or deployed application  AIO CLI will return you an extension endpoint URL that you may use to embed UI Extension into production Adobe Service. As it is not always suitable to test extensions with production data, extensible service as well provide configuration parameters that allows to change data source. For example, AEM Content Fragments Console [allows to target development environment](../../services/aem-cf-console-admin/debug/).
 
 ## Deploy on Production
+
 After the application has been completed, tested locally or on `Stage`, we are ready to deploy it to `Production`.
 
 The process is the same as for deploying to `Stage`, but first you need to switch the workgroup to `Production`.
@@ -93,11 +95,13 @@ You are currently in:
 2. Project: 562TurquoiseShrimp
 3. Workspace: Production.
 ```
-**Note:** 
+
+**Note:**
 We chose the `Merge` option for the `.env` file so that we don't lose our environment variables.
 
 After workgroup switching, we can make building and deploying with the command:
-```
+
+```shell
 $ aio app deploy
 
 √ Built 3 action(s) for 'aem/cf-console-admin/1'
@@ -118,6 +122,7 @@ Successful deployment 🏄
 ```
 
 ## Create approval request
+
 When you’re ready to publish your app, you will submit it for an approval from the Production workspace.
 ![Publishing](publishing-1.png)
 
@@ -131,6 +136,7 @@ This means, that the new functionality will be available, for example, in the AE
 These steps are described in more detail in [UI Extensions Management](../publication).
 
 ## Additional resources
+
 - [Step-by-step Extension Development Guide](../../services/aem-cf-console-admin/extension-development/)
 - [UI Extensibility Overview](../../)
 - [FAQ](../../overview/faq/)

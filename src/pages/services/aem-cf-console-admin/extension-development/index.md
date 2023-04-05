@@ -2,7 +2,7 @@
 title: Step-by-step Extension Development
 description: Discover how to implement your first extension
 contributors:
-  - dx-devex-acceleration/uix-docs
+  - AdobeDocs/uix
 ---
 
 # Step-by-step AEM Content Fragments Console Extension Development
@@ -49,38 +49,47 @@ And choose "App Builder":
 
 5. Fill the project data.
 ![Fill the project data](create-project-7.png)
+
 - `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
 - `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
 
 After creating, you should see a new project generated with 2 default Workspaces.
-Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed. 
+Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed.
 The `Production` workspace is special, as it is used for the submission and distribution flow.
 ![A new project with 2 default Workspaces](create-project-8.png)
 
 ## Setting up local environment
 
 - [Node.js](https://nodejs.org/) + [npm (package manager)](https://www.npmjs.com/). Make sure you are using the latest stable version of `Node.js` and `npm`.
+
 ```shell
 $ node -v
  v16.15.1
 ```
+
 ```shell
 $ npm -v
 8.11.0
 ```
+
 These are the current versions at the moment of creating the documentation.
 Make sure you are using the latest versions supported by Adobe IO when you create the application.
 
 - [Adobe I/O CLI](https://github.com/adobe/aio-cli). If you already have `Adobe I/O CLI` on your local, please ensure you use the latest version of the library.
 You can check the version through:
+
 ```shell
 aio -v
 ```
-and compare it with 
+
+and compare it with
+
 ```shell
 npm show @adobe/aio-cli
 ```
-If your version is outdated, update your `Adobe I/O CLI` by running 
+
+If your version is outdated, update your `Adobe I/O CLI` by running
+
 ```shell
 npm install -g @adobe/aio-cli
 ```
@@ -97,6 +106,7 @@ After this step, we will have a generated project structure with necessary npm d
 If you have worked with an Adobe App Builder App before, you will notice that you have generated a starter project of a UI Extension that implements [extension points](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 
 ![App initialization finished](implement-application-1.png)
+
 ```yaml
 # app.config.yaml
 extensions:
@@ -110,17 +120,17 @@ If necessary, you can find other bootstrap options in [Bootstrapping new App usi
 
 ### Routing
 
-
-
 The root component `src/aem-cf-console-admin-1/web-src/src/components/App.js` contains the routing of our application. We always have this generated file.
 
 Our extension is responsible for rendering several things:
+
 - The logic of registering our extension (it's the second required part of the extension).
 - Any partial UI components that may render inside the host app, for example as the content of a pop-up when a button is clicked (optional).
 
 We will discuss these components in more detail in the points below.
 
 [React Routing](https://reactrouter.com/web/guides/quick-start) determines which part of the extension should be executed depending on the request.
+
 ```js
 import React from "react";
 import ErrorBoundary from "react-error-boundary";
@@ -176,25 +186,27 @@ function ExtensionRegistration() {
   useEffect(() => {
     const init = async () => {
       const guestConnection = await register({
-        id: "aem-headless-ui-ext-examples",
+        id: "my.company.extension-with-action-bar-button",
         methods: {
           actionBar: {
-            getButton() {
-              return {
-                id: "manage-language-copies",
-                label: "Manage Language Copies",
-                icon: 'PublishCheck',
-              };
-            },
-            onClick(selections) {
-              const url = "/index.html#" + generatePath("/content-fragment/:fragmentId/language-copies", {
-                fragmentId: encodeURIComponent(selections[0].id),
-              });
+            getButtons() {
+              return [
+                {
+                   id: "my.company.manage-language-copies",
+                   label: "Manage Language Copies",
+                   icon: 'PublishCheck',
+                   onClick: (selections) => {
+                       const url = "/index.html#" + generatePath("/content-fragment/:fragmentId/language-copies", {
+                           fragmentId: encodeURIComponent(selections[0].id),
+                       });
 
-              guestConnection.host.modal.showUrl({
-                title: 'Manage Language Copy: ' + selections[0].name,
-                url: url,
-              })
+                       guestConnection.host.modal.showUrl({
+                           title: 'Manage Language Copy: ' + selections[0].name,
+                           url: url,
+                       })
+                   },
+                },
+              ];
             },
           },
           headerMenu: {...},
@@ -207,6 +219,8 @@ function ExtensionRegistration() {
 }
 ```
 
+More details about [declaration API](../api/).
+
 We use the [UIX SDK Guest library](https://github.com/adobe/uix-sdk) and call the `register` method, which connects to the host and declares methods the host can call. The `getButtons()` method describes the buttons which we want to add to the AEM admin panel.
 In our extension we would like to add two buttons, We define the title of each button, its icon, and an `onClick` handler that will be run inside of the application.
 
@@ -215,7 +229,7 @@ In the action bar, the handler receives selected [`content fragments`](https://e
 For displaying a popup, we use the `<GuestUIFrame />` component provided by [UIX SDK Guest library](https://github.com/adobe/uix-sdk).
 We indicate that we want to display the modal and specify the url at which the content should be loaded.
 
-Very similar declaration for the second button, but in a different namespace.
+The declaration for the second button is very similar, but in the namespace `headerMenu` instead of `actionBar`.
 
 This component was also generated, you can modify it if you need to change or add new logic.
 
@@ -269,6 +283,7 @@ The generated content will be displayed inside the popup.
 Finally, we need to mention that all of this UI uses the [React](https://reactjs.org/) and [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/) frameworks.
 
 ## Interaction between AEM host and application
+
 Above we said that the AEM host and the application can interact with each other. Let's look at a couple of examples.
 
 - Work with `sharedContext`.
@@ -291,15 +306,22 @@ const guestConnection = await register({
   id: "aem-headless-ui-ext-examples",
   methods: {
     headerMenu: {
-      ...
-      onClick() {
-        guestConnection.host.modal.showUrl({
-          title: 'Header button modal title',
-          url: "/index.html#/modal-test-content",
-        })
-      }
+      getButtons() {
+          return [
+              {
+                  id: "my.company.export-button",
+                  // ...
+                  onClick() {
+                      guestConnection.host.modal.showUrl({
+                          title: 'Header button modal title',
+                          url: "/index.html#/modal-test-content",
+                      });
+                  },
+              },    
+          ];        
+      }, 
     },
-  }
+  },
 });
 ```
 
@@ -308,29 +330,31 @@ const guestConnection = await register({
 const guestConnection = await attach({ id: "aem-headless-ui-ext-examples" });
 guestConnection.host.modal.close();
 ```
+
 Additional information can be found in [Connection Object section](../api/#connection-object).
 
 ## Additional logic
+
 To add additional logic, you can modify current components or add new ones.
 
 In our example, we have separated the UI logic and the logic of requests to the AEM instance.
-We have encapsulated all the requests in [App Builder actions](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application). 
+We have encapsulated all the requests in [App Builder actions](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application).
 That means that it could be reused by different views. Actions can also contain logic for making calls to any 3rd party system.
-
 
 ![Additional logic](additional-logic.png)
 
 **This is optional.** You only need to implement it if your use case requires it.
 
 ## Test on local environment
+
 From the project directory, begin by running the following command:
 
 ```shell
 aio app run
 ```
 
-This command will create an action in Adobe I/O Runtime. 
-    
+This command will create an action in Adobe I/O Runtime.
+
 ```shell
 ➜  demo-extension-project % aio app run
   create .vscode/launch.json
@@ -344,7 +368,8 @@ To view your deployed application in the Experience Cloud shell:
 press CTRL+C to terminate dev environment
 ```
 
-Now your UI extension is reachable by the displayed URL on the Terminal. You can test your UI extension within your AEM Content Fragment Consle by passing the following parameters to your AEM Content Fragment Console URL:
+Now your UI extension is reachable by the displayed URL on the Terminal. You can test your UI extension within your AEM Content Fragment Console by passing the following parameters to your AEM Content Fragment Console URL:
+
 - repo (host name of AEM instance): `repo=author-p1234-e12345.adobeaemcloud.com`
 - ext (extension): `ext=https://localhost:9080`
 - devMode (development mode): `devMode=true`
@@ -390,6 +415,7 @@ You are currently in:
 ```
 
 After that, we build and deploy declared actions and frontend files/assets:
+
 ```shell
 aio app deploy
 
@@ -411,12 +437,12 @@ Successful deployment 🏄
 ```
 
 Now your application is reachable by URL, printed in Terminal.
-You can use this URL for end-to-end testing.      
- 
+You can use this URL for end-to-end testing.
+
 We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
 ![Testing on Stage](run-on-stage-2.png)
 
-To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application) 
+To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application)
 and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).
 
 ## Deploy on Production and create approval request
@@ -427,7 +453,8 @@ Refer to the [UI Extensions Development Flow](../../../guides/development-flow#d
 Also in this document you can find the whole development flow of a UI Extensions.
 
 ### Additional resources
+
 - [UI Extensions Development Flow](../../../guides/development-flow)
 - [UI Extensions Management](../../../guides/publication)
 - [Troubleshooting](../debug)
-- [FAQ](../../../overview/faq)      
+- [FAQ](../../../overview/faq)

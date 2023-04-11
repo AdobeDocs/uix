@@ -75,6 +75,10 @@ module.exports = {
         title: "Set Up Local Environment",
         path: "/guides/local-environment/"
       },
+      {
+        title: "Local Preview of UI Extensions",
+        path: "/guides/preview-extension-locally/"
+      },
       // Services
       {
         title: "Extensible Services",

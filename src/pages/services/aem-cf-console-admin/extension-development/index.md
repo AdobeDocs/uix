@@ -353,7 +353,7 @@ From the project directory, begin by running the following command:
 aio app run
 ```
 
-This command will create an action in Adobe I/O Runtime.
+This will deploy the actions to Adobe I/O Runtime, while running the UI part on the local machine.
 
 ```shell
 ➜  demo-extension-project % aio app run

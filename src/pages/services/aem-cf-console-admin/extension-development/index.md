@@ -14,10 +14,10 @@ The document helps you understand how to set up local environment and start deve
 This example application will use two extension points provided by the [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html).
 We would like to add two buttons. The first button will be added the header menu:
 
-![Header menu extension point](../api/header-menu.png)
+![Header menu extension point](../api/header-menu/header-menu.png)
 
 The second one to a menu that displays when a content fragment is selected:
-![Action bar extension point](../api/action-bar.png)
+![Action bar extension point](../api/action-bar/action-bar.png)
 
 After clicking on buttons we would like to show some content in a pop-up:
 ![UI pop-up](introduction-1.png)
@@ -347,7 +347,7 @@ That means that it could be reused by different views. Actions can also contain 
 
 ## Test on local environment
 
-From the project directory, begin by running the following command:
+From the extension project directory, begin by running the following command:
 
 ```shell
 aio app run
@@ -370,11 +370,11 @@ press CTRL+C to terminate dev environment
 
 Now your UI extension is reachable by the displayed URL on the Terminal. You can test your UI extension within your AEM Content Fragment Console by passing the following parameters to your AEM Content Fragment Console URL:
 
-- repo (host name of AEM instance): `repo=author-p1234-e12345.adobeaemcloud.com`
+- repo (host name of AEM instance): `repo=<CURTOMER_AEM_HOST>`
 - ext (extension): `ext=https://localhost:9080`
 - devMode (development mode): `devMode=true`
 
-**Sample AEM Content Fragment Console URL:** `https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&repo=author-p1234-e12345.adobeaemcloud.com#/@sitesinternal/aem/cf/admin/`
+**Sample AEM Content Fragment Console URL:** `https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/admin/`
 
 #### Accepting the certificate (First time users)
 

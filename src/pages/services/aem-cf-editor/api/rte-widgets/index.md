@@ -27,7 +27,7 @@ The code above will add a new `My Variables` context menu option to the dialog t
 
 ## API Reference
 
-**Extension API**
+### Extension API
 
 | Field | Type | Required | Description |
 | ----- | ---- | -------- | ----------- |
@@ -35,7 +35,7 @@ The code above will add a new `My Variables` context menu option to the dialog t
 | label | `string` | ✔️   | Widget name that will be listed in context menu |
 | url | `string` | ✔️    | Relative URL to the widget content |
 
-**instructions API**
+### Instructions API
 
 Widget window **MAY** call a `connection.host.rte.applyInstructions` method and provide RTE instruction to execute:
 

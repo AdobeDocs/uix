@@ -30,7 +30,7 @@ Where, prefix and suffix symbols define a badge boundaries in the text/html, bac
 
 ## API Reference
 
-**Extension API**
+### Extension API
 
 | Field | Type | Required | Description |
 | ----- | ---- | -------- | ----------- |
@@ -40,7 +40,7 @@ Where, prefix and suffix symbols define a badge boundaries in the text/html, bac
 | backgroundColor | `string` | ✔️    | HEX or text CSS color code for the background |
 | textColor | `string` | ✔️    | HEX or text CSS color code for the text |
 
-**instructions API**
+### Instructions API
 
 Widget window **MAY** call a `connection.host.rte.applyInstructions` method and provide RTE instruction to execute:
 

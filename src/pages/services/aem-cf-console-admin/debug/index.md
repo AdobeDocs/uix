@@ -120,10 +120,10 @@ Using extension endpoint URL returned at the end of run command output you may e
 1. Navigate to Global Navigation panel of AEM environment which data you plan to use for extension verification.
 ![AEM Global Navigation](cfc-global-navigation.png)
 2. Click on `Content Fragments`
-3. You will be redirected to AEM Contents Fragment Console running in ADobe Experience Shell.
+3. You will be redirected to AEM Contents Fragment Console running in Adobe Experience Shell.
 4. To the URL where you was redirected add following query parameters:
    1. `devMode=true` - instructs Adobe Experience Shell to allow content from localhost
    2. `ext=<extension_endpoint_url>` - full extension endpoint URL. You may use multiple `ext` parameters to test several extensions at time.
 5. Hit Enter to reload Content Fragments Console with added extension
 
-Overall Content Fragments Console URL schema should looks like `https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&repo=author-p1234-e12345.adobeaemcloud.com#/@sitesinternal/aem/cf/admin/`.
+Overall Content Fragments Console URL schema should looks like `https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/admin/`.

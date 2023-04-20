@@ -13,7 +13,7 @@ During development, it's important to preview your extension to ensure it meets 
 
 ## Running UI Extension locally
 
-From the project directory, begin by running the following command:
+From the extension project directory, begin by running the following command:
 
 ```shell
 aio app run
@@ -59,21 +59,22 @@ Click on `Advanced`, the nex screen may vary from browser to browser, but you sh
 As mentioned before, you should have access to an AEM instance. For example, your URL should be structured like this:
 
 ```termminal
-https://experience-qa.adobe.com/?repo=author-p14653-e145083-cmstg.adobeaemcloud.com#/@aem-sites-engineering/aem/cf/admin/
+https://experience.adobe.com/?repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/admin/
 ```
 
-- repo (host name of AEM instance): `repo=author-p14653-e145083-cmstg.adobeaemcloud.com`
+- repo (host name of AEM instance): `repo=<CURTOMER_AEM_HOST>`
 
 ![Contents Fragment Console](../../services/aem-cf-console-admin/cfc-console-overview.png)
 
-For previewing and testing, you don't need to [publish the extension](../publication). Instead, you can use extra parameter in the URL:
+For previewing and testing, you don't need to [publish the extension](../publication). Instead, you can add extra parameters in the URL:
 
 - ext (extension): `ext=https://localhost:9080`
+- devMode (development mode): `devMode=true` (required to allow access to resources on `production` env from localhost)
 
-The final URL for local preview will look like this:
+The final URL for local preview will look like:
 
 ```terminal
-https://experience-qa.adobe.com/?ext=https://localhost:9080&repo=author-p14653-e145083-cmstg.adobeaemcloud.com#/@aem-sites-engineering/aem/cf/admin/
+https://experience.adobe.com/?ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/admin/
 ```
 
 The system will process these parameters, making it work as if the extension was published.

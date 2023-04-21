@@ -117,7 +117,7 @@ You can modify your extension to initialize itself only for specific AEM program
 // ExtensionRegistration component
 function ExtensionRegistration() {
   const search = new URLSearchParams(window.location.search);
-  if (search.get('repo') != 'author-p0052-e12345.adobeaemcloud.com') {
+  if (search.get('repo') != '<CURTOMER_AEM_HOST>') {
     return; // skip extension registration if repo does not match desired one
   }
 

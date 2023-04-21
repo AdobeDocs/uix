@@ -5,9 +5,13 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Rich Text Editor Toolbar Custom Buttons
+# Rich Text Editor Toolbar
 
-A Rich Text Editor is a core part of content editing software. With toolbar extensions you can add new custom buttons which modify the content:
+The Rich Text Editor (RTE) is an essential component of the [Content Fragment Editor](../../). By utilizing toolbar extensions, clients can add custom buttons that can modify the content according to their specific requirements.
+
+Extension as well may control availability of standard RTE buttons.
+
+## Custom buttons
 
 ```js
 {
@@ -30,9 +34,9 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
 
 ![](./rte-content-extension.gif)
 
-## API Reference
+### API Reference
 
-**Extension API**
+#### Extension API
 
 | Field | Type | Required | Description |
 | ----- | ---- | -------- | ----------- |
@@ -59,7 +63,7 @@ A Rich Text Editor is a core part of content editing software. With toolbar exte
 | ----- | ---- | ----------- |
 | `replaceContent` | `string` | Replaces current editor content with a content provided in `value` property |
 
-# Rich Text Editor Toolbar Standard Buttons
+## Standard buttons
 
 You can also add or remove standard Rich Text Editor buttons using a following contract:
 
@@ -82,9 +86,9 @@ rte: {
 }
 ```
 
-## API Reference
+### API Reference
 
-**Extension API**
+#### Extension API
 
 | Field | Type | Required | Description |
 | ----- | ---- | -------- | ----------- |

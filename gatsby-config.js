@@ -75,6 +75,10 @@ module.exports = {
         title: "Set Up Local Environment",
         path: "/guides/local-environment/"
       },
+      {
+        title: "Local Preview of UI Extensions",
+        path: "/guides/preview-extension-locally/"
+      },
       // Services
       {
         title: "Extensible Services",
@@ -83,7 +87,21 @@ module.exports = {
       },
       {
         title: "Extension Points",
-        path: "/services/aem-cf-console-admin/api/"
+        path: "/services/aem-cf-console-admin/api/",
+        pages: [
+          {
+            title: "Action Bar",
+            path: "/services/aem-cf-editor/api/action-bar/"
+          },
+          {
+            title: "Grid Columns",
+            path: "/services/aem-cf-editor/api/grid-columns/"
+          },
+          {
+            title: "Header Menu",
+            path: "/services/aem-cf-editor/api/header-menu/"
+          },
+        ]
       },
       {
         title: "Step-by-step Extension Development",

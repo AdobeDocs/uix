@@ -1,11 +1,15 @@
 ---
-title: Header Menu - AEM Content Fragments Editor Extensibility
-description: Learn what is possible to extend and customize in AEM Content Fragments Editor
+title: Header Menu - AEM Content Fragments Console Extensibility
+description: Learn what is possible to extend and customize in AEM Content Fragments console
 contributors:
-  - https://github.com/AdobeDocs/uix
+  - AdobeDocs/uix
 ---
 
 # Header Menu
+
+The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
+
+![Header Menu](header-menu.png)
 
 Header menu can be customized via methods defined in `headerMenu` namespace.
 
@@ -44,10 +48,6 @@ const guestConnection = await register({
 });
 ```
 
-The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
-
-![Header menu item](./header-menu-item.png)
-
 ## Custom button with sub menu
 
 ```js
@@ -59,7 +59,7 @@ const guestConnection = await register({
     id: "my.company.extension-with-header-menu-button",
     methods: {
         headerMenu: {
-            async getButtons() {
+            getButtons() {
                 return [
                     {
                         id: "my.company.export-button",
@@ -70,7 +70,7 @@ const guestConnection = await register({
                                 id: 'xml',
                                 label: 'XML',
                                 onClick: async () => {
-                                    const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
+                                    console.log('Export in XML button has been pressed.');
                                     // ...
                                 },
                             },
@@ -78,7 +78,7 @@ const guestConnection = await register({
                                 id: 'csv',
                                 label: 'CSV',
                                 onClick: async () => {
-                                    const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
+                                    console.log('Export in CSV button has been pressed.');
                                     // ...
                                 },
                             },
@@ -91,7 +91,11 @@ const guestConnection = await register({
 });
 ```
 
-![Header menu item with submenu](./header-menu-item-with-submenu.png)
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
+
+<InlineAlert variant="warning" slots="text" />
+
+The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
 
 ## API Reference
 
@@ -103,18 +107,14 @@ const guestConnection = await register({
 | label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
 | icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
 | variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
-| subItems | `array`                                                                     |    | A list with sub menu items.                                                                                                   |
+| subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
 
 ### Sub menu item API
 
-| Field    | Type                                                                    | Required | Description                                                                                                  |
-|----------|-------------------------------------------------------------------------| ------ |--------------------------------------------------------------------------------------------------------------|
-| id       | `string`                                                                | ✔️  | **Must be unique** across the current button sub menu                                                        |
-| label    | `string`                                                                | ✔️  | Button label that will be visible on UI                                                                      |
-| icon     | `string`                                                                |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
-| onClick  | `callback(): void`                                                      |  ✔️ | A callback for a button `onClick` event                                                                      |
-
-## Extension Points API
-
-[More details](../index.md) about Extension Points APIs.
+| Field    | Type                                                                        | Required | Description                                                                                                 |
+|----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | **Must be unique** across the current button sub menu                                                       |
+| label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                     |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                     |

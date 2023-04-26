@@ -1,6 +1,6 @@
 ---
 title: Header Menu - AEM Content Fragments Editor Extensibility
-description: Learn what is possible to extend and customize in AEM Content Fragments Editor
+description: Explore the ways to extend and customize Header Menu in AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---

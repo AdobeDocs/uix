@@ -90,16 +90,20 @@ module.exports = {
         path: "/services/aem-cf-console-admin/api/",
         pages: [
           {
+            title: "Common Concepts",
+            path: "/services/aem-cf-console-admin/api/commons/"
+          },
+          {
             title: "Action Bar",
-            path: "/services/aem-cf-editor/api/action-bar/"
+            path: "/services/aem-cf-console-admin/api/action-bar/"
           },
           {
             title: "Grid Columns",
-            path: "/services/aem-cf-editor/api/grid-columns/"
+            path: "/services/aem-cf-console-admin/api/grid-columns/"
           },
           {
             title: "Header Menu",
-            path: "/services/aem-cf-editor/api/header-menu/"
+            path: "/services/aem-cf-console-admin/api/header-menu/"
           },
         ]
       },
@@ -119,6 +123,10 @@ module.exports = {
         title: "Extension Points",
         path: "/services/aem-cf-editor/api/",
         pages: [
+          {
+            title: "Common Concepts",
+            path: "/services/aem-cf-editor/api/commons/"
+          },
           {
             title: "Rich Text Editor Toolbar",
             path: "/services/aem-cf-editor/api/rte-toolbar/"

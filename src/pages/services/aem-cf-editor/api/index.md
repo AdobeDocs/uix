@@ -1,5 +1,5 @@
 ---
-title: Extension Points - AEM Content Fragments Editor Extensibility
+title: AEM Content Fragments Editor Extensibility
 description: Learn what is possible to extend and customize in AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
@@ -7,73 +7,30 @@ contributors:
 
 # AEM Content Fragments Editor Extension Points
 
-### Shared Context
+This section covers the utilization of existing extension points, extension registration, and common methods that can be used in any application that leverages extension points for service customization.
 
-In order to empower UI Extensions perform useful actions Content Fragments Editor provides access to data that simplifies user authentication and usage of AEM API. Such data may be accessed through `sharedContext` property of `host`.
+<DiscoverBlock slots="link, text"/>
 
-```js
-import { attach } from "@adobe/uix-guest";
+[Common Concepts in Creating Extensions](commons)
 
-const guestConnection = await attach({
-    id: "my-id"
-}
-const context = guestConnection.sharedContext;
-const aemHost = context.get("aemHost");
-```
+Learn about common concepts, extension registration, and methods that can be used in any extension
 
-Available shared context data:
+<DiscoverBlock slots="link, text"/>
 
-```js
-{
-    aemHost: string, // hostname of connected AEM environment
-    locale: string, // locale of current user
-    theme: "light" | "dark", // color schema selected by current user
-    auth: {
-        imsOrg: string, // current IMS organization
-        imsToken: string, // user token
-        apiKey: string, // API key to use for requests to Adobe services
-        imsOrgName: string, // Human readable organization name
-        authScheme: "Bearer" // Auth schema that should be used during communication with Adobe services
-    }
-}
-```
+[Rich Text Editor Toolbar](rte-toolbar)
 
-### Get Content Fragment
+Learn how to extend and customize Rich Text Editor Toolbar
 
-You can access data about the Content Fragment that is currently being edited by using the `host.contentFragment.getContentFragment()` method in an extension:
+<DiscoverBlock slots="link, text"/>
 
-```js
-import { register } from "@adobe/uix-guest";
-// ...
-const init = async () => {
-    const registrationConfig = {
-        id: extensionId,
-        methods: {
-            headerMenu: {
-                async getButtons() {
-                    return [
-                        {
-                            id: "get-active-cf",
-                            label: "Get Active CF / Canvas",
-                            onClick: async () => {
-                                // Get Content Fragment
-                                const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
-                            },
-                        },
-                    ];
-                },
-            },
-        },
-    };
-    const guestConnection = await register(registrationConfig);
-}
-init().catch(console.error)
-```
+[Rich Text Editor Widgets](rte-widgets)
 
-#### Result object
+Learn what is possible to extend and customize in Rich Text Editor Widgets
 
-This `contentFragment` object holds the last received state from AEM instance. It does not contain recent changes from the Editor (no edits from the canvas, sidebar or changes to variations) **until they are successfully saved** in AEM.
+[Rich Text Editor Badges](rte-badges)
 
-<InlineAlert variant="warning" slots="text" />
+Learn what is possible to extend and customize in Rich Text Editor Badges
 
-The API is experimental and might change or disappear at any time. The result object structure is part of a low level API that could be changed in the future.
+[Header Menu](header-menu)
+
+Explore the ways to extend and customize Header Menu

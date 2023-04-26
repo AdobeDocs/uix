@@ -1,6 +1,6 @@
 ---
 title: Header Menu - AEM Content Fragments Console Extensibility
-description: Learn what is possible to extend and customize in AEM Content Fragments console
+description: Explore the ways to extend and customize Header Menu in AEM Content Fragments console
 contributors:
   - AdobeDocs/uix
 ---

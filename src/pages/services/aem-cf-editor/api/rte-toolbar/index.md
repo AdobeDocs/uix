@@ -1,6 +1,6 @@
 ---
 title: Rich Text Editor Toolbar - AEM Content Fragments Editor Extensibility
-description: Learn what is possible to extend and customize in AEM Content Fragments Editor
+description: Learn how to extend and customize Rich Text Editor Toolbar in AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---

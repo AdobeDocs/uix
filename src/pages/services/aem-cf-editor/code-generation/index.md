@@ -375,7 +375,7 @@ https://experience.adobe.com/?ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST
 
 The system will process these parameters, making it work as if the extension was published.
 
-<InlineAlert variant="warning" slots="text" />
+<InlineAlert slots="text" />
 
 Please note that for testing purposes, we will be operating with an already created Content Fragment located at `PATH_TO_CONTENT_FRAGMENT`, which in this case is `/content/dam/dev-test-fragment`.
 

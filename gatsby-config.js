@@ -51,10 +51,6 @@ module.exports = {
             path: "/overview/design/"
           },
           {
-            title: "How to Get Access",
-            path: "/guides/get-access/"
-          },
-          {
             title: "App Builder and UI Extensibility",
             path: "/overview/app-builder/"
           },

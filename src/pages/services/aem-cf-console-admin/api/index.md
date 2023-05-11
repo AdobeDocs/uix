@@ -1,6 +1,6 @@
 ---
 title: AEM Content Fragments Console Extensibility
-description: Learn what is possible to extend and customize in AEM Content Fragments console
+description: Learn how to customize AEM Content Fragments console
 contributors:
   - AdobeDocs/uix
 ---
@@ -25,7 +25,7 @@ Learn how to extend and customize Action Bar
 
 [Grid Columns](grid-columns)
 
-Learn what is possible to extend and customize in Grid Columns
+Learn how to customize Grid Columns
 
 [Header Menu](header-menu)
 

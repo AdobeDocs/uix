@@ -1,6 +1,6 @@
 ---
 title: Grid Columns - AEM Content Fragments Console Extensibility
-description: Learn what is possible to extend and customize in Grid Columns in AEM Content Fragments console
+description: Learn how to customize Grid Columns in AEM Content Fragments console
 contributors:
   - AdobeDocs/uix
 ---

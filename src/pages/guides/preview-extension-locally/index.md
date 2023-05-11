@@ -8,7 +8,7 @@ contributors:
 
 During development, it's important to preview your extension to ensure it meets all requirements and doesn't have any errors. To do so, make sure you meet the following conditions:
 
-1. Access to an [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html) instance. For instructions on how to obtain access, refer to [How to Get Access](../../overview/get-access).
+1. Access to an [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html) instance. For instructions on how to obtain access, refer to [How to Get Access](../get-access).
 2. You should have an implemented or partially implemented UI extension. Details on how to do it can be found in [Step-by-step Extension Development](../../services/aem-cf-console-admin/extension-development).
 
 ## Running UI Extension locally

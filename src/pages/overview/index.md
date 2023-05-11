@@ -23,7 +23,7 @@ Explore how UI Extensibility works
 
 <DiscoverBlock slots="link, text"/>
 
-[How to Get Access](get-access)
+[How to Get Access](../guides/get-access)
 
 Discover what is needed to use UI Extensibility
 

@@ -17,9 +17,11 @@ We would like to add two buttons. The first button will be added the header menu
 ![Header menu extension point](../api/header-menu/header-menu.png)
 
 The second one to a menu that displays when a content fragment is selected:
+
 ![Action bar extension point](../api/action-bar/action-bar.png)
 
 After clicking on buttons we would like to show some content in a pop-up:
+
 ![UI pop-up](introduction-1.png)
 
 More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../../../services/aem-cf-console-admin/api).
@@ -28,27 +30,39 @@ More information about [AEM](https://experienceleague.adobe.com/docs/experience-
 
 UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
-So at first we will need to create a new Project which will supply us with configuration and resources.
+<InlineAlert slots="text" />
+
+If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
+
+To begin, we need to create a new Project which will supply us with configuration and resources.
 
 1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
-![Sign in to Adobe Developer Console](create-project-1.png)
+
+![Sign in to Adobe Developer Console](../../../guides/creating-project-in-dev-console/create-project-1.png)
 
 2. Choose your account.
-![Choose your account](create-project-2.png)
+
+![Choose your account](../../../guides/creating-project-in-dev-console/create-project-2.png)
 
 3. Choose your profile or organization.
-![Choose your profile](create-project-3.png)
+
+![Choose your profile](../../../guides/creating-project-in-dev-console/create-project-3.png)
 
 3. Make sure you are in a proper organization (a switcher in the right top corner).
-![Check organization](create-project-4.png)
+
+![Check organization](../../../guides/creating-project-in-dev-console/create-project-4.png)
 
 4. Click "Create new project" -> "Project from template":
-![Create project from template](create-project-5.png)
+
+![Create project from template](../../../guides/creating-project-in-dev-console/create-project-5.png)
+
 And choose "App Builder":
-![Choose "App Builder"](create-project-6.png)
+
+![Choose "App Builder"](../../../guides/creating-project-in-dev-console/create-project-6.png)
 
 5. Fill the project data.
-![Fill the project data](create-project-7.png)
+
+![Fill the project data](../../../guides/creating-project-in-dev-console/create-project-7.png)
 
 - `Project Title` is used to identify your project within [Adobe Developer Console](https://developer.adobe.com/console) and in [CLI](https://github.com/adobe/aio-cli).
 - `App Name` will be used as a unique identifier for your application and this value cannot be changed after project creating.
@@ -56,7 +70,8 @@ And choose "App Builder":
 After creating, you should see a new project generated with 2 default Workspaces.
 Each App Builder project has two default workspaces: `Production` and `Stage`. You can add more workspaces as needed.
 The `Production` workspace is special, as it is used for the submission and distribution flow.
-![A new project with 2 default Workspaces](create-project-8.png)
+
+![A new project with 2 default Workspaces](../../../guides/creating-project-in-dev-console/create-project-8.png)
 
 ## Setting up local environment
 
@@ -75,8 +90,7 @@ $ npm -v
 These are the current versions at the moment of creating the documentation.
 Make sure you are using the latest versions supported by Adobe IO when you create the application.
 
-- [Adobe I/O CLI](https://github.com/adobe/aio-cli). If you already have `Adobe I/O CLI` on your local, please ensure you use the latest version of the library.
-You can check the version through:
+If you already have [Adobe I/O CLI](https://github.com/adobe/aio-cli) on your local, please ensure you use the latest version of the library. You can check the version through:
 
 ```shell
 aio -v
@@ -237,7 +251,7 @@ This component was also generated, you can modify it if you need to change or ad
 
 In the previous step, we indicated that we want to load content for the popup by URL. That content is also part of our extension application.
 
-These component is optional and will be generated if you chose "adding UI" during project generation.
+This component is optional and will be generated if you chose "adding UI" during project generation.
 
 ```js
 import { attach } from "@adobe/uix-guest";
@@ -345,6 +359,10 @@ That means that it could be reused by different views. Actions can also contain 
 
 **This is optional.** You only need to implement it if your use case requires it.
 
+<InlineAlert variant="warning" slots="text" />
+
+For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons).
+
 ## Test on local environment
 
 From the extension project directory, begin by running the following command:
@@ -440,6 +458,7 @@ Now your application is reachable by URL, printed in Terminal.
 You can use this URL for end-to-end testing.
 
 We can use the `ext` parameter (how we did it during testing on a local machine) of your AEM instance to test and view the unpublished application.
+
 ![Testing on Stage](run-on-stage-2.png)
 
 To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application)

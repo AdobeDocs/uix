@@ -1,6 +1,6 @@
 ---
 title: AEM Content Fragments Editor Extensibility
-description: Learn what is possible to extend and customize in AEM Content Fragments Editor
+description: Learn how to customize AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
@@ -25,11 +25,11 @@ Learn how to extend and customize Rich Text Editor Toolbar
 
 [Rich Text Editor Widgets](rte-widgets)
 
-Learn what is possible to extend and customize in Rich Text Editor Widgets
+Learn how to customize Rich Text Editor Widgets
 
 [Rich Text Editor Badges](rte-badges)
 
-Learn what is possible to extend and customize in Rich Text Editor Badges
+Learn how to customize Rich Text Editor Badges
 
 [Header Menu](header-menu)
 

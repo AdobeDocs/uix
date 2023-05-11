@@ -1,6 +1,6 @@
 ---
 title: Rich Text Editor Widgets - AEM Content Fragments Editor Extensibility
-description: Learn what is possible to extend and customize in Rich Text Editor Widgets in AEM Content Fragments Editor
+description: Learn how to customize Rich Text Editor Widgets in AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---

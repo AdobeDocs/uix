@@ -1,6 +1,6 @@
 ---
 title: Rich Text Editor Badges - AEM Content Fragments Editor Extensibility
-description: Learn what is possible to extend and customize in Rich Text Editor Badges in AEM Content Fragments Editor
+description: Learn how to customize Rich Text Editor Badges in AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---

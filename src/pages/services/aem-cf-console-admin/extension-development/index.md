@@ -251,7 +251,7 @@ This component was also generated, you can modify it if you need to change or ad
 
 In the previous step, we indicated that we want to load content for the popup by URL. That content is also part of our extension application.
 
-These component is optional and will be generated if you chose "adding UI" during project generation.
+This component is optional and will be generated if you chose "adding UI" during project generation.
 
 ```js
 import { attach } from "@adobe/uix-guest";
@@ -358,6 +358,10 @@ That means that it could be reused by different views. Actions can also contain 
 ![Additional logic](additional-logic.png)
 
 **This is optional.** You only need to implement it if your use case requires it.
+
+<InlineAlert variant="warning" slots="text" />
+
+For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons).
 
 ## Test on local environment
 

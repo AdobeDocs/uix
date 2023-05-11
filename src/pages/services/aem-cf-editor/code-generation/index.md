@@ -370,20 +370,50 @@ For previewing and testing, you don't need to [publish the extension](../../../g
 The final URL for local preview will look like:
 
 ```terminal
-https://experience.adobe.com/?ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/editor/<PATH_TO_CONTENT_FRAGMENT>
+https://experience.adobe.com/?ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/editor/editor/<PATH_TO_CONTENT_FRAGMENT>
 ```
 
 The system will process these parameters, making it work as if the extension was published.
 
 <InlineAlert variant="warning" slots="text" />
 
-Please note that for testing purposes, we will be operating with an already created Content Fragment located at <PATH_TO_CONTENT_FRAGMENT>.
+Please note that for testing purposes, we will be operating with an already created Content Fragment located at `PATH_TO_CONTENT_FRAGMENT`, which in this case is `/content/dam/dev-test-fragment`.
 
 The result of the UI Extension's work:
 
 ![Header Menu Button with Modal](demo-1.png)
 
 ![Demo project](demo-2.png)
+
+## Short overview of generated components
+
+### Routing
+
+The component `src/aem-cf-editor-1/web-src/src/components/App.js` contains the routing of our application. We always have this generated file.
+
+Our extension is responsible for rendering several things:
+
+- The logic of registering our extension (it's the second required part of the extension).
+- Any partial UI components that may render inside the host app, for example as the content of a pop-up when a button is clicked (optional).
+
+If you need additional functionality, you can add new entry points and specify them in the routing after a generation.
+
+### Extension registration
+
+The component `src/aem-cf-editor-1/web-src/src/components/ExtensionRegistration.js` registers our extension with the host AEM instance as soon as it loads, so they can share data and communicate with each other.
+
+Also, it contains the declaration of "what exactly and how we want" to customize the AEM Content Fragment Editor service. You can add your own custom customization declaration here.
+
+### Pop-up content
+
+- `src/aem-cf-editor-1/web-src/src/components/*Modal.js`
+- `src/aem-cf-editor-1/web-src/src/components/*Widget.js`
+- 
+These components are optional and will be generated if you chose "adding UI" during project generation. They contain logic related to the UI and interaction with the user when certain buttons are clicked.
+
+<InlineAlert variant="warning" slots="text" />
+
+For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons).
 
 ## Known limitations
 

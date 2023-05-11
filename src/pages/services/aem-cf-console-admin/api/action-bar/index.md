@@ -1,6 +1,6 @@
 ---
 title: Action Bar - AEM Content Fragments Console Extensibility
-description: Learn what is possible to extend and customize in Action Bar in AEM Content Fragments console
+description: Learn how to customize Action Bar in AEM Content Fragments console
 contributors:
   - AdobeDocs/uix
 ---

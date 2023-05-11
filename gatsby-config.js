@@ -52,7 +52,7 @@ module.exports = {
           },
           {
             title: "How to Get Access",
-            path: "/overview/get-access/"
+            path: "/guides/get-access/"
           },
           {
             title: "App Builder and UI Extensibility",
@@ -64,20 +64,28 @@ module.exports = {
           },
       // Common guides
       {
-        title: "UI Extensions Development Flow",
-        path: "/guides/development-flow/"
+        title: "How to Get Access",
+        path: "/guides/get-access/"
       },
       {
-        title: "UI Extension Publication and Management",
-        path: "/guides/publication/"
+        title: "Creating a project in Adobe Developer Console",
+        path: "/guides/creating-project-in-dev-console/"
       },
       {
         title: "Set Up Local Environment",
         path: "/guides/local-environment/"
       },
       {
+        title: "UI Extensions Development Flow",
+        path: "/guides/development-flow/"
+      },
+      {
         title: "Local Preview of UI Extensions",
         path: "/guides/preview-extension-locally/"
+      },
+      {
+        title: "UI Extension Publication and Management",
+        path: "/guides/publication/"
       },
       // Services
       {
@@ -144,7 +152,11 @@ module.exports = {
             path: "/services/aem-cf-editor/api/header-menu/"
           }
         ]
-      }
+      },
+      {
+        title: "Code Generation",
+        path: "/services/aem-cf-editor/code-generation/"
+      },
     ]
   },
   plugins: [

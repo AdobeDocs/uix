@@ -17,7 +17,7 @@ To start writing UI Extensions you will need the:
 3. Assign developer roles to these IMS organization members who will create UI Extensions.
 4. Ensure that users who should be able to [publish](../publication/) UI Extensions have a `system admin` role.
 
-For more details, please refer to [How to Get Access](../overview/get-access/).
+For more details, please refer to [How to Get Access](../get-access/).
 
 ## Create a new project in Adobe Developer Console
 

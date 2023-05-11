@@ -1,14 +1,14 @@
 ---
-title: Extensions Development Guide - AEM Content Fragments Console Extensibility
-description: Learn how to generate base structure of UI Extension.
+title: Code Generation Guide - AEM Content Fragments Console Extensibility
+description: Learn how to generate base structure of AEM Content Fragments Console Extension.
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 # Code Generation for AEM Content Fragments Console Extension 
 
-The [AEM Content Fragment Console Extension Template](https://github.com/adobe/aem-cf-admin-ui-ext-tpl) help developers to bootstrap their App Builder apps when using the [CLI](https://github.com/adobe/aio-cli) and generates basic extension structure and all required code.
+The [AEM Content Fragment Console Extension Template](https://github.com/adobe/aem-cf-admin-ui-ext-tpl) help developers to bootstrap their App Builder apps when using the [AIO CLI](https://github.com/adobe/aio-cli) and generates basic extension structure and all required code.
 
-Template is optional to use but we highly recommend it in order to save time and has less knowledge regarding internal UI Extensions structure.
+Template is optional to use, but we highly recommend it in order to save time and has less knowledge regarding internal UI Extensions structure.
 
 Template provides code generation capabilities targeted to 3 main developers group:
 1. Novices, developers who just starting explore UI Extensibility will benefit from direct links to documentation and ability to generate working demo project.
@@ -19,7 +19,7 @@ Template provides code generation capabilities targeted to 3 main developers gro
 
 <InlineAlert slots="text" />
 
-You need to have AIO CLI version >= 9.1.0 to use the available templates. Please refer to [Local Environment Set Up](../../guides/local-environment).
+You need to have AIO CLI version >= 9.1.0 to use the available templates. Please refer to [Local Environment Set Up](../../../guides/local-environment).
 
 You may access code generation functionality during project initialization. 
 
@@ -60,7 +60,7 @@ Create a directory and run the following commands from that directory:
       Only Templates Supported By My Org
     ```
 
-4. Select the template named @adobe/aem-cf-admin-ui-ext-tpl (AEM Content Fragment Console Extensions Template)
+4. Select the template named @adobe/aem-cf-admin-ui-ext-tpl (Extensibility template for AEM Content Fragment Admin Console)
 
     ```shell
     ➜  demo-extension-project % aio app init

@@ -40,7 +40,7 @@ const guestConnection = await register({
 | Field | Type | Required | Description |
 | ----- | ---- | -------- | ----------- |
 | key | `string` | ✔️      | Key of the column, must be unique between all extensions |
-| labelMessage | `string` | ✔️ | Label of the column as seen by the user |
+| label | `string` | ✔️ | Label of the column as seen by the user |
 | sortable | `boolean` |  | Wether the column is sortable or not |
 | defaultSortOrder | `ascending`, `descending` | Default order in which to sort the column |
 | render | `function` | | Function that will be used to render the column |

@@ -15,35 +15,45 @@ By utilizing the extension point, you can add custom grid columns, make them sor
 const guestConnection = await register({
   id: "aem-headless-ui-ext-examples-progress-circle",
   methods: {
-    contentFragmentGrid: {
-        getColumns() {
-        return [
-            {
-                id: "extended",
-                label: "Extended",
-                render: async function (fragments) {
-                    return fragments.reduce((accumulator, fragment) => {
-                        accumulator[fragment.id] = fragment.name + '-extension-one';
-                        return accumulator;
-                    })
-                }
-            }
-        ]
-        }
-    }
+      contentFragmentGrid: {
+          getColumns() {
+              return [
+                  {
+                      id: "extended",
+                      label: "Extended",
+                      allowsResizing: true, // optional, by default "false"
+                      minWidth: 350, // optional, no default value
+                      showDivider: true, // optional, by default "false"
+                      render: async function (fragments) {
+                          return fragments.reduce((accumulator, fragment) => {
+                              accumulator[fragment.id] = fragment.title + ' - extended';
+                              return accumulator;
+                          }, {})
+                      },
+                  },
+              ];
+          }
+      }
   }
 });
 ```
 
 ## API Reference
 
-| Field | Type | Required | Description |
-| ----- | ---- | -------- | ----------- |
-| key | `string` | ✔️      | Key of the column, must be unique between all extensions |
-| label | `string` | ✔️ | Label of the column as seen by the user |
-| sortable | `boolean` |  | Wether the column is sortable or not |
-| defaultSortOrder | `ascending`, `descending` | Default order in which to sort the column |
-| render | `function` | | Function that will be used to render the column |
+| Field          | Type                                 | Default | Required | Description                                                                                                                                             |
+|----------------|--------------------------------------|---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id             | `string`                             | —       | ✔️       | Id of the column, must be unique between all extensions                                                                                                 |
+| label          | `string`                             | —       | ✔️       | Label of the column (shown in table header)                                                                                                             |
+| render         | `function`                           | —       | ✔️       | Function that will be used to render the column content                                                                                                 |
+| align          | `start` <br /> `center` <br /> `end` | `start` |          | Text alignment in column                                                                                                                                |
+| allowsResizing | `boolean`                            | `false` |          | Whether the column allows resizing                                                                                                                      |
+| allowsToggle   | `boolean`                            | `true`  |          | Whether the user can hide column via the column toggle dialog                                                                                           |
+| hideHeader     | `boolean`                            | `false` |          | Whether the header label should be hidden (for item action columns)                                                                                     |
+| isRowHeader    | `boolean`                            | `false` |          | Whether a column is a [row header](https://www.w3.org/TR/wai-aria-1.1/#rowheader) and should be announced by assistive technology during row navigation |
+| showDivider    | `boolean`                            | `false` |          | Show divider between column and next column (i.e. on the right side)                                                                                    |
+| width          | `number`<br /> `string`              | —       |          | Width (fixed) of the table column. It can be a static number (e.g. 100 which translates to 100px) or a percentage (e.g. '100%')                         |
+| minWidth       | `number`<br /> `string`              | —       |          | Min width of the column                                                                                                                                 |
+| maxWidth       | `number`<br /> `string`              | —       |          | Max width of the column                                                                                                                                 |
 
 ## Render Function
 

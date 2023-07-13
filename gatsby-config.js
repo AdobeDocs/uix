@@ -132,6 +132,10 @@ module.exports = {
             path: "/services/aem-cf-editor/api/commons/"
           },
           {
+            title: "Cavas Data",
+            path: "/services/aem-cf-editor/api/data/"
+          },
+          {
             title: "Rich Text Editor Toolbar",
             path: "/services/aem-cf-editor/api/rte-toolbar/"
           },

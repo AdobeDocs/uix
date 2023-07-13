@@ -66,10 +66,10 @@ Consider calling this method multiple times during long-running processes to get
 | Type | Value format | Description |
 | ----- | ---- | -------- |
 | `text-signle` | `string` | A single line text field |
-| `text-multi` | `object` | A multi line text field. { "contentType": `string`, "value": `string`} |
+| `text-multi` | `object` | A multi line text field. Object structure: { "contentType": `string`, "value": `string`}. Allowed types are `text/x-markdown`, `text/plain`, `text/html` |
 | `boolean` | `boolean` | A boolean field |
 | `date` | `string` | A date or time field in ISO 8601 format |
-| `number` | `bumber` | A number field |
+| `number` | `number` | A number field |
 | `enumeration` | `string` | A selected option from the list of allowed values |
 | `json` | `string` | A code block field with JSON code |
 | `tags` | `string[]` | A tags field |

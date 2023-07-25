@@ -9,9 +9,9 @@ contributors:
 
 # UI Extensibility
 
-<DiscoverBlock slots="text"/>
-
 UI Extensibility allows 3rd party developers to customize and add their own logic to Adobe Experience Cloud services.
+
+<DiscoverBlock slots="text"/>
 
 UI extensions are JavaScript applications built with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that may be embedded in UI Applications running under [Adobe Experience Cloud](https://experience.adobe.com/) unified shell. Adobe UI Services and UI Extensions implement a two-way communication protocol that allows to exchange of data, invoking actions, and rendering additional visual blocks.
 

@@ -38,3 +38,7 @@ Learn how to customize Rich Text Editor Color Picker
 [Header Menu](header-menu)
 
 Explore the ways to extend and customize Header Menu
+
+[Navigation](navigation)
+
+Learn how to use basic methods for navigating within an extension

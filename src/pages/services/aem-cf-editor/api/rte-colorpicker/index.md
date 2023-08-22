@@ -41,10 +41,10 @@ With enabled `isAllowedCustomColors`:
 
 ### Extension API
 
-| Field                 | Type       | Default | Required | Description                                                                                       |
-|-----------------------|------------|---------|----------|---------------------------------------------------------------------------------------------------|
-| allowedColors         | `string[]` |   -     |          | The option allows for specifying a map of the text colors that will appear in all color pickers. To add a color to the array, you need both its Hex or RGB value and the name that appears when hovered over in the color grid. Both values are necessary for each color in the color map. |
-| isAllowedCustomColors | `boolean`  |         | false *  | The option allows enabling of custom colors in all color pickers within the editor.               |
+| Field                 | Type       | Required | Default | Description                                                                                       |
+|-----------------------|------------|----------|---------|---------------------------------------------------------------------------------------------------|
+| allowedColors         | `string[]` | -        | -       | The option allows for specifying a map of the text colors that will appear in all color pickers. To add a color to the array, you need both its Hex or RGB value and the name that appears when hovered over in the color grid. Both values are necessary for each color in the color map. |
+| isAllowedCustomColors | `boolean`  | -        | false * | The option allows enabling of custom colors in all color pickers within the editor.               |
 
 The color options from different extensions will be merged together, providing a combined selection of colors. By default, if any configuration is provided for allowed colors, users will only be able to choose colors from the specified list and not from outside of it.
 

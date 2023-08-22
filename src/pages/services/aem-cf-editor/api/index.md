@@ -31,6 +31,10 @@ Learn how to customize Rich Text Editor Widgets
 
 Learn how to customize Rich Text Editor Badges
 
+[Rich Text Editor Color Picker](rte-colorpicker)
+
+Learn how to customize Rich Text Editor Color Picker
+
 [Header Menu](header-menu)
 
 Explore the ways to extend and customize Header Menu

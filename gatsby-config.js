@@ -148,6 +148,10 @@ module.exports = {
             path: "/services/aem-cf-editor/api/rte-badges/"
           },
           {
+            title: "Rich Text Editor Color Picker",
+            path: "/services/aem-cf-editor/api/rte-colorpicker/"
+          },
+          {
             title: "Header Menu",
             path: "/services/aem-cf-editor/api/header-menu/"
           }

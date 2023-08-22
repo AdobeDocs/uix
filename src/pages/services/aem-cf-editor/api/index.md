@@ -27,17 +27,25 @@ Learn how to extend and customize Rich Text Editor Toolbar
 
 Learn how to customize Rich Text Editor Widgets
 
+<DiscoverBlock slots="link, text"/>
+
 [Rich Text Editor Badges](rte-badges)
 
 Learn how to customize Rich Text Editor Badges
+
+<DiscoverBlock slots="link, text"/>
 
 [Rich Text Editor Color Picker](rte-colorpicker)
 
 Learn how to customize Rich Text Editor Color Picker
 
+<DiscoverBlock slots="link, text"/>
+
 [Header Menu](header-menu)
 
 Explore the ways to extend and customize Header Menu
+
+<DiscoverBlock slots="link, text"/>
 
 [Navigation](navigation)
 

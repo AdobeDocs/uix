@@ -1,5 +1,5 @@
 ---
-title: Navigation - AEM Content Fragments Editor Extensibility
+title: Navigation - AEM Content Fragments Console Extensibility
 description: Learn about navigation host API methods that can be used in any extension
 contributors:
   - https://github.com/AdobeDocs/uix
@@ -27,7 +27,7 @@ function ExtensionRegistration() {
             const registrationConfig = {
                 id: extensionId,
                 methods: {
-                    headerMenu: {
+                    actionBar: {
                         getButtons() {
                             return [
                                 {
@@ -35,13 +35,12 @@ function ExtensionRegistration() {
                                     label: "UIX Open In Editor",
                                     icon: 'Export',
                                     variant: "primary",
-                                    onClick: async () => {
+                                    onClick: (selections) => {
                                         console.log("UIX Open In Editor has been pressed.");
-                                        const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
+                                        console.log(selections[0].id);
                                         // or any other content fragment path
-
-                                        console.log(contentFragment.path);
-                                        guestConnection.host.navigation.openEditor(contentFragment.path);
+                                        
+                                        guestConnection.host.navigation.openEditor(selections[0].id);
                                     },
                                 },
                             ];
@@ -59,11 +58,10 @@ function ExtensionRegistration() {
 export default ExtensionRegistration;
 ```
 
-![](./navigation.editor.open_in_editor.png)
+![](./navigation.admin.open_in_editor.png)
 
 **API Reference**
 
 | Field                  | Type      | Required | Default | Description                                           |
 |------------------------|-----------|--------|-----------|-------------------------------------------------------|
 | fragmentPath           | `string`  | ✔️     |           | The path of the CF to be open.                        |
-| shouldClearBreadcrumbs | `boolean` |        | `true`    | The flag to clear breadcrumbs when the CF page loads. |

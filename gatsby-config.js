@@ -109,6 +109,10 @@ module.exports = {
             title: "Header Menu",
             path: "/services/aem-cf-console-admin/api/header-menu/"
           },
+          {
+            title: "Navigation",
+            path: "/services/aem-cf-console-admin/api/navigation/"
+          }
         ]
       },
       {

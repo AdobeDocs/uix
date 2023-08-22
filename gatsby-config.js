@@ -112,6 +112,10 @@ module.exports = {
           {
             title: "Navigation",
             path: "/services/aem-cf-console-admin/api/navigation/"
+          },
+          {
+            title: "Modal Dialogs",
+            path: "/services/aem-cf-console-admin/api/modal/"
           }
         ]
       },
@@ -162,6 +166,10 @@ module.exports = {
           {
             title: "Navigation",
             path: "/services/aem-cf-editor/api/navigation/"
+          },
+          {
+            title: "Modal Dialogs",
+            path: "/services/aem-cf-editor/api/modal/"
           }
         ]
       },

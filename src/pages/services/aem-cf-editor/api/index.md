@@ -50,3 +50,9 @@ Explore the ways to extend and customize Header Menu
 [Navigation](navigation)
 
 Learn how to use basic methods for navigating within an extension
+
+<DiscoverBlock slots="link, text"/>
+
+[Modal Dialogs](modal)
+
+Learn about modal host API methods that can be used in any extension

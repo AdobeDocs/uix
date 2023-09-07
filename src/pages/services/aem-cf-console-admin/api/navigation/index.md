@@ -11,9 +11,7 @@ Describes basic methods for navigating within an extension.
 
 ## API to open Content Fragment from an extension
 
-<InlineAlert variant="warning" slots="text" />
-
-The Content Fragment will only open in the headless editor if the `AemFeatures.ACTION_OPEN_NEW_EDITOR` feature is enabled for the AEM instance.
+Default editor for your organization will be used to open Content Fragment.
 
 ```js
 import { useEffect } from "react";

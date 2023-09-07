@@ -4,6 +4,15 @@ description: Learn about modal host API methods that can be used in any extensio
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
+<style>
+table:nth-of-type(1) {
+    display:table;
+    width: 100%;
+}
+table:nth-of-type(1) th:nth-of-type(5) {
+    min-width: 50%;
+}
+</style>
 
 # Modal dialogs
 

@@ -53,60 +53,6 @@ At the moment [Modal](#modal) is the only way for extension to provide custom UI
 
 Both `register` and `attach` function of `@adobe/uix-guest` returns same connection object that has `host` property and expose API of Content Fragments console exposed for UI Extensions.
 
-### Modal
-
-Content Fragments console provides API for showing modal dialogs with custom UI defined by an extension. These modals can be triggered by a click on the button or other events. Modal API is defined in the `modal` namespace.
-
-Content of the modal is rendered in an iframe with source defined by extension. Before showing modal you should create a page which renders Modal UI. This UI should use Adobe Spectrum UI library to provide consistent experiense to the user.
-
-In order to display modal dialog extension must call `showUrl` method in `modal` namespace.
-
-```js
-import { register } from "@adobe/uix-guest";
-
-const guestConnection = await register({
-    id: "my.company.extension-with-modal",
-    {
-        //...
-    }
-}
-
-guestConnection.host.modal.showUrl({
-    title: "Extension Modal",
-    url: "/index.html#/modal", // absolute or relative path
-})
-```
-
-Modal may be closed by `close` method
-
-```js
-import { attach } from "@adobe/uix-guest";
-
-const guestConnection = await attach({
-    id: "my.company.extension-with-modal"
-}
-
-guestConnection.host.modal.close();
-```
-
-#### Modal API Methods
-
-All extensions can access this API:
-`modal.showUrl(modal: ModalRequest)`
-
-When an extension is loaded into the ModalProvider as a dialog, the extension can then call two more APIs:
-
-- `modal.setSize(size: string)` Manually update the "size" parameter of the modal and rerender.
-- `modal.close()` Close modal.
-
-#### Formatting Options
-
-Spectrum dialogs can expand vertically according to content size, but not horizontally. Vertical height can be manually specified, or autodetected. Horizontally, there are only three "sizes" which Spectrum accepts, "S", "M", and "L". The ModalProvider tries to pick the right size based on the window width of the inner document if it isn't manually specified.
-
-To get the largest possible size, pass `fullscreen: true` in the object send to `modal.showUrl`.
-
-`size` can be changed during the component's lifetime with `.setSize`
-
 ### Progress Circle
 
 A progress circle shows the presence of background system operation in a visual way. The progress circle also blocks all user interactions with the UI.

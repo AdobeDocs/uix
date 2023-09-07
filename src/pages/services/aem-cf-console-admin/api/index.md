@@ -27,6 +27,20 @@ Learn how to extend and customize Action Bar
 
 Learn how to customize Grid Columns
 
+<DiscoverBlock slots="link, text"/>
+
 [Header Menu](header-menu)
 
 Explore the ways to extend and customize Header Menu
+
+<DiscoverBlock slots="link, text"/>
+
+[Navigation](navigation)
+
+Learn how to use basic methods for navigating within an extension
+
+<DiscoverBlock slots="link, text"/>
+
+[Modal Dialogs](modal)
+
+Learn about modal host API methods that can be used in any extension

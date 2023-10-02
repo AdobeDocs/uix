@@ -93,6 +93,8 @@ For more information see [Code Generation](../../services/aem-cf-console-admin/c
 Our [code generator](../../services/aem-cf-console-admin/code-generation/) supplies a demo project that you may generate and deploy for your IMS organization. Explore it and change to learn what is possible with UI Extensibility.
 
 
-<InlineAlert slots="text" />
+## How I can ask for additional extension point
 
-UI Extensibility is currently available for early preview as a beta release. If you cannot find an answer to your question please contact us directly at uix@adobe.com.
+We are open to genuine feedback and would gladly expand UI Extensibility capability to solve your needs.
+
+Please get in touch with us through email at uix@adobe.com for feature requests, use-case validation, assistance with extension implementation, or bug reports.

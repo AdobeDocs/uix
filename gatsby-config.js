@@ -36,7 +36,11 @@ module.exports = {
           {
             title: "AEM Content Fragments Editor",
             path: "/services/aem-cf-editor/"
-          }
+          },
+          {
+            title: "Adobe Commerce Admin",
+            path: "https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/"
+          },
         ]
       }
     ],

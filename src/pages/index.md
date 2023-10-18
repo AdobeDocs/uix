@@ -11,7 +11,7 @@ contributors:
 
 UI Extensibility allows 3rd-party developers to customize and add their own logic to Adobe Experience Cloud services.
 
-## Break the Ice
+## Break the ice
 
 UI extensions are JavaScript applications built with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that can be embedded in UI Applications running under [Adobe Experience Cloud](https://experience.adobe.com/) unified shell. Adobe UI Services and UI Extensions implement a two-way communication protocol that enables the exchange of data, the invocation of actions, and the rendering of additional visual blocks.
 
@@ -51,13 +51,21 @@ Find answers to most frequent questions about UI Extensibility
 
 <DiscoverBlock slots="heading, link, text"/>
 
-### Learn how to create UI extensions
+### Tutorails
 
 [Create a new UI extension](guides/development-flow/)
 
-Know what to expect when create UI Extension
+Know what to expect when creating a UI Extension
 
 <DiscoverBlock slots="link, text"/>
+
+[Deploy and publish a new UI extension](guides/publication/)
+
+Know how to deploy and publish a UI Extension for your organization
+
+<DiscoverBlock slots="heading, link, text"/>
+
+### Explore extensible services
 
 [AEM Content Fragments console extension development guide](services/aem-cf-console-admin/)
 
@@ -70,26 +78,6 @@ Get started with the development of extensions for AEM Content Fragments console
 Get started with the development of extensions for AEM Content Fragments editor
 
 <DiscoverBlock slots="heading, link, text"/>
-
-### Explore extensible services
-
-[AEM Content Fragments console extension points](services/aem-cf-console-admin/api/)
-
-Learn extensibility options in AEM Content Fragments console
-
-<DiscoverBlock slots="link, text"/>
-
-[AEM Content Fragments editor extension points](services/aem-cf-editor/api/)
-
-Learn extensibility options in AEM Content Fragments editor
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Publish
-
-[UI extensions publication guide](guides/publication/)
-
-Know how to deploy and publish UI Extensions for your organization
 
 ### Experiment
 

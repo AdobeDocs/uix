@@ -44,3 +44,9 @@ Learn how to implement, test and deploy your own UI Extensions with Adobe App Bu
 [UI Extension Publication and Management](publication)
     
 Know how to bring your extension to users and manage it
+
+<DiscoverBlock slots="link, text"/>
+
+[Experiment with AEM Labs](aem-labs)
+    
+Explore, enable and configure UI Extensions

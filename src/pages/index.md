@@ -9,37 +9,37 @@ contributors:
 
 # UI Extensibility
 
-UI Extensibility allows 3rd party developers to customize and add their own logic to Adobe Experience Cloud services.
+UI Extensibility allows 3rd-party developers to customize and add their own logic to Adobe Experience Cloud services.
 
 ## Break the Ice
 
-UI extensions are JavaScript applications built with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that may be embedded in UI Applications running under [Adobe Experience Cloud](https://experience.adobe.com/) unified shell. Adobe UI Services and UI Extensions implement a two-way communication protocol that allows to exchange of data, invoking actions, and rendering additional visual blocks.
+UI extensions are JavaScript applications built with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/overview/) that can be embedded in UI Applications running under [Adobe Experience Cloud](https://experience.adobe.com/) unified shell. Adobe UI Services and UI Extensions implement a two-way communication protocol that enables the exchange of data, the invocation of actions, and the rendering of additional visual blocks.
 
 <DiscoverBlock slots="heading, link, text"/>
 
-## Get to Know
+## Getting started
 
-[Why I Need It](overview/reason)
+[What are UI Extensions?](overview/app-builder)
+
+Learn how UI Extensibility and App Builder are related to each other
+
+<DiscoverBlock slots="link, text"/>
+
+[What UI extensions can do?](overview/reason)
 
 Know why UI Extensibility may be a good solution for you
 
 <DiscoverBlock slots="link, text"/>
 
-[How It Works](overview/design)
+[How it works?](overview/design)
 
 Explore how UI Extensibility works
 
 <DiscoverBlock slots="link, text"/>
 
-[How to Get Access](guides/get-access)
+[How to get access?](guides/get-access)
 
 Discover what is needed to use UI Extensibility
-
-<DiscoverBlock slots="link, text"/>
-
-[App Builder and UI Extensibility](overview/app-builder)
-
-Learn how UI Extensibility and App Builder are related to each other
 
 <DiscoverBlock slots="link, text"/>
 
@@ -47,43 +47,55 @@ Learn how UI Extensibility and App Builder are related to each other
 
 Find answers to most frequent questions about UI Extensibility
 
-## Discover
+## Guides
 
 <DiscoverBlock slots="heading, link, text"/>
 
-### Learn How to Create UI Extensions
+### Learn how to create UI extensions
 
-[UI Extensions Development Flow Overview](guides/development-flow/)
+[Create a new UI extension](guides/development-flow/)
 
-Know what to expect when create UI Extension.
-
-<DiscoverBlock slots="link, text"/>
-
-[AEM Content Fragments Console Extensions Development Guide](services/aem-cf-console-admin/)
-
-Get started with the development of extensions for AEM Content Fragments Console.
+Know what to expect when create UI Extension
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Content Fragments Console Developer Videos and Samples](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/developing/extensibility/content-fragments/overview.html)
+[AEM Content Fragments console extension development guide](services/aem-cf-console-admin/)
 
-View helpful videos and step by step instructions on building extensions for AEM Content Fragments Console.
+Get started with the development of extensions for AEM Content Fragments console
+
+<DiscoverBlock slots="link, text"/>
+
+[AEM Content Fragments editor extension development guide](services/aem-cf-editor/)
+
+Get started with the development of extensions for AEM Content Fragments editor
 
 <DiscoverBlock slots="heading, link, text"/>
 
-### Explore What to Extend
+### Explore extensible services
 
-[AEM Content Fragments Console Extension Points](services/aem-cf-console-admin/api/)
+[AEM Content Fragments console extension points](services/aem-cf-console-admin/api/)
 
-Learn extensibility possibilities in AEM Content Fragments Console.
+Learn extensibility options in AEM Content Fragments console
+
+<DiscoverBlock slots="link, text"/>
+
+[AEM Content Fragments editor extension points](services/aem-cf-editor/api/)
+
+Learn extensibility options in AEM Content Fragments editor
 
 <DiscoverBlock slots="heading, link, text"/>
 
 ### Publish
 
-[UI Extensions Management Guide](guides/publication/)
+[UI extensions publication guide](guides/publication/)
 
-Know how to deploy and publish UI Extensions for your organization.
+Know how to deploy and publish UI Extensions for your organization
+
+### Experiment
+
+[AEM Labs guide](guides/aem-labs/)
+
+Navigate your UI Extensions and create a unique setup for your AEM instance
 
 ## Collaborate
 

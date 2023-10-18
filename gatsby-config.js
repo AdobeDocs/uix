@@ -19,7 +19,7 @@ module.exports = {
         path: "/",
       },
       {
-        title: "Overview",
+        title: "Getting started",
         path: "/overview/"
       },
       {
@@ -27,7 +27,7 @@ module.exports = {
         path: "/guides/"
       },
       {
-        title: "Extensible Services",
+        title: "Extensible services",
         menu: [
           {
             title: "AEM Content Fragments Console",
@@ -86,6 +86,20 @@ module.exports = {
       {
         title: "UI Extension Publication and Management",
         path: "/guides/publication/"
+      },
+      {
+        title: "Experiment with AEM Labs",
+        path: "/guides/aem-labs/",
+        pages: [
+          {
+            title: "Getting Started",
+            path: "/guides/aem-labs/getting-started/"
+          },
+          {
+            title: "Feature Highlights",
+            path: "/guides/aem-labs/feature-highlights/"
+          },
+        ]
       },
       // Services
       {

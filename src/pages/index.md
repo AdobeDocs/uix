@@ -25,7 +25,7 @@ Learn how UI Extensibility and App Builder are related to each other
 
 <DiscoverBlock slots="link, text"/>
 
-[What UI extensions can do?](overview/reason)
+[Why choose UI extensibility?](overview/reason)
 
 Know why UI Extensibility may be a good solution for you
 

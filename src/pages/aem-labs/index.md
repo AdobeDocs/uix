@@ -1,10 +1,12 @@
 ---
-title: Getting started with AEM Labs
-description: Instructions on how to access AEM Labs
+title: Welcome to AEM Labs
+description: Explore, enable and configure UI Extensions
 contributors:
   - AdobeDocs/uix
 ---
-# Getting Started with AEM Labs
+# Welcome to AEM Labs
+AEM Labs is a playground, designed for developers seeking creative freedom within AEM. Within AEM Labs, you have the can to enable or disable extensions on a per-instance basis, access Adobe's first-party extensions, and much more.
+
 This guide will walk you through the initial steps to get started with AEM Labs. You will learn how to access the AEM Labs platform and understand the role-based permissions to ensure a smooth start.
 
 ## Accessing AEM Labs
@@ -56,3 +58,16 @@ For a deep dive inot AEM Labs' capabilities, head to the [Feature Highlights](fe
 ## Contact and Support
 
 If you encounter issues, need assistance, or want to provide feedback, please use `Beta Feedback` button, located in the top bar on the [AEM Labs' home page](https://experience.adobe.com/aem/extension-manager) or email us at uix@adobe.com.
+
+
+<DiscoverBlock slots="link, text"/>
+
+[Getting Started](getting-started)
+
+Instructions on how to access AEM Labs
+
+<DiscoverBlock slots="link, text"/>
+
+[Feature Highlights](feature-highlights)
+
+Explore the features of AEM Labs

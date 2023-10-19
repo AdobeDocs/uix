@@ -1,10 +1,10 @@
 ---
-title: App Builder and UI Extensibility - UI Extensibility
+title: What are UI Extensions?
 description: Learn how UI Extensibility and App Builder are related to each other
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
-# App Builder and UI Extensibility
+# What Are UI Extensions
 
 UI Extensions are specific types of applications created with Adobe App Builder. All information available for App Builder is valid for UI Extensions as well. 
 

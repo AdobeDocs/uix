@@ -13,7 +13,7 @@ Begin your journey with UI Extensibility by exploring main capabilities and find
 
 [What Are UI Extensions](app-builder)
 
-Learn how UI Extensibility and App Builder are related to each other
+Understand the connection between UI Extensibility and App Builder
 
 <DiscoverBlock slots="link, text"/>
 
@@ -26,12 +26,6 @@ Know why UI Extensibility may be a good solution for you
 [How It Works](design)
 
 Explore how UI Extensibility works
-
-<DiscoverBlock slots="link, text"/>
-
-[How to Get Access](get-access)
-
-Discover what is needed to use UI Extensibility
 
 <DiscoverBlock slots="link, text"/>
 

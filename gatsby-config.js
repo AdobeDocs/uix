@@ -63,14 +63,14 @@ module.exports = {
         path: "/getting-started/design/"
       },
       {
-        title: "How to Get Access",
-        path: "/getting-started/get-access/"
-      },
-      {
         title: "FAQ",
         path: "/getting-started/faq/"
       },
       // Common guides
+      {
+        title: "Get Access",
+        path: "/guides/get-access/"
+      },
       {
         title: "Set Up Local Environment",
         path: "/guides/local-environment/"

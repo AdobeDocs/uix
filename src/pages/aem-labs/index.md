@@ -58,16 +58,3 @@ For a deep dive inot AEM Labs' capabilities, head to the [Feature Highlights](fe
 ## Contact and Support
 
 If you encounter issues, need assistance, or want to provide feedback, please use `Beta Feedback` button, located in the top bar on the [AEM Labs' home page](https://experience.adobe.com/aem/extension-manager) or email us at uix@adobe.com.
-
-
-<DiscoverBlock slots="link, text"/>
-
-[Getting Started](getting-started)
-
-Instructions on how to access AEM Labs
-
-<DiscoverBlock slots="link, text"/>
-
-[Feature Highlights](feature-highlights)
-
-Explore the features of AEM Labs

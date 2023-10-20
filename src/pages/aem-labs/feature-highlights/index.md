@@ -28,8 +28,86 @@ This means you can confidently explore and experiment with the latest features a
 4. Define the `Key` and corresponding `Value` for your parameter.
    ![Configuration screen](configuration.png)
 5. With your parameters configured, you can now access these values using the [UIX SDK](https://github.com/adobe/uix-sdk) within your extension.
-   
-This streamlined process allows you to fine-tune your extension settings without the hassle of repeated deployments, putting control and customization in your hands.
+
+Code sample on how to use the configuration within your Extension via `register` method:
+```js
+function ExtensionRegistration() {
+  const init = async () => {
+    const guestConnection = await register({
+      id: extensionId,
+      methods: {
+        headerMenu: {
+          getButtons() {
+            return [
+              {
+                id: `${extensionId}-button`,
+                label: 'Click me!',
+                icon: 'OpenIn',
+                onClick() {
+                  const modalURL = `/index.html#/${extensionId}-modal`;
+                  console.log("ExtensionRegistration: register => guestConnection.configuration", guestConnection.configuration);
+
+                  guestConnection.host.modal.showUrl({
+                    title: "UI Extension Demo",
+                    url: modalURL,
+                  });
+                },
+              },
+            ];
+          },
+        },
+      },
+    });
+  };
+  init().catch(console.error);
+```
+Code sample for `attach` method:
+```js
+export default function ModalHeaderMenuButtonModal () {
+  const [guestConnection, setGuestConnection] = useState()
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    (async () => {
+      const guestConnection = await attach({ id: extensionId })
+      console.log("Modal: attach => guestConnection.configuration:", guestConnection.configuration);
+      setGuestConnection(guestConnection)
+    })()
+  }, [])
+
+  const onCloseHandler = () => {
+    guestConnection.host.modal.close()
+  }
+
+  return (
+    <Provider theme={defaultTheme} colorScheme='light'>
+      <Content width="100%">
+        <Text>Your modal content goes here</Text>
+        <View marginTop="size-325">
+          <Heading level={3}>Extension Configuration:</Heading>
+          <Well>{guestConnection && JSON.stringify(guestConnection.configuration)}</Well>
+          <Heading level={3}>Shared Context available for your UI extension:</Heading>
+          {guestConnection &&
+            <ul>
+              <li><Heading level={4}>AEM Host:</Heading><Well>{JSON.stringify(guestConnection.sharedContext.get('aemHost'), null, 4)}</Well></li>
+              <li><Heading level={4}>Authentication:</Heading><Well>{JSON.stringify(guestConnection.sharedContext.get('auth'), null, 4)}</Well></li>
+              <li><Heading level={4}>Theme:</Heading><Well>{JSON.stringify(guestConnection.sharedContext.get('theme'), null, 4)}</Well></li>
+              <li><Heading level={4}>Locale:</Heading><Well>{JSON.stringify(guestConnection.sharedContext.get('locale'), null, 4)}</Well></li>
+            </ul>
+          }
+        </View>
+        <Flex width="100%" justifyContent="end" alignItems="center" marginTop="size-400">
+          <ButtonGroup align="end">
+            <Button variant="primary" onClick={onCloseHandler}>Close</Button>
+          </ButtonGroup>
+        </Flex>
+      </Content>
+    </Provider>
+  )
+}
+```
+
+This process allows you to fine-tune your extension settings without the hassle of repeated deployments, putting control and customization in your hands.
 
 ## Extension Preview and Sharing
 [AEM Labs](https://experience.adobe.com/aem/extension-manager) provides a safe playground to preview extensions before enabling them for the entire environment and the ability to easily share these previews.

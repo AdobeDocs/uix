@@ -174,13 +174,17 @@ module.exports = {
           {
             title: "Modal Dialogs",
             path: "/services/aem-cf-editor/api/modal/"
+          },
+          {
+            title: "Modal Dialogs",
+            path: "/services/aem-cf-editor/api/modal/"
           }
         ]
       },
       {
-        title: "Code Generation",
-        path: "/services/aem-cf-editor/code-generation/"
-      },
+        title: "Custom form element rendering",
+        path: "/services/aem-cf-editor/custom-fields/"
+      }
     ]
   },
   plugins: [

@@ -76,8 +76,8 @@ Allowed values in `getDefinitions` when registering override rules.
 | Field          | Type      | Required | Description                                                                                                                                                               |
 |----------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `url`          | `string`  |  ✔️      | URL of the page to load in the iframe that will replace the original field. The URL must have the same origin as the extension declaring the rules for field replacement. |
-| `pathExp`      | `string`  |          | RegExp for "fragment content" path.                                                                                                                                       |
-| `modelPathExp` | `string`  |          | RegExp for "fragment content model" path.                                                                                                                                 |
+| `pathExp`      | `string`  |          | RegExp for "content fragment" path.                                                                                                                                       |
+| `modelPathExp` | `string`  |          | RegExp for "content fragment model" path.                                                                                                                                 |
 | `fieldTypeExp` | `string`  |          | RegExp for field type.                                                                                                                                                    |
 | `fieldNameExp` | `string`  |          | RegExp for field name.                                                                                                                                                    |
 

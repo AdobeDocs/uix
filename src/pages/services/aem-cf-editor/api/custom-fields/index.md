@@ -67,9 +67,9 @@ function CustomField() {
 }
 ```
 
-## API Reference
+## API reference
 
-### Override Rules Definition API
+### Override rules definition API
 
 Allowed values in `getDefinitions` when registering override rules.
 

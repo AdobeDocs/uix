@@ -105,6 +105,7 @@ const guestConnection = await register({
             deleteButtons() {
                 return [
                     {
+                        //The "id" property is the "data-id" property of html button element.
                         id: "my.company.export-button"
                     },
                 ];

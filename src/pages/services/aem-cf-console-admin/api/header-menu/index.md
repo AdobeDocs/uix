@@ -49,6 +49,8 @@ const guestConnection = await register({
 });
 ```
 
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
+
 ## Custom button with sub menu
 
 ```js
@@ -92,6 +94,8 @@ const guestConnection = await register({
 });
 ```
 
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
+
 ## Delete button
 
 ```js
@@ -114,13 +118,6 @@ const guestConnection = await register({
     },
 });
 ```
-
-
-The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
-
-<InlineAlert variant="warning" slots="text" />
-
-The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
 
 ## API Reference
 
@@ -148,4 +145,4 @@ The `getButton` method is deprecated. When defining a single button, use `getBut
 
 | Field    | Type                                                                        | Required | Description                                                                  |
 |----------|-----------------------------------------------------------------------------| ------ |------------------------------------------------------------------------------|
-| id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button. (Use browser developer console) |
+| id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button (please use browser developer console to find actual value). |

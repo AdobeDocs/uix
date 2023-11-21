@@ -48,6 +48,8 @@ const guestConnection = await register({
 });
 ```
 
+The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
+
 ## Custom button with sub menu
 
 ```js
@@ -93,7 +95,7 @@ const guestConnection = await register({
 
 The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
 
-## Custom button with sub menu
+## Delete button
 
 ```js
 import { register } from "@adobe/uix-guest";
@@ -108,31 +110,6 @@ const guestConnection = await register({
                 return [
                     {
                         //The "id" property is the "data-id" property of html button element.
-                        id: "my.company.export-button"
-                    },
-                ];
-            },
-        },
-    },
-});
-```
-
-The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
-
-## Delete button
-
-```js
-import { register } from "@adobe/uix-guest";
-
-// ...
-
-const guestConnection = await register({
-    id: "my.company.extension-with-header-menu-button",
-    methods: {
-        actionBar: {
-            deleteButtons() {
-                return [
-                    {
                         id: "my.company.export-button"
                     },
                 ];

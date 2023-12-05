@@ -25,7 +25,7 @@ const guestConnection = await register({
     {
         //...
     }
-}
+});
 
 guestConnection.host.modal.showUrl({
     title: "Extension Modal",
@@ -40,7 +40,7 @@ import { attach } from "@adobe/uix-guest";
 
 const guestConnection = await attach({
     id: "my.company.extension-with-modal"
-}
+});
 
 guestConnection.host.modal.close();
 ```

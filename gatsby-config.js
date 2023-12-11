@@ -176,7 +176,7 @@ module.exports = {
             path: "/services/aem-cf-editor/api/modal/"
           },
           {
-            title: "Custom form element rendering",
+            title: "Form elements custom rendering",
             path: "/services/aem-cf-editor/api/custom-fields/"
           }
         ]

@@ -1,11 +1,11 @@
 ---
-title: Custom form element rendering - AEM Content Fragments Editor Extensibility
+title: Form elements custom rendering - AEM Content Fragments Editor Extensibility
 description: Learn how to customize a form field rendering in AEM Content Fragments Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Custom form element rendering
+# Form elements custom rendering
 
 This feature allows third-party developer to build custom input UI for specific fields or types of fields.
 
@@ -67,14 +67,31 @@ function CustomField() {
 }
 ```
 
-## API Reference
+## API reference
 
-| Field        | Type      | Required | Description                                                                                                                                                               |
-|--------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| url          | `string`  |  ✔️      | URL of the page to load in the iframe that will replace the original field. The URL must have the same origin as the extension declaring the rules for field replacement. |
-| pathExp      | `string`  |          | RegExp for "fragment content" path                                                                                                                                        |
-| modelPathExp | `string`  |          | RegExp for "fragment content model" path                                                                                                                                  |
-| fieldTypeExp | `string`  |          | RegExp for field type                                                                                                                                                     |
-| fieldNameExp | `string`  |          | RegExp for field name                                                                                                                                                     |
+### Override rules definition API
+
+Allowed values in `getDefinitions` when registering override rules.
+
+| Field          | Type      | Required | Description                                                                                                                                                               |
+|----------------|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `url`          | `string`  |  ✔️      | URL of the page to load in the iframe that will replace the original field. The URL must have the same origin as the extension declaring the rules for field replacement. |
+| `pathExp`      | `string`  |          | RegExp for "content fragment" path.                                                                                                                                       |
+| `modelPathExp` | `string`  |          | RegExp for "content fragment model" path.                                                                                                                                 |
+| `fieldTypeExp` | `string`  |          | RegExp for field type.                                                                                                                                                    |
+| `fieldNameExp` | `string`  |          | RegExp for field name.                                                                                                                                                    |
 
 At least one valid expression must be specified: `pathExp`, `modelPathExp`, `fieldTypeExp`, or `fieldNameExp`.
+
+### Host API
+
+Methods that can be called on the `conn.host.field` object during rendering logic implementation.
+
+| Method                                              | Description                                                                                                                                            |
+|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `getModel(): Object`                                | Return Content Fragment Model for the currently edited Content Fragment.                                                                               |
+| `getDefaultValue(): mixed`                          | Returns the initial value for the input we are replacing.                                                                                              |
+| `getValidationState(): invalid&#124;valid`          | Returns the validation state value for the input we are replacing.                                                                                     |
+| `onValidationStateChange(Function callback): void`  | Accepts a callback that will be called when the validation state changes for the input we are replacing.                                               |
+| `onChange(Function callback): void`                 | Accepts a callback that will be called when the value of the input we are replacing changes.                                                           |
+| `setHeight(number&#124;"auto" height): void): void` | Sets the height value of the frame in which custom UI for the input we are replacing is rendered. A number of pixels, a CSS value, or the string auto. |

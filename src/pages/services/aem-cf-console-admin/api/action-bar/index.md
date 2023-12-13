@@ -145,3 +145,62 @@ const guestConnection = await register({
 | Field    | Type                                                                        | Required | Description                                                                  |
 |----------|-----------------------------------------------------------------------------| ------ |------------------------------------------------------------------------------|
 | id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button (please use browser developer console to find actual value). |
+
+## Examples:
+### Buttons conditional rendering
+
+In React, rendering occurs whenever the state or props of a component change. If the getButtons method is called within the rendering cycle of a component, it will be executed whenever that component is re-rendered due to state or prop changes.
+
+You can indeed use this method to dynamically return different sets of buttons based on the data that has changed on the page. For example:
+
+```js
+import { register } from "@adobe/uix-guest";
+
+// ...
+
+const guestConnection = await register({
+    id: "my.company.extension-with-action-bar-button",
+    methods: {
+        actionBar: {
+            async getButtons() {
+                const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || [];
+                const defaultButtons = [
+                    {
+                        id: "default_btn",
+                        label: "Default Button",
+                        onClick(selections) {}
+                    }
+                ]
+
+                if (selections.length > 1 ) {
+                    return [
+                        ...defaultButtons,
+                        {
+                            id: "two_and_more_selected",
+                            label: "Ext two and more selected",
+                        }
+                    ]
+                }
+
+                return [
+                    ...defaultButtons,
+                    {
+                        id: "one_or_less_selected",
+                        label: "Ext one or less selected",
+                    }
+                ]
+            },
+        },
+    },
+});
+```
+The `defaultButtons` constant contains the buttons that will be rendered every time, doesn't meter what condition is.
+On the line `const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || [];` 
+we get information about current list of selected content fragments.
+
+Based on quantity of selected content fragments we rendered different set of buttons.
+
+In case if selected more then one content fragment (`selections.length > 1`) the default buttons and button with id "two_and_more_selected" will be rendered
+In case if selected just one content fragment the default button and button with id "one_or_less_selected" will be rendered
+
+This technic provide possibility to build complex logic behind the buttons rendering.

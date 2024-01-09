@@ -106,9 +106,9 @@ Start building extensions for Adobe Commerce Admin
 
 ## Experiment
 
-[Extension Manager in AEM Sites](extension-manager/)
+[Extension Manager](extension-manager/)
 
-Discover your UI Extensions within the safe playground and experiment with your AEM setup
+Discover your UI Extensions within the safe playground and experiment with your AEM Sites setup
 
 ## Collaborate
 

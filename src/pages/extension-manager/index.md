@@ -1,10 +1,10 @@
 ---
-title: Welcome to Extension Manager in AEM Sites
+title: Extension Manager in AEM Sites
 description: Explore, enable and configure UI Extensions
 contributors:
   - AdobeDocs/uix
 ---
-# Welcome to Extension Manager in AEM Sites
+# Extension Manager in AEM Sites
 Extension Manager in AEM Sites is a surface, designed for practitioners and developers seeking creative freedom within AEM. Within Extension Manager, you have the can to enable or disable extensions on a per-instance basis, access Adobe's first-party extensions, and much more.
 
 This guide will walk you through the initial steps to get started with Extension Manager. You will learn how to access the Extension Manager page and understand the role-based permissions to ensure a smooth start.
@@ -53,7 +53,7 @@ By non-production we mean `dev`, `stage` and `rde` environments.
 ## Extensions Listing
 Once you're on the [Extension Manager](https://experience.adobe.com/aem/extension-manager) home page, you can explore the list of AEM programs and environments available for your organization. Go ahead and select a program and an environment to display the available extensions.
 
-For a deep dive inot Extension Manager's capabilities, head to the [Feature Highlights](feature-highlights) section.
+For a deep dive into the Extension Manager's capabilities, head to the [Feature Highlights](feature-highlights) section.
 
 ## Contact and Support
 

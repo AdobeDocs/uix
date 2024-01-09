@@ -56,3 +56,7 @@ Learn how to use basic methods for navigating within an extension
 [Modal Dialogs](modal)
 
 Learn about modal host API methods that can be used in any extension
+
+[Custom form element rendering](custom-fields)
+
+Learn how to customize a form field rendering

@@ -18,6 +18,7 @@ You have the ability to:
 - create multiple buttons from single extension;
 - implement drop-down menu buttons;
 - use any [icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) from React Spectrum;
+- delete default or added by extension buttons;
 
 ## Custom button with callback
 
@@ -46,6 +47,8 @@ const guestConnection = await register({
     },
 });
 ```
+
+The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
 
 ## Custom button with sub menu
 
@@ -92,9 +95,29 @@ const guestConnection = await register({
 
 The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
 
-<InlineAlert variant="warning" slots="text" />
+## Delete button
 
-The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
+```js
+import { register } from "@adobe/uix-guest";
+
+// ...
+
+const guestConnection = await register({
+    id: "my.company.extension-with-action-bar-button",
+    methods: {
+        actionBar: {
+            deleteButtons() {
+                return [
+                    {
+                        //The "id" property is the "data-id" property of html button element.
+                        id: "my.company.export-button"
+                    },
+                ];
+            },
+        },
+    },
+});
+```
 
 ## API Reference
 
@@ -116,3 +139,9 @@ The `getButton` method is deprecated. When defining a single button, use `getBut
 | label    | `string`                     | ✔️  | Button label that will be visible on UI                                                                      |
 | icon     | `string`                     |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
 | onClick  | `callback(selections): void` |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list             |
+
+### Delete button API
+
+| Field    | Type                                                                        | Required | Description                                                                  |
+|----------|-----------------------------------------------------------------------------| ------ |------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button (please use browser developer console to find actual value). |

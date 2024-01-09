@@ -148,7 +148,7 @@ module.exports = {
             path: "/services/aem-cf-editor/api/commons/"
           },
           {
-            title: "Cavas Data",
+            title: "Canvas Data",
             path: "/services/aem-cf-editor/api/data/"
           },
           {
@@ -178,6 +178,10 @@ module.exports = {
           {
             title: "Modal Dialogs",
             path: "/services/aem-cf-editor/api/modal/"
+          },
+          {
+            title: "Custom form element rendering",
+            path: "/services/aem-cf-editor/api/custom-fields/"
           }
         ]
       },

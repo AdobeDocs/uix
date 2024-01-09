@@ -44,7 +44,7 @@ module.exports = {
         ]
       },
       {
-        title: "Extension Manager in AEM Sites",
+        title: "Extension Manager",
         path: "/extension-manager/"
       },
     ],
@@ -190,7 +190,7 @@ module.exports = {
         path: "/services/aem-cf-editor/code-generation/"
       },
       {
-        title: "Extension Manager in AEM Sites",
+        title: "Extension Manager",
         path: "/extension-manager/"
       },
       {

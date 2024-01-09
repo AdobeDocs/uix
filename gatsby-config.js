@@ -44,8 +44,8 @@ module.exports = {
         ]
       },
       {
-        title: "AEM Labs",
-        path: "/aem-labs/"
+        title: "Extension Manager in AEM Sites",
+        path: "/extension-manager/"
       },
     ],
     subPages: [
@@ -186,12 +186,12 @@ module.exports = {
         path: "/services/aem-cf-editor/code-generation/"
       },
       {
-        title: "Welcome to AEM Labs",
-        path: "/aem-labs/"
+        title: "Welcome to Extension Manager in AEM Sites",
+        path: "/extension-manager/"
       },
       {
         title: "Feature Highlights",
-        path: "/aem-labs/feature-highlights/"
+        path: "/extension-manager/feature-highlights/"
       }
     ]
   },

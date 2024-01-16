@@ -19,8 +19,8 @@ module.exports = {
         path: "/",
       },
       {
-        title: "Overview",
-        path: "/overview/"
+        title: "Getting Started",
+        path: "/getting-started/"
       },
       {
         title: "Guides",
@@ -42,49 +42,53 @@ module.exports = {
             path: "https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/"
           },
         ]
-      }
-    ],
-    subPages: [
-      // Overview
-          {
-            title: "Why I Need It",
-            path: "/overview/reason/"
-          },
-          {
-            title: "How It Works",
-            path: "/overview/design/"
-          },
-          {
-            title: "App Builder and UI Extensibility",
-            path: "/overview/app-builder/"
-          },
-          {
-            title: "FAQ",
-            path: "/overview/faq/"
-          },
-      // Common guides
-      {
-        title: "How to Get Access",
-        path: "/guides/get-access/"
       },
       {
-        title: "Creating a project in Adobe Developer Console",
-        path: "/guides/creating-project-in-dev-console/"
+        title: "Extension Manager",
+        path: "/extension-manager/"
+      },
+    ],
+    subPages: [
+      // Getting Started
+      {
+        title: "What Are UI Extensions",
+        path: "/getting-started/app-builder/"
+      },
+      {
+        title: "Why Choose UI Extensibility",
+        path: "/getting-started/reason/"
+      },
+      {
+        title: "How It Works",
+        path: "/getting-started/design/"
+      },
+      {
+        title: "FAQ",
+        path: "/getting-started/faq/"
+      },
+      // Common guides
+      {
+        title: "Get Access",
+        path: "/guides/get-access/"
       },
       {
         title: "Set Up Local Environment",
         path: "/guides/local-environment/"
       },
       {
-        title: "UI Extensions Development Flow",
+        title: "Create a Project in Developer Console",
+        path: "/guides/creating-project-in-dev-console/"
+      },
+      {
+        title: "Create a New UI Extension",
         path: "/guides/development-flow/"
       },
       {
-        title: "Local Preview of UI Extensions",
+        title: "Local Preview of the UI Extensions",
         path: "/guides/preview-extension-locally/"
       },
       {
-        title: "UI Extension Publication and Management",
+        title: "Publish and Manage the UI Extensions",
         path: "/guides/publication/"
       },
       // Services
@@ -181,6 +185,18 @@ module.exports = {
           }
         ]
       },
+      {
+        title: "Code Generation",
+        path: "/services/aem-cf-editor/code-generation/"
+      },
+      {
+        title: "Extension Manager",
+        path: "/extension-manager/"
+      },
+      {
+        title: "Feature Highlights",
+        path: "/extension-manager/feature-highlights/"
+      }
     ]
   },
   plugins: [

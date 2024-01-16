@@ -5,13 +5,13 @@ contributors:
   - AdobeDocs/uix
 ---
 
-# Creating a project in Adobe Developer Console
+# Create a project in Adobe Developer Console
 
 UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
 <InlineAlert slots="text" />
 
-If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
+If you don't have access to the Adobe Developer Console, refer to the [Get Access](../get-access) guide for instructions.
 
 To begin, we need to create a new Project that will provide us with the necessary configuration and resources.
 

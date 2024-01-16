@@ -32,7 +32,7 @@ UI Extensions, as any App Builder application, are represented as projects in [A
 
 <InlineAlert slots="text" />
 
-If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
+If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../get-access) guide for instructions.
 
 To begin, we need to create a new Project which will supply us with configuration and resources.
 

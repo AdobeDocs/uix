@@ -1,17 +1,23 @@
 ---
-title: UI Extensibility
+title: Getting Started with UI Extensibility
 description: Learn basics of UI Extensibility
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Overview
+# Getting Started
 
 Begin your journey with UI Extensibility by exploring main capabilities and finding answers to your questions.
 
 <DiscoverBlock slots="link, text"/>
 
-[Why I Need It](reason)
+[What Are UI Extensions](app-builder)
+
+Understand the connection between UI Extensibility and App Builder
+
+<DiscoverBlock slots="link, text"/>
+
+[Why Choose UI Extensibility](reason)
 
 Know why UI Extensibility may be a good solution for you
 
@@ -20,18 +26,6 @@ Know why UI Extensibility may be a good solution for you
 [How It Works](design)
 
 Explore how UI Extensibility works
-
-<DiscoverBlock slots="link, text"/>
-
-[How to Get Access](../guides/get-access)
-
-Discover what is needed to use UI Extensibility
-
-<DiscoverBlock slots="link, text"/>
-
-[App Builder and UI Extensibility](app-builder)
-
-Learn how UI Extensibility and App Builder are related to each other
 
 <DiscoverBlock slots="link, text"/>
 

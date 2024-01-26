@@ -16,7 +16,7 @@ Extension as well may control availability of standard RTE buttons.
 ```js
 {
   rte: {
-    getButtons: () => ([{
+    getCustomButtons: () => ([{
       id: "test-id",
       text: "Test button", //optional text near button
       tooltip: "Button alt text",

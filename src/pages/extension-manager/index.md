@@ -5,7 +5,7 @@ contributors:
   - AdobeDocs/uix
 ---
 # Extension Manager in AEM Sites
-Extension Manager in AEM Sites is a surface, designed for practitioners and developers seeking creative freedom within AEM. Within Extension Manager, you have the can to enable or disable extensions on a per-instance basis, access Adobe's first-party extensions, and much more.
+Extension Manager in AEM Sites is a surface, designed for practitioners and developers seeking creative freedom within AEM. Within Extension Manager, you can enable or disable extensions on a per-instance basis, access Adobe's first-party extensions, and much more.
 
 This guide will walk you through the initial steps to get started with Extension Manager. You will learn how to access the Extension Manager page and understand the role-based permissions to ensure a smooth start.
 

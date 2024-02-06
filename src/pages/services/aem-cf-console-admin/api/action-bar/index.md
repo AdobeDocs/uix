@@ -146,6 +146,11 @@ const guestConnection = await register({
 |----------|-----------------------------------------------------------------------------| ------ |------------------------------------------------------------------------------|
 | id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button (please use browser developer console to find actual value). |
 
+### Get List of selected Fragments
+
+You can access data about the currently selected Content Fragments using the `host.fragmentSelections.getSelections()` method in an extension.
+
+
 ## Examples:
 ### Buttons conditional rendering
 
@@ -194,7 +199,7 @@ const guestConnection = await register({
     },
 });
 ```
-The `defaultButtons` constant contains the buttons that will be rendered every time, doesn't matter what condition is.
+The `defaultButtons` constant contains the buttons that will be rendered every time, no matter what condition is.
 On the line `const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || [];` 
 we get information about current list of selected content fragments.
 

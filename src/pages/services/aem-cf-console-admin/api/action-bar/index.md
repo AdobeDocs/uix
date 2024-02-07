@@ -198,7 +198,7 @@ const guestConnection = await register({
     },
 });
 ```
-he defaultButtons constant contains the buttons that will be rendered every time, regardless of the condition.
+The defaultButtons constant contains the buttons that will be rendered every time, regardless of the condition.
 On the line `const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || []`;
 we get information about the current list of selected content fragments.
 

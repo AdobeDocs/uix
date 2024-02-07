@@ -196,6 +196,16 @@ module.exports = {
       {
         title: "Feature Highlights",
         path: "/extension-manager/feature-highlights/"
+      },
+      {
+        title: "Extensions Developed By Adobe",
+        path: "/extension-manager/extension-developed-by-adobe/",
+        pages: [
+          {
+            title: "Export Content Fragments to Adobe Target",
+            path: "/extension-manager/extension-developed-by-adobe/exporting-content-fragment-to-adobe-target"
+          }
+        ]
       }
     ]
   },

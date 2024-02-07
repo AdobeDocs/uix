@@ -154,8 +154,7 @@ You can access data about the currently selected Content Fragments using the `ho
 ## Examples:
 ### Buttons conditional rendering
 
-Content Fragment Admin invokes getButtons method each time a user changes content fragments selection. Therefore, you can dynamically return different sets of buttons based on the data that has changed on the page. 
-
+Content Fragment Admin invokes the getButtons method each time a user changes the content fragments selection. Therefore, you can dynamically return different sets of buttons based on the data that has changed on the page.
 For example:
 
 ```js
@@ -199,13 +198,14 @@ const guestConnection = await register({
     },
 });
 ```
-The `defaultButtons` constant contains the buttons that will be rendered every time, no matter what condition is.
-On the line `const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || [];` 
-we get information about current list of selected content fragments.
+he defaultButtons constant contains the buttons that will be rendered every time, regardless of the condition.
+On the line `const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || []`;
+we get information about the current list of selected content fragments.
 
-Based on quantity of selected content fragments we rendered different set of buttons.
+Based on the quantity of selected content fragments, we render different sets of buttons.
 
 In case if selected more then one content fragment (`selections.length > 1`) the default buttons and button with id "two_and_more_selected" will be rendered
 In case if selected just one content fragment the default button and button with id "one_or_less_selected" will be rendered
 
-This technic provides possibility to build complex logic behind the buttons rendering.
+This technique allows for building complex logic behind the button rendering.
+

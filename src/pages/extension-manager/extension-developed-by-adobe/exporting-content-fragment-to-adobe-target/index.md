@@ -1,3 +1,12 @@
+---
+title: Exporting to Adobe Target
+description: Explore the extensions Ddeveloped By Adobe with Extension Manager in AEM Sites
+contributors:
+  - AdobeDocs/uix
+---
+
+# Export Content Fragments to Adobe Target
+
 This is a [UI extensibility extension](https://github.com/adobe/aem-uix-examples/blob/main/content-fragment-export-to-target/README.md) that demonstrates how to use the [Adobe I/O App Builder](https://developer.adobe.com/app-builder/docs/overview/) to
 export [Content Fragments](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/sites/authoring/fundamentals/content-fragments.html?lang=en), created in Adobe Experience Manager as a Cloud Service (AEM),
 to Adobe Target (Target). They can then be used as offers in Target activities, to test and personalize experiences at scale.

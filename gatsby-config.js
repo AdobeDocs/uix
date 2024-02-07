@@ -199,11 +199,13 @@ module.exports = {
       },
       {
         title: "Extensions Developed By Adobe",
-        path: "/extension-manager/extension-developed-by-adobe/"
-      },
-      {
-        title: "Export Content Fragments to Adobe Target",
-        path: "/extension-manager/extension-developed-by-adobe/exporting-content-fragment-to-adobe-target"
+        path: "/extension-manager/extension-developed-by-adobe/",
+        pages: [
+          {
+            title: "Export Content Fragments to Adobe Target",
+            path: "/extension-manager/extension-developed-by-adobe/exporting-content-fragment-to-adobe-target"
+          }
+        ]
       }
     ]
   },

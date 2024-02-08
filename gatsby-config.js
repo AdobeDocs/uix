@@ -180,8 +180,12 @@ module.exports = {
             path: "/services/aem-cf-editor/api/modal/"
           },
           {
-            title: "Custom form element rendering",
+            title: "Custom Form Element Rendering",
             path: "/services/aem-cf-editor/api/custom-fields/"
+          },
+          {
+            title: "Setting Default Field Properties",
+            path: "/services/aem-cf-editor/api/field-properties"
           }
         ]
       },

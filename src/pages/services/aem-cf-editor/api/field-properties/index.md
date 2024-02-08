@@ -39,11 +39,11 @@ function ExtensionRegistration() {
 ```
 
 ## Allowed Properties
-* onChange(value) - callback that will be called when value of the field changed
+* onChange(value) - is a callback function that gets triggered whenever there is a change in the field's value
 
 ## API Reference
 
-| Field           | Type     | Required | Description                                                  |
-|-----------------|----------|----------|--------------------------------------------------------------|
-| fieldNameExp    | `string` |  ✔️      | RegExp for field name                                        |
-| onChange(value) | `func`   |          | Callback that will be called when value of the field changed |
+| Field           | Type     | Required | Description                                                                           |
+|-----------------|----------|----------|---------------------------------------------------------------------------------------|
+| fieldNameExp    | `string` |  ✔️      | RegExp for field name                                                                 |
+| onChange(value) | `func`   |          | Callback function that gets triggered whenever there is a change in the field's value |

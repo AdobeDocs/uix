@@ -34,18 +34,18 @@ The modal dialog consists of several elements through which you can initiate a w
 - `Content Fragments Grid` - a grid displaying a list of content fragments for which the workflow will be launched.
 - `Start Workflow button` - when clicked, initiates the workflow initialization process. The workflow starts asynchronously in the background of the application.
 
-To launch a workflow, you need to fill in all the required fields and click the "Start Workflow" button. This will initiate the workflow for each content fragment asynchronously. Each content fragment will have its own workflow process.
+To launch a workflow, you need to fill in all the required fields and click the `Start Workflow` button. This will initiate the workflow for each content fragment asynchronously. Each content fragment will have its own workflow process.
 
 ## Working with references
 
-Within the grid listing the content fragments, there are two additional columns: `References` and `References By` along with the ability to mark these options for each content fragment in the list using checkboxes.
+Within the grid listing the content fragments, there are two additional columns: `References` and `Referenced By` along with the ability to mark these options for each content fragment in the list using checkboxes.
 
 - `References` - by selecting this checkbox, you indicate that a separate workflow process should be created for all children fragments (references) up to the maximum allowed depth. If no children fragments (references) exist for this content fragment, the checkbox will not be displayed.
-- `References By` - by selecting this checkbox, you indicate that a process will be created for its **direct** parent reference as well (not all parents in the "tree"). If the parent fragment's reference does not exist for this content fragment, the checkbox will not be displayed.
+- `Referenced By` - by selecting this checkbox, you indicate that a process will be created for its **direct** parent reference as well (not all parents in the "tree"). If the parent fragment's reference does not exist for this content fragment, the checkbox will not be displayed.
 
-**Notice:** when selecting multiple content fragments and combining the selected options of `References` and `References By`, workflows will be launched only once for each content fragment (the one selected and its children or parent reference, depending on the specified options).
+**Notice:** when selecting multiple content fragments and combining the selected options of `References` and `Referenced By`, workflows will be launched only once for each content fragment (the one selected and its children or parent reference, depending on the specified options).
 
-For example, when selecting both parent and children content fragments and enabling the options `References` and `References By` for them, only one workflow will be created for each content fragment, avoiding duplication of workflows and cyclic dependencies during workflows launching.
+For example, when selecting both parent and children content fragments and enabling the options `References` and `Referenced By` for them, only one workflow will be created for each content fragment, avoiding duplication of workflows and cyclic dependencies during workflows launching.
 
 [Learn about using references in Content Fragments](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/headless/journeys/author/references.html?lang=en)
 

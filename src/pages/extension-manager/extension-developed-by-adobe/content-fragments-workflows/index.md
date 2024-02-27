@@ -7,11 +7,13 @@ contributors:
 
 # Content Fragments workflows
 
-This extension provides UI extensibility, allowing customers to initiate an AEM workflow for selected content fragments.
+This extension expands functionality by leveraging extension points and introducing the capability to initiate an AEM workflow for selected content fragments.
 
 ##  Extension overview
 
 The extension enhances two AEM services: [AEM Content Fragments Console](../../../services/aem-cf-console-admin/) and [AEM Content Fragment Editor](../../../services/aem-cf-editor/). It adds a button to the `Action Bar` for the Content Fragments Console and a button to the `Header Menu` for the AEM Content Fragment Editor.
+
+When clicked, it opens a modal dialog through which you can initiate a workflow.
 
 AEM Content Fragments Console:
 
@@ -20,8 +22,6 @@ AEM Content Fragments Console:
 AEM Content Fragment Editor:
 
 ![AEM Content Fragment Editor](workflow-extension-cf-editor.png)
-
-When clicked, it opens a modal dialog through which you can initiate a workflow.
 
 ## Workflows modal and workflow launching
 
@@ -60,3 +60,7 @@ After clicking the `Start Workflow` button, the initialization of starting the w
 ## Limitations
 
 - `List of Workflows` - currently, by default, the dropdown displays a list of all workflows available for the organization. Limiting this list can be achieved through appropriate ACL configurations for the user.
+
+## Extension source
+
+- [GitHub](https://github.com/adobe/aem-uix-examples/tree/main/content-fragment-workflows)

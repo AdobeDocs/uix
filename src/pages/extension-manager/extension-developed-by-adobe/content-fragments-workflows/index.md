@@ -13,7 +13,11 @@ This extension provides UI extensibility, allowing customers to initiate an AEM 
 
 The extension enhances two AEM services: [AEM Content Fragments Console](../../../services/aem-cf-console-admin/) and [AEM Content Fragment Editor](../../../services/aem-cf-editor/). It adds a button to the `Action Bar` for the Content Fragments Console and a button to the `Header Menu` for the AEM Content Fragment Editor.
 
+AEM Content Fragments Console:
+
 ![AEM Content Fragments Console](workflow-extension-cf-admin.png)
+
+AEM Content Fragment Editor:
 
 ![AEM Content Fragment Editor](workflow-extension-cf-editor.png)
 
@@ -37,7 +41,7 @@ To launch a workflow, you need to fill in all the required fields and click the 
 Within the grid listing the content fragments, there are two additional columns: `References` and `References By` along with the ability to mark these options for each content fragment in the list using checkboxes.
 
 - `References` - by selecting this checkbox, you indicate that a separate workflow process should be created for all children fragments (references) up to the maximum allowed depth. If no children fragments (references) exist for this content fragment, the checkbox will not be displayed.
-- `References By` - by selecting this checkbox, you indicate that a process will be created for its parent reference as well. If the parent fragment's reference does not exist for this content fragment, the checkbox will not be displayed.
+- `References By` - by selecting this checkbox, you indicate that a process will be created for its **direct** parent reference as well (not all parents in the "tree"). If the parent fragment's reference does not exist for this content fragment, the checkbox will not be displayed.
 
 **Notice:** when selecting multiple content fragments and combining the selected options of `References` and `References By`, workflows will be launched only once for each content fragment (the one selected and its children or parent reference, depending on the specified options).
 
@@ -52,3 +56,7 @@ After clicking the `Start Workflow` button, the initialization of starting the w
 ![Result of running](workflow-extension-result.png)
 
 **Notice:** the status of the workflow start will be displayed, but not the result of its completion, which occurs asynchronously in the background. To find out the final result of the workflow execution, you need to follow the links that will be displayed below the result grid.
+
+## Limitations
+
+- `List of Workflows` - currently, by default, the dropdown displays a list of all workflows available for the organization. Limiting this list can be achieved through appropriate ACL configurations for the user.

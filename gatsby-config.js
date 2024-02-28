@@ -208,6 +208,10 @@ module.exports = {
           {
             title: "Export Content Fragments to Adobe Target",
             path: "/extension-manager/extension-developed-by-adobe/exporting-content-fragment-to-adobe-target"
+          },
+          {
+            title: "Content Fragments Workflows",
+            path: "/extension-manager/extension-developed-by-adobe/content-fragments-workflows"
           }
         ]
       }

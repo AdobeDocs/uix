@@ -236,8 +236,12 @@ module.exports = {
             path: "/services/aem-universal-editor/api/modal/"
           },
           {
-            title: "Overriding Default Rendering of Item Types ",
+            title: "Overriding Default Rendering of Item Types",
             path: "/services/aem-universal-editor/api/item-types-renderers/"
+          },
+          {
+            title: "Custom panels in Properties Rail",
+            path: "/services/aem-universal-editor/api/properties-rails/"
           }
         ]
       },

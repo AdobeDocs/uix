@@ -9,6 +9,28 @@ contributors:
 
 Understand the fundamentals required to develop an extension for the Universal Editor.
 
+## Extension Point
+
+Universal editor has an `universal-editor/ui/1` [extension point](https://developer.adobe.com/app-builder/docs/guides/extensions/) that allows you to extend its functionality.
+To declare it to be used by your extension, you need to add the following configuration to your `app.config.yaml` at the
+root of your extension:
+
+```yaml
+extensions:
+  universal-editor/ui/1:
+    $include: src/universal-editor-ui-1/ext.config.yaml
+```
+Here is an example of `ext.config.yaml` file:
+
+```yaml
+operations:
+  view:
+    - type: web
+      impl: index.html
+actions: actions
+web: web-src
+```
+
 ## Extension Registration
 
 Interaction between UI Extension and Universal Editor starts with the initialization process that includes extension's

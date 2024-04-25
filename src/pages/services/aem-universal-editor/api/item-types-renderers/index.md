@@ -158,11 +158,11 @@ export default () => {
 
 ## Extension Registration Reference
 
-| Field       | Type      | Required | Description                                                                                                                                                               |
-|-------------|-----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| url         | `string`  |  ✔️     | URL of the page to load in the iframe that will replace the original field. The URL must have the same origin as the extension declaring the rules for field replacement. |
-| dataType    | `string`  |  ✔️     | Value of `data-aue-type`                                                                                                                                                                 |
-| icon        | DynamicIconVariant   |         | Icons to be displayed in the properties rail if data type is matched.                                                                                                     |
+| Field       | Type     | Required | Description                                                                                                                                                               |
+|-------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| url         | `string` |  ✔️     | URL of the page to load in the iframe that will replace the original field. The URL must have the same origin as the extension declaring the rules for field replacement. |
+| dataType    | `string` |  ✔️     | Value of `data-aue-type`                                                                                                                                                                 |
+| icon        | `string`  |         | Icons to be displayed in the properties rail if data type is matched.                                                                                                     |
 ## Field Reference
 
 ```js
@@ -172,9 +172,9 @@ export default () => {
 ```
 | Methods  | Description                                                                                                                                                               |
 |----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| getModel  | Returns the model of the field.                                                                                                                                           |
-| getValue  | Returns the value of the field.                                                                                                                                           |
-| getError  | Returns the error of the field.                                                                                                                                           |
-| getValidationState | Returns the validation state of the field.                                                                                                                                           |
-| onChange  | Sets the value of the field.                                                                                                                                           |
-| setHeight | Sets the height of the field.                                                                                                                                           |
+| `getModel`  | Returns the model of the field.                                                                                                                                           |
+| `getValue`  | Returns the value of the field.                                                                                                                                           |
+| `getError`  | Returns the error of the field.                                                                                                                                           |
+| `getValidationState` | Returns the validation state of the field.                                                                                                                                           |
+| `onChange`  | Sets the value of the field.                                                                                                                                           |
+| `setHeight` | Sets the height of the field.                                                                                                                                           |

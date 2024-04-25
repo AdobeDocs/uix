@@ -96,6 +96,8 @@ Start building extensions for AEM Content Fragments console
 
 Start building extensions for AEM Content Fragments editor
 
+<DiscoverBlock slots="link, text"/>
+
 [Universal Editor](services/aem-universal-editor/)
 
 Start building extensions for the Universal Editor

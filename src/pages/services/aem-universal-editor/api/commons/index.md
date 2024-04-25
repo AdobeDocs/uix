@@ -7,7 +7,6 @@ contributors:
 
 # Common Concepts in Creating Extensions
 
-
 Understand the fundamentals required to develop an extension for the Universal Editor.
 
 ## Extension Registration

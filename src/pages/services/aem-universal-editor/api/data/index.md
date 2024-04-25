@@ -5,6 +5,7 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
+# Learn how to exchange data between Universal Editor and your extension
 
 As we develop extensions for the Universal Editor, it's essential to facilitate data exchange between the editor and the extension. There are two main categories of data involved:
 - User-specific information, like IMS organization.
@@ -82,5 +83,3 @@ Available data in the editor state:
 | editables | `[objects]`               | Array[{id: '33661..", type: 'reference', resource: "urn:..., ..}, {}] | List of elements that might be edited. The editable element object includes [proper metadata](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/attributes-types). |
 | location | `string`                  | "%locationString%"                                                    | The current page location | 
 | customTokens | `obj<string, string>`     | {"aemconnection":""}                                                  | Custom tokens available for connections |
-
-                                                                                                                                 |

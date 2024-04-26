@@ -98,6 +98,12 @@ Start building extensions for AEM Content Fragments editor
 
 <DiscoverBlock slots="link, text"/>
 
+[Universal Editor](services/aem-universal-editor/)
+
+Start building extensions for the Universal Editor
+
+<DiscoverBlock slots="link, text"/>
+
 [Adobe Commerce Admin](https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/)
 
 Start building extensions for Adobe Commerce Admin

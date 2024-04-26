@@ -38,6 +38,10 @@ module.exports = {
             path: "/services/aem-cf-editor/"
           },
           {
+            title: "Universal Editor",
+            path: "/services/aem-universal-editor/"
+          },
+          {
             title: "Adobe Commerce Admin",
             path: "https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/"
           },
@@ -214,7 +218,41 @@ module.exports = {
             path: "/extension-manager/extension-developed-by-adobe/content-fragments-workflows"
           }
         ]
-      }
+      },
+      {
+        title: "Extension Points",
+        path: "/services/aem-universal-editor/api/",
+        pages: [
+          {
+            title: "Common Concepts",
+            path: "/services/aem-universal-editor/api/commons/"
+          },
+          {
+            title: "Header Menu",
+            path: "/services/aem-universal-editor/api/header-menu/"
+          },
+          {
+            title: "Modal Dialogs",
+            path: "/services/aem-universal-editor/api/modal/"
+          },
+          {
+            title: "Custom panels in Properties Rail",
+            path: "/services/aem-universal-editor/api/properties-rails/"
+          },
+          {
+            title: "Overriding Default Rendering of Item Types",
+            path: "/services/aem-universal-editor/api/item-types-renderers/"
+          },
+          {
+            title: "Working with events",
+            path: "/services/aem-universal-editor/api/events/"
+          },
+          {
+            title: "Retrieving Data from the Universal Editor",
+            path: "/services/aem-universal-editor/api/data/"
+          }
+        ]
+      },
     ]
   },
   plugins: [

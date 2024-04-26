@@ -76,5 +76,6 @@ function CustomField() {
 | modelPathExp | `string`  |          | RegExp for "fragment content model" path                                                                                                                                  |
 | fieldTypeExp | `string`  |          | RegExp for field type                                                                                                                                                     |
 | fieldNameExp | `string`  |          | RegExp for field name                                                                                                                                                     |
+| overlay      | `boolean` |          | Default "false". Render a field in absolute positioning. Useful in cases when field has content that should be rendered on top of mainframe content, as an example `dropdown` element.     |
 
 At least one valid expression must be specified: `pathExp`, `modelPathExp`, `fieldTypeExp`, or `fieldNameExp`.

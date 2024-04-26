@@ -40,10 +40,12 @@ function ExtensionRegistration() {
 
 ## Allowed Properties
 * onChange(value) - is a callback function that gets triggered whenever there is a change in the field's value
+* disable - disable/enable CF Editor field
 
 ## API Reference
 
-| Field           | Type     | Required | Description                                                                           |
-|-----------------|----------|----------|---------------------------------------------------------------------------------------|
-| fieldNameExp    | `string` |  ✔️      | RegExp for field name                                                                 |
-| onChange(value) | `func`   |          | Callback function that gets triggered whenever there is a change in the field's value |
+| Field           | Type      | Required | Description                                                                           |
+|-----------------|-----------|----------|---------------------------------------------------------------------------------------|
+| fieldNameExp    | `string`  |  ✔️      | RegExp for field name                                                                 |
+| onChange(value) | `func`    |          | Callback function that gets triggered whenever there is a change in the field's value |
+| disabled        | `boolean` |          | disable/enable CF Editor field                                                        |

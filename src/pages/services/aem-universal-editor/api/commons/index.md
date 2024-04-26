@@ -47,9 +47,9 @@ Editor and extension and needed if extension provides custom UI.
 - `methods` - objects with extension code exposed to the Universal Editor console. All methods are grouped into 
 namespaces that represents extension points provided by the Universal Editor.
 Currently, the following **namespaces** are available:
-- _headerMenu_, that allows to add buttons to the header of the Universal Editor;
-- _rightPanel_, that allows to add custom content under the rails to the right panel of the Universal Editor;
-- _canvas_, that allows to add custom renderer for data types
+  - _headerMenu_, that allows to add buttons to the header of the Universal Editor;
+  - _rightPanel_, that allows to add custom content under the rails to the right panel of the Universal Editor;
+  - _canvas_, that allows to add custom renderer for data types
 
 ```js
 import { register } from "@adobe/uix-guest";

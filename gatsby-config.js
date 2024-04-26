@@ -244,7 +244,7 @@ module.exports = {
             path: "/services/aem-universal-editor/api/item-types-renderers/"
           },
           {
-            title: "Supported events",
+            title: "Working with events",
             path: "/services/aem-universal-editor/api/events/"
           },
           {

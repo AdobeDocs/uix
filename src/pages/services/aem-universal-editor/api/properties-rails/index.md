@@ -104,7 +104,7 @@ export default () => {
     }
 
     // If you need to interact with an AEM instance
-    // const connection = await attach({ id: extensionId });
+     const connection = await attach({ id: extensionId });
 
     return (
         <Provider theme={lightTheme} colorScheme="light">
@@ -134,7 +134,7 @@ type ExtensionRail = {
   id: string;
   header: string;
   url: string;
-  icon: DynamicIconVariant;
+  icon: string;
   hotkey?: `${ModifierType}${KeyType}`;
 };
 ```
@@ -159,4 +159,4 @@ Examples: `ctrl+k`, `ctrl+shift+s`, `shift+arrowup`, `c.`
 
 ## Limitation
 
-Each click on the icon corresponding to the panel will result in the re-rendering of that panel. The panel content is not cached and will be re-ren
+Each click on the icon corresponding to the panel will result in the re-rendering of that panel. The panel content is not cached and will be re-rendered

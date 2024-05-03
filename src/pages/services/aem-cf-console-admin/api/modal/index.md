@@ -84,10 +84,6 @@ This API is returned to the GuestServer and also shared with the modal that load
 
 Modify the currently displaying modal. GuestUI frames running inside the modal may call this method to change their dimensions, or to change other parameters.
 
-#### `modal.close(): Promise<void>`
-
-Close the modal.
-
 ### Resizing
 
 When `height` and/or `width` are set to `"auto"`, the modal will attempt to resize whenever the displayed page changes size. This is to make the content of the iframe behave, as much as possible, like they're part of the content flow of the host application.

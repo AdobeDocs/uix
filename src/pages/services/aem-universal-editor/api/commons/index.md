@@ -86,7 +86,7 @@ In cases where a UI Extension manages data or sends data to a remote service, th
 ```js
 import { attach } from "@adobe/uix-guest";
 
-const guestConnection = await attach({ id: "extension-id" });
+const connection = await attach({ id: "extension-id" });
 const state = await connection.host.editorState.get();
 const token = await connection.sharedContext.get("token");
 const model = await connection.host.field.getModel();

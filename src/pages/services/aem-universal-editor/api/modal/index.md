@@ -44,7 +44,8 @@ function ExtensionRegistration() {
                       icon: 'PublishSchedule',
                       onClick: async () => {
                         console.log('Button has been pressed.');
-                        url: "/index.html#/modal", // absolute or relative path
+                        // absolute or relative path
+                        const url: "/index.html#/modal"; 
                             guestConnection.host.modal.showUrl({
                               title: 'Modal Dialog: ',
                               url,
@@ -150,10 +151,6 @@ This API is returned to the GuestServer and also shared with the modal that load
 #### `modal.set(request: ModalRequest): Promise<void>`
 
 Modify the currently displaying modal. GuestUI frames running inside the modal may call this method to change their dimensions, or to change other parameters.
-
-#### `modal.close(): Promise<void>`
-
-Close the modal.
 
 ### Resizing
 

@@ -43,9 +43,8 @@ function ExtensionRegistration() {
                       label: 'Modal Dialog',
                       icon: 'PublishSchedule',
                       onClick: async () => {
-                        console.log('Button has been pressed.');
-                        // absolute or relative path
-                        const url: "/index.html#/modal"; 
+                        console.log('Button has been pressed.');      
+                        const url = "/index.html#/modal"; // absolute or relative path
                             guestConnection.host.modal.showUrl({
                               title: 'Modal Dialog: ',
                               url,

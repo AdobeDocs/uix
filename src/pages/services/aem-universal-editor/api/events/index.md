@@ -11,15 +11,23 @@ The Universal Editor sends defined events to remote applications. In case the re
 
 ### Working with Events
 
-If your business logic requires sending an event to the Universal Editor, you can use the `dispatchEvent` method.
-Here's an example of how to dispatch the `aue:ui-select` event:
+If your business logic requires sending an event to the Universal Editor, you can use the `triggerEvent` method.
+Here's an example of how to dispatch the `aue:ui-viewport-change` event:
 
 ```js
     useEffect(() => {
         (async () => {
             const guestConnection = await attach({id: extensionId});
             ...
-            await guestConnection.host.remoteApp.dispatchEvent('aue:ui-select', {data: 'some data'});
+                   await guestConnection.host.remoteApp.triggerEvent('aue:ui-viewport-change',
+                        'main',
+                        {
+                          details: {
+                            height: 1024,
+                            width: 768,
+                          }
+                        }
+                    );
             ...
         })();
     }, []);

@@ -7,7 +7,7 @@ contributors:
 
 # Properties Rail
 
-The properties rail is always present along the right side of Universal Editor. 
+The properties rail is always present along the right side of CF Editor. 
 The extensibility feature allows adding new panels to it, ensuring seamless integration.
 
 ![](./side-panel.png)

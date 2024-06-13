@@ -1,6 +1,6 @@
 ---
-title: Modal dialogs - AEM Content Fragments Editor Extensibility
-description: Learn about modal host API methods that can be used in any extension
+title: Properties Rail - AEM Content Fragments Editor Extensibility
+description: Explore the ways to extend and customize Properties Rail in CF Editor
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
@@ -135,8 +135,8 @@ type ExtensionRail = {
 |-----------------|------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`            | `string`   | ✔        | Rail panel identification                                                                                                                                                                                                                                                                |
 | `header`        | `string`   | ✔        | Aria label for the rail button.                                                                                                                                                                                                                                                          |
-| `url`           | `string`   | ✔        | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)                                                                                                                                                            |
-| `icon`          | `string`   | ✔        | A number of pixels, a CSS value, or the string `auto`. The `auto` keyword will grow or shrink the modal to the width of the document in the iframe every time the guest document resizes, to a minimum of 20% and a maximum of 75% of window width. In fullscreen mode, this is ignored. |
+| `url`           | `string`   | ✔        | The URL of the page to be loaded into the iframe, serving as the content source for the panel.                                                               |
+| `icon`          | `string`   | ✔        | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)                                                                                                                                                            |
 
 ### Limitation
 

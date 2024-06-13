@@ -40,7 +40,7 @@ function ExtensionRegistration() {
 
 ## Allowed Properties
 * onChange(value) - is a callback function that gets triggered whenever there is a change in the field's value
-* disable - disable/enable CF Editor field
+* disabled - disable/enable CF Editor field
 
 ## API Reference
 

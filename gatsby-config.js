@@ -216,6 +216,10 @@ module.exports = {
           {
             title: "Content Fragments Workflows",
             path: "/extension-manager/extension-developed-by-adobe/content-fragments-workflows"
+          },
+          {
+            title: "Configurable Asset Picker",
+            path: "/extension-manager/extension-developed-by-adobe/configurable-asset-picker"
           }
         ]
       },

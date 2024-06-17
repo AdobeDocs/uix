@@ -1,11 +1,11 @@
 ---
-title: Configurable Asset Picker
+title: Universal Editor Custom Asset Picker
 description: Create a configurable, custom asset picker for Universal Editor that tailored to your need by simply providing a JSON configuration file.
 contributors:
   - AdobeDocs/uix
 ---
 
-# Configurable Asset Picker
+# Universal Editor Custom Asset Picker
 
 This extension allows creating a configurable, custom asset picker for Universal Editor that is tailored to your need by simply providing a JSON configuration file. Relevant crosswalk project needs to follow certain guidelines.
 It's useful in case where we want to enable authors to select assets of certain file types, image sizes, only from specified repositories etc.
@@ -24,7 +24,7 @@ Configuration also supports following types of filters:
 - File type (Images, Video etc.)
 - Asset size (height, width)
 
-## Configuration in Crosswalk Site
+## Configuration in Edge Delivery Site
 
 Adding a component for author in crosswalk site is like adding any other custom component, with some added fields. A sample custom component `Custom Image One` will have following code in files:
 

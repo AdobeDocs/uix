@@ -119,6 +119,12 @@ Note that the value of model is the id of model we created in `component-models.
   }
 ]
 ```
+## Overriding name of component for using custom asset picker
+in `component-models.json` file, the component property need to have component as `custom-asset-namespace:custom-asset` and `custom-asset-namespace:custom-asset-mimetype`. 
+If desired, this can be overridden by following method: 
+- [Adding a parameter in extension configuration](https://developer.adobe.com/uix/docs/extension-manager/feature-highlights/#configuring-extension-parameters) with key as `asset-namespace` and any desired value (e.g. `my-namespace`). 
+- Use `my-namespace:custom-asset` and `my-namespace:custom-asset-mimetype` instead of above values in `component-models.json`.
+
 
 ## Configuration File
 This is sample asset picker configuration file that allows filtering assets by image-only file type and asset width between 0 - 1000px. It also has some other configuration fields which are self-explanatory.
@@ -183,3 +189,6 @@ This is sample asset picker configuration file that allows filtering assets by i
     ]
 }
 ```
+
+## Limitations
+- This custom asset picker can only be opened by clicking on selector in its properties panel. Unlike default asset picker, we can't click the asset to open it.

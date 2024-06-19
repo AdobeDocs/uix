@@ -142,6 +142,12 @@ This is sample asset picker configuration file that allows filtering assets by i
       "delivery-p130360-e1272151.adobeaemcloud.com",
       "author-p130360-e1272151.adobeaemcloud.com"
     ],
+    "preferredDimensions":{
+        "minWidth": 500,
+        "maxWidth": 2000, 
+        "minHeight": 500,
+        "maxHeight": 2000
+    },
     "filterSchema": [
         {
             "fields": [

@@ -188,6 +188,10 @@ module.exports = {
             path: "/services/aem-cf-editor/api/custom-fields/"
           },
           {
+            title: "Custom panels in Properties Rail",
+            path: "/services/aem-cf-editor/api/side-rail/"
+          },
+          {
             title: "Setting Default Field Properties",
             path: "/services/aem-cf-editor/api/field-properties"
           }

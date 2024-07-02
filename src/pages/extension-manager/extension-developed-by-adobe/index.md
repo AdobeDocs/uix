@@ -18,3 +18,9 @@ Explore Exporting Content Fragments to Adobe Target
 [Content Fragments workflows](content-fragments-workflows)
 
 Explore enhanced functionality in the Content Fragments Console and AEM Content Fragment Editor, simplifying workflow initiation
+
+<DiscoverBlock slots="link, text"/>
+
+[Universal Editor Content Drafts](universal-editor-content-drafts)
+
+Explore the AEM Universal Editor extension that provides a content draft management capabilities.

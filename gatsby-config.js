@@ -220,6 +220,10 @@ module.exports = {
           {
             title: "Content Fragments Workflows",
             path: "/extension-manager/extension-developed-by-adobe/content-fragments-workflows"
+          },
+          {
+            title: "Universal Editor Content Drafts",
+            path: "/extension-manager/extension-developed-by-adobe/universal-editor-content-drafts"
           }
         ]
       },

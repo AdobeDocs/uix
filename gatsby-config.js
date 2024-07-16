@@ -224,6 +224,10 @@ module.exports = {
           {
             title: "Universal Editor Content Drafts",
             path: "/extension-manager/extension-developed-by-adobe/universal-editor-content-drafts"
+          },
+          {
+            title: "Configurable Asset Picker",
+            path: "/extension-manager/extension-developed-by-adobe/configurable-asset-picker"
           }
         ]
       },

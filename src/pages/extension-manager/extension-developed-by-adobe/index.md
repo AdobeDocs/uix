@@ -24,3 +24,9 @@ Explore enhanced functionality in the Content Fragments Console and AEM Content 
 [Universal Editor Content Drafts](universal-editor-content-drafts)
 
 Explore the AEM Universal Editor extension that provides a content draft management capabilities.
+
+<DiscoverBlock slots="link, text"/>
+
+[Configurable Asset Picker](configurable-asset-picker)
+
+Create a configurable, custom asset picker for Universal Editor that is tailored to your need

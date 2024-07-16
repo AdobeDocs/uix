@@ -224,6 +224,10 @@ module.exports = {
           {
             title: "Universal Editor Content Drafts",
             path: "/extension-manager/extension-developed-by-adobe/universal-editor-content-drafts"
+          },
+          {
+            title: "Universal Editor Experimentation for AEM Crosswalk",
+            path: "/extension-manager/extension-developed-by-adobe/universal-editor-crosswalk-experimentation"
           }
         ]
       },

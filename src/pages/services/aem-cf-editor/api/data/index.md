@@ -49,7 +49,7 @@ await api.setValue(fieldName, "New value");
 ```js
 const api = await guestConnection.host.dataApi.get();
 const fieldName = "test-field";
-await api.setStyle(fieldName, {"display": "none"});
+await api.setStyles(fieldName, {"display": "none"});
 // Second parameter is the object that is used to pass the styles that will be applied on field
 ```
 

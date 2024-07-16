@@ -60,3 +60,7 @@ Learn about modal host API methods that can be used in any extension
 [Custom form element rendering](custom-fields)
 
 Learn how to customize a form field rendering
+
+[Properties Rail](side-rail)
+
+Explore the ways to extend and customize Properties Rail in CF Editor.

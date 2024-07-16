@@ -188,6 +188,10 @@ module.exports = {
             path: "/services/aem-cf-editor/api/custom-fields/"
           },
           {
+            title: "Custom panels in Properties Rail",
+            path: "/services/aem-cf-editor/api/side-rail/"
+          },
+          {
             title: "Setting Default Field Properties",
             path: "/services/aem-cf-editor/api/field-properties"
           }
@@ -216,6 +220,10 @@ module.exports = {
           {
             title: "Content Fragments Workflows",
             path: "/extension-manager/extension-developed-by-adobe/content-fragments-workflows"
+          },
+          {
+            title: "Universal Editor Content Drafts",
+            path: "/extension-manager/extension-developed-by-adobe/universal-editor-content-drafts"
           },
           {
             title: "Configurable Asset Picker",

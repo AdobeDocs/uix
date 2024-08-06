@@ -228,7 +228,11 @@ module.exports = {
           {
             title: "Configurable Asset Picker",
             path: "/extension-manager/extension-developed-by-adobe/configurable-asset-picker"
-          }
+          },
+          {
+            title: "Product Picker for Universal Editor",
+            path: "/extension-manager/extension-developed-by-adobe/ue-product-picker"
+          },
         ]
       },
       {

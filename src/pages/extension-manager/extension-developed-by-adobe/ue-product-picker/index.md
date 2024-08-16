@@ -35,12 +35,12 @@ An example configuration file can be found at: [example of configs.json](https:/
 
 Parameters you can currently specify in the Extension Manager for using this approach:
 
-| Field                | Required   | Default          | Description                                                                                                                                                                |
-|----------------------|------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `commerce-configs`   | ✔️         |                  | The URL where the configuration for the Adobe Commerce instance is located. This may not necessarily be the same instance as Adobe Commerce. An example is provided above. |
-| `commerce-env`       |            | `prod`           | Specifies the environment section in the configuration file, such as `dev`, `stage`, or `prod`. This parameter helps identify which environment settings are being used.   |
-| `component-type`     |            | `product_picker` | Specifies the type of component to be replaced with the Product Picker widget, such as `text` or `product_list`.                                                           |
-| `selection-mode`     |            | `multiple`       | `single`/`multiple`. This value allows you to specify whether to allow selecting a single product or multiple products. Changing the mode from `multiple` to `single` will not affect the current selection. |
+| Field                | Required | Default          | Description                                                                                                                                                                |
+|----------------------|----------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `commerce-configs`   | ✔️       |                  | The URL where the configuration for the Adobe Commerce instance is located. This may not necessarily be the same instance as Adobe Commerce. An example is provided above. |
+| `commerce-env`       |          | `prod`           | Specifies the environment section in the configuration file, such as `dev`, `stage`, or `prod`. This parameter helps identify which environment settings are being used.   |
+| `component-type`     | ✔️       | `product_picker` | Specifies the type of component to be replaced with the Product Picker widget, such as `text` or `product_list`.                                                           |
+| `selection-mode`     |          | `multiple`       | `single`/`multiple`. This value allows you to specify whether to allow selecting a single product or multiple products. Changing the mode from `multiple` to `single` will not affect the current selection. |
 
 ![Configuration using Adobe Commerce configuration File](pp-configs.png)
 
@@ -55,12 +55,12 @@ In this case, you can still use the Product Picker, but there are some limitatio
 
 Parameters you can specify when using a direct GraphQL entry point:
 
-| Field                       | Required   | Default          | Description                                                                                                                                                                                                 |
-|-----------------------------|------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `сommerce-endpoint`         | ✔️         |                  | The URL entry point for sending requests, e.g., `http://<commerce-server>/graphql`.                                                                                                                           |
-| `сommerce-root-category-id` |            | `2`              | You can specify a specific category for your root category. With Adobe Commerce configuration (the first described method), this is done directly in the configuration file.                                |
-| `component-type`            |            | `product_picker` | Specifies the type of component to be replaced with the Product Picker widget, such as `text` or `product_list`.                                                                                            |
-| `selection-mode`            |            | `multiple`       | `single`/`multiple`. This value allows you to specify whether to allow selecting a single product or multiple products. Changing the mode from `multiple` to `single` will not affect the current selection. |
+| Field                       | Required | Default          | Description                                                                                                                                                                                                 |
+|-----------------------------|----------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `сommerce-endpoint`         | ✔️       |                  | The URL entry point for sending requests, e.g., `http://<commerce-server>/graphql`.                                                                                                                           |
+| `сommerce-root-category-id` |          | `2`              | You can specify a specific category for your root category. With Adobe Commerce configuration (the first described method), this is done directly in the configuration file.                                |
+| `component-type`            | ✔️       | `product_picker` | Specifies the type of component to be replaced with the Product Picker widget, such as `text` or `product_list`.                                                                                            |
+| `selection-mode`            |          | `multiple`       | `single`/`multiple`. This value allows you to specify whether to allow selecting a single product or multiple products. Changing the mode from `multiple` to `single` will not affect the current selection. |
 
 ![Direct GraphQL entry point](pp-graphql.png)
 
@@ -68,9 +68,9 @@ Parameters you can specify when using a direct GraphQL entry point:
 
 For demonstration or testing of custom features, it is also possible to specify the values of the variables described above locally:
 
-- You can define the variables described above in the file `/universal-editor-product-picker/src/universal-editor-ui-1/web-src/src/components/useConfig.js`.
-- The component type you want to override is specified in the file `/universal-editor-product-picker/src/universal-editor-ui-1/web-src/src/components/ExtensionRegistration.js`. These settings are separated because the extension registration process only requires the component type for overriding, not the full configuration.
-- To add custom HTTP headers to requests sent to Adobe Commerce (or your proxy), you can modify the file `/universal-editor-product-picker/src/universal-editor-ui-1/actions/host.js`.
+- You can define the variables described above in the file `https://github.com/adobe/aem-uix-examples/tree/main/universal-editor-product-picker/src/universal-editor-ui-1/web-src/src/components/useConfig.js`.
+- The component type you want to override is specified in the file `https://github.com/adobe/aem-uix-examples/tree/main/universal-editor-product-picker/src/universal-editor-ui-1/web-src/src/components/ExtensionRegistration.js`. These settings are separated because the extension registration process only requires the component type for overriding, not the full configuration.
+- To add custom HTTP headers to requests sent to Adobe Commerce (or your proxy), you can modify the file `https://github.com/adobe/aem-uix-examples/tree/main/universal-editor-product-picker/src/universal-editor-ui-1/actions/host.js`.
 - To output debug messages for the [UIX SDK](https://github.com/adobe/uix-sdk) during [extension registration](https://developer.adobe.com/uix/docs/services/aem-universal-editor/api/commons/#extension-registration), you can set the `debug: true` parameter. 
 
 An alternative method for specifying configuration variables, if more appropriate, is to add the values as a serialized array in the .env file:

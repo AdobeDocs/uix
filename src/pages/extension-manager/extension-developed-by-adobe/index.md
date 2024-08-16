@@ -30,3 +30,9 @@ Explore the AEM Universal Editor extension that provides a content draft managem
 [Configurable Asset Picker](configurable-asset-picker)
 
 Create a configurable, custom asset picker for Universal Editor that is tailored to your need
+
+<DiscoverBlock slots="link, text"/>
+
+[AEM Product Picker for Universal Editor](ue-product-picker)
+
+Bring Adobe Commerce product data into your project effortlessly with the UE extension, allowing you to manage and utilize this data directly within editor.

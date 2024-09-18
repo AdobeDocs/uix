@@ -131,11 +131,6 @@ This is sample asset picker configuration file that allows filtering assets by i
 
 ```
 {
-    "aemTierType": [
-        "delivery",
-        "author"
-    ],
-    "apiKey": "asset_search_service",
     "repoNames": [
       "author-p7452-e733061.adobeaemcloud.com",
       "delivery-p130360-e1272151.adobeaemcloud.com",

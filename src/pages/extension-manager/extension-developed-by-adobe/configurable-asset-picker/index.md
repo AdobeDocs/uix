@@ -15,10 +15,7 @@ It's useful in case where we want to enable authors to select assets of certain 
 
 This extension enhances [Universal Editor](../../../services/aem-universal-editor/) properties panel for media elements. It replaces standard asset picker with a custom version of asset picker, with provided configuration applied while selecting assets.
 
-Following type of configuration is available:
-- AEM tier type ("delivery", "author" etc.)
-- Repo names to select assets from
-- ApiKey
+The extension will enable you to list the repositories your authors will be able to pick from.
 
 Configuration also supports following types of filters:
 - File type (Images, Video etc.)
@@ -131,16 +128,9 @@ This is sample asset picker configuration file that allows filtering assets by i
 
 ```
 {
-    "aemTierType": [
-        "delivery",
-        "author"
-    ],
-    "apiKey": "asset_search_service",
     "repoNames": [
       "author-p7452-e733061.adobeaemcloud.com",
-      "author-p7452-e12437.adobeaemcloud.com",
       "delivery-p130360-e1272151.adobeaemcloud.com",
-      "author-p130360-e1272151.adobeaemcloud.com"
     ],
     "preferredDimensions":{
         "minWidth": 500,

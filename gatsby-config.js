@@ -95,11 +95,9 @@ module.exports = {
         title: "Publish and Manage the UI Extensions",
         path: "/guides/publication/"
       },
-      // Services
       {
-        title: "Extensible Services",
-        path: "/services/",
-        header: true
+        title: "AEM Content Fragments Console",
+        path: "/services/aem-cf-console-admin/"
       },
       {
         title: "Extension Points",
@@ -142,6 +140,10 @@ module.exports = {
       {
         title: "Troubleshooting",
         path: "/services/aem-cf-console-admin/debug/"
+      },
+      {
+        title: "AEM Content Fragments Editor",
+        path: "/services/aem-cf-editor/"
       },
       {
         title: "Extension Points",
@@ -234,6 +236,10 @@ module.exports = {
             path: "/extension-manager/extension-developed-by-adobe/ue-product-picker"
           },
         ]
+      },
+      {
+        title: "Universal Editor",
+        path: "/services/aem-universal-editor/"
       },
       {
         title: "Extension Points",

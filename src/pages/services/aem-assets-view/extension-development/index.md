@@ -12,7 +12,7 @@ The document helps you understand how to set up local environment and start deve
 ## About application
 
 This example application will use the [Details View extension point](../api/details-view). It will render
-a custom icon in the side panel rail only if the selected asset has "png" extension. When the user clicks on the icon, 
+a custom icon in the side panel rail only if the selected asset has "jpeg" extension. When the user clicks on the icon, 
 the extension will display a custom panel with a button. Clicking the button will display a toast message with the asset's path.
 
 More information about AEM Assets View extension points can be found at [AEM Assets View Extension Points](../api).
@@ -229,7 +229,7 @@ function ExtensionRegistration() {
         detailSidePanel: {
           async getPanels() {
             const { path } = await guestConnection.host.details.getCurrentResourceInfo();
-            if (path && path.toLowerCase().endsWith('.png')) {
+            if (path && path.toLowerCase().endsWith('.jpeg')) {
               return [
                 {
                   'id': 'asset-info',
@@ -264,7 +264,7 @@ In case of our extension, we check the selected asset's path and return a custom
 otherwise we return an empty array:
 ```js
 const { path } = await guestConnection.host.details.getCurrentResourceInfo();
-if (path && path.toLowerCase().endsWith('.png')) {
+if (path && path.toLowerCase().endsWith('.jpeg')) {
   return [
     {
         ...
@@ -397,17 +397,19 @@ aio app deploy
 no backend, skipping action deploy 'aem/assets/details/1'
 ✔ Deploying web assets for 'aem/assets/details/1'
 To view your deployed application:
-  -> https://123456-younamespace-stage.adobeio-static.net/index.html
+  -> https://123456-yournamespace-stage.adobeio-static.net/index.html
 To view your deployed application in the Experience Cloud shell:
-  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://123456-younamespace-stage.adobeio-static.net/index.html
+  -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://123456-yournamespace-stage.adobeio-static.net/index.html
 For a developer preview of your UI extension in the AEM Assets View environment, follow the URL:
   -> https://experience.adobe.com/aem/extension-manager/preview/<preview hash>
 New Extension Point(s) in Workspace 'Stage': 'aem/assets/details/1'
 Successful deployment 🏄
 ```
 
-You can use the staging deployment URL (`https://123456-younamespace-stage.adobeio-static.net/index.html` in this  example) 
+You can use the staging deployment URL (`https://123456-yournamespace-stage.adobeio-static.net/index.html` in this  example) 
 to test the extension with AEM Assets View by passing this URL to the `ext=` URL parameter as described in [Load UI Extension](../debug/#load-ui-extension) section.
+
+![Testing on Stage](asset-info-extension.png)
 
 To learn more about deployment, please refer to [Deploying the Application](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#7-deploying-the-application)
 and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/deployment/).

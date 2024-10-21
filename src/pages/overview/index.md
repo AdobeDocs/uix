@@ -1,11 +1,11 @@
 ---
-title: Getting Started with UI Extensibility
+title: Overview the UI Extensibility
 description: Learn basics of UI Extensibility
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Getting Started
+# Overview
 
 Begin your journey with UI Extensibility by exploring main capabilities and finding answers to your questions.
 

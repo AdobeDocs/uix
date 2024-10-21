@@ -77,6 +77,9 @@ The final URL for local preview will look like:
 https://experience.adobe.com/?ext=https://localhost:9080&repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/cf/admin/
 ```
 
+So to create you url you can just open content fragment admin on AEM and modify the url by adding `?devMode=true&ext=https://localhost:9080`. Plese pay attention to the port of you localhost, it can be different then 9080. When you create correct url, you should be able to see your extenstion there.
+
+
 The system will process these parameters, making it work as if the extension was published.
 
 <InlineAlert variant="info" slots="text" />

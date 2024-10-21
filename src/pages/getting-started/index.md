@@ -5,7 +5,7 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Guides
+# Getting Started 
 
 The guides below provide you with general information regarding UI Extensibility. For detailed information regarding particular Adobe Service please see `Extensible Services`.
 

@@ -110,7 +110,7 @@ Start building extensions for Adobe Commerce Admin
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Assets View](services/aem-assets-view/)
+[AEM Assets View (Beta)](services/aem-assets-view/)
 
 Start building extensions for AEM Assets View (Assets Ultimate only)
 

@@ -1,17 +1,17 @@
 ---
-title: Working with Custom Events - Universal Editor Extensibility
-description: Communicating to the Remote Application through Custom Events
+title: Working with CustomEvent - Universal Editor Extensibility
+description: Communicating to the Remote Application through CustomEvent
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
 # Working with Custom Events
 
-The Universal Editor sends defined events to the Remote Application, on top of this Custom Event can also be sent directly from the Extension to the Remote Application.
+The Universal Editor sends defined events to the remote application, on top of this `CustomEvent` can also be sent directly from the Extension to the remote application.
 
 ### Working with Custom Events
 
-You can send events to the Remote Application using the `triggerEvent` method.
+You can send events to the remote application using the `triggerEvent` method.
 
 ```js
     useEffect(() => {

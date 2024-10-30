@@ -20,65 +20,65 @@ UI extensions are JavaScript applications built with [Adobe App Builder](https:/
 
 <DiscoverBlock slots="heading, link, text"/>
 
-## Getting Started
+## Overview
 
-[What Are UI Extensions](getting-started/app-builder)
+[What Are UI Extensions](overview/app-builder)
 
 Understand the connection between UI Extensibility and App Builder
 
 <DiscoverBlock slots="link, text"/>
 
-[Why Choose UI Extensibility](getting-started/reason)
+[Why Choose UI Extensibility](overview/reason)
 
 Know why UI Extensibility may be a good solution for you
 
 <DiscoverBlock slots="link, text"/>
 
-[How It Works](getting-started/design)
+[How It Works](overview/design)
 
 Explore how UI Extensibility works
 
 <DiscoverBlock slots="link, text"/>
 
-[FAQ](getting-started/faq)
+[FAQ](overview/faq)
 
 Find answers to most frequent questions about UI Extensibility
 
 <DiscoverBlock slots="heading, link, text"/>
 
-## Guides
+## Getting Started
 
-[Get Access](guides/get-access)
+[Get Access](getting-started/get-access)
 
 Discover what is needed to use UI Extensibility
 
 <DiscoverBlock slots="link, text"/>
 
-[Set Up Local Environment](guides/local-environment)
+[Set Up Local Environment](getting-started/local-environment)
 
 Prepare your local environment for UI extension development
 
 <DiscoverBlock slots="link, text"/>
 
-[Create a New Project](guides/creating-project-in-dev-console)
+[Create a New Project](getting-started/creating-project-in-dev-console)
 
 Discover how to create a project in Adobe Developer Console
 
 <DiscoverBlock slots="link, text"/>
 
-[Create a New Extension](guides/development-flow)
+[Create a New Extension](getting-started/development-flow)
     
 Know what to expect when creating a UI Extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Local Preview](guides/preview-extension-locally)
+[Local Preview](getting-started/preview-extension-locally)
 
 Discover how to run UI extensions locally and preview result during development
 
 <DiscoverBlock slots="link, text"/>
 
-[Publish and Manage](guides/publication)
+[Publish and Manage](getting-started/publication)
     
 Learn to distribute and manage your extension for users
 

@@ -33,6 +33,16 @@ The `Production` workspace is special, as it is used for the submission and dist
 Once your project is set up in [Adobe Developer Console](https://developer.adobe.com/console), we need to initialize our app in a local environment.
 There are several ways how to do it.
 
+The most basic way is to use AIO CLI with this command:
+
+```shell
+demo-extension-project % aio app init
+? Select Org:
+❯ Alpha Org
+  Beta Org 
+  Delta Org
+```
+
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
 You may find detailed guide at [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation#launch-code-generation-during-project-initialization).
 
@@ -65,6 +75,10 @@ UI Extensions has default structure and preselected technology stack such as [Re
 
 1. Supply configuration file that will declare application as an [extension](https://developer.adobe.com/app-builder/docs/guides/extensions/).
 2. Use `@adobe/uix-guest` library for proper UI Extension initialization and interaction with Adobe service.
+
+## Check your changes during development
+
+When you are doing changes in code you probably would like to check what is result from those changes. You can easly run you local application on Adobe Adobe Experience Manager (AEM). You do not have to publish the code you can just check the result in the cloude instance. Here are steps to do that [Local Preview of UI the Extensions](../preview-extension-locally/).
 
 ## Verify your application
 

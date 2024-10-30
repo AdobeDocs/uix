@@ -19,8 +19,8 @@ module.exports = {
         path: "/",
       },
       {
-        title: "Overview",
-        path: "/overview/"
+        title: "Getting Started",
+        path: "/getting-started/"
       },
       {
         title: "Guides",
@@ -36,58 +36,68 @@ module.exports = {
           {
             title: "AEM Content Fragments Editor",
             path: "/services/aem-cf-editor/"
-          }
+          },
+          {
+            title: "Universal Editor",
+            path: "/services/aem-universal-editor/"
+          },
+          {
+            title: "Adobe Commerce Admin",
+            path: "https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/"
+          },
         ]
-      }
-    ],
-    subPages: [
-      // Overview
-          {
-            title: "Why I Need It",
-            path: "/overview/reason/"
-          },
-          {
-            title: "How It Works",
-            path: "/overview/design/"
-          },
-          {
-            title: "App Builder and UI Extensibility",
-            path: "/overview/app-builder/"
-          },
-          {
-            title: "FAQ",
-            path: "/overview/faq/"
-          },
-      // Common guides
-      {
-        title: "How to Get Access",
-        path: "/guides/get-access/"
       },
       {
-        title: "Creating a project in Adobe Developer Console",
-        path: "/guides/creating-project-in-dev-console/"
+        title: "Extension Manager",
+        path: "/extension-manager/"
+      },
+    ],
+    subPages: [
+      // Getting Started
+      {
+        title: "What Are UI Extensions",
+        path: "/getting-started/app-builder/"
+      },
+      {
+        title: "Why Choose UI Extensibility",
+        path: "/getting-started/reason/"
+      },
+      {
+        title: "How It Works",
+        path: "/getting-started/design/"
+      },
+      {
+        title: "FAQ",
+        path: "/getting-started/faq/"
+      },
+      // Common guides
+      {
+        title: "Get Access",
+        path: "/guides/get-access/"
       },
       {
         title: "Set Up Local Environment",
         path: "/guides/local-environment/"
       },
       {
-        title: "UI Extensions Development Flow",
+        title: "Create a Project in Developer Console",
+        path: "/guides/creating-project-in-dev-console/"
+      },
+      {
+        title: "Create a New UI Extension",
         path: "/guides/development-flow/"
       },
       {
-        title: "Local Preview of UI Extensions",
+        title: "Local Preview of the UI Extensions",
         path: "/guides/preview-extension-locally/"
       },
       {
-        title: "UI Extension Publication and Management",
+        title: "Publish and Manage the UI Extensions",
         path: "/guides/publication/"
       },
-      // Services
       {
-        title: "Extensible Services",
-        path: "/services/",
-        header: true
+        title: "AEM Content Fragments Console",
+        path: "/services/aem-cf-console-admin/"
       },
       {
         title: "Extension Points",
@@ -132,6 +142,10 @@ module.exports = {
         path: "/services/aem-cf-console-admin/debug/"
       },
       {
+        title: "AEM Content Fragments Editor",
+        path: "/services/aem-cf-editor/"
+      },
+      {
         title: "Extension Points",
         path: "/services/aem-cf-editor/api/",
         pages: [
@@ -140,7 +154,7 @@ module.exports = {
             path: "/services/aem-cf-editor/api/commons/"
           },
           {
-            title: "Cavas Data",
+            title: "Canvas Data",
             path: "/services/aem-cf-editor/api/data/"
           },
           {
@@ -170,12 +184,96 @@ module.exports = {
           {
             title: "Modal Dialogs",
             path: "/services/aem-cf-editor/api/modal/"
+          },
+          {
+            title: "Custom Form Element Rendering",
+            path: "/services/aem-cf-editor/api/custom-fields/"
+          },
+          {
+            title: "Custom panels in Properties Rail",
+            path: "/services/aem-cf-editor/api/side-rail/"
+          },
+          {
+            title: "Setting Default Field Properties",
+            path: "/services/aem-cf-editor/api/field-properties"
           }
         ]
       },
       {
         title: "Code Generation",
         path: "/services/aem-cf-editor/code-generation/"
+      },
+      {
+        title: "Extension Manager",
+        path: "/extension-manager/"
+      },
+      {
+        title: "Feature Highlights",
+        path: "/extension-manager/feature-highlights/"
+      },
+      {
+        title: "Extensions Developed By Adobe",
+        path: "/extension-manager/extension-developed-by-adobe/",
+        pages: [
+          {
+            title: "Export Content Fragments to Adobe Target",
+            path: "/extension-manager/extension-developed-by-adobe/exporting-content-fragment-to-adobe-target"
+          },
+          {
+            title: "Content Fragments Workflows",
+            path: "/extension-manager/extension-developed-by-adobe/content-fragments-workflows"
+          },
+          {
+            title: "Universal Editor Content Drafts",
+            path: "/extension-manager/extension-developed-by-adobe/universal-editor-content-drafts"
+          },
+          {
+            title: "Configurable Asset Picker",
+            path: "/extension-manager/extension-developed-by-adobe/configurable-asset-picker"
+          },
+          {
+            title: "Product Picker for Universal Editor",
+            path: "/extension-manager/extension-developed-by-adobe/ue-product-picker"
+          },
+        ]
+      },
+      {
+        title: "Universal Editor",
+        path: "/services/aem-universal-editor/"
+      },
+      {
+        title: "Extension Points",
+        path: "/services/aem-universal-editor/api/",
+        pages: [
+          {
+            title: "Common Concepts",
+            path: "/services/aem-universal-editor/api/commons/"
+          },
+          {
+            title: "Header Menu",
+            path: "/services/aem-universal-editor/api/header-menu/"
+          },
+          {
+            title: "Modal Dialogs",
+            path: "/services/aem-universal-editor/api/modal/"
+          },
+          {
+            title: "Custom panels in Properties Rail",
+            path: "/services/aem-universal-editor/api/properties-rails/"
+          },
+          {
+            title: "Overriding Default Rendering of Item Types",
+            path: "/services/aem-universal-editor/api/item-types-renderers/"
+          },
+          {
+            title: "Working with events",
+            path: "/services/aem-universal-editor/api/events/"
+          },
+          {
+            title: "Retrieving Data from the Universal Editor",
+            path: "/services/aem-universal-editor/api/data/"
+          }
+        ]
       },
     ]
   },

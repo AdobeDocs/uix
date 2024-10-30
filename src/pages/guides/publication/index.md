@@ -1,10 +1,10 @@
 ---
-title: UI Extensions Management - UI Extensibility
+title: Publish and manage the UI Extensions
 description: Know how to bring your extension to users and manage it
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
-# UI Extension Publication and Management
+# Publish and Manage the UI Extensions
 
 After you've completed [developing and testing](../development-flow) your application, you're ready to deploy to production and publish it.
 

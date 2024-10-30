@@ -1,10 +1,10 @@
 ---
-title: Local Preview of UI Extensions - AEM Content Fragments Console Extensibility
+title: Local Preview of the UI Extensions - AEM Content Fragments Console Extensibility
 description: Discover how to run UI extensions locally and preview result during development.
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
-#  Local Preview of UI Extensions
+#  Local Preview of UI the Extensions
 
 During development, it's important to preview your extension to ensure it meets all requirements and doesn't have any errors. To do so, make sure you meet the following conditions:
 

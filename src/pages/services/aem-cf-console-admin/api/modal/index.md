@@ -25,7 +25,7 @@ const guestConnection = await register({
     {
         //...
     }
-}
+});
 
 guestConnection.host.modal.showUrl({
     title: "Extension Modal",
@@ -40,7 +40,7 @@ import { attach } from "@adobe/uix-guest";
 
 const guestConnection = await attach({
     id: "my.company.extension-with-modal"
-}
+});
 
 guestConnection.host.modal.close();
 ```
@@ -83,10 +83,6 @@ This API is returned to the GuestServer and also shared with the modal that load
 #### `modal.set(request: ModalRequest): Promise<void>`
 
 Modify the currently displaying modal. GuestUI frames running inside the modal may call this method to change their dimensions, or to change other parameters.
-
-#### `modal.close(): Promise<void>`
-
-Close the modal.
 
 ### Resizing
 

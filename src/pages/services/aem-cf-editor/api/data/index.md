@@ -45,6 +45,15 @@ await api.setValue(fieldName, "New value");
 //await api.setValue(fieldName, "New value", 0); - A last parameter specifies an index in multi-field values
 ```
 
+## Setting styles to the field
+```js
+const api = await guestConnection.host.dataApi.get();
+const fieldName = "test-field";
+await api.setStyles(fieldName, {"display": "none"});
+// Second parameter is the object that is used to pass the styles that will be applied on field
+```
+
+
 ## Consistency
 
 `guestConnection.host.dataApi.get()` makes a snapshot of canvas data at the moment of invocation. Changes made by other extensions or direct users will not be automatically propagated to existing API instances.

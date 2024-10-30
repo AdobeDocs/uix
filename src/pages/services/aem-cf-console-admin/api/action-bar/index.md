@@ -18,6 +18,7 @@ You have the ability to:
 - create multiple buttons from single extension;
 - implement drop-down menu buttons;
 - use any [icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) from React Spectrum;
+- delete default or added by extension buttons;
 
 ## Custom button with callback
 
@@ -46,6 +47,8 @@ const guestConnection = await register({
     },
 });
 ```
+
+The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
 
 ## Custom button with sub menu
 
@@ -92,9 +95,29 @@ const guestConnection = await register({
 
 The callback is invoked when user clicks on the button and receives list of content fragments selected in the list.
 
-<InlineAlert variant="warning" slots="text" />
+## Delete button
 
-The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
+```js
+import { register } from "@adobe/uix-guest";
+
+// ...
+
+const guestConnection = await register({
+    id: "my.company.extension-with-action-bar-button",
+    methods: {
+        actionBar: {
+            deleteButtons() {
+                return [
+                    {
+                        //The "id" property is the "data-id" property of html button element.
+                        id: "my.company.export-button"
+                    },
+                ];
+            },
+        },
+    },
+});
+```
 
 ## API Reference
 
@@ -116,3 +139,73 @@ The `getButton` method is deprecated. When defining a single button, use `getBut
 | label    | `string`                     | ✔️  | Button label that will be visible on UI                                                                      |
 | icon     | `string`                     |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
 | onClick  | `callback(selections): void` |  ✔️ | A callback for a button `onClick` event. Receives list of content fragments selected in the list             |
+
+### Delete button API
+
+| Field    | Type                                                                        | Required | Description                                                                  |
+|----------|-----------------------------------------------------------------------------| ------ |------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button (please use browser developer console to find actual value). |
+
+### Get List of selected Fragments
+
+You can access data about the currently selected Content Fragments using the `host.fragmentSelections.getSelections()` method in an extension.
+
+
+## Examples:
+### Buttons conditional rendering
+
+Content Fragment Admin invokes the getButtons method each time a user changes the content fragments selection. Therefore, you can dynamically return different sets of buttons based on the data that has changed on the page.
+For example:
+
+```js
+import { register } from "@adobe/uix-guest";
+
+// ...
+
+const guestConnection = await register({
+    id: "my.company.extension-with-action-bar-button",
+    methods: {
+        actionBar: {
+            async getButtons() {
+                const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || [];
+                const defaultButtons = [
+                    {
+                        id: "default_btn",
+                        label: "Default Button",
+                        onClick(selections) {}
+                    }
+                ]
+
+                if (selections.length > 1 ) {
+                    return [
+                        ...defaultButtons,
+                        {
+                            id: "two_and_more_selected",
+                            label: "Ext two and more selected",
+                        }
+                    ]
+                }
+
+                return [
+                    ...defaultButtons,
+                    {
+                        id: "one_or_less_selected",
+                        label: "Ext one or less selected",
+                    }
+                ]
+            },
+        },
+    },
+});
+```
+The defaultButtons constant contains the buttons that will be rendered every time, regardless of the condition.
+On the line `const selections = await guestConnection?.host?.fragmentSelections?.getSelections?.() || []`;
+we get information about the current list of selected content fragments.
+
+Based on the quantity of selected content fragments, we render different sets of buttons.
+
+In case if selected more then one content fragment (`selections.length > 1`) the default buttons and button with id "two_and_more_selected" will be rendered
+In case if selected just one content fragment the default button and button with id "one_or_less_selected" will be rendered
+
+This technique allows for building complex logic behind the button rendering.
+

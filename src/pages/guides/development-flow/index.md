@@ -1,10 +1,10 @@
 ---
-title: UI Extensions Development Flow - UI Extensibility
+title: Create a New UI Extension
 description: Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder
 contributors:
   - AdobeDocs/uix
 ---
-# UI Extensions Development Flow
+# Create a New UI Extension
 
 The document provides high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
 

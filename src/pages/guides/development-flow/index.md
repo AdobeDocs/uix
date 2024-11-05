@@ -6,7 +6,9 @@ contributors:
 ---
 # Create a New UI Extension
 
-The document provides high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
+The document provides high level overview for developers what to expect when creating UI Extension. 
+For detailed instructions please refer to step-by-step guides for [AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/)
+or [AEM Assets View (Beta)](../../services/aem-assets-view/extension-development/).
 
 ## Get access
 
@@ -34,7 +36,8 @@ Once your project is set up in [Adobe Developer Console](https://developer.adobe
 There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
-You may find detailed guide at [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation#launch-code-generation-during-project-initialization).
+You may find detailed guide for [AEM Content Fragments Console](../../services/aem-cf-console-admin/code-generation#launch-code-generation-during-project-initialization)
+or [AEM Assets View (Beta)](../../services/aem-assets-view/code-generation#launch-code-generation-during-project-initialization).
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -60,7 +63,8 @@ During project initialization, you will be able to select a specific template fo
 
 ## Implement logic of application
 
-As the next step, we need to implement a logic which will use existing [Extension Points](../../services/aem-cf-console-admin/api) and provide necessary functionality.
+As the next step, we need to implement a logic which will use existing Extension Points exposed by one of the Adobe
+Services listed under `Extensible Services` in this documentation and provide necessary functionality.
 UI Extensions has default structure and preselected technology stack such as [React Spectrum](https://developer.adobe.com/app-builder/docs/resources/spectrum-intro/lesson3/) but developers are free to choose tools that they prefer to. The only requirements to make a proper UI Extension:
 
 1. Supply configuration file that will declare application as an [extension](https://developer.adobe.com/app-builder/docs/guides/extensions/).
@@ -137,6 +141,7 @@ These steps are described in more detail in [UI Extensions Management](../public
 
 ## Additional resources
 
-- [Step-by-step Extension Development Guide](../../services/aem-cf-console-admin/extension-development/)
+- [Step-by-step Extension Development Guide in AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/)
+- [Step-by-step Extension Development Guide in AEM Assets View (Beta)](../../services/aem-assets-view/extension-development/)
 - [UI Extensibility Overview](../../)
 - [FAQ](../../overview/faq/)

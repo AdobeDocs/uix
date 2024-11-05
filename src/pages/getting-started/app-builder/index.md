@@ -32,6 +32,7 @@ In other words, we can say that this is a contract between an Adobe product and 
 - [Experience Cloud UI Extension Point](https://developer.adobe.com/app-builder/docs/guides/extensions/#experience-cloud-ui-extension-point)
 - [AEM Asset Microservices Extension Point](https://developer.adobe.com/app-builder/docs/guides/extensions/#aem-asset-microservices-extension-point)
 - [AEM Content Fragments Console Extension Point](../../services/aem-cf-console-admin/api)
+- [AEM Assets View (Beta) Extension Point](../../services/aem-assets-view/api)
 
 ## UI Extensibility
 

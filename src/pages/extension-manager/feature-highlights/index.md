@@ -113,7 +113,7 @@ This process allows you to fine-tune your extension settings without the hassle 
 [Extension Manager](https://experience.adobe.com/aem/extension-manager) provides a safe playground to preview extensions before enabling them for the entire environment and the ability to easily share these previews.
 
 ### Preview Extensions
-To preview extensions without installing them, simply click the preview icon found in the `Action` column. This action will open the Content Fragment Console, allowing you to explore the extension within the selected environment.
+To preview extensions in a preproduction environment without installing them, simply click the preview icon found in the `Action` column. This action will open the corresponding application like Content Fragment Console or AEM Assets View, allowing you to explore the extension within the selected environment.
 ![Preview extension](preview.png)
 
 ### Share with Teammates

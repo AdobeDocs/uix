@@ -131,57 +131,6 @@ This is sample asset picker configuration file that allows filtering assets by i
     "repoNames": [
       "author-p7452-e733061.adobeaemcloud.com",
       "delivery-p130360-e1272151.adobeaemcloud.com",
-    ],
-    "preferredDimensions":{
-        "minWidth": 500,
-        "maxWidth": 2000, 
-        "minHeight": 500,
-        "maxHeight": 2000
-    },
-    "filterSchema": [
-        {
-            "fields": [
-                {
-                    "element": "checkbox",
-                    "name": "type",
-                    "defaultValue": [
-                        "image/*"
-                    ],
-                    "options": [
-                        {
-                            "label": "Image",
-                            "value": "image/*",
-                            "readOnly": true
-                        }
-                    ],
-                    "orientation": "horizontal"
-                }
-            ],
-            "header": "File Type",
-            "groupKey": "FileTypeGroup"
-        },
-        {
-            "fields": [
-              {
-                "element": "Number",
-                "name": "property=tiff:imageWidth",
-                "range": true,
-                "quiet": true,
-                "label": "Width",
-                "hideArrows": true,
-                "columns": 2,
-                "readOnly": true,
-                "defaultValue": [
-                  {
-                    "min": 0,
-                    "max": 1000
-                  }
-                ]
-              }
-            ],
-            "header": "Size",
-            "groupKey": "SizeGroup"
-          }
     ]
 }
 ```

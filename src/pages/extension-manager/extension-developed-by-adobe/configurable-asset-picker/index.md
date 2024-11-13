@@ -8,7 +8,7 @@ contributors:
 # Universal Editor Custom Asset Picker
 
 This extension allows creating a configurable, custom asset picker for Universal Editor that is tailored to your need by simply providing a JSON configuration file. Relevant crosswalk project needs to follow certain guidelines.
-It's useful in case where we want to enable authors to select assets of certain file types, image sizes, only from specified repositories etc.
+It's useful in case where we want to enable authors to select assets of certain file types only from specified repositories etc.
 
 ## Extension Overview
 ![Asset picker](asset-picker-extension.gif)
@@ -19,7 +19,7 @@ The extension will enable you to list the repositories your authors will be able
 
 Configuration also supports following types of filters:
 - File type (Images, Video etc.)
-- Asset size (height, width)
+- Repository type (author, delivery)
 
 ## Configuration in Edge Delivery Site
 
@@ -59,7 +59,7 @@ Adding a component for author in crosswalk site is like adding any other custom 
 - `id`: can be any value.
 - `Image component`: must have `custom-asset-namespace:custom-asset` value, because it has been overridden in the extension to display customized asset selector popup.
 - `configUrl`: points to JSON configuration file, can be hosted anywhere you prefer. Must be accessible to the extension, which runs in author's web browser. Extension will fetch this JSON file and configure asset picker for this component accordingly.
-- `imageMimeType component`: must have `custom-asset-namespace:custom-asset-mimetype` value, because it has been overridden in the extension to contain selected asset MIME Type.
+- `imageMimeType component`: Optional `custom-asset-namespace:custom-asset-mimetype` value, it has been overridden in the extension to contain selected asset MIME Type. Please note that if mime type is set to image/* or for relative paths that resolve to an asset in AEM and is known to be an image, the asset is rendered using edge delivery services. In case you require the asset to be rendered using [Dynamic Media with OpenAPI capabilities] (https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/dynamicmedia/dynamic-media-open-apis/dynamic-media-open-apis-overview), select the asset from delivery repository and make sure the imageMimeType is not present in the model.
 - `Alt-Text component`: Optional, it's like any other additional component you may want to add.
 
 This model is necessary for custom asset picker to show up when user clicks on its option it in properties panel.
@@ -131,6 +131,10 @@ This is sample asset picker configuration file that allows filtering assets by i
     "repoNames": [
       "author-p7452-e733061.adobeaemcloud.com",
       "delivery-p130360-e1272151.adobeaemcloud.com",
+    ],
+   "aemTierType": [
+        "delivery",
+        "author"
     ]
 }
 ```

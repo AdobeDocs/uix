@@ -135,51 +135,6 @@ This is sample asset picker configuration file that allows filtering assets by i
    "aemTierType": [
         "delivery",
         "author"
-    ],
-    "filterSchema": [
-        {
-            "fields": [
-                {
-                    "element": "checkbox",
-                    "name": "type",
-                    "defaultValue": [
-                        "image/*"
-                    ],
-                    "options": [
-                        {
-                            "label": "Image",
-                            "value": "image/*",
-                            "readOnly": true
-                        }
-                    ],
-                    "orientation": "horizontal"
-                }
-            ],
-            "header": "File Type",
-            "groupKey": "FileTypeGroup"
-        },
-        {
-            "fields": [
-              {
-                "element": "Number",
-                "name": "property=tiff:imageWidth",
-                "range": true,
-                "quiet": true,
-                "label": "Width",
-                "hideArrows": true,
-                "columns": 2,
-                "readOnly": true,
-                "defaultValue": [
-                  {
-                    "min": 0,
-                    "max": 1000
-                  }
-                ]
-              }
-            ],
-            "header": "Size",
-            "groupKey": "SizeGroup"
-          }
     ]
 }
 ```

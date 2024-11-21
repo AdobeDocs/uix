@@ -17,7 +17,11 @@ UI Extensibility allows 3rd party developers to extend and customize AEM Assets 
 In this section, you will find the available [extension points](api) and examples of how to utilize them.
 
 <InlineAlert variant="info" slots="text" />
+
 UI Extensibility is supported in Assets Ultimate only.
 
 <InlineAlert variant="info" slots="text" />
-AEM Assets View extensibility is available to you as a Beta release. You can provide documentation feedback by clicking "Log an issue".
+
+AEM Assets View extensibility is available to you as a Beta release. To get early access to Assets view UI extensibility,
+[create and submit an Adobe Customer Support case](https://helpx.adobe.com/enterprise/using/support-for-experience-cloud.html). 
+You can provide documentation feedback by clicking "Log an issue".

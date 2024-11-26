@@ -23,7 +23,7 @@ For more details, please refer to [How to Get Access](../get-access/).
 
 ## Create a new project in Adobe Developer Console
 
-UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
+UI Extensions, as with any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
 Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products.
 

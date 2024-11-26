@@ -6,9 +6,9 @@ contributors:
 ---
 # Debug Contents Fragment Console Extension
 
-The ability to get fast feedback and see if the code works as expected or not is crucial for rapid development. A developer may connect locally running UI Extension to production AEM Content Fragments Console, link it to the correct AEM backend, and verify all changes before deployment and extension publication.
+The ability to get fast feedback and see if the code works as expected is crucial for rapid development. A developer may connect locally running UI Extension to production AEM Content Fragments Console, link it to the correct AEM backend, and verify all changes before deployment and extension publication.
 
-## Run local environment
+## Running in local environment
 When the developer runs UI Extension locally and if it has server-side handlers 2 options available:
 1. Complete local environment isolation. In this case, the local environment requires JVM and Docker installed and will run server-side handlers locally inside Docker containers. This mode is enabled by adding `--local` option to `run` command.
 2. By default `run` command will use Adobe I/O Runtime and deploy server-side functions in Adobe cloud.
@@ -69,7 +69,7 @@ This will deploy the actions to a local [OpenWhisk](https://openwhisk.apache.org
 ➜  demo-extension-project % aio app run
 ```
 
-This will deploy the actions to [Adobe I/O Runtime](/apis/experienceplatform/runtime), while running the UI part on the local machine. 
+This will deploy the actions to [Adobe I/O Runtime](/apis/experienceplatform/runtime) while running the UI part on the local machine. 
 
 ```shell
 ➜  demo-extension-project % aio app run
@@ -88,7 +88,7 @@ Now your UI extension is reachable by the displayed URL on the Terminal.
 
 ### UI Extension endpoint
 
-Once local runtime is started extension endpoint is returned as URL in `To view your local application`. You will need this URL to embed locally running extension into AEM Content Fragments Console.
+Once local runtime is started extension endpoint is returned as URL in `To view your local application`. You will need this URL to embed the locally running extension into AEM Content Fragments Console.
 ### Accept the Certificate
 
 If you are using this application for the first time, you will see a message similar to
@@ -99,7 +99,7 @@ A self signed development certificate has been generated, you will need to accep
 Waiting for the certificate to be accepted.... timed out
 ```
 
-This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+This message pops up because we use a development SSL certificate for secure communication. Learn more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
 
 If you see this message, please navigate to `https://localhost:9080`. In Google Chrome you should see a screen similar to this.
 

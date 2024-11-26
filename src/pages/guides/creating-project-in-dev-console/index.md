@@ -7,7 +7,7 @@ contributors:
 
 # Create a project in Adobe Developer Console
 
-UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
+UI Extensions, as with any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
 <InlineAlert slots="text" />
 
@@ -27,7 +27,7 @@ To begin, we need to create a new Project that will provide us with the necessar
 
 ![Choose your profile](create-project-3.png)
 
-3. Make sure you are in a proper organization (a switcher in the right top corner).
+3. Make sure you are in a proper organization (a switcher is in the right top corner).
 
 ![Check organization](create-project-4.png)
 
@@ -39,7 +39,7 @@ And choose "App Builder":
 
 ![Choose "App Builder"](create-project-6.png)
 
-5. Fill the project data.
+5. Fill in the project data.
 
 ![Fill the project data](create-project-7.png)
 

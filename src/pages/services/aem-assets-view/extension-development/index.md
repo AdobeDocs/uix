@@ -12,20 +12,20 @@ The document helps you understand how to set up local environment and start deve
 ## About application
 
 This example application will use the [Details View extension point](../api/details-view). It will render
-a custom icon in the side panel rail only if the selected asset has "jpeg" extension. When the user clicks on the icon, 
+a custom icon in the side panel rail only if the selected asset has the "jpeg" extension. When the user clicks on the icon, 
 the extension will display a custom panel with a button. Clicking the button will display a toast message with the asset's path.
 
 More information about AEM Assets View extension points can be found at [AEM Assets View Extension Points](../api).
 
 ## Create a project in Adobe Developer Console
 
-UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
+UI Extensions, as with any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
 <InlineAlert slots="text" />
 
 If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../get-access) guide for instructions.
 
-To begin, we need to create a new Project which will supply us with configuration and resources.
+To begin, we need to create a new Project which will supply us with the configuration and resources.
 
 1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
 
@@ -39,7 +39,7 @@ To begin, we need to create a new Project which will supply us with configuratio
 
 ![Choose your profile](../../../guides/creating-project-in-dev-console/create-project-3.png)
 
-3. Make sure you are in a proper organization (a switcher in the right top corner).
+3. Make sure you are in a proper organization (a switcher is in the right top corner).
 
 ![Check organization](../../../guides/creating-project-in-dev-console/create-project-4.png)
 
@@ -51,7 +51,7 @@ And choose "App Builder":
 
 ![Choose "App Builder"](../../../guides/creating-project-in-dev-console/create-project-6.png)
 
-5. Fill the project data.
+5. Fill in the project data.
 
 ![Fill the project data](../../../guides/creating-project-in-dev-console/create-project-7.png)
 
@@ -101,9 +101,9 @@ npm install -g @adobe/aio-cli
 
 More details are described in [Local environment set up](../../../guides/local-environment).
 
-## Initialize our extension using the AIO CLI and generate a base structure from the template
+## Initialize your extension using the AIO CLI and generate a base structure from the template
 
-Firstly, we need to [sign in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
+First, we need to [sign in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
 Please complete all the steps described in [Code Generation for the Details View Extension in AEM Assets View](../code-generation).
 
 For the purposes of this guide, we will use
@@ -347,7 +347,7 @@ From the extension project directory, run the following command:
 aio app run
 ```
 
-This will deploy the actions to Adobe I/O Runtime, while running the UI part on the local machine.
+This will deploy the actions to Adobe I/O Runtime while running the UI part on the local machine.
 
 ```shell
 ➜  demo-extension-project % aio app run
@@ -416,7 +416,7 @@ and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/de
 
 ## Deploy on Production and create approval request
 
-After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
+After the application has been completed, tested locally, and on `Stage`: we are ready to deploy it to `Production`.
 Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
 
 Also in this document you can find the whole development flow of a UI Extensions.

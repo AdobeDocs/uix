@@ -55,12 +55,12 @@ Currently, only the following **namespace** is available:
 More **namespaces** may be added in future releases to add more extensibility features within the Details View.
 
 ```js
-import { register } from "@adobe/uix-guest";
+import { register } from '@adobe/uix-guest';
 
 // ...
 
       const guestConnection = await register({
-        id: "extension-id",
+        id: 'extension-id',
         methods: {
           detailSidePanel: {
             getPanels() {
@@ -85,9 +85,9 @@ In this example, the interface page establishes a connection with the AEM Assets
 the AEM host URL:
 
 ```js
-import { attach } from "@adobe/uix-guest";
+import { attach } from '@adobe/uix-guest';
 
-const guestConnection = await attach({ id: "extension-id" });
+const guestConnection = await attach({ id: 'extension-id' });
 const aemHost = await guestConnection.discovery.getAemHost();
 ```
 
@@ -162,7 +162,7 @@ This API provides methods to show toast messages in the AEM Assets View.
 
 **Example:**
 ```js
-guestConnection.host.toast.display({ variant: "positive", message: "Asset saved successfully" });
+guestConnection.host.toast.display({ variant: 'positive', message: 'Asset saved successfully' });
 ```
 
 ### Router API

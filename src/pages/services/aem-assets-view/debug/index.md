@@ -6,18 +6,18 @@ contributors:
 ---
 # Troubleshooting - AEM Assets View Extensibility
 
-The ability to get fast feedback and see if the code works as expected or not is crucial for rapid development. A developer 
+The ability to get fast feedback and see if the code works as expected is crucial for rapid development. A developer 
 may connect locally running UI Extension to production AEM Assets View, link it to the correct AEM backend, 
 and verify all changes before deployment and extension publication.
 
-## Run local environment
+## Running in local environment
 
 There are two options to run an extension locally:
 1. Complete local environment isolation. In this case, both the front-end code of your extension and the serverless actions 
-run locally. This mode is enabled with `aio app dev` command.
-2. Partial isolation using `aio app run` command, when the extension still uses Adobe I/O Runtime and deploys server-side functions in Adobe cloud.
+run locally. This mode is enabled with the `aio app dev` command.
+2. Partial isolation using the `aio app run` command, where the extension still uses Adobe I/O Runtime and deploys server-side functions in Adobe cloud.
 
-For both options, the local development server with file change monitoring will be started to serve UI Extension front-end part.
+For both options, the local development server with file change monitoring will be started to serve as the UI Extension front-end part.
 
 Regardless of where the server-side handlers are running, in local containers or on I/O Runtime, the developer will be able to connect a debugger to trace script execution. 
 
@@ -50,7 +50,7 @@ press CTRL+C to terminate the dev environment
 ➜  demo-extension-project % aio app run
 ```
 
-This will deploy the actions to [Adobe I/O Runtime](/apis/experienceplatform/runtime), while running the UI part on the local machine. 
+This will deploy the actions to [Adobe I/O Runtime](/apis/experienceplatform/runtime) while running the UI part on the local machine. 
 
 ```shell
 ➜  demo-extension-project % aio app run
@@ -72,7 +72,7 @@ Now your UI extension is reachable via the URL shown in the Terminal.
 ### UI Extension endpoint
 
 Once local runtime is started extension endpoint is returned as URL in `To view your local application`. 
-You will need this URL to embed locally running extension into AEM Assets View.
+You will need this URL to embed the locally running extension into AEM Assets View.
 
 ### Accept the Certificate
 
@@ -84,7 +84,7 @@ A self signed development certificate has been generated, you will need to accep
 Waiting for the certificate to be accepted.... timed out
 ```
 
-This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+This message pops up because we use a development SSL certificate for secure communication. Learn more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
 
 If you see this message, please navigate to `https://localhost:9080`. In Google Chrome you should see a screen similar to this.
 

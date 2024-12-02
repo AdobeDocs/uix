@@ -25,7 +25,7 @@ You may access code generation functionality during project initialization.
 
 Create a directory and run the following commands from that directory:
 
-1. First, select the appropriate organization.
+1. Select the appropriate organization.
 
     ```shell
     ➜  demo-extension-project % aio app init
@@ -60,7 +60,7 @@ Create a directory and run the following commands from that directory:
       Only Templates Supported By My Org
     ```
 
-4. Select the template named @adobe/aem-cf-admin-ui-ext-tpl (Extensibility template for AEM Content Fragment Admin Console)
+4. Select the template named @adobe/aem-cf-admin-ui-ext-tpl (Extensibility template for AEM Content Fragment Admin Console).
 
     ```shell
     ➜  demo-extension-project % aio app init
@@ -105,12 +105,12 @@ Create a directory and run the following commands from that directory:
       * An App Builder project will be created with Node.js packages pre-configured.
     ```
 
-> If you are experienced user you may also simplify process of template selection by running command
+> If you are experienced user you may also simplify process of template selection by running the command
 
 > ```shell
 aio app init --template=@adobe/aem-cf-admin-ui-ext-tpl
 
-> At this point AEM Content Fragment Console Extensions Template is added to yor project and ready to use
+> At this point AEM Content Fragment Console Extensions Template is added to your project and ready to use.
 
 ## Provide basic information about extension
 
@@ -139,7 +139,7 @@ aio app init --template=@adobe/aem-cf-admin-ui-ext-tpl
 
 ### Novice, explore what is possible
 
-> 6.1. If you only starting with exploring UI Extensibility feel no hesitation to choose `I don't know`
+> 6.1. If you only starting with exploring UI Extensibility feel no hesitation to choose `I don't know`.
 
 > ```shell
 ? What would you like to do next? I don't know
@@ -156,7 +156,7 @@ aio app init --template=@adobe/aem-cf-admin-ui-ext-tpl
 
 ### Seasoned developer, choose what you need
 
-> 6.2. If you already know what you want to do start add features to you extensions by selecting items from the main part of the menu. Each part correspond to single Extension Point in AEM Content Fragments Console. 
+> 6.2. If you already know what you want to do, start add features to you extensions by selecting items from the main part of the menu. Each part correspond to single Extension Point in AEM Content Fragments Console. 
 
 > ```shell
 ? What would you like to do next? Add a custom button to Action Bar

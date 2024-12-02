@@ -27,7 +27,7 @@ You may access code generation functionality during project initialization.
 
 Create a directory and run the following commands from that directory:
 
-1. First, select the appropriate organization.
+1. Select the appropriate organization.
 
     ```shell
     ➜  demo-extension-project % aio app init
@@ -62,7 +62,7 @@ Create a directory and run the following commands from that directory:
       Only Templates Supported By My Org
     ```
 
-4. Select the template named `@adobe/aem-assets-details-ext-tpl` (Template for an AIO CLI App Builder plugin that generates code for a UI extension in the Asset Details section of the AEM Assets View)
+4. Select the template named `@adobe/aem-assets-details-ext-tpl` (Template for an AIO CLI App Builder plugin that generates code for a UI extension in the Asset Details section of the AEM Assets View).
 
     ```shell
     ➜  demo-extension-project % aio app init
@@ -92,12 +92,12 @@ Create a directory and run the following commands from that directory:
     * An App Builder project will be created with Node.js packages pre-configured.
     ```
 
-> If you are experienced user you may also simplify process of template selection by running command
+> If you are experienced user you may also simplify process of template selection by running the command
 
 > ```shell
 aio app init --template=@adobe/aem-assets-details-ext-tpl
 
-> At this point Asset Details extension Template for the AEM Assets View is added to yor project and ready to use
+> At this point Asset Details extension Template for the AEM Assets View is added to your project and ready to use.
 
 ## Provide basic information about extension
 
@@ -125,7 +125,7 @@ aio app init --template=@adobe/aem-assets-details-ext-tpl
 
 ### Novice, explore what is possible
 
-> 6.1. If you are only starting with exploring UI Extensibility feel no hesitation to choose `I don't know`
+> 6.1. If you are only starting with exploring UI Extensibility feel no hesitation to choose `I don't know`.
 
 > ```shell
 ? What would you like to do next? I don't know
@@ -139,7 +139,7 @@ aio app init --template=@adobe/aem-assets-details-ext-tpl
 
 ### Seasoned developer, choose what you need
 
-> 6.2. If you already know what you want to do start add features to you extensions by selecting items from the main part of the menu. Each part correspond to single Extension Point in AEM Assets View. 
+> 6.2. If you already know what you want to do, start add features to you extensions by selecting items from the main part of the menu. Each part correspond to single Extension Point in AEM Assets View. 
 
 > ```shell
 ? What would you like to do next? Add a side panel to the Details View

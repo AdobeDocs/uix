@@ -97,7 +97,7 @@ function App() {
     function fallbackComponent({ componentStack, error }) {
         return (
             <React.Fragment>
-                <h1 style={{ textAlign: "center", marginTop: "20px" }}>
+                <h1 style={{ textAlign: 'center', marginTop: '20px' }}>
                     Extension rendering error
                 </h1>
                 <pre>{componentStack + '\n' + error.message}</pre>

@@ -46,7 +46,7 @@ module.exports = {
             path: "https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/"
           },
           {
-            title: "AEM Assets View (Beta)",
+            title: "AEM Assets View",
             path: "/services/aem-assets-view/"
           },
         ]

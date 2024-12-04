@@ -8,7 +8,7 @@ contributors:
 
 The document provides high level overview for developers what to expect when creating UI Extension. 
 For detailed instructions please refer to step-by-step guides for [AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/)
-or [AEM Assets View (Beta)](../../services/aem-assets-view/extension-development/).
+or [AEM Assets View](../../services/aem-assets-view/extension-development/).
 
 ## Get access
 
@@ -37,7 +37,7 @@ There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
 You may find detailed guide for [AEM Content Fragments Console](../../services/aem-cf-console-admin/code-generation#launch-code-generation-during-project-initialization)
-or [AEM Assets View (Beta)](../../services/aem-assets-view/code-generation#launch-code-generation-during-project-initialization).
+or [AEM Assets View](../../services/aem-assets-view/code-generation#launch-code-generation-during-project-initialization).
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -142,6 +142,6 @@ These steps are described in more detail in [UI Extensions Management](../public
 ## Additional resources
 
 - [Step-by-step Extension Development Guide in AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/)
-- [Step-by-step Extension Development Guide in AEM Assets View (Beta)](../../services/aem-assets-view/extension-development/)
+- [Step-by-step Extension Development Guide in AEM Assets View](../../services/aem-assets-view/extension-development/)
 - [UI Extensibility Overview](../../)
 - [FAQ](../../overview/faq/)

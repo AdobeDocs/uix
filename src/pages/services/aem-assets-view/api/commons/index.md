@@ -196,3 +196,19 @@ This API provides methods to support localization of the UI Extension.
 ```js
 const { locale } = await guestConnection.host.i18n.getLocalizationInfo();
 ```
+
+### Theme API
+
+This API provides methods to retrieve the current host application color scheme. 
+
+`theme.getThemeInfo()`
+
+**Description:** returns information about the current color scheme used in the AEM Assets View.
+
+**Return Object Structure**
+- `colorScheme` (`string`): The current color scheme locale used in the AEM Assets View, either `light` or `dark`.
+
+**Example:**
+```js
+const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
+```

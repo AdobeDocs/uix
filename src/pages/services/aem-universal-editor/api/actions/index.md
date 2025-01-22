@@ -25,10 +25,7 @@ Method: `navigateTo`
 
 
 Example: 
-```ts
-guestConnection.host.editorActions.navigateTo(href: string);
-
-```
+`guestConnection.host.editorActions.navigateTo(href: string);`
 
 ### Select Editables
 The `selectEditables` action allows an extension developer to select an editable block for editing. An editable block refers to the portion of content that can be modified within the Universal Editor.

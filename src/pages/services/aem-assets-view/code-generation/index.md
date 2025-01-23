@@ -62,7 +62,7 @@ Create a directory and run the following commands from that directory:
       Only Templates Supported By My Org
     ```
 
-4. Select the template named `@adobe/aem-assets-details-ext-tpl` (Template for an AIO CLI App Builder plugin that generates code for a UI extension in the Asset Details section of the AEM Assets View).
+4. Use the spacebar to select the template named `@adobe/aem-assets-details-ext-tpl` (Template for an AIO CLI App Builder plugin that generates code for a UI extension in the Asset Details section of the AEM Assets View).
 
     ```shell
     ➜  demo-extension-project % aio app init

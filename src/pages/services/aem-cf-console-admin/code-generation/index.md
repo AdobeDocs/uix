@@ -60,7 +60,7 @@ Create a directory and run the following commands from that directory:
       Only Templates Supported By My Org
     ```
 
-4. Select the template named @adobe/aem-cf-admin-ui-ext-tpl (Extensibility template for AEM Content Fragment Admin Console).
+4. Use the spacebar to select the template named @adobe/aem-cf-admin-ui-ext-tpl (Extensibility template for AEM Content Fragment Admin Console).
 
     ```shell
     ➜  demo-extension-project % aio app init

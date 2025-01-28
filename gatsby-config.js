@@ -306,6 +306,10 @@ module.exports = {
           {
             title: "Retrieving Data from the Universal Editor",
             path: "/services/aem-universal-editor/api/data/"
+          },
+          {
+            title: "Triggering Universal Editor actions from the extension",
+            path: "/services/aem-universal-editor/api/actions/"
           }
         ]
       },

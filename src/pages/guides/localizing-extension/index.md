@@ -80,3 +80,25 @@ function App() {
 
 export default App
 ```
+
+### Displaying translated text
+
+```
+function UIExtensibilityModal({ getLanguage }) {
+    const currentLanguage = getLanguage();
+    return (
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h2>
+        {/* Display different text based on the current language */}
+        {currentLanguage === 'en-US' ? (
+          <FormattedMessage id="app.title" />
+        ) : currentLanguage === 'fr-FR' ? (
+          <FormattedMessage id="app.title" />
+        ) : (
+          <FormattedMessage id="app.title" />
+        )}
+      </h2>
+    </div>
+    )
+}
+```

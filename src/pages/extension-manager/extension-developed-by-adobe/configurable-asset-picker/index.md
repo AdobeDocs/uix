@@ -83,7 +83,7 @@ Adding a component for author in crosswalk site is like adding any other custom 
 - `id`: can be any value.
 - `Image component`: must have `custom-asset-namespace:custom-asset` value, because it has been overridden in the extension to display customized asset selector popup.
 - `configUrl`: points to JSON configuration file, can be hosted anywhere you prefer. Must be accessible to the extension, which runs in author's web browser. It can be hosted on same AEM environment as well and relative path ( for example /content/dam/assets/asset-selector.json) can be used. Extension will fetch this JSON file and configure asset picker for this component accordingly.
-- `imageMimeType component`: Optional `custom-asset-namespace:custom-asset-mimetype` value, it has been overridden in the extension to contain selected asset MIME Type. Please note that if mime type is set to image/* or for relative paths that resolve to an asset in AEM and is known to be an image, the asset is rendered using edge delivery services. In case you require the asset to be rendered using [ Dynamic Media with OpenAPI capabilities ] (https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/dynamicmedia/dynamic-media-open-apis/dynamic-media-open-apis-overview), select the asset from delivery repository and make sure the imageMimeType is not present in the model. If the mime type is missing, the generated markup will contain an anchor tag for Dynamic Media image path.
+- `imageMimeType component`: Optional `custom-asset-namespace:custom-asset-mimetype` value, it has been overridden in the extension to contain selected asset MIME Type. Please note that if mime type is set to image/* or for relative paths that resolve to an asset in AEM and is known to be an image, the asset is rendered using edge delivery services. In case you require the asset to be rendered using [Dynamic Media with OpenAPI capabilities] (https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/dynamicmedia/dynamic-media-open-apis/dynamic-media-open-apis-overview), select the asset from delivery repository and make sure the imageMimeType is not present in the model. If the mime type is missing, the generated markup will contain an anchor tag for Dynamic Media image path.
 - `Alt-Text component`: Optional. For Dynamic Media delivery, since anchor tag is being generated in the markup, title property of the anchor tag can be leveraged to generate the alt text in the markup. Else the regular picture element property i.e `imageAlt` should be used.
 
 This model is necessary for custom asset picker to show up when user clicks on its option it in properties panel.
@@ -209,7 +209,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
       ],
 }
 ```
-##Note: 
+## Note: 
 If the asset selector is not rendered as per the configuration, please check the console for any CORS issues while fetching the config file.
 
 ## Limitations

@@ -21,7 +21,7 @@ Create a folder (ex: 'locales') within the `src/<extension_point>/web-src/src/co
 
 ### Set up react-intl
 
-In order to use react-intl in your application, you need to wrap your root component with the `IntlProvider`. This component takes a `locale` prop (the current language) and a `messages pro`p` (the translation messages). Furthermore, since the locale of the host application won't be known until the extension is loaded, allow dynamic language switching via state variables.
+In order to use react-intl in your application, you need to wrap your root component with the `IntlProvider`. This component takes a `locale` prop (the current language) and a `messages` prop (the translation messages). Furthermore, since the locale of the host application won't be known until the extension is loaded, allow dynamic language switching via state variables.
 
 ```
 import React, {useState} from "react";
@@ -83,20 +83,33 @@ export default App
 
 ### Displaying translated text
 
+If UI Extension implements own UI it should be provided as a separate page. This custom UI should establish a connection with the host application using the `attach` method. The connection provides a `sharedContext` object, which contains the locale of the current user in host application. 
+
 ```
-function UIExtensibilityModal({ getLanguage }) {
-    const currentLanguage = getLanguage();
+import { attach } from "@adobe/uix-guest";
+
+const guestConnection = await attach({
+    id: "my-id"
+})
+const context = guestConnection.sharedContext;
+const locale = context.get("locale");
+```
+
+```
+import { attach } from "@adobe/uix-guest";
+function UIExtensibilityModal({ setLanguage }) {
+    useEffect(() => {
+        const guestConnection = await attach({
+            id: "my-id"
+        })
+        const context = guestConnection.sharedContext;
+        const locale = context.get("locale");
+        setLanguage(locale);
+    }, [])
     return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
       <h2>
-        {/* Display different text based on the current language */}
-        {currentLanguage === 'en-US' ? (
           <FormattedMessage id="app.title" />
-        ) : currentLanguage === 'fr-FR' ? (
-          <FormattedMessage id="app.title" />
-        ) : (
-          <FormattedMessage id="app.title" />
-        )}
       </h2>
     </div>
     )

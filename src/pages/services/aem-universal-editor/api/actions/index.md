@@ -70,7 +70,6 @@ Method: `update`
 | target       | `Object` | The editable to update                               |
 | patch       | `Arrap`  | The path to the specific edirable property to update |
 
-
 Example:
 `guestConnection.host.editorActions.update({ target: Target, patch: JSONPatch });`
 

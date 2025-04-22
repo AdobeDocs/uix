@@ -6,3 +6,24 @@ contributors:
 ---
 
 # Browse View
+
+## Custom action bar buttons
+
+
+## API Reference
+
+### Host API Reference
+
+### Extension API Reference
+
+
+## Example of adding custom action bar buttons
+
+
+## Example of hiding custom action bar buttons
+
+
+## Example of overrideing out-of-the-box action bar buttons
+
+
+## Example of opening a modal dialogs from custom action bar buttons

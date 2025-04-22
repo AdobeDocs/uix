@@ -14,6 +14,18 @@ Extensions should use `aem/assets/browse/1` extension point to utilize extensibi
 
 ## Custom action bar buttons
 
+This extensibility feature allows adding new action bar buttons, hiding or overriding standard action bar buttons
+using the `actionBar` namespace. The custom button appear after the list of the standard action bar buttons.
+
+It is also configurable to open a custom modal dialog from a custom action bar button as needed.
+
+### Show custom action buttons
+
+### Hide standard action bar buttons
+
+### Override standard action bar buttons
+
+### Open modal dialogs from custom action bar buttons
 
 ## API Reference
 
@@ -25,10 +37,10 @@ Extensions should use `aem/assets/browse/1` extension point to utilize extensibi
 ## Example of adding custom action bar buttons
 
 
-## Example of hiding custom action bar buttons
+## Example of hiding standard action bar buttons
 
 
-## Example of overrideing out-of-the-box action bar buttons
+## Example of overriding standard action bar buttons
 
 
 ## Example of opening a modal dialogs from custom action bar buttons

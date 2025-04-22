@@ -220,6 +220,10 @@ module.exports = {
             path: "/services/aem-assets-view/api/commons/"
           },
           {
+            title: "Browse View",
+            path: "/services/aem-assets-view/api/browse-view/"
+          },
+          {
             title: "Details View",
             path: "/services/aem-assets-view/api/details-view/"
           },

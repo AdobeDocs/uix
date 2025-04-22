@@ -7,6 +7,11 @@ contributors:
 
 # Browse View
 
+The Browse View in the AEM Assets View show a list of assets in various areas including
+Assets, Search, Collections, Libraries, Recent and Trash.
+
+Extensions should use `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
+
 ## Custom action bar buttons
 
 

@@ -150,21 +150,21 @@ To remove an extension, you need to follow those steps:
 
 ![Delete button](extension-revoke.png)
 
-After revoking extension, it is still visible with revoke status in extention manager. To remove it completely you needs to remove the project.
+After revoking extension, it is still visible with revoked status in Extention Manager. To remove it completely you needs to remove the project.
 
 The button to remove project is on top right:
 
 ![Delete button](extension-delete-button.png)
 
-When extension is not revoked it is not possible to delete the project:
+Until the extension is not revoked it will not be possible to delete the project:
 
 ![Project can not be delete](extension-can-not-delete-project.png)
 
-When extention is remoked then project can be removed:
+When extension is revoked then the project can be removed:
 
 ![Project can not be delete](extension-delete-procject.png)
 
-After removing the project extension is not visible in extension manager.
+After removing the project, the extension is not visible anymore in Extension Manager.
 
 ## Additional resources
 

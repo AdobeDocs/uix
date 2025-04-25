@@ -317,7 +317,7 @@ From the extension project directory, begin by running the following command:
 aio app run
 ```
 
-This will deploy the actions to Adobe I/O Runtime, while running the UI part on the local machine.
+This will deploy the actions to Adobe I/O Runtime while running the UI part on the local machine.
 
 ```shell
 ➜  demo-extension-project % aio app run
@@ -342,7 +342,7 @@ A self signed development certificate has been generated, you will need to accep
 Waiting for the certificate to be accepted.... timed out
 ```
 
-This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+This message pops up because we use a development SSL certificate for secure communication. Learn more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
 

@@ -45,6 +45,10 @@ module.exports = {
             title: "Adobe Commerce Admin",
             path: "https://developer.adobe.com/commerce/extensibility/admin-ui-sdk/"
           },
+          {
+            title: "AEM Assets View",
+            path: "/services/aem-assets-view/"
+          },
         ]
       },
       {
@@ -204,6 +208,36 @@ module.exports = {
         path: "/services/aem-cf-editor/code-generation/"
       },
       {
+        title: "AEM Assets View",
+        path: "/services/aem-assets-view/"
+      },
+      {
+        title: "Extension Points",
+        path: "/services/aem-assets-view/api/",
+        pages: [
+          {
+            title: "Common Concepts",
+            path: "/services/aem-assets-view/api/commons/"
+          },
+          {
+            title: "Details View",
+            path: "/services/aem-assets-view/api/details-view/"
+          },
+        ]
+      },
+      {
+        title: "Step-by-step Extension Development",
+        path: "/services/aem-assets-view/extension-development/"
+      },
+      {
+        title: "Code Generation",
+        path: "/services/aem-assets-view/code-generation/"
+      },
+      {
+        title: "Troubleshooting",
+        path: "/services/aem-assets-view/debug/"
+      },
+      {
         title: "Extension Manager",
         path: "/extension-manager/"
       },
@@ -272,6 +306,10 @@ module.exports = {
           {
             title: "Retrieving Data from the Universal Editor",
             path: "/services/aem-universal-editor/api/data/"
+          },
+          {
+            title: "Triggering Universal Editor actions from the extension",
+            path: "/services/aem-universal-editor/api/actions/"
           }
         ]
       },

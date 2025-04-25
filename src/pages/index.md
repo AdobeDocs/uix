@@ -108,6 +108,12 @@ Start building extensions for the Universal Editor
 
 Start building extensions for Adobe Commerce Admin
 
+<DiscoverBlock slots="link, text"/>
+
+[AEM Assets View](services/aem-assets-view/)
+
+Start building extensions for AEM Assets View (Assets Ultimate only)
+
 <DiscoverBlock slots="heading, link, text"/>
 
 ## Experiment

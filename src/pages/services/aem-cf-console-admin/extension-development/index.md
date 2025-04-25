@@ -28,13 +28,13 @@ More information about [AEM](https://experienceleague.adobe.com/docs/experience-
 
 ## Create a project in Adobe Developer Console
 
-UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
+UI Extensions, as with any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
 <InlineAlert slots="text" />
 
-If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../get-access) guide for instructions.
+If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
 
-To begin, we need to create a new Project which will supply us with configuration and resources.
+To begin, we need to create a new Project which will supply us with the configuration and resources.
 
 1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
 
@@ -48,7 +48,7 @@ To begin, we need to create a new Project which will supply us with configuratio
 
 ![Choose your profile](../../../guides/creating-project-in-dev-console/create-project-3.png)
 
-3. Make sure you are in a proper organization (a switcher in the right top corner).
+3. Make sure you are in a proper organization (a switcher is in the right top corner).
 
 ![Check organization](../../../guides/creating-project-in-dev-console/create-project-4.png)
 
@@ -60,7 +60,7 @@ And choose "App Builder":
 
 ![Choose "App Builder"](../../../guides/creating-project-in-dev-console/create-project-6.png)
 
-5. Fill the project data.
+5. Fill in the project data.
 
 ![Fill the project data](../../../guides/creating-project-in-dev-console/create-project-7.png)
 
@@ -112,7 +112,7 @@ More details are described in [Local environment set up](../../../guides/local-e
 
 ## Initialize our application using the CLI and generate a base structure from template
 
-Firstly, we need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
+First, we need to [Signing in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
 Please complete all the steps described in [Initialize our Application using the CLI](../index.md#initialize-the-ui-extension-project-using-aio-cli).
 
 After this step, we will have a generated project structure with necessary npm dependencies are getting installed.
@@ -371,7 +371,7 @@ From the extension project directory, begin by running the following command:
 aio app run
 ```
 
-This will deploy the actions to Adobe I/O Runtime, while running the UI part on the local machine.
+This will deploy the actions to Adobe I/O Runtime while running the UI part on the local machine.
 
 ```shell
 ➜  demo-extension-project % aio app run
@@ -404,7 +404,7 @@ A self signed development certificate has been generated, you will need to accep
 Waiting for the certificate to be accepted.... timed out
 ```
 
-This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+This message pops up because we use a development SSL certificate for secure communication. Learn more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
 
@@ -466,7 +466,7 @@ and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/de
 
 ## Deploy on Production and create approval request
 
-After the application has been completed, tested locally and on `Stage`, we are ready to deploy it to `Production`.
+After the application has been completed, tested locally, and on `Stage`: we are ready to deploy it to `Production`.
 Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
 
 Also in this document you can find the whole development flow of a UI Extensions.

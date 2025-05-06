@@ -139,9 +139,37 @@ This means, that the new functionality will be available, for example, in the AE
 
 These steps are described in more detail in [UI Extensions Management](../publication).
 
+## Remove the extension
+
+To remove an extension, you need to follow those steps:
+
+1. Log in to Adobe Exchange.
+2. Navigate to Manage > App Builder Apps.
+3. Click revoke button, next to extension you would like to remove.
+4. Click revoke on the popup to confirm.
+
+![Delete button](extension-revoke.png)
+
+After revoking extension, it is still visible with revoked status in Extention Manager. To remove it completely you needs to remove the project.
+
+The button to remove project is on top right:
+
+![Delete button](extension-delete-button.png)
+
+Until the extension is not revoked it will not be possible to delete the project:
+
+![Project can not be delete](extension-can-not-delete-project.png)
+
+When extension is revoked then the project can be removed:
+
+![Project can not be delete](extension-delete-procject.png)
+
+After removing the project, the extension is not visible anymore in Extension Manager.
+
 ## Additional resources
 
 - [Step-by-step Extension Development Guide in AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/)
 - [Step-by-step Extension Development Guide in AEM Assets View](../../services/aem-assets-view/extension-development/)
 - [UI Extensibility Overview](../../)
 - [FAQ](../../overview/faq/)
+

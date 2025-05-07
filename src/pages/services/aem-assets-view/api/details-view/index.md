@@ -28,7 +28,7 @@ The extension only declares the icon type, panel title and the URL for the custo
 
 ## API Reference
 
-This API reference section is future broken down into two parts: the API provided by the AEM Assets View host application
+This API reference section is further broken down into two parts: the API provided by the AEM Assets View host application
 to the extension and the API provided by the extension to the AEM Assets View host application.
 
 ### Host API Reference

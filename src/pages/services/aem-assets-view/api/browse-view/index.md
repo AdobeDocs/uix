@@ -62,3 +62,6 @@ the `actionBar` and `quickActions` namespaces.
 
 
 ## Example of opening a modal dialogs from custom action bar buttons
+
+
+## Example of opening a modal dialogs from custom quick action items

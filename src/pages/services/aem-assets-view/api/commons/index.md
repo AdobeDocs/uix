@@ -212,3 +212,30 @@ This API provides methods to retrieve the current host application color scheme.
 ```js
 const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
 ```
+
+### Modal API
+
+This API provides methods to open a modal dialog in the host application, close it and retrieve the payload assocated with it.
+
+`guestConnection.host.modal.openDialog(options)`
+
+**Description:** Open a modal dialog based on the configurations provided.
+
+**Parameters:**
+- **options** (`object`): Object with the following properties:
+  - title (`string`, optional): The title of the modal dialog.
+  - contentUrl (`string`): url of the content of the modal dialog.
+  - type (`string`, optional): The type of the modal dialog. Possible values are `modal`, `fullScreen`. Default value is `modal`.
+  - size (`string`, optional): The size of the modal dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when type is `fullScreen`
+  - payload (`any`, optional): Arbitrary payload that can be retrieved by `guestConnection.host.modal.getPayload`.
+
+**Example:**
+```js
+guestConnection.host.modal.openDialog({
+    title: 'My Modal',
+    contentUrl: '/#modal-my-button',
+    type: 'modal',
+    size: 'M',
+    payload: { /* arbitrary payload */ }
+});
+```

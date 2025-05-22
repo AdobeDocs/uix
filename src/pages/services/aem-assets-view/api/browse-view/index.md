@@ -49,21 +49,6 @@ In addition to the [Common API](../commons) provided by AEM Assets View to all e
 the host application provides the following API specific to the `aem/assets/browse/1` extension point,
 the `actionBar` and `quickActions` namespaces.
 
-<!--
-`actionBar.getActions()`
-
-**Description:** returns the path and id of the asset shown in the Details View.
-
-**Return Object Structure**
-- `path` (`string`): Current asset path.
-- `id` (`string`): Current asset id.
-
-**Example:**
-```js
-const { path, id } = await guestConnection.host.details.getCurrentResourceInfo();
-```
--->
-
 ### Extension API Reference
 
 

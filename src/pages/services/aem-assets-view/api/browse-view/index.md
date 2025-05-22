@@ -20,13 +20,22 @@ using the `actionBar` namespace. The custom button appear after the list of the 
 It is also configurable to open a custom modal dialog from a custom action bar button as needed.
 
 <!--
+Action bar actions
+
 ### Add custom action buttons
+getActions
 
-### Hide standard action bar buttons
+### Hide built-in action bar buttons
+getHiddenBuiltInActions
 
-### Override standard action bar buttons
+### Override built-in action bar buttons
+overrideBuiltInAction
 
 ### Open modal dialogs from custom action bar buttons
+
+Quick actions
+getHiddenBuiltInActions
+overrideBuiltInAction
 -->
 
 ## API Reference
@@ -37,8 +46,8 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 ### Host API Reference
 
 In addition to the [Common API](../commons) provided by AEM Assets View to all extensions, 
-the host application provides the following API specific to the `aem/assets/details/1` extension point 
-and the `actionBar` namespace.
+the host application provides the following API specific to the `aem/assets/browse/1` extension point,
+the `actionBar` and `quickActions` namespaces.
 
 <!--
 `actionBar.getActions()`

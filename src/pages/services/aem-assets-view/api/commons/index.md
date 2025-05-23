@@ -217,25 +217,59 @@ const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
 
 This API provides methods to open a modal dialog in the host application, close it and retrieve the payload assocated with it.
 
-`guestConnection.host.modal.openDialog(options)`
+`guestConnection.host.modal.openDialog(dialogInfo)`
 
-**Description:** Open a modal dialog based on the configurations provided.
+**Description:** opens a dialog with the configuration info provided. The dialog content is loaded from specified url.
 
 **Parameters:**
-- **options** (`object`): Object with the following properties:
-  - title (`string`, optional): The title of the modal dialog.
-  - contentUrl (`string`): url of the content of the modal dialog.
-  - type (`string`, optional): The type of the modal dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.
-  - size (`string`, optional): The size of the modal dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when type is `fullscreen`
-  - payload (`any`, optional): Arbitrary payload that can be retrieved by `guestConnection.host.modal.getPayload()`.
+- **dialogInfo** (`object`): Object with the following dialog configuration properties:
+  - title (`string`, optional): The title of the dialog.
+  - contentUrl (`string`): url of the content of the dialog.
+  - type (`string`, optional): The type of the dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.
+  - size (`string`, optional): The size of the dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when the dialog type is `fullscreen`.
+  - payload (`any`, optional): arbitrary payload object the extension may want to pass over the code inside the dialog. This payload object can later be accessed by the extension via `guestConnection.host.modal.getPayload()`.
 
 **Example:**
 ```js
-guestConnection.host.modal.openDialog({
-  title: 'My Button',
-  contentUrl: '/#modal-my-button,
-  type: 'modal',
-  size: 'M',
-  payload: { /* arbitrary payload */ }
-});
+'onClick': async () => {
+      guestConnection.host.modal.openDialog({
+        title: 'My Button',
+        contentUrl: '/#modal-my-button,
+        type: 'modal',
+        size: 'M',
+        payload: { /* arbitrary payload */ }
+      });
+},
+```
+
+`guestConnection.host.modal.closeDialog()`
+
+**Description:** closes currently active dialog.
+
+**Example:**
+```js
+function closeDialog() {
+    guestConnection.host.modal.closeDialog();
+}
+
+<View>
+  <ButtonGroup>
+    <Button variant="primary" onPress={() => closeDialog()}>Close</Button>
+  </ButtonGroup>
+</View>
+```
+
+`guestConnection.host.modal.getPayload();`
+
+**Description:** returns the payload object which could potentially be used by the extension code when calling
+`guestConnection.host.modal.openDialog()`
+
+**Return Value**
+- optional payload object
+
+**Example:**
+```js
+const payload = guestConnection.host.modal.getPayload();
+// work with payload
+// ...
 ```

@@ -9,7 +9,7 @@ contributors:
 
 The Details View in the AEM Assets View shows detailed information about the selected asset.
 
-Extensions should use `aem/assets/details/1` extension point to utilize extensibility services of the Details View.
+Extensions should use the `aem/assets/details/1` extension point to utilize extensibility services of the Details View.
 
 ## Custom side panels
 

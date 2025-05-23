@@ -225,17 +225,17 @@ This API provides methods to open a modal dialog in the host application, close 
 - **options** (`object`): Object with the following properties:
   - title (`string`, optional): The title of the modal dialog.
   - contentUrl (`string`): url of the content of the modal dialog.
-  - type (`string`, optional): The type of the modal dialog. Possible values are `modal`, `fullScreen`. Default value is `modal`.
-  - size (`string`, optional): The size of the modal dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when type is `fullScreen`
-  - payload (`any`, optional): Arbitrary payload that can be retrieved by `guestConnection.host.modal.getPayload`.
+  - type (`string`, optional): The type of the modal dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.
+  - size (`string`, optional): The size of the modal dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when type is `fullscreen`
+  - payload (`any`, optional): Arbitrary payload that can be retrieved by `guestConnection.host.modal.getPayload()`.
 
 **Example:**
 ```js
 guestConnection.host.modal.openDialog({
-    title: 'My Modal',
-    contentUrl: '/#modal-my-button',
-    type: 'modal',
-    size: 'M',
-    payload: { /* arbitrary payload */ }
+  title: 'My Button',
+  contentUrl: '/#modal-my-button,
+  type: 'modal',
+  size: 'M',
+  payload: { /* arbitrary payload */ }
 });
 ```

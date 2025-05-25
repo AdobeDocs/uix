@@ -123,7 +123,7 @@ Each array element is a custom action descriptor is a JSON with the following pr
 ```js
 actionBar: {
   getActions: ({ context, resourceSelection }) => {
-    if (context === 'collections') {
+    if (context === 'collections' && resourceSelection.resources.length === 1) {
         return [{
         'id': 'customId',
         'icon': 'Form',

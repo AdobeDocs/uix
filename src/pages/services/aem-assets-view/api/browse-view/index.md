@@ -110,9 +110,10 @@ or `trash`
 - **resourceSelection** (`object`): an object representing the current resource selection
   - resources (`array`): an array of currently selected resources.
     - id (`string`): selected resource URN; in case of the library item the 'id' is the library URN followed by slash '/' and the id of the element.
-    - path (`string`): selected resource pat
+    - path (`string`): selected resource path
 
-**Returns** an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar
+**Returns** an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar.
+
 Each array element is a custom action descriptor is a JSON with the following properties:
 - `id` (`string`): action id, unique within given extension.
 - `label` (`string`): Custom action title.

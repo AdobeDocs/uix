@@ -102,7 +102,7 @@ The `actionBar` namespace include these 3 methods
 `actionBar.getActions({ context, resourceSelection })`
 
 **Description:** returns an array of custom action descriptors or an empty array if no custom actions should be added
-to the ActionBar in the specified context of the selected assets.
+to the ActionBar in the specified context for the selected assets.
 
 **Parameters:**
 - context (`string`): current browsing context that could be `assets`, `collections`, `libraries`, `recent`, `search`
@@ -140,7 +140,9 @@ actionBar: {
 ```
 
 
-The `getHiddenBuiltInActions({ context, resourceSelection })` method returns an array of built-in action id that should be hidden in the specified context.
+`getHiddenBuiltInActions({ context, resourceSelection })`
+
+ **Description:**  returns an array of built-in action id that should be hidden in the specified context for the selected assets.
 
 #### quickActions namespace
 

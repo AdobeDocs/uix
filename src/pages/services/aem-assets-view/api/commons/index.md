@@ -217,12 +217,12 @@ const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
 
 This API provides methods to open a modal dialog in the host application, close it and retrieve the payload assocated with it.
 
-`guestConnection.host.modal.openDialog(dialogInfo)`
+`guestConnection.host.modal.openDialog(options)`
 
 **Description:** opens a dialog with the configuration info provided. The dialog content is loaded from specified url.
 
 **Parameters:**
-- **dialogInfo** (`object`): Object with the following dialog configuration properties:
+- **options** (`object`): Object with the following dialog configuration properties:
   - title (`string`, optional): The title of the dialog.
   - contentUrl (`string`): url of the content of the dialog.
   - type (`string`, optional): The type of the dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.

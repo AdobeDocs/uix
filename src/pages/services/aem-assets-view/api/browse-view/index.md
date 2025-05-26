@@ -153,16 +153,10 @@ The `quickActions` namespace include these 2 methods
 
 ## Examples
 
-### Example of adding custom action bar buttons
+### Example of adding custom actions
 
 
-### Example of hiding built-in action bar buttons
+### Example of hiding built-in actions
 
 
-### Example of overriding built-in action bar buttons
-
-
-### Example of hiding built-in quick actions
-
-
-### Example of overriding built-in quick actions
+### Example of overriding built-in actions

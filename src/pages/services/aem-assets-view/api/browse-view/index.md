@@ -8,7 +8,7 @@ contributors:
 # Browse View
 
 The Browse View in the AEM Assets View refers to the asset listing pages such as
-Assets, Collections, Libraries, Recent, Search and Trash.
+Assets, Collections, Recent, Search and Trash.
 
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
 
@@ -44,7 +44,7 @@ the `actionBar` and `quickActions` namespace.
 
 **Description:** returns current browsing context.
 
-**Returns** (`string`): current context that could be `assets`, `collections`, `libraries`, `recent`, `search` or
+**Returns** (`string`): current context that could be `assets`, `collections`, `recent`, `search` or
 `trash`
 
 **Example:**
@@ -74,7 +74,6 @@ View state. Supported browsing contexts are:
 |------------|------------|------------|
 | assets | Main asset browsing experience | /assets/browse |
 | collections | Collections | /assets/collections |
-| libraries | Libraries | /assets/libraries |
 | recent | Recent | /assets/recent |
 | search | Search | /assets/search |
 | trash | Trash | /assets/trash |
@@ -88,7 +87,6 @@ action IDs of actions that can be hidden:
 |------------|------------|
 | assets | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
 | collections | "openInExpress", "rename", "managePermissions", "delete", "download", "share" |
-| libraries | "copy", "move", "rename", "delete" |
 | recent | - |
 | trash | "delete" |
 
@@ -105,11 +103,11 @@ The `actionBar` namespace include these 3 methods
 to the ActionBar in the specified context for the selected assets.
 
 **Parameters:**
-- context (`string`): current browsing context that could be `assets`, `collections`, `libraries`, `recent`, `search`
+- context (`string`): current browsing context that could be `assets`, `collections`, `recent`, `search`
 or `trash`
 - **resourceSelection** (`object`): an object representing the current resource selection
   - resources (`array`): an array of currently selected resources.
-    - id (`string`): selected resource URN; in case of the library item the 'id' is the library URN followed by slash '/' and the id of the element.
+    - id (`string`): selected resource URN.
     - path (`string`): selected resource path
 
 **Returns** an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar.

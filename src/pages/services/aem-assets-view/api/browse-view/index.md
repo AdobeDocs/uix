@@ -24,7 +24,7 @@ built-in action bar buttons could be overridden or hidden based on the context a
 
 In this example, a custom button is added to the action bar after the list of built-in action bar buttons.
 
-> TODO: screenshot
+![](action-bar-button.png)
 
 Using the `quickActions` namespace, built-in quick actions can be overridden and hidden based on the context and the
 current asset.

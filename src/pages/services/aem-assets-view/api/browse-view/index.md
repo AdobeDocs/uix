@@ -88,6 +88,7 @@ action IDs of actions that can be hidden:
 | assets | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
 | collections | "openInExpress", "rename", "managePermissions", "delete", "download", "share" |
 | recent | - |
+| search | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
 | trash | "delete" |
 
 

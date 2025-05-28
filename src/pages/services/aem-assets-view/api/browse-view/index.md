@@ -37,38 +37,14 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 ### Host API Reference
 
 In addition to the [Common API](../commons) provided by AEM Assets View to all extensions,
-the host application provides the following API specific to the `aem/assets/browse/1` extension point,
+the host application provides the following definitions specific to the `aem/assets/browse/1` extension point,
 the `actionBar` and `quickActions` namespace.
-
-`browse.getContext`
-
-**Description:** returns current browsing context.
-
-**Returns** (`string`): current context that could be `assets`, `collections`, `recent`, `search` or
-`trash`
-
-**Example:**
-```js
-const context = await guestConnection.host.browse.getContext();
-```
-
-To open a custom dialog from from custom action bar actions or quick actions, refer to the
-[Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
-dialog management.
-
-### Extension API Reference
-
-The extension definition object passed by the extension to the `register()` function defines the `actionBar` and
-`quickActions` namespaces.
-
-Additional buttons could be added to the action bar, and existing built-in actions could be hidden or customized based
-on the browsing context and resource selection provided to the methods in these namespaces.
 
 #### Browsing context
 
 Assets View supports assets browsing experiences in multiple modes, or "contexts". The current context is exposed in
 the Host API and is also communicated to Extension APIs, so that the custom code within Extension can adopt to Assets
-View state. Supported browsing contexts are:
+View state.  Supported browsing contexts are:
 
 | Browsing Context | Description | Path |
 |------------|------------|------------|
@@ -91,6 +67,13 @@ action IDs of actions that can be hidden:
 | search | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
 | trash | "delete" |
 
+### Extension API Reference
+
+The extension definition object passed by the extension to the `register()` function defines the `actionBar` and
+`quickActions` namespaces.
+
+Additional buttons could be added to the action bar, and existing built-in actions could be hidden or customized based
+on the browsing context and resource selection provided to the methods in these namespaces.
 
 #### actionBar namespace
 The `actionBar` namespace include these 3 methods
@@ -143,12 +126,18 @@ actionBar: {
 
  **Description:**  returns an array of built-in action id that should be hidden in the specified context for the selected assets.
 
+
 #### quickActions namespace
 
 The `quickActions` namespace include these 2 methods
 - `getHiddenBuiltInActions({ context, resource })`
 - `overrideBuiltInAction({ actionId, context, resource })`
 
+### Custom dialog
+
+To open a custom dialog from from custom action bar actions or quick actions, refer to the
+[Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
+dialog management.
 
 ## Examples
 

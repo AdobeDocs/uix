@@ -94,7 +94,7 @@ or `trash`
     - id (`string`): selected resource URN.
     - path (`string`): selected resource path
 
-**Returns** an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar.
+**Returns** (`array`) an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar.
 
 Each array element is a custom action descriptor is a JSON with the following properties:
 - `id` (`string`): action id, unique within given extension.
@@ -106,7 +106,7 @@ Each array element is a custom action descriptor is a JSON with the following pr
 ```js
 actionBar: {
   getActions: ({ context, resourceSelection }) => {
-    if (context === 'collections' && resourceSelection.resources.length === 1) {
+    if (context === 'assets' && resourceSelection.resources.length === 1) {
         return [{
         'id': 'customId',
         'icon': 'Form',
@@ -121,17 +121,87 @@ actionBar: {
 }
 ```
 
-
 `getHiddenBuiltInActions({ context, resourceSelection })`
 
- **Description:**  returns an array of built-in action id that should be hidden in the specified context for the selected assets.
+**Description:**  returns an array of built-in action id that should be hidden in the specified context for the selected assets.
 
+This method is called by the host application to determine which built-in actions are hidden. The host calls this method once when an asset selection changes.
+ 
+Extension code should ensure this method returns fast because the host application blocks rendering of the ActionBar until actions are checked for visibility.
+In particular it is recommended not to use backend server calls in this method.
+
+**Parameters:**
+- context (`string`): current browsing context that could be `assets`, `collections`, `recent`, `search`
+or `trash`
+- **resourceSelection** (`object`): an object representing the current resource selection
+  - resources (`array`): an array of currently selected resources.
+    - id (`string`): selected resource URN.
+    - path (`string`): selected resource path
+
+**Returns** (`array`) an array of action Ids which should be hidden from the ActionBar, or an empty array in case no action needs to be hidden
+
+**Example:**
+ ```js
+getHiddenBuiltInActions: ({ context, resourceSelection }) => {
+  return [];
+},
+```
+
+`overrideBuiltInAction({ actionId, context, resourceSelection })`
+
+**Description:**  Return true to indicate the Host should perform the built-in action, false otherwise. 
+
+This method is called by the Host when the user activates one of the built-in actions, before invoking actual action handler. The method returns true if the Extension had
+performed custom action processing and the Host should not invoke built-in action handler. Otherwise the method call returns false, to indicate that the Extension
+had ignored the invocation and the Host should use built-in action handler.
+
+**Parameters:**
+- actionId (`string`): actionId built-in action Id
+- context (`string`): current browsing context that could be `assets`, `collections`, `recent`, `search`
+or `trash`
+- **resourceSelection** (`object`): an object representing the current resource selection
+  - resources (`array`): an array of currently selected resources.
+    - id (`string`): selected resource URN.
+    - path (`string`): selected resource path
+
+**Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop
+
+**Example:**
+```js
+overrideBuiltInAction: ({ actionId, context, resourceSelection }) => {
+    //do some custom tasks
+    return true;  // skip the Host's built-in handler and stop  
+},
+```
 
 #### quickActions namespace
 
 The `quickActions` namespace include these 2 methods
 - `getHiddenBuiltInActions({ context, resource })`
 - `overrideBuiltInAction({ actionId, context, resource })`
+
+`function()`
+**Description:**  
+
+**Parameters:**
+
+**Returns**
+
+**Example:**
+```js
+```
+
+`function()`
+**Description:**  
+
+**Parameters:**
+
+**Returns**
+
+**Example:**
+```js
+```
+
 
 ### Custom dialog
 

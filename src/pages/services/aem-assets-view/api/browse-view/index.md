@@ -17,7 +17,7 @@ An extension needs to implement both `actionBar` and `quickActions` namespace to
 ## Custom action bar actions and quick actions
 
 This extensibility feature allows context-aware customization of the action bar actions and also the quick actions
-items associated with the selected assets.
+associated with the selected assets.
 
 Using the `actionBar` namespace, custom buttons could be added after the list of built-in action bar actions, and
 built-in action bar actions could be overridden or hidden based on the context and the selected assets.

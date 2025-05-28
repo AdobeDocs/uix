@@ -14,15 +14,15 @@ Extensions should use the `aem/assets/browse/1` extension point to utilize exten
 
 An extension needs to implement both `actionBar` and `quickActions` namespace to be recognized by Assets View.
 
-## Custom action bar buttons and quick actions
+## Custom action bar actions and quick actions
 
-This extensibility feature allows context-aware customization of the action bar buttons and also the quick actions
+This extensibility feature allows context-aware customization of the action bar actions and also the quick actions
 items associated with the selected assets.
 
-Using the `actionBar` namespace, custom buttons could be added after the list of built-in action bar buttons, and
-built-in action bar buttons could be overridden or hidden based on the context and the selected assets.
+Using the `actionBar` namespace, custom buttons could be added after the list of built-in action bar actions, and
+built-in action bar actions could be overridden or hidden based on the context and the selected assets.
 
-In this example, a custom button is added to the action bar after the list of built-in action bar buttons.
+In this example, a custom button is added to the action bar after the list of built-in action bar actions.
 
 ![](action-bar-button.png)
 
@@ -52,7 +52,7 @@ the `actionBar` and `quickActions` namespace.
 const context = await guestConnection.host.browse.getContext();
 ```
 
-To open a custom dialog from from custom action bar buttons or quick actions items, refer to the
+To open a custom dialog from from custom action bar actions or quick actions, refer to the
 [Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
 dialog management.
 

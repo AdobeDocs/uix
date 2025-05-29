@@ -19,12 +19,12 @@ An extension needs to implement both `actionBar` and `quickActions` namespace to
 This extensibility feature allows context-aware customization of the action bar actions and also the quick actions
 associated with the selected assets.
 
-Using the `actionBar` namespace, custom buttons could be added after the list of built-in action bar actions, and
+Using the `actionBar` namespace, custom actions could be added after the list of built-in action bar actions, and
 built-in action bar actions could be overridden or hidden based on the context and the selected assets.
 
-In this example, a custom button is added to the action bar after the list of built-in action bar actions.
+In this example, a custom action is added to the action bar after the list of built-in action bar actions.
 
-![](action-bar-button.png)
+![](action-bar-action.png)
 
 Using the `quickActions` namespace, built-in quick actions can be overridden and hidden based on the context and the
 current asset.
@@ -72,7 +72,7 @@ action IDs of actions that can be hidden:
 The extension definition object passed by the extension to the `register()` function defines the `actionBar` and
 `quickActions` namespaces.
 
-Additional buttons could be added to the action bar, and existing built-in actions could be hidden or customized based
+Additional actions could be added to the action bar, and existing built-in actions could be hidden or customized based
 on the browsing context and resource selection provided to the methods in these namespaces.
 
 #### actionBar namespace

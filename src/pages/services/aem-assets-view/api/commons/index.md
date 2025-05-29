@@ -233,8 +233,8 @@ This API provides methods to open a modal dialog in the host application, close 
 ```js
 'onClick': async () => {
       guestConnection.host.modal.openDialog({
-        title: 'My Button',
-        contentUrl: '/#modal-my-button',
+        title: 'Custom label',
+        contentUrl: '/#modal-custom-label',
         type: 'modal',
         size: 'M',
         payload: { /* arbitrary payload */ }

@@ -105,19 +105,19 @@ Each array element is a custom action descriptor is a JSON with the following pr
 **Example:**
 ```js
 actionBar: {
-  getActions: ({ context, resourceSelection }) => {
-    if (context === 'assets' && resourceSelection.resources.length === 1) {
-        return [{
-        'id': 'customId',
-        'icon': 'Form',
-        'label': 'Custom label',
-        'onClick': async () => {
-            // ...
+    getActions: ({ context, resourceSelection }) => {
+        if (context === 'assets' && resourceSelection.resources.length === 1) {
+            return [{
+                'id': 'customId',
+                'icon': 'Form',
+                'label': 'Custom label',
+                'onClick': async () => {
+                    // ...
+                }
+            }];
         }
-      }];
-    }
-    return [];
-  },
+      return [];
+    },
 }
 ```
 
@@ -143,7 +143,7 @@ or `trash`
 **Example:**
  ```js
 getHiddenBuiltInActions: ({ context, resourceSelection }) => {
-  return [];
+    return [];
 },
 ```
 
@@ -180,7 +180,7 @@ The `quickActions` namespace include these 2 methods
 - `getHiddenBuiltInActions({ context, resource })`
 - `overrideBuiltInAction({ actionId, context, resource })`
 
-`function()`
+`getHiddenBuiltInActions()`
 **Description:**  
 
 **Parameters:**
@@ -189,9 +189,12 @@ The `quickActions` namespace include these 2 methods
 
 **Example:**
 ```js
+getHiddenBuiltInActions: ({ context, resource }) => {
+    return [];
+},
 ```
 
-`function()`
+`overrideBuiltInAction()`
 **Description:**  
 
 **Parameters:**
@@ -200,8 +203,11 @@ The `quickActions` namespace include these 2 methods
 
 **Example:**
 ```js
+overrideBuiltInAction: ({ actionId, context, resource }) => {
+    //do some custom tasks
+    return true;
+},
 ```
-
 
 ### Custom dialog
 

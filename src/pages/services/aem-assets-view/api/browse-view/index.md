@@ -184,7 +184,7 @@ The `quickActions` namespace include these 2 methods
 This method is called by the host application to determine which built-in actions are hidden.
 The host calls this method once when an asset selection changes.
 
-Extension code should ensure this method returns fast because the host application blocks rendering of the QuickBar menu until actions are checked for visibility.
+Extension code should ensure this method returns fast because the host application blocks rendering of the QuickAction menu until actions are checked for visibility.
 In particular it is recommended not to use backend server calls in this method.
 
 **Parameters:**

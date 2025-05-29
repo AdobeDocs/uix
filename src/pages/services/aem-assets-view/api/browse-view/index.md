@@ -27,7 +27,7 @@ In this example, a custom action is added to the action bar after the list of bu
 ![](action-bar-action.png)
 
 Using the `quickActions` namespace, built-in quick actions can be overridden and hidden based on the context and the
-current asset.
+selected asset.
 
 ## API Reference
 
@@ -87,9 +87,8 @@ The `actionBar` namespace include these 3 methods
 to the ActionBar in the specified context for the selected assets.
 
 **Parameters:**
-- context (`string`): current browsing context that could be `assets`, `collections`, `recent`, `search`
-or `trash`
-- **resourceSelection** (`object`): an object representing the current resource selection
+- context (`string`): current [browsing context](#browsing-context)
+- **resourceSelection** (`object`): an object representing the resource selection
   - resources (`array`): an array of currently selected resources.
     - id (`string`): selected resource URN.
     - path (`string`): selected resource path
@@ -123,7 +122,7 @@ actionBar: {
 
 `getHiddenBuiltInActions({ context, resourceSelection })`
 
-**Description:**  returns an array of built-in action id that should be hidden in the specified context for the selected assets.
+**Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected assets.
 
 This method is called by the host application to determine which built-in actions are hidden. The host calls this method once when an asset selection changes.
  
@@ -131,9 +130,8 @@ Extension code should ensure this method returns fast because the host applicati
 In particular it is recommended not to use backend server calls in this method.
 
 **Parameters:**
-- context (`string`): current browsing context that could be `assets`, `collections`, `recent`, `search`
-or `trash`
-- **resourceSelection** (`object`): an object representing the current resource selection
+- context (`string`): current [browsing context](#browsing-context)
+- **resourceSelection** (`object`): an object representing the resource selection
   - resources (`array`): an array of currently selected resources.
     - id (`string`): selected resource URN.
     - path (`string`): selected resource path
@@ -157,8 +155,7 @@ had ignored the invocation and the Host should use built-in action handler.
 
 **Parameters:**
 - actionId (`string`): actionId built-in action Id
-- context (`string`): current browsing context that could be `assets`, `collections`, `recent`, `search`
-or `trash`
+- context (`string`): current [browsing context](#browsing-context)
 - **resourceSelection** (`object`): an object representing the current resource selection
   - resources (`array`): an array of currently selected resources.
     - id (`string`): selected resource URN.
@@ -180,12 +177,24 @@ The `quickActions` namespace include these 2 methods
 - `getHiddenBuiltInActions({ context, resource })`
 - `overrideBuiltInAction({ actionId, context, resource })`
 
-`getHiddenBuiltInActions()`
-**Description:**  
+`getHiddenBuiltInActions({ context, resource })`
+
+**Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected asset.
+
+This method is called by the host application to determine which built-in actions are hidden.
+The host calls this method once when an asset selection changes.
+
+Extension code should ensure this method returns fast because the host application blocks rendering of the QuickBar menu until actions are checked for visibility.
+In particular it is recommended not to use backend server calls in this method.
 
 **Parameters:**
+- context (`string`): current [browsing context](#browsing-context)
+- **resource** (`object`): an object representing the selected resource
+  - resource (`object`): object representing the resource selected
+    - id (`string`): selected resource URN.
+    - path (`string`): selected resource path
 
-**Returns**
+**Returns** (`array`) an array of action Ids which should be hidden from the QuickAction menu, or an empty array in case no action needs to be hidden
 
 **Example:**
 ```js
@@ -198,6 +207,7 @@ getHiddenBuiltInActions: ({ context, resource }) => {
 **Description:**  
 
 **Parameters:**
+- context (`string`): current [browsing context](#browsing-context)
 
 **Returns**
 

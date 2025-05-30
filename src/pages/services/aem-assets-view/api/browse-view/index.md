@@ -105,17 +105,14 @@ Each array element is a custom action descriptor is a JSON with the following pr
 ```js
 actionBar: {
     getActions: ({ context, resourceSelection }) => {
-        if (context === 'assets' && resourceSelection.resources.length === 1) {
-            return [{
-                'id': 'customId',
-                'icon': 'Form',
-                'label': 'Custom label',
-                'onClick': async () => {
-                    // ...
-                }
-            }];
-        }
-      return [];
+        return [{
+            'id': 'customId',
+            'icon': 'Form',
+            'label': 'Custom label',
+            'onClick': async () => {
+                // ...
+            }
+        }];
     },
 }
 ```
@@ -235,8 +232,54 @@ dialog management.
 
 ## Examples
 
+These code snippets demonstrate how to add a custom action to the action bar, hide built-in actions from the ActionBar and QuickActions menu, or override the built-in action handler in the Browse View. (The examples below serve illustrative purposes thus omit certain import statements and other non-important parts.)
+
 ### Example of adding custom actions
 
+Here is an example for adding a custom action after the built-in actions in the ActionBar.
+
+The ExtensionRegistration component initializes the extension registration process by calling the register() function
+provided by the `@adobe/uix-guest` library.
+
+The objects passed to the register() function describe the extension and its capabilities. In particular, it declares
+that the extension uses the actionBar namespace and declares getActions method which returns an array of custom ActionBar actions.
+The custom actions, specifies the action's id, icon, label and handler for the click event
+
+```js
+function ExtensionRegistration() {
+    const init = async () => {
+        const guestConnection = await register({
+            id: extensionId,
+            methods: {
+                actionBar: {
+                    async getActions({ context, resourceSelection }) {
+                        if (context === 'assets' && resourceSelection.resources.length === 1) {
+                            return [{
+                                'id': 'customId',
+                                'icon': 'Form',
+                                'label': 'Custom label',
+                                'onClick': async () => {
+                                    // ...
+                                }
+                            }];
+                        }
+                        return [];
+                    },
+                },
+            },
+        });
+    };
+    init().catch(console.error);
+
+    return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+
+export default ExtensionRegistration;
+```
+
+In this example, the `context` and the number of selected resources are considered for the decision of adding a custom
+action labeled with `Custom label` along with the `Form` icon is added in the `assets` context when the number of
+selected resources is 1.
 
 ### Example of hiding built-in actions
 

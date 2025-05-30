@@ -32,7 +32,7 @@ associated with the selected resources.
 Using the `actionBar` namespace, custom actions could be added after the list of built-in ActionBar actions, and
 built-in ActionBar actions could be overridden or hidden based on the context and the selected resources.
 
-In this example, a custom action is added to the action bar after the list of built-in ActionBar actions.
+In this example, a custom action is added to the ActionBar after the list of built-in ActionBar actions.
 
 ![ActionBar actions](action-bar-action.png)
 
@@ -82,7 +82,7 @@ action IDs of actions that can be hidden:
 The extension definition object passed by the extension to the `register()` function defines the `actionBar` and
 `quickActions` namespaces.
 
-Additional actions could be added to the action bar, and existing built-in actions could be hidden or customized based
+Additional actions could be added to the ActionBar, and existing built-in actions could be hidden or customized based
 on the browsing context and resource selection provided to the methods in these namespaces.
 
 #### actionBar namespace
@@ -237,7 +237,7 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 
 ## Examples
 
-These code snippets demonstrate how to add a custom action to the action bar, hide built-in actions from the ActionBar and QuickActions menu, or override the built-in action handler in the Browse View. (The examples below serve illustrative purposes thus omit certain import statements and other non-important parts.)
+These code snippets demonstrate how to add a custom action to the ActionBar, hide built-in actions from the ActionBar and QuickActions menu, or override the built-in action handler in the Browse View. (The examples below serve illustrative purposes thus omit certain import statements and other non-important parts.)
 
 The ExtensionRegistration component initializes the extension registration process by calling the register() function
 provided by the `@adobe/uix-guest` library.

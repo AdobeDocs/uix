@@ -12,13 +12,12 @@ AEM Assets View offers the ability to customize the ActionBar and QuickAction in
 The Browse View in the AEM Assets View refers to the asset listing pages such as
 Assets, Collections, Recent, Search and Trash.
 
-ActionBar is the blue bar with actions that appears at the top when one or more listed asset om the
+ActionBar is the blue bar with actions that appears at the top when one or more assets in the
 Browse View are selected.
 
 ![action bar](action-bar.png)
 
-QuickActions refers to the drop down from the Ellipse button (`...`) assocated with each listed asset. 
-
+QuickActions is the dropdown menu from the More Actions button (shown as `⋯`) next to each asset.
 ![quick actions](quick-actions.png)
 
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.

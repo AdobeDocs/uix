@@ -12,31 +12,31 @@ AEM Assets View offers the ability to customize the ActionBar and QuickAction in
 The Browse View in the AEM Assets View refers to the asset listing pages such as
 Assets, Collections, Recent, Search and Trash.
 
-ActionBar is the blue bar with actions that appears at the top when one or more assets in the
+**ActionBar** is the blue bar with actions that appears at the top when one or more assets in the
 Browse View are selected.
 
 ![action bar](action-bar.png)
 
-QuickActions is the dropdown menu from the More Actions button (shown as `⋯`) next to each asset.
+**QuickActions** is the dropdown menu from the More action button (shown as `⋯`) next to each asset.
 ![quick actions](quick-actions.png)
 
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
 
 An extension needs to implement both `actionBar` and `quickActions` namespace to be recognized by Assets View.
 
-## Custom action bar actions and quick actions
+## Custom ActionBar actions and QuickActions menu actions
 
-This extensibility feature allows context-aware customization of the action bar actions and also the quick actions
+This extensibility feature allows context-aware customization of the ActionBar actions and also the QuickActions menu actions
 associated with the selected resources.
 
-Using the `actionBar` namespace, custom actions could be added after the list of built-in action bar actions, and
-built-in action bar actions could be overridden or hidden based on the context and the selected resources.
+Using the `actionBar` namespace, custom actions could be added after the list of built-in ActionBar actions, and
+built-in ActionBar actions could be overridden or hidden based on the context and the selected resources.
 
-In this example, a custom action is added to the action bar after the list of built-in action bar actions.
+In this example, a custom action is added to the action bar after the list of built-in ActionBar actions.
 
-![action bar actions](action-bar-action.png)
+![ActionBar actions](action-bar-action.png)
 
-Using the `quickActions` namespace, built-in quick actions can be overridden and hidden based on the context and the
+Using the `quickActions` namespace, built-in QuickActions menu actions can be overridden and hidden based on the context and the
 selected asset.
 
 ## API Reference
@@ -214,7 +214,7 @@ getHiddenBuiltInActions: ({ context, resource }) => {
 
 **Description:**  
 
-This method is called by the Host when the user activates one of the built-in Quick Actions, before invoking actual action handler.
+This method is called by the Host when the user activates one of the built-in QuickActions menu actions, before invoking actual action handler.
 The method returns true if the Extension had performed custom action processing and the Host should not invoke built-in action handler.
 Otherwise the method call returns false, to indicate that the Extension had ignored the invocation and the Host should use built-in action handler.
 
@@ -481,6 +481,6 @@ to download, the built-in handler for Download will be executed.
 The built-in handlers will be executed for other built-in actions as well as when the user has
 sufficient permission to download.
 
-To open a custom dialog from from custom action bar actions or quick actions, refer to the
+To open a custom dialog from from custom ActionBar actions or QuickActions menu actions, refer to the
 [Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
 dialog management.

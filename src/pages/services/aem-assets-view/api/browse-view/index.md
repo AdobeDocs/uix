@@ -17,10 +17,10 @@ An extension needs to implement both `actionBar` and `quickActions` namespace to
 ## Custom action bar actions and quick actions
 
 This extensibility feature allows context-aware customization of the action bar actions and also the quick actions
-associated with the selected assets.
+associated with the selected resources.
 
 Using the `actionBar` namespace, custom actions could be added after the list of built-in action bar actions, and
-built-in action bar actions could be overridden or hidden based on the context and the selected assets.
+built-in action bar actions could be overridden or hidden based on the context and the selected resources.
 
 In this example, a custom action is added to the action bar after the list of built-in action bar actions.
 
@@ -84,7 +84,7 @@ The `actionBar` namespace include these 3 methods
 `actionBar.getActions({ context, resourceSelection })`
 
 **Description:** returns an array of custom action descriptors or an empty array if no custom actions should be added
-to the ActionBar in the specified context for the selected assets.
+to the ActionBar in the specified context for the selected resources.
 
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context)
@@ -119,9 +119,10 @@ actionBar: {
 
 `getHiddenBuiltInActions({ context, resourceSelection })`
 
-**Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected assets.
+**Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected resources.
 
-This method is called by the host application to determine which built-in actions are hidden. The host calls this method once when an asset selection changes.
+This method is called by the host application to determine which built-in actions are hidden. The host calls this
+method once when a resource selection changes.
  
 Extension code should ensure this method returns fast because the host application blocks rendering of the ActionBar until actions are checked for visibility.
 In particular it is recommended not to use backend server calls in this method.

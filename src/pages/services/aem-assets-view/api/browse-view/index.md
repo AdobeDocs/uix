@@ -224,26 +224,58 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 },
 ```
 
-### Custom dialog
-
-To open a custom dialog from from custom action bar actions or quick actions, refer to the
-[Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
-dialog management.
-
 ## Examples
 
 These code snippets demonstrate how to add a custom action to the action bar, hide built-in actions from the ActionBar and QuickActions menu, or override the built-in action handler in the Browse View. (The examples below serve illustrative purposes thus omit certain import statements and other non-important parts.)
-
-### Example of adding custom actions
-
-Here is an example for adding a custom action after the built-in actions in the ActionBar.
 
 The ExtensionRegistration component initializes the extension registration process by calling the register() function
 provided by the `@adobe/uix-guest` library.
 
 The objects passed to the register() function describe the extension and its capabilities. In particular, it declares
-that the extension uses the actionBar namespace and declares getActions method which returns an array of custom ActionBar actions.
-The custom actions, specifies the action's id, icon, label and handler for the click event
+that the extension uses the `actionBar` and `quickActions` namespaces and declares required methods for these namespaces.
+
+```js
+function ExtensionRegistration() {
+    const init = async () => {
+        const guestConnection = await register({
+            id: extensionId,
+            methods: {
+                actionBar: {
+                    async getActions({ context, resourceSelection }) {
+                        return [];
+                    },
+                    async getHiddenBuiltInActions({ context, resourceSelection }) {
+                        return [];
+                    },
+                    async overrideBuiltInAction({ actionId, context, resourceSelection }) {
+                        return false;
+                    },
+                },
+                quickActions: {
+                    async getHiddenBuiltInActions({ context, resource }) {
+                        return [];
+                    },
+                    async overrideBuiltInAction({ actionId, context, resource }) {
+                        return false;
+                    },
+                },
+            },
+        });
+    };
+    init().catch(console.error);
+
+    return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+
+export default ExtensionRegistration;
+```
+
+This examples demonstrations the minimal set of namespaces and methods required for a browse extension to be recognized
+by the Host application.
+
+### Example of adding custom actions
+
+Here is an example for adding a custom action after the built-in actions in the ActionBar.
 
 ```js
 function ExtensionRegistration() {
@@ -266,6 +298,7 @@ function ExtensionRegistration() {
                         return [];
                     },
                 },
+                // ...
             },
         });
     };
@@ -283,5 +316,160 @@ selected resources is 1.
 
 ### Example of hiding built-in actions
 
+Here are the examples for hiding built-in actions from the ActionBar and the QuickAction menu.
+
+In this example, the `Delete` action is hidden from the ActionBar only in the `trash` context.  It does not hide any
+actions in the other contexts.
+
+```js
+function ExtensionRegistration() {
+    const init = async () => {
+        const guestConnection = await register({
+            id: extensionId,
+            methods: {
+                actionBar: {
+                    // ...
+                    async getHiddenBuiltInActions({ context, resourceSelection }) {
+                        if (context === 'trash') {
+                            return ['delete'];
+                        }
+                        return [];
+                    },
+                },
+                // ...
+            },
+        });
+    };
+    init().catch(console.error);
+
+    return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+```
+
+In this example, the `Delete` action is hidden from the QuickAction menu only in the `trash` context.  It does not
+hide any actions in the other contexts.
+
+```js
+function ExtensionRegistration() {
+    const init = async () => {
+        const guestConnection = await register({
+            id: extensionId,
+            methods: {
+                quickActions: {
+                    async getHiddenBuiltInActions({ context, resource }) {
+                        if (context === 'trash') {
+                            return ['delete'];
+                        }
+                        return [];
+                    },
+                },
+                // ...
+            },
+        });
+    };
+    init().catch(console.error);
+
+    return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+```
 
 ### Example of overriding built-in actions
+
+Here are the examples for overriding the built-in actions from the ActionBar and the QuickAction menu.
+
+```js
+function ExtensionRegistration() {
+    const init = async () => {
+        const guestConnection = await register({
+            id: extensionId,
+            methods: {
+                actionBar: {
+                    // ...
+                    async overrideBuiltInAction({ actionId, context, resourceSelection }) {
+                        if (actionId === 'download') {
+                            // determines the user's permission to download
+                            const canDownload = ...
+                            // shows an info dialog explaining why the user cannot download and return true to skip built-in handler and stop 
+                            if (!canDownload) {
+                                guestConnection.host.modal.openDialog({
+                                    title: 'Download',
+                                    contentUrl: '/#modal-download-warning',
+                                    type: 'modal',
+                                    size: 'S',
+                                    payload: { /* arbitrary payload */ }
+                                });
+                                // skip built-in handler
+                                return true;
+                            }
+                        }
+                        // continue to execute built-in handler
+                        return false;
+                    },
+                },
+                // ...
+            },
+        });
+    };
+    init().catch(console.error);
+
+    return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+```
+In this example, the `Download` action is overriden in the ActionBar in any applicable context.  The extention will
+determine the user's permission to download the resource selection.  If the user does not have sufficient permision,
+a dialog will be displayed and the built-in handler in the Host application will be skipped.  If the user has permission
+to download, then the built-in handler for Download will be executed.
+
+The built-in handlers will be executed for other built-in actions as well as when the user has
+sufficient permission to download.
+
+```js
+function ExtensionRegistration() {
+    const init = async () => {
+        const guestConnection = await register({
+            id: extensionId,
+            methods: {
+                quickActions: {
+                    // ...
+                    async overrideBuiltInAction({ actionId, context, resource }) {
+                        if (actionId === 'download') {
+                            // determines the user's permission to download
+                            const canDownload = ...
+                            // shows an info dialog explaining why the user cannot download and return true to skip built-in handler and stop 
+                            if (!canDownload) {
+                                guestConnection.host.modal.openDialog({
+                                    title: 'Download',
+                                    contentUrl: '/#modal-download-warning',
+                                    type: 'modal',
+                                    size: 'S',
+                                    payload: { /* arbitrary payload */ }
+                                });
+                                // skip built-in handler
+                                return true;
+                            }
+                        }
+                        // continue to execute built-in handler
+                        return false;
+                    },
+                },
+                // ...
+            },
+        });
+    };
+    init().catch(console.error);
+
+    return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+```
+
+In this example, the `Download` action is overriden in the QuickActions menu in any applicable context.  The extention will
+determine the user's permission to download the resource selection.  If the user does not have sufficient permision,
+a dialog will be displayed and the built-in handler in the Host application will be skipped.  If the user has permission
+to download, the built-in handler for Download will be executed.
+
+The built-in handlers will be executed for other built-in actions as well as when the user has
+sufficient permission to download.
+
+To open a custom dialog from from custom action bar actions or quick actions, refer to the
+[Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
+dialog management.

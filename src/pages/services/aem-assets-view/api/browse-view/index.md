@@ -156,7 +156,7 @@ had ignored the invocation and the Host should use built-in action handler.
 **Parameters:**
 - actionId (`string`): actionId built-in action Id
 - context (`string`): current [browsing context](#browsing-context)
-- **resourceSelection** (`object`): an object representing the current resource selection
+- **resourceSelection** (`object`): an object representing the resource selection
   - resources (`array`): an array of currently selected resources.
     - id (`string`): selected resource URN.
     - path (`string`): selected resource path
@@ -190,9 +190,8 @@ In particular it is recommended not to use backend server calls in this method.
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context)
 - **resource** (`object`): an object representing the selected resource
-  - resource (`object`): object representing the resource selected
-    - id (`string`): selected resource URN.
-    - path (`string`): selected resource path
+  - id (`string`): selected resource URN.
+  - path (`string`): selected resource path
 
 **Returns** (`array`) an array of action Ids which should be hidden from the QuickAction menu, or an empty array in case no action needs to be hidden
 
@@ -203,13 +202,22 @@ getHiddenBuiltInActions: ({ context, resource }) => {
 },
 ```
 
-`overrideBuiltInAction()`
+`overrideBuiltInAction: ({ actionId, context, resource })`
+
 **Description:**  
 
-**Parameters:**
-- context (`string`): current [browsing context](#browsing-context)
+This method is called by the Host when the user activates one of the built-in Quick Actions, before invoking actual action handler.
+The method returns true if the Extension had performed custom action processing and the Host should not invoke built-in action handler.
+Otherwise the method call returns false, to indicate that the Extension had ignored the invocation and the Host should use built-in action handler.
 
-**Returns**
+**Parameters:**
+- actionId (`string`): actionId built-in action Id
+- context (`string`): current [browsing context](#browsing-context)
+- **resource** (`object`): an object representing the selected resource
+  - id (`string`): selected resource URN.
+  - path (`string`): selected resource path
+
+**Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop
 
 **Example:**
 ```js

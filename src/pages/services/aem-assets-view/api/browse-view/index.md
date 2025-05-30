@@ -7,7 +7,7 @@ contributors:
 
 # Browse View
 
-AEM Assets View offers the ability to customize the ActionBar and QuickAction in the Browse View.
+AEM Assets View offers the ability to customize the ActionBar and QuickActions in the Browse View.
 
 The Browse View in the AEM Assets View refers to the asset listing pages such as
 Assets, Collections, Recent, Search and Trash.
@@ -26,11 +26,11 @@ An extension needs to implement both `actionBar` and `quickActions` namespace to
 
 ## Custom ActionBar actions and QuickActions menu actions
 
-This extensibility feature allows context-aware customization of the ActionBar actions and also the QuickActions menu actions
+This extensibility feature allows context-aware customization of the ActionBar actions and the QuickActions menu actions
 associated with the selected resources.
 
-Using the `actionBar` namespace, custom actions could be added after the list of built-in ActionBar actions, and
-built-in ActionBar actions could be overridden or hidden based on the context and the selected resources.
+Using the `actionBar` namespace, custom actions could be added to the ActionBar after the list of built-in actions, and
+the built-in actions could be overridden or hidden based on the context and the selected resources.
 
 In this example, a custom action is added to the ActionBar after the list of built-in ActionBar actions.
 
@@ -53,8 +53,8 @@ the `actionBar` and `quickActions` namespace.
 #### Browsing context
 
 Assets View supports assets browsing experiences in multiple modes, or "contexts". The current context is exposed in
-the Host API and is also communicated to Extension APIs, so that the custom code within Extension can adopt to Assets
-View state.  Supported browsing contexts are:
+the Host API and is also communicated to Extension APIs, so that the custom code within Extension can adapt to the
+state of Assets View.  Supported browsing contexts are:
 
 | Browsing Context | Description | Path |
 |------------|------------|------------|
@@ -66,7 +66,7 @@ View state.  Supported browsing contexts are:
 
 #### Built-in actions
 
-The host application allows to hide certain built-in actions. Depending on the browsing content, below if the list of
+The host application allows to hide certain built-in actions. Depending on the browsing content, below is the list of
 action IDs of actions that can be hidden:
 
 | Browsing Context | Action IDs that can be hidden or overridden |
@@ -97,11 +97,11 @@ The `actionBar` namespace include these 3 methods
 to the ActionBar in the specified context for the selected resources.
 
 **Parameters:**
-- context (`string`): current [browsing context](#browsing-context)
-- **resourceSelection** (`object`): an object representing the resource selection
-  - resources (`array`): an array of currently selected resources.
+- context (`string`): current [browsing context](#browsing-context).
+- **resourceSelection** (`object`): an object representing the resource selection.
+  - resources (`array`): an array of selected resources.
     - id (`string`): selected resource URN.
-    - path (`string`): selected resource path
+    - path (`string`): selected resource path.
 
 **Returns** (`array`) an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar.
 
@@ -140,9 +140,9 @@ In particular it is recommended not to use backend server calls in this method.
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context)
 - **resourceSelection** (`object`): an object representing the resource selection
-  - resources (`array`): an array of currently selected resources.
+  - resources (`array`): an array of selected resources.
     - id (`string`): selected resource URN.
-    - path (`string`): selected resource path
+    - path (`string`): selected resource path.
 
 **Returns** (`array`) an array of action Ids which should be hidden from the ActionBar, or an empty array in case no action needs to be hidden
 
@@ -162,12 +162,12 @@ performed custom action processing and the Host should not invoke built-in actio
 had ignored the invocation and the Host should use built-in action handler.
 
 **Parameters:**
-- actionId (`string`): actionId built-in action Id
-- context (`string`): current [browsing context](#browsing-context)
-- **resourceSelection** (`object`): an object representing the resource selection
-  - resources (`array`): an array of currently selected resources.
+- actionId (`string`): actionId built-in action id.
+- context (`string`): current [browsing context](#browsing-context).
+- **resourceSelection** (`object`): an object representing the resource selection.
+  - resources (`array`): an array of selected resources.
     - id (`string`): selected resource URN.
-    - path (`string`): selected resource path
+    - path (`string`): selected resource path.
 
 **Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop
 
@@ -192,16 +192,16 @@ The `quickActions` namespace include these 2 methods
 This method is called by the host application to determine which built-in actions are hidden.
 The host calls this method once when an asset selection changes.
 
-Extension code should ensure this method returns fast because the host application blocks rendering of the QuickAction menu until actions are checked for visibility.
+Extension code should ensure this method returns fast because the host application blocks rendering of the QuickActions menu until actions are checked for visibility.
 In particular it is recommended not to use backend server calls in this method.
 
 **Parameters:**
-- context (`string`): current [browsing context](#browsing-context)
-- **resource** (`object`): an object representing the selected resource
+- context (`string`): current [browsing context](#browsing-context).
+- **resource** (`object`): an object representing the selected resource.
   - id (`string`): selected resource URN.
-  - path (`string`): selected resource path
+  - path (`string`): selected resource path.
 
-**Returns** (`array`) an array of action Ids which should be hidden from the QuickAction menu, or an empty array in case no action needs to be hidden
+**Returns** (`array`) an array of action Ids which should be hidden from the QuickActions menu, or an empty array in case no action needs to be hidden.
 
 **Example:**
 ```js
@@ -219,13 +219,13 @@ The method returns true if the Extension had performed custom action processing 
 Otherwise the method call returns false, to indicate that the Extension had ignored the invocation and the Host should use built-in action handler.
 
 **Parameters:**
-- actionId (`string`): actionId built-in action Id
-- context (`string`): current [browsing context](#browsing-context)
-- **resource** (`object`): an object representing the selected resource
+- actionId (`string`): actionId built-in action id.
+- context (`string`): current [browsing context](#browsing-context).
+- **resource** (`object`): an object representing the selected resource.
   - id (`string`): selected resource URN.
-  - path (`string`): selected resource path
+  - path (`string`): selected resource path.
 
-**Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop
+**Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop.
 
 **Example:**
 ```js
@@ -327,7 +327,7 @@ selected resources is 1.
 
 ### Example of hiding built-in actions
 
-Here are the examples for hiding built-in actions from the ActionBar and the QuickAction menu.
+Here are the examples for hiding built-in actions from the ActionBar and the QuickActions menu.
 
 In this example, the `Delete` action is hidden from the ActionBar only in the `trash` context.  It does not hide any
 actions in the other contexts.
@@ -357,7 +357,7 @@ function ExtensionRegistration() {
 }
 ```
 
-In this example, the `Delete` action is hidden from the QuickAction menu only in the `trash` context.  It does not
+In this example, the `Delete` action is hidden from the QuickActions menu only in the `trash` context.  It does not
 hide any actions in the other contexts.
 
 ```js
@@ -386,7 +386,7 @@ function ExtensionRegistration() {
 
 ### Example of overriding built-in actions
 
-Here are the examples for overriding the built-in actions from the ActionBar and the QuickAction menu.
+Here are the examples for overriding the built-in actions from the ActionBar and the QuickActions menu.
 
 ```js
 function ExtensionRegistration() {

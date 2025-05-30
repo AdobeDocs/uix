@@ -262,9 +262,9 @@ function closeDialog() {
 `guestConnection.host.modal.getPayload();`
 
 **Description:** returns the payload object which could potentially be used by the extension code when calling
-`guestConnection.host.modal.openDialog()`
+`guestConnection.host.modal.openDialog()`.
 
-**Returns** optional arbitrary payload object
+**Returns** optional arbitrary payload object.
 
 **Example:**
 ```js

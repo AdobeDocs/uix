@@ -230,15 +230,116 @@ This API provides methods to open a modal dialog in the host application, close 
   - payload (`any`, optional): arbitrary payload object the extension may want to pass over the code inside the dialog. This payload object can later be accessed by the extension via `guestConnection.host.modal.getPayload()`.
 
 **Example:**
+
+These code snippets demonstrate how to create a custom dialog using UIX SDK library and add open it in the Host
+application.  (The examples below serve illustrative purposes thus omit certain `import` statements and other
+non-important parts.)
+
+Here, the main application code defines three routes:
+- the first two are the default routes which trigger the `ExtensionRegistration` component responsible for initial extension registration
+within the AEM Assets View application.
+- the `modal-custom-dialog` route which invokes the `ModalCustomDialog` component responsible for rendering the
+custom dialog content. This route gets called by the AEM Assets View application when the extension calls `guestConnection.host.modal.openDialog`.
+During the registration the extension will specify `/#modal-custom-dialog` as content location.
+
+```js
+import React from 'react';
+import ErrorBoundary from 'react-error-boundary';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import ExtensionRegistration from './ExtensionRegistration';
+import ModalCustomAction from './ModalCustomAction';
+
+function App() {
+    return (
+        <Router>
+            <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
+                <Routes>
+                    <Route index element={<ExtensionRegistration />} />
+                    <Route exact path="index.html" element={<ExtensionRegistration />} />
+                    <Route path="modal-custom-action" element={<ModalCustomAction />} />
+                    // YOUR CUSTOM ROUTES SHOULD BE HERE
+                </Routes>
+            </ErrorBoundary>
+        </Router>
+    );
+
+    // Methods
+
+    // error handler on UI rendering failure
+    function onError(e, componentStack) {}
+
+    // component to show if UI fails rendering
+    function fallbackComponent({ componentStack, error }) {
+        return (
+            <React.Fragment>
+                <h1 style={{ textAlign: "center", marginTop: "20px" }}>
+                    Extension rendering error
+                </h1>
+                <pre>{componentStack + '\n' + error.message}</pre>
+            </React.Fragment>
+        );
+    }
+}
+
+export default App;
+```
+The `ModalCustomAction` component is responsible for rendering the custom dialog content. It uses the `attach()` function
+provided by the `@adobe/uix-guest` library to establish a connection with the AEM Assets View and uses this connection object to
+obtain the theme information of the AEM Assets View and render its content with the matching theme.
+
+```js
+export default function ModalCustomAction() {
+    // Fields
+    const [guestConnection, setGuestConnection] = useState();
+    const [colorScheme, setColorScheme] = useState('light');
+
+    useEffect(() => {
+        (async () => {
+            const guestConnection = await attach({ id: extensionId });
+            setGuestConnection(guestConnection);
+
+            const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
+            setColorScheme(colorScheme);
+        })()
+    }, []);
+
+    function closeDialog() {
+        guestConnection.host.modal.closeDialog();
+    }
+
+    return (
+
+        <Provider theme={defaultTheme} colorScheme={colorScheme}>
+
+            <View>
+                <View paddingBottom="size-300">
+                    <Text>Please visit <Link href="https://developer.adobe.com/uix/docs/">UI Extensibility documentation</Link> to get started.</Text>
+
+                    <Flex justifyContent="center" paddingBottom="size-300">
+                        <ButtonGroup>
+                            <Button variant="primary" onPress={() => closeDialog()}>Close</Button>
+                        </ButtonGroup>
+                    </Flex>
+                </View>
+            </View>
+        </Provider>
+    );
+}
+```
+
+Provide the dialog configuration to `modal.openDialog` to open the custom dialog in Assets View.
+Additional data passed as the payload object in the configuration and it can be retrieved later using
+`modal.getPayload()`
+
 ```js
 'onClick': async () => {
-      guestConnection.host.modal.openDialog({
-        title: 'Custom label',
-        contentUrl: '/#modal-custom-input',
+    guestConnection.host.modal.openDialog({
+        title: 'Custom Dialog',
+        contentUrl: '/#modal-custom-action',
         type: 'modal',
-        size: 'L',
+        size: 'S',
         payload: { /* arbitrary payload */ }
-      });
+    });
 },
 ```
 

@@ -217,9 +217,9 @@ const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
 
 This API provides methods to open a modal dialog in the host application, close it and retrieve the payload assocated with it.
 
-`guestConnection.host.modal.openDialog(options)`
+`modal.openDialog(options)`
 
-**Description:** opens a dialog with the configuration info provided. The dialog content is loaded from specified url.
+**Description:** opens a dialog with the configuration info provided. The dialog content is loaded from a specified url.
 
 **Parameters:**
 - **options** (`object`): Object with the following dialog configuration properties:
@@ -227,7 +227,7 @@ This API provides methods to open a modal dialog in the host application, close 
   - contentUrl (`string`): Relative root to the dialog's content.
   - type (`string`, optional): The type of the dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.
   - size (`string`, optional): The size of the dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when the dialog type is `fullscreen`.
-  - payload (`any`, optional): arbitrary payload object the extension may want to pass over the code inside the dialog. This payload object can later be accessed by the extension via `guestConnection.host.modal.getPayload()`.
+  - payload (`any`, optional): arbitrary payload object the extension may want to pass over the code inside the dialog. This payload object can later be accessed by the extension via `modal.getPayload()`.
 
 **Example:**
 
@@ -239,7 +239,7 @@ Here, the main application code defines three routes:
 - the first two are the default routes which trigger the `ExtensionRegistration` component responsible for initial extension registration
 within the AEM Assets View application.
 - the `modal-custom-action` route which invokes the `ModalCustomAction` component responsible for rendering the
-custom dialog content. This route gets called by the AEM Assets View application when the extension calls `guestConnection.host.modal.openDialog`.
+custom dialog content. This route gets called by the AEM Assets View application when the extension calls `modal.openDialog`.
 During the registration the extension will specify `/#modal-custom-action` as content location.
 
 ```js
@@ -285,7 +285,7 @@ export default App;
 ```
 The `ModalCustomAction` component is responsible for rendering the custom dialog content. It uses the `attach()` function
 provided by the `@adobe/uix-guest` library to establish a connection with the AEM Assets View and uses this connection object to
-obtain the theme information of the AEM Assets View and render its content with the matching theme.
+obtain the theme information of the AEM Assets View for rendering its content with the matching theme.
 
 ```js
 export default function ModalCustomAction() {
@@ -327,8 +327,8 @@ export default function ModalCustomAction() {
 }
 ```
 
-Provide the dialog configuration to `modal.openDialog` to open the custom dialog in Assets View.
-Additional data passed as the payload object in the configuration and it can be retrieved later using
+The custom dialog can be opened in Assets View using `modal.openDialog` and passing in the dialog's content url, title,
+type size and an optional payload object.  The custom dialog component can retrieve the payload object using
 `modal.getPayload()`
 
 ```js
@@ -343,7 +343,7 @@ Additional data passed as the payload object in the configuration and it can be 
 },
 ```
 
-`guestConnection.host.modal.closeDialog()`
+`modal.closeDialog()`
 
 **Description:** closes currently active dialog.
 
@@ -360,10 +360,10 @@ function closeDialog() {
 </View>
 ```
 
-`guestConnection.host.modal.getPayload();`
+`modal.getPayload();`
 
 **Description:** returns the payload object which could potentially be used by the extension code when calling
-`guestConnection.host.modal.openDialog()`.
+`modal.openDialog()`.
 
 **Returns** optional arbitrary payload object.
 

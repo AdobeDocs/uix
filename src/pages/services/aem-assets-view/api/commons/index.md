@@ -224,7 +224,7 @@ This API provides methods to open a modal dialog in the host application, close 
 **Parameters:**
 - **options** (`object`): Object with the following dialog configuration properties:
   - title (`string`, optional): The title of the dialog.
-  - contentUrl (`string`): url of the content of the dialog.
+  - contentUrl (`string`): Relative root to the dialog's content.
   - type (`string`, optional): The type of the dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.
   - size (`string`, optional): The size of the dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when the dialog type is `fullscreen`.
   - payload (`any`, optional): arbitrary payload object the extension may want to pass over the code inside the dialog. This payload object can later be accessed by the extension via `guestConnection.host.modal.getPayload()`.

@@ -61,7 +61,7 @@ of the Details View. Each panel descriptor should include the following properti
 - `tooltip` (`string`): Icon tooltip.
 - `title` (`string`): Custom panel title.
 - `icon` (`string`): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons).
-- `contentUrl` (`string`): Relative path to the panel's content.
+- `contentUrl` (`string`): Relative root to the panel's content.
 - `reloadOnThemeChange` (`boolean`): Whether to reload custom panel when application theme changes.
 
 ## Example of adding custom side panels

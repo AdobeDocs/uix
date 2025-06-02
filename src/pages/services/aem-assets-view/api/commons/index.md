@@ -268,7 +268,7 @@ function closeDialog() {
 
 **Example:**
 ```js
-const payload = guestConnection.host.modal.getPayload();
+const payload = await guestConnection.host.modal.getPayload();
 // work with payload
 // ...
 ```

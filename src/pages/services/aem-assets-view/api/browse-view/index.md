@@ -86,7 +86,7 @@ The extension definition object passed by the extension to the `register()` func
 
 The methods in these two namespaces provide the capabilities to
 - Add custom actions could be added to the ActionBar
-- hidden or customized built-in actions in the ActionBar and QuickActions
+- hide or customize built-in actions in the ActionBar and QuickActions
 
 based on the browsing context and resource selections.
 

@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "gatsby build && gatsby serve",
+    "start:nodemon": "nodemon --watch src -e js,jsx,ts,tsx,md,mdx --exec 'gatsby build && gatsby serve'",
     "start:prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
     "dev": "gatsby develop",
     "dev:https": "gatsby develop --https --host localhost.corp.adobe.com --port 9000",
@@ -33,6 +34,7 @@
   "packageManager": "yarn@3.2.2",
   "devDependencies": {
     "gh-pages": "^5.0.0",
+    "nodemon": "^3.1.10",
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.0"
   }

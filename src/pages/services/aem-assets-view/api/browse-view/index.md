@@ -47,14 +47,16 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 ### Host API Reference
 
 In addition to the [Common API](../commons) provided by AEM Assets View to all extensions,
-the host application provides the following definitions specific to the `aem/assets/browse/1` extension point,
-the `actionBar` and `quickActions` namespace.
+the host application provides the following definitions that are specific to the `aem/assets/browse/1` extension point,
+the `actionBar` and `quickActions` namespaces.
 
 #### Browsing context
 
 Assets View supports assets browsing experiences in multiple modes, or "contexts". The current context is exposed in
 the Host API and is also communicated to Extension APIs, so that the custom code within Extension can adapt to the
-state of Assets View.  Supported browsing contexts are:
+state of Assets View.
+
+The supported browsing contexts are:
 
 | Browsing Context | Description | Path |
 |------------|------------|------------|
@@ -66,7 +68,7 @@ state of Assets View.  Supported browsing contexts are:
 
 #### Built-in actions
 
-The host application allows to hide certain built-in actions. Depending on the browsing content, below is the list of
+The host application allows hiding certain built-in actions. Depending on the browsing content, below is the list of
 action IDs of actions that can be hidden:
 
 | Browsing Context | Action IDs that can be hidden or overridden |
@@ -82,8 +84,12 @@ action IDs of actions that can be hidden:
 The extension definition object passed by the extension to the `register()` function defines the `actionBar` and
 `quickActions` namespaces.
 
-Additional actions could be added to the ActionBar, and existing built-in actions could be hidden or customized based
-on the browsing context and resource selection provided to the methods in these namespaces.
+The methods in these two namespaces provide the capabilities to
+- Add custom actions could be added to the ActionBar
+- hidden or customized built-in actions in the ActionBar and QuickActions
+
+based on the browsing context and resource selections.
+
 
 #### actionBar namespace
 The `actionBar` namespace include these 3 methods

@@ -238,7 +238,7 @@ non-important parts.)
 Here, the main application code defines three routes:
 - the first two are the default routes which trigger the `ExtensionRegistration` component responsible for initial extension registration
 within the AEM Assets View application.
-- the `modal-custom-action` route which invokes the `ModalCustomDialog` component responsible for rendering the
+- the `modal-custom-action` route which invokes the `ModalCustomAction` component responsible for rendering the
 custom dialog content. This route gets called by the AEM Assets View application when the extension calls `guestConnection.host.modal.openDialog`.
 During the registration the extension will specify `/#modal-custom-action` as content location.
 

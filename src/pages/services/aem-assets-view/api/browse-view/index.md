@@ -257,7 +257,7 @@ provided by the `@adobe/uix-guest` library.
 The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares
 that the extension uses the `actionBar` and `quickActions` namespaces and declares required methods for these namespaces.
 
-This example demonstrations the minimal set of namespaces and methods required for a browse extension to be recognized
+This example demonstrates the minimal set of namespaces and methods required for a browse extension to be recognized
 by the Host application.
 
 ```js

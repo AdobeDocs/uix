@@ -17,6 +17,12 @@ Learn about common concepts, extension registration, and methods that can be use
 
 <DiscoverBlock slots="link, text"/>
 
+[Browse View](browse-view)
+
+Explore the ways to extend and customize Browse View
+
+<DiscoverBlock slots="link, text"/>
+
 [Details View](details-view)
 
 Explore the ways to extend and customize Details View

@@ -212,3 +212,166 @@ This API provides methods to retrieve the current host application color scheme.
 ```js
 const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
 ```
+
+### Modal API
+
+This API provides methods to open a modal dialog in the host application, close it and retrieve the payload assocated with it.
+
+![custom dialog](custom-dialog.png)
+
+`modal.openDialog(options)`
+
+**Description:** opens a dialog with the configuration info provided. The dialog content is loaded from a specified url.
+
+**Parameters:**
+- **options** (`object`): Object with the following dialog configuration properties:
+  - title (`string`, optional): The title of the dialog.
+  - contentUrl (`string`): Relative root to the dialog's content.
+  - type (`string`, optional): The type of the dialog. Possible values are `modal`, `fullscreen`. Default value is `modal`.
+  - size (`string`, optional): The size of the dialog. Possible values are `S`, `M`, `L`. Default value is `M`.  Ignored when the dialog type is `fullscreen`.
+  - payload (`any`, optional): arbitrary payload object the extension may want to pass over the code inside the dialog. This payload object can later be accessed by the extension via `modal.getPayload()`.
+
+**Example:**
+
+These code snippets demonstrate how to create a custom dialog using UIX SDK library and add open it in the Host
+application.  (The examples below serve illustrative purposes thus omit certain `import` statements and other
+non-important parts.)
+
+Here, the main application code defines three routes:
+- the first two are the default routes which trigger the `ExtensionRegistration` component responsible for initial extension registration
+within the AEM Assets View application.
+- the `modal-custom-action` route which invokes the `ModalCustomAction` component responsible for rendering the
+custom dialog content. This route gets called by the AEM Assets View application when the extension calls `modal.openDialog`.
+During the registration the extension will specify `/#modal-custom-action` as content location.
+
+```js
+import React from 'react';
+import ErrorBoundary from 'react-error-boundary';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import ExtensionRegistration from './ExtensionRegistration';
+import ModalCustomAction from './ModalCustomAction';
+
+function App() {
+    return (
+        <Router>
+            <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
+                <Routes>
+                    <Route index element={<ExtensionRegistration />} />
+                    <Route exact path="index.html" element={<ExtensionRegistration />} />
+                    <Route path="modal-custom-action" element={<ModalCustomAction />} />
+                    // YOUR CUSTOM ROUTES SHOULD BE HERE
+                </Routes>
+            </ErrorBoundary>
+        </Router>
+    );
+
+    // Methods
+
+    // error handler on UI rendering failure
+    function onError(e, componentStack) {}
+
+    // component to show if UI fails rendering
+    function fallbackComponent({ componentStack, error }) {
+        return (
+            <React.Fragment>
+                <h1 style={{ textAlign: "center", marginTop: "20px" }}>
+                    Extension rendering error
+                </h1>
+                <pre>{componentStack + '\n' + error.message}</pre>
+            </React.Fragment>
+        );
+    }
+}
+
+export default App;
+```
+The `ModalCustomAction` component is responsible for rendering the custom dialog content. It uses the `attach()` function
+provided by the `@adobe/uix-guest` library to establish a connection with the AEM Assets View and uses this connection object to
+obtain the theme information of the AEM Assets View for rendering its content with the matching theme.
+
+```js
+export default function ModalCustomAction() {
+    // Fields
+    const [guestConnection, setGuestConnection] = useState();
+    const [colorScheme, setColorScheme] = useState('light');
+
+    useEffect(() => {
+        (async () => {
+            const guestConnection = await attach({ id: extensionId });
+            setGuestConnection(guestConnection);
+
+            const { colorScheme } = await guestConnection.host.theme.getThemeInfo();
+            setColorScheme(colorScheme);
+        })()
+    }, []);
+
+    function closeDialog() {
+        guestConnection.host.modal.closeDialog();
+    }
+
+    return (
+
+        <Provider theme={defaultTheme} colorScheme={colorScheme}>
+
+            <View>
+                <View paddingBottom="size-300">
+                    <Text>Please visit <Link href="https://developer.adobe.com/uix/docs/">UI Extensibility documentation</Link> to get started.</Text>
+
+                    <Flex justifyContent="center" paddingBottom="size-300">
+                        <ButtonGroup>
+                            <Button variant="primary" onPress={() => closeDialog()}>Close</Button>
+                        </ButtonGroup>
+                    </Flex>
+                </View>
+            </View>
+        </Provider>
+    );
+}
+```
+
+The custom dialog can be opened in Assets View using `modal.openDialog` and passing in the dialog's content url, title,
+type size and an optional payload object.  The custom dialog component can retrieve the payload object using
+`modal.getPayload()`
+
+```js
+'onClick': async () => {
+    guestConnection.host.modal.openDialog({
+        title: 'Custom Dialog',
+        contentUrl: '/#modal-custom-action',
+        type: 'modal',
+        size: 'S',
+        payload: { /* arbitrary payload */ }
+    });
+},
+```
+
+`modal.closeDialog()`
+
+**Description:** closes currently active dialog.
+
+**Example:**
+```js
+function closeDialog() {
+    guestConnection.host.modal.closeDialog();
+}
+
+<View>
+  <ButtonGroup>
+    <Button variant="primary" onPress={() => closeDialog()}>Close</Button>
+  </ButtonGroup>
+</View>
+```
+
+`modal.getPayload();`
+
+**Description:** returns the payload object which could potentially be used by the extension code when calling
+`modal.openDialog()`.
+
+**Returns** optional arbitrary payload object.
+
+**Example:**
+```js
+const payload = await guestConnection.host.modal.getPayload();
+// work with payload
+// ...
+```

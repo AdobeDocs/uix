@@ -6,7 +6,8 @@ contributors:
 ---
 # Code Generation for the Details View Extension in AEM Assets View
 
-The [Asset Details extension Template for the AEM Assets View](https://github.com/adobe/aem-assets-details-ext-tpl) helps developers 
+The [Asset Browse extension Template](https://github.com/adobe/aem-assets-browse-ext-tpl) and
+[Asset Details extension Template](https://github.com/adobe/aem-assets-details-ext-tpl) for the AEM Assets View help developers 
 to bootstrap their App Builder apps when using the [AIO CLI](https://github.com/adobe/aio-cli) and generates basic extension structure and all required code.
 
 Template is optional to use, but we highly recommend it in order to save time and have the correct UI Extension structure
@@ -73,6 +74,7 @@ Create a directory and run the following commands from that directory:
     ? Choose the template(s) to install:
     |    | Template                                | Description                                                | Extension Point           | Categories           |
     |----|-----------------------------------------|------------------------------------------------------------|---------------------------|----------------------|
+    |  ◯ | @adobe/aem-assets-browse-ext-tpl *      | Asset Browse extension Template for the AEM Assets View    | aem/assets/browse/1       | action, ui           |
     | ❯◉ | @adobe/aem-assets-details-ext-tpl *     | Asset Details extension Template for the AEM Assets View   | aem/assets/details/1      | action, ui           |
     |  ◯ | @adobe/generator-app-api-mesh *         | Extensibility template for Adobe API Mesh, for App Builder | N/A                       | action, graphql-mesh |
     |  ◯ | @adobe/generator-app-excshell *         | Extensibility template for generator-aio-app               | dx/excshell/1             | action, ui           |

@@ -9,7 +9,7 @@ contributors:
 
 The Details View in the AEM Assets View shows detailed information about the selected asset.
 
-Extensions should use `aem/assets/details/1` extension point to utilize extensibility services of the Details View.
+Extensions should use the `aem/assets/details/1` extension point to utilize extensibility services of the Details View.
 
 ## Custom side panels
 
@@ -28,7 +28,7 @@ The extension only declares the icon type, panel title and the URL for the custo
 
 ## API Reference
 
-This API reference section is future broken down into two parts: the API provided by the AEM Assets View host application
+This API reference section is further broken down into two parts: the API provided by the AEM Assets View host application
 to the extension and the API provided by the extension to the AEM Assets View host application.
 
 ### Host API Reference
@@ -61,7 +61,7 @@ of the Details View. Each panel descriptor should include the following properti
 - `tooltip` (`string`): Icon tooltip.
 - `title` (`string`): Custom panel title.
 - `icon` (`string`): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons).
-- `contentUrl` (`string`): Relative path to the panel's content.
+- `contentUrl` (`string`): Relative root to the panel's content.
 - `reloadOnThemeChange` (`boolean`): Whether to reload custom panel when application theme changes.
 
 ## Example of adding custom side panels

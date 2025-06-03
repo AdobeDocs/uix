@@ -27,16 +27,16 @@ An extension needs to implement both `actionBar` and `quickActions` namespace to
 ## Custom ActionBar actions and QuickActions menu actions
 
 This extensibility feature allows context-aware customization of the ActionBar actions and the QuickActions menu actions
-associated with the selected resources.
+associated with the selected assets.
 
 Using the `actionBar` namespace, custom actions could be added to the ActionBar after the list of built-in actions, and
-the built-in actions could be overridden or hidden based on the context and the selected resources.
+the built-in actions could be overridden or hidden based on the context and the selected assets.
 
 In this example, a custom action is added to the ActionBar after the list of built-in ActionBar actions.
 
 ![ActionBar actions](action-bar-action.png)
 
-Using the `quickActions` namespace, built-in QuickActions menu actions can be overridden and hidden based on the context and the
+Using the `quickActions` namespace, built-in QuickActions menu actions can be overridden or hidden based on the context and the
 selected asset.
 
 ## API Reference
@@ -52,19 +52,19 @@ the `actionBar` and `quickActions` namespaces.
 
 #### Browsing context
 
-Assets View supports assets browsing experiences in multiple modes, or "contexts". The current context is exposed in
-the Host API and is also communicated to Extension APIs, so that the custom code within Extension can adapt to the
+Assets View supports assets browsing experiences in multiple modes, or "contexts". The current context
+is communicated to Extension APIs, so that the custom code within Extension can adapt to the
 state of Assets View.
 
 The supported browsing contexts are:
 
-| Browsing Context | Description | Path |
-|------------|------------|------------|
-| assets | Main asset browsing experience | /assets/browse |
-| collections | Collections | /assets/collections |
-| recent | Recent | /assets/recent |
-| search | Search | /assets/search |
-| trash | Trash | /assets/trash |
+| Browsing Context | Description |
+|------------|------------|
+| `assets` | Main asset browsing experience |
+| `collections` | Collections listing |
+| `recent` | Collections listing |
+| `search` | Search results listing |
+| `trash` | Assets in trash |
 
 #### Built-in actions
 
@@ -73,11 +73,11 @@ action ids of actions that can be hidden:
 
 | Browsing Context | Action IDs that can be hidden or overridden |
 |------------|------------|
-| assets | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
-| collections | "openInExpress", "rename", "managePermissions", "delete", "download", "share" |
-| recent | - |
-| search | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
-| trash | "delete" |
+| `assets` | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
+| `collections` | "openInExpress", "rename", "managePermissions", "delete", "download", "share" |
+| `recent` | - |
+| `search` | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
+| `trash` | "delete" |
 
 ### Extension API Reference
 
@@ -85,10 +85,10 @@ The extension definition object passed by the extension to the `register()` func
 `quickActions` namespaces.
 
 The methods in these two namespaces provide the capabilities to
-- Add custom actions could be added to the ActionBar
-- hide or customize built-in actions in the ActionBar and QuickActions
+- Add custom actions to the ActionBar
+- Hide or customize built-in actions in the ActionBar and QuickActions
 
-based on the browsing context and resource selections.
+based on the browsing context and asset selection.
 
 
 #### actionBar namespace
@@ -100,14 +100,14 @@ The `actionBar` namespace include these 3 methods
 `actionBar.getActions({ context, resourceSelection })`
 
 **Description:** returns an array of custom action descriptors or an empty array if no custom actions should be added
-to the ActionBar in the specified context for the selected resources.
+to the ActionBar in the specified context for the selected assets.
 
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context).
-- **resourceSelection** (`object`): an object representing the resource selection.
-  - resources (`array`): an array of selected resources.
-    - id (`string`): selected resource URN.
-    - path (`string`): selected resource path.
+- **resourceSelection** (`object`): an object representing the asset selection.
+  - resources (`array`): an array of selected assets.
+    - id (`string`): selected asset URN.
+    - path (`string`): selected asset path.
 
 **Returns** (`array`) an array of custom action descriptors or an empty array if no custom actions should be added to the ActionBar.
 
@@ -135,10 +135,10 @@ actionBar: {
 
 `getHiddenBuiltInActions({ context, resourceSelection })`
 
-**Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected resources.
+**Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected assets.
 
 This method is called by the host application to determine which built-in actions are to be hidden.
-The host calls this method once whenever the resource selection changes.
+The host calls this method once whenever the asset selection changes.
  
 Extension code should ensure that this method returns fast because the host application blocks the rendering of the
 ActionBar until the actions' visibility could be determined.
@@ -146,10 +146,10 @@ In particular it is recommended not to use backend server calls in this method.
 
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context)
-- **resourceSelection** (`object`): an object representing the resource selection
-  - resources (`array`): an array of selected resources.
-    - id (`string`): selected resource URN.
-    - path (`string`): selected resource path.
+- **resourceSelection** (`object`): an object representing the asset selection
+  - resources (`array`): an array of selected assets.
+    - id (`string`): selected asset URN.
+    - path (`string`): selected asset path.
 
 **Returns** (`array`) an array of action ids that should be hidden from the ActionBar, or an empty array in case no action needs to be hidden
 
@@ -170,12 +170,12 @@ built-in action handler. Otherwise the method call returns false, to indicate th
 had ignored the invocation and the Host should use built-in action handler.
 
 **Parameters:**
-- actionId (`string`): actionId built-in action id.
+- actionId (`string`): [built-in action id](#built-in-actions).
 - context (`string`): current [browsing context](#browsing-context).
-- **resourceSelection** (`object`): an object representing the resource selection.
-  - resources (`array`): an array of selected resources.
-    - id (`string`): selected resource URN.
-    - path (`string`): selected resource path.
+- **resourceSelection** (`object`): an object representing the asset selection.
+  - resources (`array`): an array of selected assets.
+    - id (`string`): selected asset URN.
+    - path (`string`): selected asset path.
 
 **Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop
 
@@ -198,17 +198,17 @@ The `quickActions` namespace include these 2 methods
 **Description:**  returns an array of [built-in action id](#built-in-actions) that should be hidden in the specified context for the selected asset.
 
 This method is called by the host application to determine which built-in actions are to be hidden.
-The host calls this method once whenever an asset selection changes.
+The host calls this method once whenever QuickAction menu is triggered.
 
 Extension code should ensure that this method returns fast because the host application blocks the rendering of the
-ActionBar until the actions' visibility could be determined.
+QuickActions until the actions' visibility could be determined.
 In particular it is recommended not to use backend server calls in this method.
 
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context).
-- **resource** (`object`): an object representing the selected resource.
-  - id (`string`): selected resource URN.
-  - path (`string`): selected resource path.
+- **resource** (`object`): an object representing the selected asset.
+  - id (`string`): selected asset URN.
+  - path (`string`): selected asset path.
 
 **Returns** (`array`) an array of action ids that should be hidden from the QuickActions menu, or an empty array in case no action needs to be hidden.
 
@@ -229,11 +229,11 @@ built-in action handler. Otherwise the method call returns false, to indicate th
 had ignored the invocation and the Host should use built-in action handler.
 
 **Parameters:**
-- actionId (`string`): actionId built-in action id.
+- actionId (`string`): [built-in action id](#built-in-actions).
 - context (`string`): current [browsing context](#browsing-context).
-- **resource** (`object`): an object representing the selected resource.
-  - id (`string`): selected resource URN.
-  - path (`string`): selected resource path.
+- **resource** (`object`): an object representing the selected asset.
+  - id (`string`): selected asset URN.
+  - path (`string`): selected asset path.
 
 **Returns** (`boolean`) false for Host to use built-in action handler, true to skip built-in handler and stop.
 
@@ -251,13 +251,13 @@ These code snippets demonstrate how to add a custom action to the ActionBar, hid
 built-in action handlers from the ActionBar and QuickActions menu in the Browse View. (The examples below serve
 illustrative purposes thus omit certain import statements and other non-important parts.)
 
-The ExtensionRegistration component initializes the extension registration process by calling the register() function
+The ExtensionRegistration component initializes the extension registration process by calling the `register()` function
 provided by the `@adobe/uix-guest` library.
 
-The objects passed to the register() function describe the extension and its capabilities. In particular, it declares
+The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares
 that the extension uses the `actionBar` and `quickActions` namespaces and declares required methods for these namespaces.
 
-This examples demonstrations the minimal set of namespaces and methods required for a browse extension to be recognized
+This example demonstrations the minimal set of namespaces and methods required for a browse extension to be recognized
 by the Host application.
 
 ```js
@@ -300,9 +300,9 @@ export default ExtensionRegistration;
 
 Here is an example for adding a custom action after the built-in actions in the ActionBar.
 
-In the example below, the `context` and the number of selected resources are considered for the decision of adding a custom
+In the example below, the `context` and the number of selected assets are considered for the decision of adding a custom
 action labeled with `Custom label` along with the `Form` icon is added in the `assets` context when the number of
-selected resources is 1.
+selected assets is 1.
 
 ```js
 function ExtensionRegistration() {
@@ -401,7 +401,7 @@ function ExtensionRegistration() {
 Here are the examples for overriding the built-in actions from the ActionBar and the QuickActions menu.
 
 In this example, the `Download` action is overriden in the ActionBar in any applicable context.  The extension will
-determine if the user has permission to download the resource selection.  If the user does not have sufficient permision,
+determine if the user has permission to download the asset selection.  If the user does not have sufficient permision,
 a dialog will be displayed and the built-in handler in the Host application will be skipped.
 
 The built-in handlers will be executed when the user has sufficient permission to download as well as
@@ -447,7 +447,7 @@ function ExtensionRegistration() {
 ```
 
 In the example below, the `Download` action is overriden in the QuickActions menu in any applicable context.  The extension will
-determine if the user has permission to download the resource selection.  If the user does not have sufficient permision,
+determine if the user has permission to download the asset selection.  If the user does not have sufficient permision,
 a dialog will be displayed and the built-in handler in the Host application will be skipped.
 
 The built-in handlers will be executed when the user has sufficient permission to download as well as

@@ -62,7 +62,7 @@ The supported browsing contexts are:
 |------------|------------|
 | `assets` | Main asset browsing experience |
 | `collections` | Collections listing |
-| `recent` | Collections listing |
+| `recent` | Recent listing |
 | `search` | Search results listing |
 | `trash` | Assets in trash |
 

@@ -62,6 +62,7 @@ Extension as well may control availability of standard RTE buttons.
 | Instruction | Value |  Description |
 | ----- | ---- | ----------- |
 | `replaceContent` | `string` | Replaces current editor content with a content provided in `value` property |
+| `insertContent` | `string` | Inserts a content provided in `value` property in current carret position |
 
 ## Standard buttons
 

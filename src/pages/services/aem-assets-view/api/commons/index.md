@@ -9,6 +9,16 @@ contributors:
 
 Understand the fundamentals required to develop an extension for the AEM Assets View.
 
+<InlineAlert variant="info" slots="text" />
+
+UI Extensibility is supported in Assets Ultimate only.
+
+<InlineAlert variant="info" slots="text" />
+
+To get access to Assets View UI extensibility,
+[create and submit an Adobe Customer Support case](https://helpx.adobe.com/enterprise/using/support-for-experience-cloud.html).
+You can provide documentation feedback by clicking "Log an issue".
+
 ## Extension Point
 
 AEM Assets View has an `aem/assets/details/1` [extension point](https://developer.adobe.com/app-builder/docs/guides/extensions/) 

@@ -7,6 +7,16 @@ contributors:
 
 # Browse View
 
+<InlineAlert variant="info" slots="text" />
+
+UI Extensibility is supported in Assets Ultimate only.
+
+<InlineAlert variant="info" slots="text" />
+
+To get access to Assets View UI extensibility,
+[create and submit an Adobe Customer Support case](https://helpx.adobe.com/enterprise/using/support-for-experience-cloud.html).
+You can provide documentation feedback by clicking "Log an issue".
+
 AEM Assets View offers the ability to customize the ActionBar and QuickActions in the Browse View.
 
 The Browse View in the AEM Assets View refers to the asset listing pages such as

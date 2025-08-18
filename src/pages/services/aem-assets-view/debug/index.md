@@ -5,6 +5,15 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 # Troubleshooting - AEM Assets View Extensibility
+<InlineAlert variant="info" slots="text" />
+
+UI Extensibility is supported in Assets Ultimate only.
+
+<InlineAlert variant="info" slots="text" />
+
+To get access to Assets View UI extensibility,
+[create and submit an Adobe Customer Support case](https://helpx.adobe.com/enterprise/using/support-for-experience-cloud.html).
+You can provide documentation feedback by clicking "Log an issue".
 
 The ability to get fast feedback and see if the code works as expected is crucial for rapid development. A developer 
 may connect locally running UI Extension to production AEM Assets View, link it to the correct AEM backend, 

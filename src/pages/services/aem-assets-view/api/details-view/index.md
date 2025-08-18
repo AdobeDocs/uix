@@ -9,6 +9,17 @@ contributors:
 
 The Details View in the AEM Assets View shows detailed information about the selected asset.
 
+<InlineAlert variant="info" slots="text" />
+
+UI Extensibility is supported in Assets Ultimate only.
+
+<InlineAlert variant="info" slots="text" />
+
+To get access to Assets View UI extensibility,
+[create and submit an Adobe Customer Support case](https://helpx.adobe.com/enterprise/using/support-for-experience-cloud.html).
+You can provide documentation feedback by clicking "Log an issue".
+
+
 Extensions should use the `aem/assets/details/1` extension point to utilize extensibility services of the Details View.
 
 ## Custom side panels

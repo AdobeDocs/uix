@@ -12,10 +12,6 @@ Adobe’s lightweight asset management experience to store, manage, discover, an
 offers streamlined user interface containing essential Digital Asset Management capabilities. 
 Designed for the light-weight DAM users with a focus on upload, metadata management, search, download, and sharing.
 
-UI Extensibility allows 3rd party developers to extend and customize AEM Assets View with modern front-end technology stack with JavaScript, Node.js and React.
-
-In this section, you will find the available [extension points](api) and examples of how to utilize them.
-
 <InlineAlert variant="info" slots="text" />
 
 UI Extensibility is supported in Assets Ultimate only.
@@ -25,3 +21,8 @@ UI Extensibility is supported in Assets Ultimate only.
 To get access to Assets View UI extensibility,
 [create and submit an Adobe Customer Support case](https://helpx.adobe.com/enterprise/using/support-for-experience-cloud.html). 
 You can provide documentation feedback by clicking "Log an issue".
+
+UI Extensibility allows 3rd party developers to extend and customize AEM Assets View with modern front-end technology stack with JavaScript, Node.js and React.
+
+In this section, you will find the available [extension points](api) and examples of how to utilize them.
+

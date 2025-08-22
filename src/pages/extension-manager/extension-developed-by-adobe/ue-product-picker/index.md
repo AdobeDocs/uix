@@ -20,26 +20,13 @@ This extension for the [Universal Editor](https://experienceleague.adobe.com/en/
 
 ![Product picker dialog](product-picker-dialog.png)
 
-## Installing and Configuring the Product Picker
+## Installing the Product Picker
 
-The extension needs to be installed and configured in the Extension Manager as well as within your project. This document assumes familiariaty with the Extension Manager. For details on how to access Extension Manager and understand the basic principles of working with extensions, please refer to the document [Extension Manager in AEM Sites.](https://developer.adobe.com/uix/docs/extension-manager/)
+The extension needs to be installed using the Extension Manager. This document assumes familiarity with the Extension Manager. For details on how to access Extension Manager and understand the basic principles of working with extensions, please refer to the document [Extension Manager in AEM Sites.](https://developer.adobe.com/uix/docs/extension-manager/)
 
-### Installing the Product Picker
+Once you install the extension, you can configure it.
 
-1. Navigate to the Extension Manager at [https://experience.adobe.com/aem/extension-manager](https://experience.adobe.com/aem/extension-manager) and sign into your organization.
-1. In the left column under **Services**, select **AEM as a Cloud Service**.
-1. In the right column, scroll all the way to the bottom and select **Bring your own extension**.
-1. In the **Bring Your Own (BYO) extension** dialog, enter the following information:
-   * **Extension URL**: `https://experience.adobe.com/solutions/CIF-aem-commerce-picker/static-assets/resources/universal_editor.html`
-   * **Extension Name**: Provide any descriptive name you would like such as "Commerce Picker".
-   * **Description**: Provide any description you would like such as "Picker to select products in Universal Editor."
-   * **Support Email**: Provide a contact email in your organization for user questions. This is only used to display in the UI.
-   * **Supported Services**: Select **Universal Editor**.
-1. Click **Save**.
-
-Now that the extension is installed, it must be configured.
-
-### Configuring the Product Picker
+## Configuring the Product Picker
 
 1. In the Extension Manager, in the left column under **Services** select **Universal Editor**.
 1. In the right column, scroll to the bottom of the list and you can see your newly-installed extension.
@@ -55,29 +42,28 @@ Now that the extension is installed, it must be configured.
 
 The extension is installed and configured to know where your project is and where to find its configuration. Now you need to define what categories the picker should browse.
 
-### Configure Picker Categories
+## Configure Picker Categories
 
 1. In your project, edit the `config.json` file you specified when configuring the extension in the previous step.
-1. Add the following configuration in the `config.json` file, following the example at [https://github.com/hlxsites/aem-boilerplate-commerce/blob/main/demo-config.json#L30C7-L34C8
-](https://github.com/hlxsites/aem-boilerplate-commerce/blob/main/demo-config.json#L30C7-L34C8), replacing the root category with the value you require.
+1. Add the following configuration in the `config.json` file, following the example at [https://github.com/hlxsites/aem-boilerplate-commerce/blob/main/demo-config.json#L30C7-L34C8](https://github.com/hlxsites/aem-boilerplate-commerce/blob/main/demo-config.json#L30C7-L34C8), replacing the root category with the value you require.
 
-   ```
+   ```json
    "plugins": {
        "picker": {
           "rootCategory": “2”
         }
      }
-   ``` 
+   ```
 
 With the extension configured, you will finally need to configure your blocks to use the extension in the component models file.
 
-### Configuring Blocks to Use the Extension
+## Configuring Blocks to Use the Extension
 
 1. In your project, edit the `component-models.json` file.
 1. Find a block (component) that contains a field that should show the picker.
 1. To the `fields` array of the selected block, add a new object with the following configuration:
 
-   ```
+   ```json
    "fields": [
      {
        "component": "commerce-picker:picker",
@@ -91,11 +77,11 @@ With the extension configured, you will finally need to configure your blocks to
      }
    ]
    ```
-   
+
 1. Set the following values:
    * **`component`**: This must be set to exactly `commerce-picker:picker`.
    * **`valueType`**: This must be set to `string`.
-   * **`name` and `label`**: Thesee can be any desriptive value.
+   * **`name` and `label`**: These can be any descriptive value.
    * **`commerce-picker` object**:
      **`selection-mode`**: This can be `single` or `multiple` to determine the number of items that can be selected in the picker.
      **`selection-type`**: This can be `item` to allow selecting only products, `folder` to allow selecting only categories, or `any` to allow selecting both.

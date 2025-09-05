@@ -162,8 +162,8 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 ```
 {
     "repoNames": [
-      "author-p7452-e733061.adobeaemcloud.com",
-      "delivery-p130360-e1272151.adobeaemcloud.com",
+      "author-pxxxxxx-exxxxxx.adobeaemcloud.com",
+      "delivery-pxxxxxx-exxxxxx.adobeaemcloud.com",
     ],
    "aemTierType": [
         "delivery",
@@ -211,7 +211,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
         }
       ],
     "filterSchemaMapping": {
-      "author-p135331-e1341966.adobeaemcloud.com": [
+      "author-pxxxxxx-exxxxxx.adobeaemcloud.com": [
         {
           "fields": [
             {
@@ -267,10 +267,10 @@ This is sample asset picker configuration file that allows filtering assets. Fol
           "header": "Assets Tags"
         }
       ],
-      "author-p49204-e272920.adobeaemcloud.com": []
+      "author-pxxxxxx-exxxxxx.adobeaemcloud.com": []
     },
     "alwaysUseDMDelivery": true,
-    "assetDomainMapping": { "delivery-p135331-e1341966.adobeaemcloud.com":"example-domain.com/"},
+    "assetDomainMapping": { "delivery-pxxxxxx-exxxxxx.adobeaemcloud.com":"example-domain.com/"},
     "rootPath": "/content/dam"
 }
 ```

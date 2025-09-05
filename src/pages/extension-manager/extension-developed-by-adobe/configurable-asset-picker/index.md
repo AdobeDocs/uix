@@ -270,7 +270,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
       "author-p49204-e272920.adobeaemcloud.com": []
     },
     "alwaysUseDMDelivery": true,
-    "assetDomainMapping": { "delivery-p135331-e1341966.adobeaemcloud.com":"assets-dev-arena.marutisuzuki.com/"},
+    "assetDomainMapping": { "delivery-p135331-e1341966.adobeaemcloud.com":"example-domain.com/"},
     "rootPath": "/content/dam"
 }
 ```

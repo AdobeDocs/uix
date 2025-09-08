@@ -270,7 +270,12 @@ This is sample asset picker configuration file that allows filtering assets. Fol
       "author-pxxxxxx-exxxxxx.adobeaemcloud.com": []
     },
     "alwaysUseDMDelivery": true,
-    "assetDomainMapping": { "delivery-pxxxxxx-exxxxxx.adobeaemcloud.com":"example-domain.com/"},
+    "assetDomainMapping": {
+    	  "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com":"mediapreprod.store.testdomain.com",
+"delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "media.store.testdomain.com",
+"delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediauat.store.testdomain.com"
+"delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediaqa.store.testdomain.com"
+ 	},
     "rootPath": "/content/dam"
 }
 ```

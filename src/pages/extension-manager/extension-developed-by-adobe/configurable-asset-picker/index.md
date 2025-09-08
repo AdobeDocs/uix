@@ -162,8 +162,8 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 ```
 {
     "repoNames": [
-      "author-pxxxxxx-exxxxxx.adobeaemcloud.com",
-      "delivery-pxxxxxx-exxxxxx.adobeaemcloud.com",
+      "author-pxxxxxx-eyyyyyy.adobeaemcloud.com",
+      "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com",
     ],
    "aemTierType": [
         "delivery",
@@ -211,7 +211,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
         }
       ],
     "filterSchemaMapping": {
-      "author-pxxxxxx-exxxxxx.adobeaemcloud.com": [
+      "author-pxxxxxx-eyyyyyy.adobeaemcloud.com": [
         {
           "fields": [
             {
@@ -267,7 +267,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
           "header": "Assets Tags"
         }
       ],
-      "author-pxxxxxx-exxxxxx.adobeaemcloud.com": []
+      "author-pxxxxxx-eyyyyyy.adobeaemcloud.com": []
     },
     "alwaysUseDMDelivery": true,
     "assetDomainMapping": {

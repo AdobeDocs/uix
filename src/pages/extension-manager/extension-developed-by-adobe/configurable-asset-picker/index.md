@@ -154,7 +154,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 - `expiryOptions`: It allows you to select whether you want enable/disable expired assets to be selected in the asset selector.
 - `filterSchema`: List of filters that can be applied when the asset selector is rendered.
 - `filterSchemaMapping`: It allows to apply different filter schemas to different repositories.
-- `rootPath`: It allows definining rootpath from where the assets would be shown. Its applicable for author view.
+- `rootPath`: It allows definining rootpath from where the assets would be shown. Its applicable for author view. If this config is unset then default is Assets ROOT i.e. content/dam
 - `assetDomainMapping`: It allows mapping between repo name and its corresponding custom assets delivery domain.
 - `alwaysUseDMDelivery`: If this configuration is set to true, the Delivery URL will be returned even when the Author repository is selected, provided that a corresponding Delivery repository is enabled for that Author repository.
 
@@ -272,10 +272,10 @@ This is sample asset picker configuration file that allows filtering assets. Fol
     "alwaysUseDMDelivery": true,
     "assetDomainMapping": {
     	  "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com":"mediapreprod.store.testdomain.com",
-"delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "media.store.testdomain.com",
-"delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediauat.store.testdomain.com"
-"delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediaqa.store.testdomain.com"
- 	},
+        "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "media.store.testdomain.com",
+        "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediauat.store.testdomain.com"
+        "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediaqa.store.testdomain.com"
+ 	  },
     "rootPath": "/content/dam"
 }
 ```

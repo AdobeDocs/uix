@@ -153,14 +153,17 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 - `aemTierType`: It allows you to select whether you want to show assets from delivery tier, author tier, or both.
 - `expiryOptions`: It allows you to select whether you want enable/disable expired assets to be selected in the asset selector.
 - `filterSchema`: List of filters that can be applied when the asset selector is rendered.
-
+- `filterSchemaMapping`: It allows to apply different filter schemas to different repositories.
+- `rootPath`: It allows definining rootpath from where the assets would be shown. Its applicable for author view. If this config is unset then default is Assets ROOT i.e. content/dam
+- `assetDomainMapping`: It allows mapping between repo name and its corresponding custom assets delivery domain.
+- `alwaysUseDMDelivery`: If this configuration is set to true, the Delivery URL will be returned even when the Author repository is selected, provided that a corresponding Delivery repository is enabled for that Author repository.
 
 
 ```
 {
     "repoNames": [
-      "author-p7452-e733061.adobeaemcloud.com",
-      "delivery-p130360-e1272151.adobeaemcloud.com",
+      "author-pxxxxxx-eyyyyyy.adobeaemcloud.com",
+      "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com",
     ],
    "aemTierType": [
         "delivery",
@@ -207,6 +210,73 @@ This is sample asset picker configuration file that allows filtering assets. Fol
           "header": "Assets Tags"
         }
       ],
+    "filterSchemaMapping": {
+      "author-pxxxxxx-eyyyyyy.adobeaemcloud.com": [
+        {
+          "fields": [
+            {
+              "defaultValue": ["image/*"],
+              "element": "checkbox",
+              "name": "type",
+              "options": [
+                {
+                  "label": "Image",
+                  "readOnly": true,
+                  "value": "image/*"
+                }
+              ]
+            }
+          ],
+          "groupKey": "FileTypeGroup",
+          "header": "File Type"
+        },
+        {
+          "fields": [
+            {
+              "defaultValue": ["dam:assetStatus==approved"],
+              "element": "radiogroup",
+              "name": "property",
+              "options": [
+                {
+                  "label": "Approved",
+                  "value": "dam:assetStatus==approved"
+                }
+              ],
+              "readOnly": true
+            }
+          ],
+          "groupKey": "StatusGroup",
+          "header": "Approval Status"
+        },
+        {
+          "fields": [
+            {
+              "columns": 3,
+              "defaultValue": ["arena"],
+              "element": "taggroup",
+              "name": "property=xcm:keywords.id=",
+              "options": [
+                {
+                  "label": "arena",
+                  "value": "arena"
+                }
+              ]
+            }
+          ],
+          "groupKey": "AssetTagsGroup",
+          "header": "Assets Tags"
+        }
+      ],
+      "author-pxxxxxx-eyyyyyy.adobeaemcloud.com": []
+    },
+    "alwaysUseDMDelivery": true,
+    "assetDomainMapping": {
+    	  "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com":"mediapreprod.store.testdomain.com",
+        "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "media.store.testdomain.com",
+        "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediauat.store.testdomain.com"
+        "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "mediaqa.store.testdomain.com"
+ 	  },
+    "rootPath": "/content/dam"
 }
 ```
 ## Troubleshooting Tip: 

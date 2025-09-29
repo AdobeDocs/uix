@@ -139,7 +139,7 @@ The API uses `auth` namespace.
 ```js
 const { imsOrg, accessToken } = await guestConnection.host.auth.getIMSInfo();
 
-const apiKey = await guestConnection.host.auth.getAPIKey();
+const apiKey = await guestConnection.host.auth.getApiKey();
 ```
 
 ### Discovery API

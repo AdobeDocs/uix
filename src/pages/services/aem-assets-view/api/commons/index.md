@@ -129,7 +129,7 @@ The API uses `auth` namespace.
 - `imsOrgName` (`string`): The name of the IMS organization.
 - `accessToken` (`string`): The access token for the IMS.
 
-`auth.()`
+`auth.getApiKey()`
 
 **Description:** returns API key used by the AEM Assets View.
 

@@ -129,7 +129,7 @@ The API uses `auth` namespace.
 - `imsOrgName` (`string`): The name of the IMS organization.
 - `accessToken` (`string`): The access token for the IMS.
 
-`auth.getApiKey()`
+`auth.()`
 
 **Description:** returns API key used by the AEM Assets View.
 
@@ -139,7 +139,7 @@ The API uses `auth` namespace.
 ```js
 const { imsOrg, accessToken } = await guestConnection.host.auth.getIMSInfo();
 
-const apiKey = await guestConnection.host.auth.getAPIKey();
+const apiKey = await guestConnection.host.auth.getApiKey();
 ```
 
 ### Discovery API

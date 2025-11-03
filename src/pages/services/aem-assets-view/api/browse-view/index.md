@@ -7,7 +7,7 @@ contributors:
 
 # Browse View
 
-AEM Assets View offers the ability to customize the ActionBar and QuickActions in the Browse View.
+AEM Assets View offers the ability to customize the ActionBar, QuickActions and HeaderMenu in the Browse View.
 
 <InlineAlert variant="info" slots="text" />
 
@@ -31,9 +31,12 @@ Browse View are selected.
 **QuickActions** is the dropdown menu from the More action button (shown as `⋯`) next to each asset.
 ![quick actions](quick-actions.png)
 
+**HeaderMenu** buttons at the top right of the browse screen. Custom buttons may be added between the ellipses menu and out-of-the-box buttons (e.g. 'Create Folder' and 'Add Assets'). 
+![header buttons](header-menu.png)
+
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
 
-An extension needs to implement both `actionBar` and `quickActions` namespace to be recognized by Assets View.
+An extension needs to implement both `actionBar` and `quickActions` namespace to be recognized by Assets View. Extensions may optionally implement the `headerMenu` namespace.
 
 ## Custom ActionBar actions and QuickActions menu actions
 
@@ -103,7 +106,7 @@ based on the browsing context and asset selection.
 
 
 #### actionBar namespace
-The `actionBar` namespace include these 3 methods
+The `actionBar` namespace includes these 3 methods
 - `getActions({ context, resourceSelection })`
 - `getHiddenBuiltInActions({ context, resourceSelection })`
 - `overrideBuiltInAction({ actionId, context, resourceSelection })`
@@ -256,6 +259,66 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 },
 ```
 
+#### headerMenu namespace
+The `headerMenu` namespace currently has the following method
+- `getButtons({context, resource})`
+
+`getButtons({context, resource})`
+
+**Description:** Returns an array of custom header button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header buttons and provide a way for extensions to add custom functionality accessible from the main navigation area.
+
+**Parameters:**
+- `context` (string): The current browse context indicating where the user is in the application
+  - Possible values: `'assets'`, `'collections'`, `'recent'`, `'search'`, `'trash'`
+- `resource` (object|undefined): Information about the current location/resource being browsed
+  - `id` (string|null): The unique identifier of the current resource
+  - `path` (string|null): The path of the current resource
+  - May be `undefined` if no specific resource context is available
+
+**Returns:** Promise<Array> - An array of button configuration objects, where each object contains:
+- `id` (string, required): Unique identifier for the button within the extension
+- `label` (string, required): Display text for the button
+- `icon` (string, required): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)
+- `onClick` (function, required): Callback function executed when button is clicked, receives `{context, resource}` as parameter
+- `variant` (string, optional): Button visual style, defaults to `'primary'`
+  - Supported values: `'accent'`, `'primary'`, `'secondary'`, `'negative'`
+
+**Example:**
+
+```javascript
+// Extension implementation
+const headerMenuAPI = {
+  async getButtons({ context, resource }) {
+    // Only show buttons in assets context
+    if (context !== 'assets') {
+      return [];
+    }
+
+    return [
+      {
+        id: 'export-metadata',
+        label: 'Export Metadata',
+        icon: 'Download', // React Spectrum Workflow icon name
+        variant: 'secondary',
+        onClick: async ({ context, resource }) => {
+          console.log('Exporting metadata for:', resource);
+          // Custom export logic here
+        }
+      },
+      {
+        id: 'custom-workflow',
+        label: 'Start Workflow',
+        icon: 'Workflow',
+        onClick: async ({ context, resource }) => {
+          // Custom workflow logic here
+        }
+      }
+    ];
+  }
+};
+```
+
+
 ## Examples
 
 These code snippets demonstrate how to add a custom action to the ActionBar, hide built-in actions or override the
@@ -266,7 +329,7 @@ The ExtensionRegistration component initializes the extension registration proce
 provided by the `@adobe/uix-guest` library.
 
 The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares
-that the extension uses the `actionBar` and `quickActions` namespaces and declares required methods for these namespaces.
+that the extension uses the `actionBar`, `quickActions` and `headerMenu` namespaces and declares required methods for these namespaces.
 
 This example demonstrates the minimal set of namespaces and methods required for a browse extension to be recognized
 by the Host application.
@@ -294,6 +357,11 @@ function ExtensionRegistration() {
                     },
                     async overrideBuiltInAction({ actionId, context, resource }) {
                         return false;
+                    },
+                },
+                headerMenu: {
+                    async getButtons ({ context, resource }) {
+                        return []
                     },
                 },
             },
@@ -335,6 +403,10 @@ function ExtensionRegistration() {
                         }
                         return [];
                     },
+                    // ...                 
+                },
+                quickActions: {
+                    // ...
                 },
                 // ...
             },
@@ -370,7 +442,9 @@ function ExtensionRegistration() {
                         return [];
                     },
                 },
-                // ...
+                quickActions: {
+                    // ...
+                },
             },
         });
     };
@@ -389,6 +463,9 @@ function ExtensionRegistration() {
         const guestConnection = await register({
             id: extensionId,
             methods: {
+                actionBar: {
+                    // ...
+                },
                 quickActions: {
                     async getHiddenBuiltInActions({ context, resource }) {
                         if (context === 'trash') {
@@ -447,7 +524,9 @@ function ExtensionRegistration() {
                         return false;
                     },
                 },
-                // ...
+                quickActions: {
+                    // ...
+                },
             },
         });
     };
@@ -493,7 +572,9 @@ function ExtensionRegistration() {
                         return false;
                     },
                 },
-                // ...
+                actionBar: {
+                    // ...
+                },
             },
         });
     };
@@ -503,6 +584,6 @@ function ExtensionRegistration() {
 }
 ```
 
-To open a custom dialog from from custom ActionBar actions or QuickActions menu actions, refer to the
+To open a custom dialog from custom ActionBar actions, QuickActions menu actions or HeaderMenu, refer to the
 [Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
 dialog management.

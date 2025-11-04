@@ -23,6 +23,7 @@ You can provide documentation feedback by clicking "Log an issue".
 The Browse View in the AEM Assets View refers to the asset listing pages such as
 Assets, Collections, Recent, Search and Trash.
 
+## Definitions
 **ActionBar** is the blue bar with actions that appears at the top when one or more assets in the
 Browse View are selected.
 
@@ -31,7 +32,7 @@ Browse View are selected.
 **QuickActions** is the dropdown menu from the More action button (shown as `⋯`) next to each asset.
 ![quick actions](quick-actions.png)
 
-**HeaderMenu** buttons at the top right of the browse screen. Custom buttons may be added between the ellipses menu and out-of-the-box buttons (e.g. 'Create Folder' and 'Add Assets'). 
+**HeaderMenu** is the set of buttons at the top right of the browse screen. Custom buttons may be added between the ellipses menu and default HeaderMenu buttons. 
 ![header buttons](header-menu.png)
 
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
@@ -43,15 +44,24 @@ An extension needs to implement both `actionBar` and `quickActions` namespace to
 This extensibility feature allows context-aware customization of the ActionBar actions and the QuickActions menu actions
 associated with the selected assets.
 
-Using the `actionBar` namespace, custom actions could be added to the ActionBar after the list of built-in actions, and
+Using the [`actionBar`](#actionbar-namespace) namespace, custom actions could be added to the ActionBar after the list of built-in actions, and
 the built-in actions could be overridden or hidden based on the context and the selected assets.
 
 In this example, a custom action is added to the ActionBar after the list of built-in ActionBar actions.
 
 ![ActionBar actions](action-bar-action.png)
 
-Using the `quickActions` namespace, built-in QuickActions menu actions can be overridden or hidden based on the context and the
+Using the [`quickActions`](#quickactions-namespace) namespace, built-in QuickActions menu actions can be overridden or hidden based on the context and the
 selected asset.
+
+## Custom HeaderMenu buttons 
+This extensibility feature allows context-aware customization of the HeaderMenu buttons.
+
+Using the [`headerMenu`](#headermenu-namespace) namespace, custom buttons could be added to the HeaderMenu before the list of built-in buttons based on the context and the selected assets.
+
+In this example, a custom button is added to the HeaderMenu before the list of built-in HeaderMenu buttons.
+
+![headerMenu buttons](add-custom-action.jpg)
 
 ## API Reference
 
@@ -61,8 +71,7 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 ### Host API Reference
 
 In addition to the [Common API](../commons) provided by AEM Assets View to all extensions,
-the host application provides the following definitions that are specific to the `aem/assets/browse/1` extension point,
-the `actionBar` and `quickActions` namespaces.
+the host application provides the following definitions that are specific to the `aem/assets/browse/1` extension point; [`actionBar`](#actionbar-namespace), [`quickActions`](#quickactions-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
 
 #### Browsing context
 
@@ -95,12 +104,12 @@ action ids of actions that can be hidden:
 
 ### Extension API Reference
 
-The extension definition object passed by the extension to the `register()` function defines the `actionBar` and
-`quickActions` namespaces.
+The extension definition object passed by the extension to the `register()` function defines the [`actionBar`](#actionbar-namespace), [`headerMenu`](#headermenu-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
 
-The methods in these two namespaces provide the capabilities to
+The methods in these namespaces provide the capabilities to
 - Add custom actions to the ActionBar
 - Hide or customize built-in actions in the ActionBar and QuickActions
+- Add custom buttons to the HeaderMenu
 
 based on the browsing context and asset selection.
 
@@ -268,14 +277,14 @@ The `headerMenu` namespace currently has the following method
 **Description:** Returns an array of custom header button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header buttons and provide a way for extensions to add custom functionality accessible from the main navigation area.
 
 **Parameters:**
-- `context` (string): The current browse context indicating where the user is in the application
+- `context` (`string`): The current browse context indicating where the user is in the application
   - Possible values: `'assets'`, `'collections'`, `'recent'`, `'search'`, `'trash'`
-- `resource` (object|undefined): Information about the current location/resource being browsed
-  - `id` (string|null): The unique identifier of the current resource
-  - `path` (string|null): The path of the current resource
+- `resource` (`object`): Information about the current location/resource being browsed
+  - `id` (`string`): The unique identifier of the current resource
+  - `path` (`string`): The path of the current resource
   - May be `undefined` if no specific resource context is available
 
-**Returns:** Promise<Array> - An array of button configuration objects, where each object contains:
+**Returns:** (`array`) - An array of button configuration objects, where each object contains:
 - `id` (string, required): Unique identifier for the button within the extension
 - `label` (string, required): Display text for the button
 - `icon` (string, required): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)
@@ -293,7 +302,7 @@ const headerMenuAPI = {
     if (context !== 'assets') {
       return [];
     }
-
+    // adds to custom buttons to the application header menu
     return [
       {
         id: 'export-metadata',
@@ -533,6 +542,26 @@ function ExtensionRegistration() {
     init().catch(console.error);
 
     return <Text>IFrame for integration with Host (AEM Assets View)...</Text>;
+}
+```
+
+### Example of user interaction with overriding built-in actions 
+In this example, the [Modal API](../commons/#modal-api) is used to let the user confirm or cancel a default action based on their selection. The extension presents a confirmation dialog and waits for the user's response. If the user confirms, the built-in handler is executed by returning `false`. If the user cancels, the built-in handler is skipped by returning `true`.
+
+```js
+actionBar: {
+    async overrideBuiltInAction({ actionId, context, resourceSelection: { resources } }) {
+        const { promise, resolve } = Promise.withResolvers();
+        guestConnection.host.modal.openDialog({
+            title: `Confirm ${actionId}`,
+            contentUrl: '#confirm',
+            type: 'S',
+            payload: {
+                callback: resolve
+            }
+        });
+        return await promise;
+    },
 }
 ```
 

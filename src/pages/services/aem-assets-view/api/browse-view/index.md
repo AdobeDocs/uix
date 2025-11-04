@@ -274,7 +274,7 @@ The `headerMenu` namespace currently has the following method
 
 `getButtons({context, resource})`
 
-**Description:** Returns an array of custom header button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header buttons and provide a way for extensions to add custom functionality accessible from the main navigation area.
+**Description:** Returns an array of custom header button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header buttons and provide a way for extensions to add custom functionality accessible from the top header area on browse screens.
 
 **Parameters:**
 - `context` (`string`): The current browse context indicating where the user is in the application
@@ -302,7 +302,7 @@ const headerMenuAPI = {
     if (context !== 'assets') {
       return [];
     }
-    // adds to custom buttons to the application header menu
+    // adds 2 custom buttons to the application header menu
     return [
       {
         id: 'export-metadata',

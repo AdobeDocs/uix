@@ -282,7 +282,9 @@ The `headerMenu` namespace currently has the following method
 - `resource` (`object`): Information about the current location/resource being browsed
   - `id` (`string`): The unique identifier of the current resource
   - `path` (`string`): The path of the current resource
-  - May be `undefined` if no specific resource context is available
+  - In contexts that do not support a notion of active resource, like `'trash'`, `'search'` or `'recent'`, the `resource` argument will be `undefined`.
+    For `'assets'` and `'collections'` context, the `resource` is a JSON object with `id` and `path`, even for the root folder.
+  
 
 **Returns:** (`array`) - An array of button configuration objects, where each object contains:
 - `id` (string, required): Unique identifier for the button within the extension

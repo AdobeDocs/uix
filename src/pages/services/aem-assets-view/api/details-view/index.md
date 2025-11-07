@@ -25,7 +25,7 @@ Extensions should use the `aem/assets/details/1` extension point to utilize exte
 ## Custom side panels
 
 The extensibility feature allows adding new panels and corresponding icon buttons to the side rail 
-using the [`detailSidePanel`](#detailsidepanel-namespace) namespace. The custom icons appear under the 
+using the `detailsSidePanel` namespace. The custom icons appear under the 
 list of the standard panel icons.
 
 ![](side-panel.png)
@@ -46,7 +46,7 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 
 In addition to the [Common API](../commons) provided by AEM Assets View to all extensions, 
 the host application provides the following API specific to the `aem/assets/details/1` extension point 
-and the [`detailSidePanel`](#detailsidepanel-namespace) namespace.
+and the `detailSidePanel` namespace.
 
 `details.getCurrentResourceInfo()`
 
@@ -63,21 +63,11 @@ const { path, id } = await guestConnection.host.details.getCurrentResourceInfo()
 
 ### Extension API Reference
 
-The extension definition object passed by the extension to the `register()` function defines the [`detailSidePanel`](#detailsidepanel-namespace) namespace.
+The extension definition object passed by the extension to the `register()` function defines the `detailSidePanel` namespace
+and the `getPanels()` method within that namespace.
 
-#### detailSidePanel namespace
-
-The `detailSidePanel` namespace includes the following method:
-- `getPanels()`
-
-`detailSidePanel.getPanels()`
-
-**Description:** returns an array of custom panel descriptors that the extension wants to add to the side rail 
-of the Details View.
-
-**Returns** (`array`) an array of custom panel descriptors or an empty array if no custom panels should be added.
-
-Each array element is a custom panel descriptor that is a JSON with the following properties:
+The `getPanels()` method returns an array of custom panel descriptors that the extension wants to add to the side rail 
+of the Details View. Each panel descriptor should include the following properties:
 - `id` (`string`): Panel id, unique within given extension.
 - `tooltip` (`string`): Icon tooltip.
 - `title` (`string`): Custom panel title.

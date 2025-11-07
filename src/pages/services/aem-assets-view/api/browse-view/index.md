@@ -57,7 +57,7 @@ selected asset.
 ## Custom HeaderMenu buttons 
 This extensibility feature allows context-aware customization of the HeaderMenu buttons.
 
-Using the [`headerMenu`](#headermenu-namespace) namespace, custom buttons could be added to the HeaderMenu before the list of built-in buttons based on the context and the selected assets.
+Using the [`headerMenu`](#headermenu-namespace) namespace, custom buttons could be added to the HeaderMenu before the list of built-in buttons based on the context.
 
 In this example, a custom button is added to the HeaderMenu before the list of built-in HeaderMenu buttons.
 
@@ -71,7 +71,7 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 ### Host API Reference
 
 In addition to the [Common API](../commons) provided by AEM Assets View to all extensions,
-the host application provides the following definitions that are specific to the `aem/assets/browse/1` extension point; [`actionBar`](#actionbar-namespace), [`quickActions`](#quickactions-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
+the host application provides the following definitions that are specific to the `aem/assets/browse/1` extension point: [`actionBar`](#actionbar-namespace), [`quickActions`](#quickactions-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
 
 #### Browsing context
 
@@ -111,7 +111,6 @@ The methods in these namespaces provide the capabilities to
 - Hide or customize built-in actions in the ActionBar and QuickActions
 - Add custom buttons to the HeaderMenu
 
-based on the browsing context and asset selection.
 
 
 #### actionBar namespace
@@ -277,21 +276,20 @@ The `headerMenu` namespace currently has the following method
 **Description:** Returns an array of custom header button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header buttons and provide a way for extensions to add custom functionality accessible from the top header area on browse screens.
 
 **Parameters:**
-- `context` (`string`): The current browse context indicating where the user is in the application
-  - Possible values: `'assets'`, `'collections'`, `'recent'`, `'search'`, `'trash'`
-- `resource` (`object`): Information about the current location/resource being browsed
-  - `id` (`string`): The unique identifier of the current resource
-  - `path` (`string`): The path of the current resource
+- context (`string`): current [browsing context](#browsing-context).
+- resource (`object`): Information about the current location being browsed
+  - id (`string`): The unique identifier of the current location
+  - path (`string`): The path of the current location
   - In contexts that do not support a notion of active resource, like `'trash'`, `'search'` or `'recent'`, the `resource` argument will be `undefined`.
     For `'assets'` and `'collections'` context, the `resource` is a JSON object with `id` and `path`, even for the root folder.
   
 
 **Returns:** (`array`) - An array of button configuration objects, where each object contains:
-- `id` (string, required): Unique identifier for the button within the extension
-- `label` (string, required): Display text for the button
-- `icon` (string, required): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)
-- `onClick` (function, required): Callback function executed when button is clicked, receives `{context, resource}` as parameter
-- `variant` (string, optional): Button visual style, defaults to `'primary'`
+- id (`string`): Unique identifier for the button within the extension
+- label (`string`): Display text for the button
+- icon (`string`): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)
+- onClick (`function`): Callback function executed when button is clicked, receives `{context, resource}` as parameter
+- variant (`string`, optional): Button visual style, defaults to `'primary'`
   - Supported values: `'accent'`, `'primary'`, `'secondary'`, `'negative'`
 
 **Example:**
@@ -332,7 +330,8 @@ const headerMenuAPI = {
 
 ## Examples
 
-These code snippets demonstrate how to add a custom action to the ActionBar, hide built-in actions or override the
+These code snippets demonstrate how to add a custom action to the ActionBar, add buttons to the HeaderMenu,
+hide built-in actions or override the
 built-in action handlers from the ActionBar and QuickActions menu in the Browse View. (The examples below serve
 illustrative purposes thus omit certain import statements and other non-important parts.)
 
@@ -499,7 +498,7 @@ function ExtensionRegistration() {
 
 Here are the examples for overriding the built-in actions from the ActionBar and the QuickActions menu.
 
-In this example, the `Download` action is overriden in the ActionBar in any applicable context.  The extension will
+In this example, the `Download` action is overridden in the ActionBar in any applicable context.  The extension will
 determine if the user has permission to download the asset selection.  If the user does not have sufficient permision,
 a dialog will be displayed and the built-in handler in the Host application will be skipped.
 
@@ -567,7 +566,7 @@ actionBar: {
 }
 ```
 
-In the example below, the `Download` action is overriden in the QuickActions menu in any applicable context.  The extension will
+In the example below, the `Download` action is overridden in the QuickActions menu in any applicable context.  The extension will
 determine if the user has permission to download the asset selection.  If the user does not have sufficient permision,
 a dialog will be displayed and the built-in handler in the Host application will be skipped.
 

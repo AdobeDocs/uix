@@ -37,7 +37,7 @@ Adding a component for author in crosswalk site is like adding any other custom 
 	        "component": "custom-asset-namespace:custom-asset",
 	        "name": "image",
 	        "label": "Image",
-	        "configUrl": "https://main--xwalk-test-gems--githubusername.hlx.page/tools/assets-selector/image.config.json",
+	        "configUrl": "https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json",
 	        "valueType": "string"
 	      },
 	      {
@@ -62,7 +62,7 @@ Adding a component for author in crosswalk site is like adding any other custom 
 	        "component": "custom-asset-namespace:custom-asset",
 	        "name": "image",
 	        "label": "Image",
-	        "configUrl": "https://main--xwalk-test-gems--githubusername.hlx.page/tools/assets-selector/image.config.json",
+	        "configUrl": "https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json",
 	        "valueType": "string"
 	      },
 	      {
@@ -279,8 +279,27 @@ This is sample asset picker configuration file that allows filtering assets. Fol
     "rootPath": "/content/dam"
 }
 ```
-## Troubleshooting Tip: 
-If the asset selector is not rendered as per the configuration, please check the console for any CORS issues while fetching the config file.
+## Troubleshooting
+
+### CORS Issues
+
+If the asset selector is not rendered as per the configuration, the most common issue is CORS (Cross-Origin Resource Sharing) errors when fetching the configuration file.
+
+**When to check for CORS errors:**
+- The configuration is not being applied correctly
+- You see network errors in the browser console when the extension tries to load
+
+**How to identify CORS errors:**
+1. Open your browser's Developer Tools (F12)
+2. Check the Console tab for errors like:
+   - `Access to fetch at '...' from origin '...' has been blocked by CORS policy`
+   - `No 'Access-Control-Allow-Origin' header is present on the requested resource`
+
+**Resolution:**
+
+When your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--repo--owner.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
+
+Add the required headers to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 
 ## Limitations
 - This custom asset picker can only be opened by clicking on selector in its properties panel. Unlike default asset picker, we can't click the asset to open it.

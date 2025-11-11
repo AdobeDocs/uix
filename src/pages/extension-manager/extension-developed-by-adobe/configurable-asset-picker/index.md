@@ -295,9 +295,15 @@ If the asset selector is not rendered as per the configuration, the most common 
    - `Access to fetch at '...' from origin '...' has been blocked by CORS policy`
    - `No 'Access-Control-Allow-Origin' header is present on the requested resource`
 
-**Resolution:**
+**Common Causes:**
 
-When your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--repo--owner.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
+Configuration files can be hosted on third-party domains (from the perspective of `experience.adobe.com` where Universal Editor runs), such as:
+- Edge Delivery Services sites (`*.aem.page`)
+- AEM Cloud instances (`author-pXX-eYYY.adobeaemcloud.com`)
+
+**Sample Use Case - Resolving CORS for EDS-hosted Configuration:**
+
+If your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--repo--owner.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
 
 Add the required headers to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 

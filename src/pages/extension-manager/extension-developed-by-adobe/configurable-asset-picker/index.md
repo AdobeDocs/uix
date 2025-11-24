@@ -283,7 +283,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 
 ### CORS Issues
 
-If the asset selector is not rendered as per the configuration, the most common issue is CORS (Cross-Origin Resource Sharing) errors when fetching the configuration file.
+If the asset selector is not rendered as per the configuration, the most common issue is (CORS)[https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors] (Cross-Origin Resource Sharing) errors when fetching the configuration file.
 
 **When to check for CORS errors:**
 - The configuration is not being applied correctly
@@ -305,7 +305,7 @@ Configuration files can be hosted on third-party domains (from the perspective o
 
 If your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--repo--owner.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
 
-Add the required headers to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
+Add the [required headers] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 
 ## Limitations
 - This custom asset picker can only be opened by clicking on selector in its properties panel. Unlike default asset picker, we can't click the asset to open it.

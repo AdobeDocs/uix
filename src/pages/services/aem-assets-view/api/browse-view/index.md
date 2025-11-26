@@ -104,7 +104,7 @@ action ids of actions that can be hidden:
 
 ### Extension API Reference
 
-The extension definition object passed by the extension to the `register()` function defines the [`actionBar`](#actionbar-namespace), [`headerMenu`](#headermenu-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
+The extension definition object passed by the extension to the `register()` function defines the [`actionBar`](#actionbar-namespace), [`quickActions`](#quickActions-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
 
 The methods in these namespaces provide the capabilities to
 - Add custom actions to the ActionBar

@@ -42,6 +42,10 @@ For local development, simply use:
 $ yarn
 yarn dev
 ```
+
+Note: `yarn start` may also be used to launch the docs site, but will not hot swap updates.
+
+
 ## Adobe I/O Documentation Template
 
 This is a site build with the [Adobe I/O Documentation Template](https://github.com/adobedocs/dev-site-documentation-template/) template for the [Adobe I/O Theme](https://github.com/adobe/aio-theme).

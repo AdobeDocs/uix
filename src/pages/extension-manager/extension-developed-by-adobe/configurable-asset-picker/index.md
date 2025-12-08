@@ -303,7 +303,7 @@ The most common issue behind the behaviour above is (CORS)[https://developer.moz
 
 Configuration files can be hosted on third-party domains (from the perspective of `experience.adobe.com` where Universal Editor runs), such as:
 - Edge Delivery Services sites (`*.aem.page`)
-- AEM Cloud instances (`author-pXX-eYYY.adobeaemcloud.com`)
+- AEM Cloud publish instances (`publish-pXXX-eYYY.adobeaemcloud.com`)
 
 **Sample Use Case - Resolving CORS for EDS-hosted Configuration:**
 

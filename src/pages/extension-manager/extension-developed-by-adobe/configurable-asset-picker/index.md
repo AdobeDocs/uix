@@ -305,7 +305,7 @@ Configuration files hosted on third-party domains (from the perspective of `expe
 
 **Sample Use Case - Resolving CORS for EDS-hosted Configuration:**
 
-If your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--repo--owner.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
+If your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
 
 Add the [required headers] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 

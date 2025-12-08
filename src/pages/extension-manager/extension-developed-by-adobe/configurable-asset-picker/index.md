@@ -311,7 +311,7 @@ If your configuration file is being served from an Edge Delivery Services (EDS) 
 
 Add the [required headers] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 
-Issue the following curl and note the presence of Access-Control-Allow-Origin: https://experience.adobe.com in the response headers. e.g., if the configUrl is https://main--repo--owner.aem.page/tools/assets-selector/image.config.json, the execution of the command below on a terminal-window should look like:
+Issue the following `curl` and note the presence of `Access-Control-Allow-Origin: https://experience.adobe.com` in the [response headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin). e.g., if the `configUrl` is https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json, the execution of the command below on a terminal-window should look like:
 
 ```
 # curl -sD- 'https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json' | grep -i "access-control"

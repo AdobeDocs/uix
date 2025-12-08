@@ -283,7 +283,11 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 
 ### CORS Issues
 
-If the asset selector is not rendered as per the configuration, the most common issue is (CORS)[https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors] (Cross-Origin Resource Sharing) errors when fetching the configuration file.
+**Problem:**
+The Asset Selector doesn't behave as configured (missing filters, unexpected AEM repositories, undesirable selection actions, etc. - essentially any/everything defined in [this configuration file](https://developer.adobe.com/uix/docs/extension-manager/extension-developed-by-adobe/configurable-asset-picker/#configuration-file) not be honored)
+
+**Diagnosis:**
+The most common issue behind the behaviour above is (CORS)[https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors] (Cross-Origin Resource Sharing) errors when fetching the configuration file.
 
 **When to check for CORS errors:**
 - The configuration is not being applied correctly

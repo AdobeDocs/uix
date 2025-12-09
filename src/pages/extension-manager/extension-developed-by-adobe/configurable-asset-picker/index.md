@@ -70,9 +70,9 @@ For assets hosted in AEM Assets, the component model can be configured to use [D
 	    "id": "custom-asset-one",
 	    "fields": [
 	      {
-			"name": "image",
-	        "label": "Image",
 	        "component": "custom-asset-namespace:custom-asset",
+			    "name": "image",
+	        "label": "Image",
 	        "configUrl": "https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json",
 	        "valueType": "string"
 	      },
@@ -285,18 +285,42 @@ This is sample asset picker configuration file that allows filtering assets. Fol
     "rootPath": "/content/dam"
 }
 ```
-## Troubleshooting Tip: 
-If the asset selector is not rendered as per the configuration, please check the console for any CORS issues while fetching the `configUrl` added for the component named `custom-asset-namespace:custom-asset` in the `component-models.json`.
+## Troubleshooting
+
+### CORS Issues
+
+**Problem:**
+The Asset Selector doesn't behave as configured (missing filters, unexpected AEM repositories, undesirable selection actions, etc. - essentially any/everything defined in [this configuration file](https://developer.adobe.com/uix/docs/extension-manager/extension-developed-by-adobe/configurable-asset-picker/#configuration-file) not be honored)
+
+**Diagnosis:**
+The most common issue behind the behaviour above is (CORS)[https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors] (Cross-Origin Resource Sharing) errors when fetching the configuration file.
+
+**When to check for CORS errors:**
+- The configuration is not being applied correctly
+- You see network errors in the browser console when the extension tries to load
+
+**How to identify CORS errors:**
+1. Open your browser's Developer Tools (F12)
+2. Check the Console tab for errors like:
+   - `Access to fetch at '...' from origin '...' has been blocked by CORS policy`
+   - `No 'Access-Control-Allow-Origin' header is present on the requested resource`
+
+**Common Causes:**
+
+Configuration files hosted on third-party domains (from the perspective of `experience.adobe.com` where Universal Editor runs) may trigger CORS errors.
+
+**Sample Use Case - Resolving CORS for EDS-hosted Configuration:**
+
+If your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
+
+Add the [required headers] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 
 Issue the following `curl` and note the presence of `Access-Control-Allow-Origin: https://experience.adobe.com` in the [response headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin). e.g., if the `configUrl` is https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json, the execution of the command below on a terminal-window should look like:
+
 ```
 # curl -sD- 'https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json' | grep -i "access-control"
 access-control-allow-origin: https://experience.adobe.com
 ```
-
-If the `configUrl` points to a JSON hosted on `*.aem.live`/`*.aem.page`, please update the configuration of our EDS project to add the appropriate headers to the JSON URL.
-
-To learn more about adding headers to responses produce by EDS, please refer to [documentation on adding custom headers to EDS URLs](https://www.aem.live/docs/custom-headers).
 
 ## Limitations
 - This custom asset picker can only be opened by clicking on selector in its properties panel. Unlike default asset picker, we can't click the asset to open it.

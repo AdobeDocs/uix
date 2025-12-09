@@ -65,13 +65,12 @@ For assets hosted in AEM Assets, the component model can be configured to use [D
 
 ```
 [
-...
 	{
 	    "id": "custom-asset-one",
 	    "fields": [
 	      {
+	        "name": "image",
 	        "component": "custom-asset-namespace:custom-asset",
-			    "name": "image",
 	        "label": "Image",
 	        "configUrl": "https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json",
 	        "valueType": "string"
@@ -88,7 +87,7 @@ For assets hosted in AEM Assets, the component model can be configured to use [D
 	        "valueType": "string"
 	      }
 	    ]
-	  }
+	}
 ]
 ```
 In addition to the component model definition for Dynamic Media with OpenAPI Delivery, an opt-in component definition for `imageMimeType` ensures that the Edge Delivery Media Bus is used for media delivery.

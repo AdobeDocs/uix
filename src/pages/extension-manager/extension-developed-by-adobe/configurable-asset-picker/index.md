@@ -27,7 +27,7 @@ Adding a component for author in crosswalk site is like adding any other custom 
 
 ### A new Component Model in `component-models.json`
 
-This model is necessary for custom asset picker to show up when user clicks on its option it in properties panel.
+This model is necessary for Universal Editor to use the Custom Asset Picker.
 
 For assets hosted in AEM Assets, the component model can be configured to use [Dynamic Media with OpenAPI capabilities](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/dynamicmedia/dynamic-media-open-apis/dynamic-media-open-apis-overview) via [URL references](https://www.aem.live/docs/media#approach-b-asset-management-delivery), or [Edge Delivery Media Bus](https://www.aem.live/docs/media#approach-a-built-in-media-bus-delivery).
 

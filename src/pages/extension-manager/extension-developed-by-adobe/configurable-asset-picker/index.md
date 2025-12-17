@@ -56,7 +56,8 @@ For assets hosted in AEM Assets, the component model can be configured to use [D
 	  }
 ]
 ```
-- `id`: can be any value. In the example above it is called `custom-asset-one`.
+- `id`: can be any value. In the example above it is called `custom-asset-one`. This identifier will be used in `component-definition.json` and `component-filters.json` to refer to this component.
+  > :information_source: If you'd rather add the Custom Asset Picker to an existing component, you can use the existing component's id here.
 - `fields[name="image"].component`: MUST have `custom-asset-namespace:custom-asset` as value, because it has been overridden in the extension to display customized asset selector popup.
 - `fields[name="image"].configUrl`: points to JSON configuration file, can be hosted anywhere you prefer. Must be accessible to the extension, which runs in author's web browser. It can be hosted on same AEM environment as well and relative path (for example `/content/dam/assets/asset-selector.json`) can be used. Extension will fetch this JSON file and configure asset picker for this component accordingly.
 - `fields[name="imageTitle"]`: Optional. For Dynamic Media delivery, anchor tag is being generated in the markup. To add alt text for such images in the markup, title property of the anchor tag can be leveraged. For assets not using Dynamic Media with Open API delivery, the regular picture element property i.e `imageAlt` should be used.
@@ -94,6 +95,7 @@ In addition to the component model definition for Dynamic Media with OpenAPI Del
 - `fields[name="imageMimeType"].component`: MUST have `custom-asset-namespace:custom-asset-mimetype` as value, it has been overridden in the extension to contain selected asset MIME Type. If mime type is set to `image/*` or for relative paths that resolve to an asset in AEM and is known to be an image, the asset is rendered using edge delivery services. If the mime type is missing, the generated markup will contain an anchor tag with Dynamic Media with OpenAPI delivery URL.
 
 ### A New Definition in `component-definition.json`
+> :information_source: This step is only necessary if you are adding a new component. If you are adding the Custom Asset Picker to an existing component, you can skip this step.
 
 ```
 {
@@ -125,10 +127,12 @@ In addition to the component model definition for Dynamic Media with OpenAPI Del
 }
 ```
 
-Note that the value of model is the id of model we created in `component-models.json`
+Note that the value of model is the id of model we created in `component-models.json`.
 - `title` will show up as component name in `➕` (add component) button menu present on right side panel of universal editor.
 
 ## Entry in `component-filters.json`
+> :information_source: This step is only necessary if you are adding a new component. If you are adding the Custom Asset Picker to an existing component, you can skip this step.
+
 
 ```
 [

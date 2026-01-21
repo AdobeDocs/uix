@@ -27,7 +27,7 @@ const guestConnection = await register({
                     id: "my.company.custom-widget",
                     title: "My Custom Widget",
                     description: "A custom widget for Experience Hub",
-                    url: '/index.html#/projectName',
+                    url: '/index.html#/widget',
                     widgetSize: {
                       defaultWidth: 6,
                       defaultHeight: 6
@@ -39,6 +39,8 @@ const guestConnection = await register({
     },
 });
 ```
+
+![experience-hub-dashboard-widget](experience-hub-dashboard-widget.png)
 
 ## API Reference
 

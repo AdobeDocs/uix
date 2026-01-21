@@ -167,7 +167,7 @@ After those steps, we will have a generated project structure with necessary npm
                 |   |-- App.js
                 |   |-- Constants.js
                 |   |-- ExtensionRegistration.js
-                |   `-- Hello.js
+                |   `-- DashboardWidget.js
                 |-- index.css
                 |-- index.js
                 `-- utils.js
@@ -291,9 +291,9 @@ The `src/aem-launchpad-1/web-src/src/components/DashboardWidget.js` component is
 ```js
 import { Text } from "@adobe/react-spectrum";
 
-export default function HelloWorld() {
+export default function DashboardWidget() {
   return (
-    <Text>Hello, demo-extension-project</Text>
+    <Text>Dashboard widget for demo-extension-project</Text>
   );
 }
 ```

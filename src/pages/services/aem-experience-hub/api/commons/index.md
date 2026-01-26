@@ -50,21 +50,41 @@ Currently, the following **namespace** is available:
   - _dashboard_, that allows to add custom widgets and customize the dashboard layout
 
 ```js
+import { Text } from "@adobe/react-spectrum";
 import { register } from "@adobe/uix-guest";
+import metadata from '../../../../app-metadata.json';
+import { extensionId } from "./Constants";
 
-// ...
+function ExtensionRegistration() {
+  const init = async () => {
+    const guestConnection = await register({
+      id: extensionId,
+      metadata,
+      methods: {
+        dashboard: {
+          getWidget() {
+            return {
+                id: extensionId,
+                title: 'demo-extension-project',
+                description: 'This is demo-extension-project',
+                url: '/index.html#/demo-extension-project',
+                widgetSize: {
+                  defaultWidth: 6,
+                  defaultHeight: 6
+                },
+                hideWidgetHeader: false
+              };
+          },
+        },
+      },
+    });
+  };
+  init().catch(console.error);
 
-      const guestConnection = await register({
-        id: "extension-id",
-        methods: {
-          dashboard: {
-            getWidget() {
-              // ..
-            }
-          }
-        }
-      });
-// ...
+  return <Text>IFrame for integration with Host (AEM)...</Text>
+}
+
+export default ExtensionRegistration;
 ```
 ## Building Extension UI
 

@@ -47,9 +47,9 @@ Hub and extension and needed if extension provides custom UI.
 - `methods` - objects with extension code exposed to the Experience Hub. All methods are grouped into 
 namespaces that represents extension points provided by the Experience Hub.
 Currently, the following **namespace** is available:
-  - _dashboard_, that allows to add custom widgets and customize the dashboard layout
+  - **dashboard**, that allows to add custom widgets and customize the dashboard layout
 
-```js
+```jsx
 import { Text } from "@adobe/react-spectrum";
 import { register } from "@adobe/uix-guest";
 import metadata from '../../../../app-metadata.json';
@@ -90,12 +90,45 @@ export default ExtensionRegistration;
 
 In cases where a UI Extension manages data or sends data to a remote service, the register method is the only one expected to be called. If the UI Extension includes its own interface and it needs data from Experience Hub or needs to trigger any logic, it should establish a connection using the `attach` method.
 
-```js
+```jsx
+import React, { useEffect, useState } from 'react';
 import { attach } from "@adobe/uix-guest";
+import { TextField, Button } from '@adobe/react-spectrum';
+import { extensionId } from "./Constants";
+import FormService from "./FormService";
 
-const connection = await attach({ id: "extension-id" });
-const programId = await connection.sharedContext.get("programId");
-const environmentId = await connection.sharedContext.get("environmentId");
+export default function ExtensionForm() {
+  const [prompt, setPrompt] = useState('');
+  const [guestConnection, setGuestConnection] = useState();
+
+  const handleSubmit = async () => {
+    const instanceInfo = await guestConnection.host?.instance?.info();
+    const {programId, environmentId} = instanceInfo ?? {};
+    FormService.post(prompt, programId, environmentId);
+  }
+
+  useEffect(() => {
+    const init = async () => {
+      const connection = await attach({ id: extensionId });
+      setGuestConnection(connection);
+    }
+
+    init().catch(console.error);
+  }, [])
+
+  return (
+    <div className="extension-form">
+      <TextField
+        label="Prompt"
+        value={prompt}
+        onChange={setPrompt}
+      />
+      <Button onPress={handleSubmit}>
+        Submit
+      </Button>
+    </div>
+  );
+}
 ```
 
 ## Set up communication with Experience Hub

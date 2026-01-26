@@ -88,18 +88,17 @@ export default ExtensionRegistration;
 ```
 ## Building Extension UI
 
-In cases where a UI Extension manages data or sends data to a remote service, the register method is the only one expected to be called. If the UI Extension includes its own interface, it should be presented on a separate page. If this interface needs data from the Experience Hub or needs to trigger any logic, it should establish a connection using the attach method.
+In cases where a UI Extension manages data or sends data to a remote service, the register method is the only one expected to be called. If the UI Extension includes its own interface and it needs data from Experience Hub or needs to trigger any logic, it should establish a connection using the `attach` method.
 
 ```js
 import { attach } from "@adobe/uix-guest";
 
 const connection = await attach({ id: "extension-id" });
-const state = await connection.host.dashboardState.get();
-const token = await connection.sharedContext.get("token");
-const preferences = await connection.host.userPreferences.get();
+const programId = await connection.sharedContext.get("programId");
+const environmentId = await connection.sharedContext.get("environmentId");
 ```
 
 ## Set up communication with Experience Hub
 
 Both `register` and `attach` function of `@adobe/uix-guest` returns same connection object that has `host` property and
-expose API of Experience Hub exposed for UI Extensions. Through this api you can access data from the Experience Hub as well as send data to it.
+expose API of Experience Hub exposed for UI Extensions. Through this API you can access data from the Experience Hub as well as send data to it.

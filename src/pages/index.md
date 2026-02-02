@@ -86,6 +86,10 @@ Learn to distribute and manage your extension for users
 
 ## Explore Extensible Services
 
+[AEM Experience Hub](services/aem-experience-hub/)
+
+Start building extensions for AEM Experience Hub
+
 [AEM Content Fragments Console](services/aem-cf-console-admin/)
 
 Start building extensions for AEM Content Fragments console

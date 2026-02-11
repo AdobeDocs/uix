@@ -34,6 +34,7 @@ You can send events to the remote application using the `triggerEvent` method.
 ### TriggerEvent API
 
 | Field    | Type                                                                        | Required | Description                                                                                                                   |
+| ---- | ---- | ---- | ---- |
 | eventName | `string` | ✔️ | Name of the event | 
 | selector  | `string` | ✔️ | A valid CSS selector string|
 | payload  | Serializable `object`| An object that, in addition of the properties defined in the Event Constructor |

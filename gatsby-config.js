@@ -300,8 +300,8 @@ module.exports = {
             path: "/services/aem-universal-editor/api/properties-rails/"
           },
           {
-            title: "Overriding Default Rendering of Item Types",
-            path: "/services/aem-universal-editor/api/item-types-renderers/"
+            title: "Custom data types in Properties Rail",
+            path: "/services/aem-universal-editor/api/custom-datatypes/"
           },
           {
             title: "Working with events",

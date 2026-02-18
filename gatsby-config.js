@@ -49,6 +49,10 @@ module.exports = {
             title: "AEM Assets View",
             path: "/services/aem-assets-view/"
           },
+          {
+            title: "AEM Experience Hub",
+            path: "/services/aem-experience-hub/"
+          },
         ]
       },
       {
@@ -316,6 +320,28 @@ module.exports = {
             path: "/services/aem-universal-editor/api/actions/"
           }
         ]
+      },
+      {
+        title: "AEM Experience Hub",
+        path: "/services/aem-experience-hub/"
+      },
+      {
+        title: "Extension Points",
+        path: "/services/aem-experience-hub/api/",
+        pages: [
+          {
+            title: "Common Concepts",
+            path: "/services/aem-experience-hub/api/commons/"
+          },
+          {
+            title: "Dashboard",
+            path: "/services/aem-experience-hub/api/dashboard/"
+          }
+        ]
+      },
+      {
+        title: "Step-by-step Extension Development",
+        path: "/services/aem-experience-hub/extension-development/"
       },
     ]
   },

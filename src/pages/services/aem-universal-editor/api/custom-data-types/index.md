@@ -1,5 +1,5 @@
 ---
-title: Custom item types renderers for properties rail - Universal Editor Extensibility
+title: Custom data types renderers for properties rail - Universal Editor Extensibility
 description: Discover how to personalize the user interface of a data type field within the properties rail of Universal Editor.
 contributors:
   - https://github.com/AdobeDocs/uix
@@ -12,10 +12,12 @@ The custom UI is rendered in an iframe and replaces the standard UI for the fiel
 
 ![](./custom-renderer-field.png)
 
-## Define override rules
+## Define data types
 
-An UIX extension can define a custom renderer to replace the standard UI  with an iframe, which then renders the custom UI provided by the extension.
-Check this document to learn about available [data types for universal editor](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/attributes-types#item-types). 
+An UIX extension can be used to introduce new data types or replace the standard data type renderer shipped with the Universal Editor.
+The newly created data type will be rendered in an iframe using the custom UI provided by the extension.
+
+Check this document to learn about available [data types for Universal Editor](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/field-types#component-types). 
 ```js
 function ExtensionRegistration() {
   const init = async () => {
@@ -82,7 +84,7 @@ function App() {
 export default App
 ```
 
-2. Implement custom field renderer
+2. Implement custom data type
 
 ```js
 export default () => {
@@ -161,7 +163,7 @@ export default () => {
 | Field       | Type     | Required | Description                                                                                                                                                               |
 |-------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | url         | `string` |  ✔️     | URL of the page to load in the iframe that will replace the original field. The URL must have the same origin as the extension declaring the rules for field replacement. |
-| dataType    | `string` |  ✔️     | Value of `data-aue-type`                                                                                                                                                                 |
+| dataType    | `string` |  ✔️     | Value of `component` in the model definition                                            |
 | icon        | `string`  |         | Icons to be displayed in the properties rail if data type is matched.                                                                                                     |
 ## Field Reference
 

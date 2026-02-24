@@ -5,7 +5,9 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Rich Text Editor Color Picker
+# Rich Text Editor Color Picker (DEPRECATED)
+
+**Note: This feature has been deprecated due to the planned change of the underlying Rich Text Editor which will come with a new extensibility API.**
 
 The functionality allows extensions to set up predefined lists of colors for the color picker feature.
 

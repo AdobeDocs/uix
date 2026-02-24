@@ -5,7 +5,9 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Rich Text Editor Toolbar
+# Rich Text Editor Toolbar (DEPRECATED)
+
+**Note: This feature has been deprecated due to the planned change of the underlying Rich Text Editor which will come with a new extensibility API.**
 
 The Rich Text Editor (RTE) is an essential component of the [Content Fragment Editor](../../). By utilizing toolbar extensions, clients can add custom buttons that can modify the content according to their specific requirements.
 

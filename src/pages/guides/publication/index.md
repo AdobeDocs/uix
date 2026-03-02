@@ -6,7 +6,7 @@ contributors:
 ---
 # Publish and Manage the UI Extensions
 
-After you've completed [developing and testing](../development-flow) your application, you're ready to deploy to production and publish it.
+After you've completed [developing and testing](../development-flow/index.md) your application, you're ready to deploy to production and publish it.
 
 ## Deploy on Production (CLI)
 
@@ -133,7 +133,7 @@ This code snippet demonstrates how to retrieve `repo` parameter and prevent exte
 
 ## Additional Resources
 
-- [UI Extensions Development Flow](../development-flow)
-- [UI Extensibility Overview](../../)
-- [Troubleshooting](../../services/aem-cf-console-admin/debug)
+- [UI Extensions Development Flow](../development-flow/index.md)
+- [UI Extensibility Overview](../../index.md)
+- [Troubleshooting](../../services/aem-cf-console-admin/debug/index.md)
 - [FAQ](../../overview/faq)

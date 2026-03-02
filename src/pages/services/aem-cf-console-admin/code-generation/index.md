@@ -19,7 +19,7 @@ Template provides code generation capabilities targeted to 3 main developers gro
 
 <InlineAlert slots="text" />
 
-You need to have AIO CLI version >= 9.1.0 to use the available templates. Please refer to [Local Environment Set Up](../../../guides/local-environment).
+You need to have AIO CLI version >= 9.1.0 to use the available templates. Please refer to [Local Environment Set Up](../../../guides/local-environment/index.md).
 
 You may access code generation functionality during project initialization. 
 

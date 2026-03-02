@@ -44,7 +44,7 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 
 ### Host API Reference
 
-In addition to the [Common API](../commons) provided by AEM Assets View to all extensions, 
+In addition to the [Common API](../commons/index.md) provided by AEM Assets View to all extensions, 
 the host application provides the following API specific to the `aem/assets/details/1` extension point 
 and the [`detailSidePanel`](#detailsidepanel-namespace) namespace.
 

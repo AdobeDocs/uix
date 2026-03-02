@@ -53,7 +53,7 @@ By non-production we mean `dev`, `stage` and `rde` environments.
 ## Extensions Listing
 Once you're on the [Extension Manager](https://experience.adobe.com/aem/extension-manager) home page, you can explore the list of AEM programs and environments available for your organization. Go ahead and select a program and an environment to display the available extensions.
 
-For a deep dive into the Extension Manager's capabilities, head to the [Feature Highlights](feature-highlights) section.
+For a deep dive into the Extension Manager's capabilities, head to the [Feature Highlights](feature-highlights/index.md) section.
 
 ## Contact and Support
 

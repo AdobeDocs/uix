@@ -13,7 +13,7 @@ It's useful in case where we want to enable authors to select assets of certain 
 ## Extension Overview
 ![Asset picker](asset-picker-extension.gif)
 
-This extension enhances [Universal Editor](../../../services/aem-universal-editor/) properties panel for media elements. It replaces standard asset picker with a custom version of asset picker, with provided configuration applied while selecting assets.
+This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces standard asset picker with a custom version of asset picker, with provided configuration applied while selecting assets.
 
 The extension will enable you to list the repositories your authors will be able to pick from.
 

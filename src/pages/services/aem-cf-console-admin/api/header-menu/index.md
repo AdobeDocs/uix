@@ -7,7 +7,7 @@ contributors:
 
 # Header Menu
 
-The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
+The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../index.md) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
 
 ![Header Menu](header-menu.png)
 

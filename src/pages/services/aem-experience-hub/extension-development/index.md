@@ -11,10 +11,10 @@ The document helps you understand how to set up local environment and start deve
 
 ## About application
 
-This example application will use the [dashboard widget extension point](../api/dashboard). It will render
+This example application will use the [dashboard widget extension point](../api/dashboard/index.md). It will render
 a custom widget in the Experience Hub dashboard.
 
-More information about AEM Experience Hub extension points can be found at [Experience Hub Extension Points](../api).
+More information about AEM Experience Hub extension points can be found at [Experience Hub Extension Points](../api/index.md).
 
 ## Create a project in Adobe Developer Console
 
@@ -22,7 +22,7 @@ UI Extensions, as with any App Builder application, are represented as projects 
 
 <InlineAlert slots="text" />
 
-If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
+If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access/index.md) guide for instructions.
 
 To begin, we need to create a new Project which will supply us with the configuration and resources.
 
@@ -98,7 +98,7 @@ If your version is outdated, update your `Adobe I/O CLI` by running
 npm install -g @adobe/aio-cli
 ```
 
-More details are described in [Local environment set up](../../../guides/local-environment).
+More details are described in [Local environment set up](../../../guides/local-environment/index.md).
 
 ## Initialize your extension using the AIO CLI and generate a base structure from the template
 
@@ -282,7 +282,7 @@ export default ExtensionRegistration;
 We use the [UIX SDK Guest library](https://github.com/adobe/uix-sdk) and call the `register()` function, which connects to the host application
 and declares methods the host can call on the extension. 
 
-The extension descriptor passed to the `register()` function declares the [`getWidget()`](../api/dashboard/#extension-api-reference) method, which in turns returns the configuration of the widget.
+The extension descriptor passed to the `register()` function declares the [`getWidget()`](../api/dashboard/index.md#extension-api-reference) method, which in turns returns the configuration of the widget.
 
 ### Dashboard widget
 
@@ -369,10 +369,10 @@ and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/de
 ## Deploy on Production
 
 After the application has been completed, tested locally, and on `Stage`: we are ready to deploy it to `Production`.
-Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
+Refer to the [UI Extensions Development Flow](../../../guides/development-flow/index.md#deploy-on-production) to learn how to do this.
 
 ## Additional resources
 
-- [UI Extensions Development Flow](../../../guides/development-flow)
-- [UI Extensions Management](../../../guides/publication)
-- [FAQ](../../../getting-started/faq/)
+- [UI Extensions Development Flow](../../../guides/development-flow/index.md)
+- [UI Extensions Management](../../../guides/publication/index.md)
+- [FAQ](../../../getting-started/faq/index.md)

@@ -24,7 +24,7 @@ After clicking on buttons we would like to show some content in a pop-up:
 
 ![UI pop-up](introduction-1.png)
 
-More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../../../services/aem-cf-console-admin/api).
+More information about [AEM](https://experienceleague.adobe.com/docs/experience-manager.html) extension points can be found at [AEM Content Fragments Console Extension Points](../api/index.md).
 
 ## Create a project in Adobe Developer Console
 
@@ -32,7 +32,7 @@ UI Extensions, as with any App Builder application, are represented as projects 
 
 <InlineAlert slots="text" />
 
-If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
+If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access/index.md) guide for instructions.
 
 To begin, we need to create a new Project which will supply us with the configuration and resources.
 
@@ -108,7 +108,7 @@ If your version is outdated, update your `Adobe I/O CLI` by running
 npm install -g @adobe/aio-cli
 ```
 
-More details are described in [Local environment set up](../../../guides/local-environment).
+More details are described in [Local environment set up](../../../guides/local-environment/index.md).
 
 ## Initialize our application using the CLI and generate a base structure from template
 
@@ -233,7 +233,7 @@ function ExtensionRegistration() {
 }
 ```
 
-More details about [declaration API](../api/).
+More details about [declaration API](../api/index.md).
 
 We use the [UIX SDK Guest library](https://github.com/adobe/uix-sdk) and call the `register` method, which connects to the host and declares methods the host can call. The `getButtons()` method describes the buttons which we want to add to the AEM admin panel.
 In our extension we would like to add two buttons, We define the title of each button, its icon, and an `onClick` handler that will be run inside of the application.
@@ -345,7 +345,7 @@ const guestConnection = await attach({ id: "aem-headless-ui-ext-examples" });
 guestConnection.host.modal.close();
 ```
 
-Additional information can be found in [Connection Object section](../api/#connection-object).
+Additional information can be found in [Connection Object section](../api/index.md#connection-object).
 
 ## Additional logic
 
@@ -361,7 +361,7 @@ That means that it could be reused by different views. Actions can also contain 
 
 <InlineAlert variant="warning" slots="text" />
 
-For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons).
+For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons/index.md).
 
 ## Test on local environment
 
@@ -467,13 +467,13 @@ and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/de
 ## Deploy on Production and create approval request
 
 After the application has been completed, tested locally, and on `Stage`: we are ready to deploy it to `Production`.
-Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
+Refer to the [UI Extensions Development Flow](../../../guides/development-flow/index.md#deploy-on-production) to learn how to do this.
 
 Also in this document you can find the whole development flow of a UI Extensions.
 
 ### Additional resources
 
-- [UI Extensions Development Flow](../../../guides/development-flow)
-- [UI Extensions Management](../../../guides/publication)
-- [Troubleshooting](../debug)
+- [UI Extensions Development Flow](../../../guides/development-flow/index.md)
+- [UI Extensions Management](../../../guides/publication/index.md)
+- [Troubleshooting](../debug/index.md)
 - [FAQ](../../../overview/faq)

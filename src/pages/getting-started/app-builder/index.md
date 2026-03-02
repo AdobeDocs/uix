@@ -20,7 +20,7 @@ It uses modern technologies (JAM stack, serverless computing, Node, and React) a
 
 
 ## Introduction to Extensions
-Adobe products, like [AEM Content Fragments Console](../../services/aem-cf-console-admin), can define how they'd like customers to extend the product through App Builder Applications (what operations are allowed, what data format is expected, etc).
+Adobe products, like [AEM Content Fragments Console](../../services/aem-cf-console-admin/index.md), can define how they'd like customers to extend the product through App Builder Applications (what operations are allowed, what data format is expected, etc).
 From the developer's point of view, the developer will be able to build applications using these `Extension Points` that match the requirements of the product.
 
 In other words, we can say that this is a contract between an Adobe product and an App Builder application.
@@ -31,20 +31,20 @@ In other words, we can say that this is a contract between an Adobe product and 
 
 - [Experience Cloud UI Extension Point](https://developer.adobe.com/app-builder/docs/guides/extensions/#experience-cloud-ui-extension-point)
 - [AEM Asset Microservices Extension Point](https://developer.adobe.com/app-builder/docs/guides/extensions/#aem-asset-microservices-extension-point)
-- [AEM Content Fragments Console Extension Point](../../services/aem-cf-console-admin/api)
-- [AEM Assets View Extension Point](../../services/aem-assets-view/api)
+- [AEM Content Fragments Console Extension Point](../../services/aem-cf-console-admin/api/index.md)
+- [AEM Assets View Extension Point](../../services/aem-assets-view/api/index.md)
 
 ## UI Extensibility
 
 As stated above, UI extensions are a special case of App Builder applications.
 
-As an example, using the [AEM Content Fragments Console Extension Point](../../services/aem-cf-console-admin/api), we can customize navigation, add our own actions on the [Content Fragments Console](../../services/aem-cf-console-admin) and implement custom UI via Modals, etc.
+As an example, using the [AEM Content Fragments Console Extension Point](../../services/aem-cf-console-admin/api/index.md), we can customize navigation, add our own actions on the [Content Fragments Console](../../services/aem-cf-console-admin/index.md) and implement custom UI via Modals, etc.
 ![UI Extensibility in AEM Content Fragments Console](published-extension.png)
 
-More details are described in [AEM Content Fragments Console Extension Points](../../services/aem-cf-console-admin/api).
+More details are described in [AEM Content Fragments Console Extension Points](../../services/aem-cf-console-admin/api/index.md).
      
 ### Additional resources
-- [UI Extensions Development Flow](../../guides/development-flow)
-- [UI Extensions Management](../../guides/publication)
+- [UI Extensions Development Flow](../../guides/development-flow/index.md)
+- [UI Extensions Management](../../guides/publication/index.md)
 - [FAQ](../../overview/faq)
 - [Introduction to Extensions](https://developer.adobe.com/app-builder/docs/guides/extensions/)

@@ -11,7 +11,7 @@ This extension expands functionality by leveraging extension points and introduc
 
 ##  Extension overview
 
-The extension enhances two AEM services: [AEM Content Fragments Console](../../../services/aem-cf-console-admin/) and [AEM Content Fragment Editor](../../../services/aem-cf-editor/). It adds a button to the `Action Bar` for the Content Fragments Console and a button to the `Header Menu` for the AEM Content Fragment Editor.
+The extension enhances two AEM services: [AEM Content Fragments Console](../../../services/aem-cf-console-admin/index.md) and [AEM Content Fragment Editor](../../../services/aem-cf-editor/index.md). It adds a button to the `Action Bar` for the Content Fragments Console and a button to the `Header Menu` for the AEM Content Fragment Editor.
 
 When clicked, it opens a modal dialog through which you can initiate a workflow.
 

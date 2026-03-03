@@ -73,7 +73,7 @@
         - [Header Menu](/services/aem-universal-editor/api/header-menu/index.md)
         - [Modal Dialogs](/services/aem-universal-editor/api/modal/index.md)
         - [Custom panels in Properties Rail](/services/aem-universal-editor/api/properties-rails/index.md)
-        - [Custom data types in Properties Rail](/services/aem-universal-editor/api/custom-datatypes.md)
+        - [Custom data types in Properties Rail](/services/aem-universal-editor/api/custom-data-types/index.md)
         - [Working with events](/services/aem-universal-editor/api/events/index.md)
         - [Retrieving Data from the Universal Editor](/services/aem-universal-editor/api/data/index.md)
         - [Triggering Universal Editor actions from the extension](/services/aem-universal-editor/api/actions/index.md)

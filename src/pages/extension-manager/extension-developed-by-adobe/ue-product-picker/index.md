@@ -11,7 +11,7 @@ This extension for the [Universal Editor](https://experienceleague.adobe.com/en/
 
 ## Functionality Overview:
 
-- The extension replaces [the standard UI](https://developer.adobe.com/uix/docs/services/aem-universal-editor/api/item-types-renderers/) for any product field type component in the properties rail with a new component UI.
+- The extension replaces [the standard UI](https://developer.adobe.com/uix/docs/services/aem-universal-editor/api/customer-data-types/) for any product field type component in the properties rail with a new component UI.
 - The product picker extension adds a button to the [properties panel of the Universal Editor](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/authoring/universal-editor/navigation#properties-rail) to open the catalog for adding new products or changing selected items.
 - Clicking the button lets users navigate through categories, select products from any category, or use search functionality to find specific products.
 - Utilizes components from [Adobe React Spectrum](https://react-spectrum.adobe.com/react-spectrum/index.html).

@@ -6,7 +6,7 @@ contributors:
 ---
 
 
-<Hero slots="image, heading, text" background="70,76,98"/>
+<Superhero slots="image, heading, text" background="70,76,98"/>
 
 ![](banner.png)
 

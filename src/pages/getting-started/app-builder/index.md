@@ -46,5 +46,5 @@ More details are described in [AEM Content Fragments Console Extension Points](.
 ### Additional resources
 - [UI Extensions Development Flow](../../guides/development-flow/index.md)
 - [UI Extensions Management](../../guides/publication/index.md)
-- [FAQ](../../overview/faq)
+- [FAQ](../../getting-started/faq/index.md)
 - [Introduction to Extensions](https://developer.adobe.com/app-builder/docs/guides/extensions/)

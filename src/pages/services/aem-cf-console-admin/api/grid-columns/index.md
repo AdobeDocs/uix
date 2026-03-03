@@ -45,14 +45,14 @@ const guestConnection = await register({
 | id             | `string`                             | —       | ✔️       | Id of the column, must be unique between all extensions                                                                                                 |
 | label          | `string`                             | —       | ✔️       | Label of the column (shown in table header)                                                                                                             |
 | render         | `function`                           | —       | ✔️       | Function that will be used to render the column content                                                                                                 |
-| align          | `start` <br /> `center` <br /> `end` | `start` |          | Text alignment in column                                                                                                                                |
+| align          | `start` \<br/\> `center` \<br/\> `end` | `start` |          | Text alignment in column                                                                                                                                |
 | allowsResizing | `boolean`                            | `false` |          | Whether the column allows resizing                                                                                                                      |
 | allowsToggle   | `boolean`                            | `true`  |          | Whether the user can hide column via the column toggle dialog                                                                                           |
 | hideHeader     | `boolean`                            | `false` |          | Whether the header label should be hidden (for item action columns)                                                                                     |
 | showDivider    | `boolean`                            | `false` |          | Show divider between column and next column (i.e. on the right side)                                                                                    |
-| width          | `number`<br /> `string`              | —       |          | Width (fixed) of the table column. It can be a static number (e.g. 100 which translates to 100px) or a percentage (e.g. '100%')                         |
-| minWidth       | `number`<br /> `string`              | —       |          | Min width of the column                                                                                                                                 |
-| maxWidth       | `number`<br /> `string`              | —       |          | Max width of the column                                                                                                                                 |
+| width          | `number`\<br/\> `string`              | —       |          | Width (fixed) of the table column. It can be a static number (e.g. 100 which translates to 100px) or a percentage (e.g. '100%')                         |
+| minWidth       | `number`\<br/\> `string`              | —       |          | Min width of the column                                                                                                                                 |
+| maxWidth       | `number`\<br/\> `string`              | —       |          | Max width of the column                                                                                                                                 |
 
 ## Render Function
 

@@ -101,4 +101,4 @@ By default, only the logs from the most recent runs are retrieved. If you need t
 
 - [UI Extensibility Overview](../../index.md)
 - [UI Extensions Development Flow](../development-flow/index.md)
-- [FAQ](../../overview/faq/)
+- [FAQ](../../getting-started/faq/index.md)

@@ -171,5 +171,5 @@ After removing the project, the extension is not visible anymore in Extension Ma
 - [Step-by-step Extension Development Guide in AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/index.md)
 - [Step-by-step Extension Development Guide in AEM Assets View](../../services/aem-assets-view/extension-development/index.md)
 - [UI Extensibility Overview](../../index.md)
-- [FAQ](../../overview/faq/)
+- [FAQ](../../getting-started/faq/index.md)
 

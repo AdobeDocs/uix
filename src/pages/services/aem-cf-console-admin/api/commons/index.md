@@ -119,7 +119,7 @@ guestConnection.host.toaster.display({
 
 | Field   | Type                                                        | Required | Description                                                                                                                      |
 |---------|-------------------------------------------------------------| -------- |----------------------------------------------------------------------------------------------------------------------------------|
-| variant | `neutral` <br /> `info` <br /> `negative` <br /> `positive` | ✔️    | Defines type of the message, based on this parameter message will be shown in a different color and different icon               |
+| variant | `neutral` \<br/\> `info` \<br/\> `negative` \<br/\> `positive` | ✔️    | Defines type of the message, based on this parameter message will be shown in a different color and different icon               |
 | message | `string`                                                    | ✔️    | Text of the message                                                                                                              |
 | timeout | `number`                                                    |     | An optional timeout in milliseconds when message should automatically disappear. If not set, default timeout value will be used. |
 

@@ -292,7 +292,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 The Asset Selector doesn't behave as configured (missing filters, unexpected AEM repositories, undesirable selection actions, etc. - essentially any/everything defined in [this configuration file](https://developer.adobe.com/uix/docs/extension-manager/extension-developed-by-adobe/configurable-asset-picker/#configuration-file) not be honored)
 
 **Diagnosis:**
-The most common issue behind the behaviour above is (CORS)[https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors] (Cross-Origin Resource Sharing) errors when fetching the configuration file.
+The most common issue behind the behaviour above is [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors) (Cross-Origin Resource Sharing) errors when fetching the configuration file.
 
 **When to check for CORS errors:**
 - The configuration is not being applied correctly
@@ -312,7 +312,7 @@ Configuration files hosted on third-party domains (from the perspective of `expe
 
 If your configuration file is being served from an Edge Delivery Services (EDS) site with `*.aem.page` domain (e.g., `https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json`), you need to add the appropriate CORS headers to allow the Universal Editor to fetch the configuration.
 
-Add the [required headers] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
+Add the [required headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) to your EDS site by following the instructions in the [AEM Custom HTTP Response Headers documentation](https://www.aem.live/docs/custom-headers).
 
 Issue the following `curl` and note the presence of `Access-Control-Allow-Origin: https://experience.adobe.com` in the [response headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin). e.g., if the `configUrl` is https://main--xwalk-test-gems--githubusername.aem.page/tools/assets-selector/image.config.json, the execution of the command below on a terminal-window should look like:
 

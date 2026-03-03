@@ -13,10 +13,10 @@ To add your own business cases implementation to Adobe Service through UI Extens
 1. Access to Adobe Service that implemented UI Extensibility, e.g. [Adobe Experience Manager Content Fragments Console](../../services/aem-cf-console-admin/index.md).
 2. Access to Adobe App Builder in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
-In order to [create UI extension](../guides/development-flow/) for their own IMS organization user should have a **developer** role in the AEM or Adobe I/O Runtime product profiles at [Adobe Admin Console](https://adminconsole.adobe.com/).
+In order to [create UI extension](../development-flow/index.md) for their own IMS organization user should have a **developer** role in the AEM or Adobe I/O Runtime product profiles at [Adobe Admin Console](https://adminconsole.adobe.com/).
 Having such a developer or admin role for the user will also grant access to [Adobe Developer Console](https://developer.adobe.com/console/).
 
-Pay attention that implementing and deploying UI Extension is not enough. To enable UI Extension for all IMS organization members it should be [published](../guides/publication/) by the IMS organization **system admin** at [Adobe Exchange](https://exchange.adobe.com/).
+Pay attention that implementing and deploying UI Extension is not enough. To enable UI Extension for all IMS organization members it should be [published](../publication/index.md) by the IMS organization **system admin** at [Adobe Exchange](https://exchange.adobe.com/).
 
 ### Access AEM Content Fragments Console
 

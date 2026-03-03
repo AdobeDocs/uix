@@ -97,8 +97,10 @@ rte: {
 | id | `button-id` | ✔️    | The `id` of a button. See avaialble button ids in a section below |
 | toolbarGroup | `number` |     | An optional index of tabgroup to work with |
 
-<details>
-  <summary>Available button ids</summary>
+Details
+
+Available button ids
 
 `aligncenter` |  `alignjustify` |  `alignleft` |  `alignnone` |  `alignright` | `assetpicker` | `blockquote` |  `backcolor` |  `bold` |  `copy` |  `cut` |  `fontselect` |  `fontsizeselect` |  `forecolor` |  `formatselect` |  `h1` |  `h2` |  `h3` |  `h4` |  `h5` |  `h6` |  `indent` |  `italic` |  `language` |  `lineheight` |  `newdocument` |  `outdent` |  `paste` |  `redo` |  `remove` |  `removeformat` |  `selectall` |  `strikethrough` |  `styleselect` |  `subscript` |  `superscript` |  `underline` |  `undo` |  `visualaid` |  `pastetext` |  `link` |  `openlink` |  `unlink` |  `table` |  `tablecellprops` |  `tablecopyrow` |  `tablecutrow` |  `tabledelete` |  `tabledeletecol` |  `tabledeleterow` |  `tableinsertdialog` |  `tableinsertcolafter` |  `tableinsertcolbefore` |  `tableinsertrowafter` |  `tableinsertrowbefore` |  `tablemergecells` |  `tablepasterowafter` |  `tablepasterowbefore` |  `tableprops` |  `tablerowprops` |  `tablesplitcells` |  `tableclass` |  `tablecellclass` |  `tablecellvalign` |  `tablecellborderwidth` |  `tablecellborderstyle` |  `tablecaption` |  `tablecellbackgroundcolor` |  `tablecellbordercolor` |  `tablerowheader` |  `tablecolheader` |  `code` |  `fullscreen` |  `bullist` |  `numlist` |  `charmap` |  `preview` |  `searchreplace` |  `visualblocks` |  `insertdatetime` |  `media` |  `anchor` |
-</details>
+
+END Details

@@ -29,7 +29,7 @@ Learn about modal host API methods that can be used in any extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Custom data types renderers for properties rail](item-types-renderers)
+[Custom data types renderers for properties rail](custom-data-types/index.md)
 
 Learn how to customize the user interface of a data type field within the properties rail of Universal Editor.
 

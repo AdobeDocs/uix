@@ -11,13 +11,13 @@ This section covers the utilization of existing extension points, extension regi
 
 <DiscoverBlock slots="link, text"/>
 
-[Common Concepts in Creating Extensions](commons)
+[Common Concepts in Creating Extensions](commons/index.md)
 
 Learn about common concepts, extension registration, and methods that can 
 be used in any extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Dashboard](dashboard)
+[Dashboard](dashboard/index.md)
 
 Explore the ways to extend and customize Experience Hub dashboard

@@ -11,6 +11,6 @@ contributors:
 
 UI Extensibility allows developers to enhance and customize the Experience Hub interface with modern front-end technology stack using JavaScript, Node.js, and React.
 
-In this section, you will find the available [extension points](api) and examples of how to utilize them to create personalized experiences within Experience Hub.
+In this section, you will find the available [extension points](api/index.md) and examples of how to utilize them to create personalized experiences within Experience Hub.
 
 ![experience-hub](experience-hub.png)

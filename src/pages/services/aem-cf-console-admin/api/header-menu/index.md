@@ -7,7 +7,7 @@ contributors:
 
 # Header Menu
 
-The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
+The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../index.md) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
 
 ![Header Menu](header-menu.png)
 
@@ -128,7 +128,7 @@ const guestConnection = await register({
 | id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
 | label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
 | icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
-| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
+| variant  | `cta` \<br/\> `primary` \<br/\> `secondary` \<br/\> `negative` \<br/\> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
 | subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
 

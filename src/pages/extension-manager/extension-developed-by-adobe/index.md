@@ -9,30 +9,30 @@ Welcome to the Extensions Developed By Adobe! Explore user guides here to learn 
 
 <DiscoverBlock slots="link, text"/>
 
-[Exporting Content Fragment to Adobe Target](exporting-content-fragment-to-adobe-target)
+[Exporting Content Fragment to Adobe Target](exporting-content-fragment-to-adobe-target/index.md)
 
 Explore Exporting Content Fragments to Adobe Target
 
 <DiscoverBlock slots="link, text"/>
 
-[Content Fragments workflows](content-fragments-workflows)
+[Content Fragments workflows](content-fragments-workflows/index.md)
 
 Explore enhanced functionality in the Content Fragments Console and AEM Content Fragment Editor, simplifying workflow initiation
 
 <DiscoverBlock slots="link, text"/>
 
-[Universal Editor Content Drafts](universal-editor-content-drafts)
+[Universal Editor Content Drafts](universal-editor-content-drafts/index.md)
 
 Explore the AEM Universal Editor extension that provides a content draft management capabilities.
 
 <DiscoverBlock slots="link, text"/>
 
-[Configurable Asset Picker](configurable-asset-picker)
+[Configurable Asset Picker](configurable-asset-picker/index.md)
 
 Create a configurable, custom asset picker for Universal Editor that is tailored to your need
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Product Picker for Universal Editor](ue-product-picker)
+[AEM Product Picker for Universal Editor](ue-product-picker/index.md)
 
 Bring Adobe Commerce product data into your project effortlessly with the UE extension, allowing you to manage and utilize this data directly within editor.

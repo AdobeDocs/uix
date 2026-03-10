@@ -21,18 +21,18 @@ You can provide documentation feedback by clicking "Log an issue".
 
 <DiscoverBlock slots="link, text"/>
 
-[Common Concepts in Creating Extensions](commons)
+[Common Concepts in Creating Extensions](commons/index.md)
 
 Learn about common concepts, extension registration, and methods that can be used in any extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Browse View](browse-view)
+[Browse View](browse-view/index.md)
 
 Explore the ways to extend and customize Browse View
 
 <DiscoverBlock slots="link, text"/>
 
-[Details View](details-view)
+[Details View](details-view/index.md)
 
 Explore the ways to extend and customize Details View

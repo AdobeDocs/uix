@@ -6,7 +6,7 @@ contributors:
 ---
 
 
-<Hero slots="image, heading, text" background="70,76,98"/>
+<Superhero slots="image, heading, text" background="70,76,98"/>
 
 ![](banner.png)
 
@@ -22,25 +22,25 @@ UI extensions are JavaScript applications built with [Adobe App Builder](https:/
 
 ## Getting Started
 
-[What Are UI Extensions](getting-started/app-builder)
+[What Are UI Extensions](getting-started/app-builder/index.md)
 
 Understand the connection between UI Extensibility and App Builder
 
 <DiscoverBlock slots="link, text"/>
 
-[Why Choose UI Extensibility](getting-started/reason)
+[Why Choose UI Extensibility](getting-started/reason/index.md)
 
 Know why UI Extensibility may be a good solution for you
 
 <DiscoverBlock slots="link, text"/>
 
-[How It Works](getting-started/design)
+[How It Works](getting-started/design/index.md)
 
 Explore how UI Extensibility works
 
 <DiscoverBlock slots="link, text"/>
 
-[FAQ](getting-started/faq)
+[FAQ](getting-started/faq/index.md)
 
 Find answers to most frequent questions about UI Extensibility
 
@@ -48,37 +48,37 @@ Find answers to most frequent questions about UI Extensibility
 
 ## Guides
 
-[Get Access](guides/get-access)
+[Get Access](guides/get-access/index.md)
 
 Discover what is needed to use UI Extensibility
 
 <DiscoverBlock slots="link, text"/>
 
-[Set Up Local Environment](guides/local-environment)
+[Set Up Local Environment](guides/local-environment/index.md)
 
 Prepare your local environment for UI extension development
 
 <DiscoverBlock slots="link, text"/>
 
-[Create a New Project](guides/creating-project-in-dev-console)
+[Create a New Project](guides/creating-project-in-dev-console/index.md)
 
 Discover how to create a project in Adobe Developer Console
 
 <DiscoverBlock slots="link, text"/>
 
-[Create a New Extension](guides/development-flow)
+[Create a New Extension](guides/development-flow/index.md)
     
 Know what to expect when creating a UI Extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Local Preview](guides/preview-extension-locally)
+[Local Preview](guides/preview-extension-locally/index.md)
 
 Discover how to run UI extensions locally and preview result during development
 
 <DiscoverBlock slots="link, text"/>
 
-[Publish and Manage](guides/publication)
+[Publish and Manage](guides/publication/index.md)
     
 Learn to distribute and manage your extension for users
 
@@ -86,23 +86,23 @@ Learn to distribute and manage your extension for users
 
 ## Explore Extensible Services
 
-[AEM Experience Hub](services/aem-experience-hub/)
+[AEM Experience Hub](services/aem-experience-hub/index.md)
 
 Start building extensions for AEM Experience Hub
 
-[AEM Content Fragments Console](services/aem-cf-console-admin/)
+[AEM Content Fragments Console](services/aem-cf-console-admin/index.md)
 
 Start building extensions for AEM Content Fragments console
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Content Fragments Editor](services/aem-cf-editor/)
+[AEM Content Fragments Editor](services/aem-cf-editor/index.md)
 
 Start building extensions for AEM Content Fragments editor
 
 <DiscoverBlock slots="link, text"/>
 
-[Universal Editor](services/aem-universal-editor/)
+[Universal Editor](services/aem-universal-editor/index.md)
 
 Start building extensions for the Universal Editor
 
@@ -114,7 +114,7 @@ Start building extensions for Adobe Commerce Admin
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Assets View](services/aem-assets-view/)
+[AEM Assets View](services/aem-assets-view/index.md)
 
 Start building extensions for AEM Assets View (Assets Ultimate only)
 
@@ -122,7 +122,7 @@ Start building extensions for AEM Assets View (Assets Ultimate only)
 
 ## Experiment
 
-[Extension Manager](extension-manager/)
+[Extension Manager](extension-manager/index.md)
 
 Discover your UI Extensions within the safe playground and experiment with your AEM Sites setup
 

@@ -7,7 +7,7 @@ contributors:
 
 # Action Bar
 
-The Action Bar is an area above the content fragment list in the [Content Fragments Console](../../) that displays action items that can be executed on selected content fragments. These actions may include editing, deleting, exporting, cloning, or publishing content fragments, and the Action Bar appears over the [Header Menu](../header-menu) when one or multiple content fragments are selected.
+The Action Bar is an area above the content fragment list in the [Content Fragments Console](../../index.md) that displays action items that can be executed on selected content fragments. These actions may include editing, deleting, exporting, cloning, or publishing content fragments, and the Action Bar appears over the [Header Menu](../header-menu/index.md) when one or multiple content fragments are selected.
 
 ![Action Bar](action-bar.png)
 

@@ -8,8 +8,8 @@ contributors:
 
 During development, it's important to preview your extension to ensure it meets all requirements and doesn't have any errors. To do so, make sure you meet the following conditions:
 
-1. Access to an [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html) instance. For instructions on how to obtain access, refer to [How to Get Access](../get-access).
-2. You should have an implemented or partially implemented UI extension. Details on how to do it can be found in [Step-by-step Extension Development](../../services/aem-cf-console-admin/extension-development).
+1. Access to an [Adobe Experience Manager (AEM)](https://experienceleague.adobe.com/docs/experience-manager.html) instance. For instructions on how to obtain access, refer to [How to Get Access](../get-access/index.md).
+2. You should have an implemented or partially implemented UI extension. Details on how to do it can be found in [Step-by-step Extension Development](../../services/aem-cf-console-admin/extension-development/index.md).
 
 ## Running UI Extension locally
 
@@ -66,7 +66,7 @@ https://experience.adobe.com/?repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/
 
 ![Contents Fragment Console](../../services/aem-cf-console-admin/cfc-console-overview.png)
 
-For previewing and testing, you don't need to [publish the extension](../publication). Instead, you can add extra parameters in the URL:
+For previewing and testing, you don't need to [publish the extension](../publication/index.md). Instead, you can add extra parameters in the URL:
 
 - ext (extension): `ext=https://localhost:9080`
 - devMode (development mode): `devMode=true` (required to allow access to resources on `production` env from localhost)
@@ -81,9 +81,9 @@ The system will process these parameters, making it work as if the extension was
 
 <InlineAlert variant="info" slots="text" />
 
-Similarly, you can preview any UI Extension that has been [deployed on the stage environment](../../services/aem-cf-console-admin/extension-development/#run-on-stage), and you can also share a link to the result.
+Similarly, you can preview any UI Extension that has been [deployed on the stage environment](../../services/aem-cf-console-admin/extension-development/index.md#run-on-stage), and you can also share a link to the result.
 
-For example, if your extension has implemented additional logic for the [Action Bar](../../services/aem-cf-console-admin/api/#action-bar) in [AEM Content Fragments Console](../../services/aem-cf-console-admin), you should be able to see the result:
+For example, if your extension has implemented additional logic for the [Action Bar](../../services/aem-cf-console-admin/api/index.md#action-bar) in [AEM Content Fragments Console](../../services/aem-cf-console-admin/index.md), you should be able to see the result:
 
 ![New functionality in AEM admin panel](../development-flow/publishing-2.png)
 
@@ -99,6 +99,6 @@ By default, only the logs from the most recent runs are retrieved. If you need t
 
 ### Additional resources
 
-- [UI Extensibility Overview](../../)
-- [UI Extensions Development Flow](../../guides/development-flow)
-- [FAQ](../../overview/faq/)
+- [UI Extensibility Overview](../../index.md)
+- [UI Extensions Development Flow](../development-flow/index.md)
+- [FAQ](../../getting-started/faq/index.md)

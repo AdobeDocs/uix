@@ -107,8 +107,8 @@ action ids of actions that can be hidden:
 
 #### Built-in header buttons
 
-Browse extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize **header buttons** in the top bar.
-Depending on context and extension point, the host exposes the following built-in header **button** ids that can be hidden or overridden.
+Browse extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize header buttons in the top bar.
+Depending on context and extension point, the host exposes the following built-in header button ids that can be hidden or overridden.
 
 | Context |  Header button IDs that can be hidden or overridden |
 |------------|------------|
@@ -285,7 +285,7 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 
 #### headerMenu namespace
 
-The `headerMenu` namespace supports custom **header buttons** in the browse header and optional customization of built-in header buttons.
+The `headerMenu` namespace supports adding custom header buttons in the browse header and optionally hiding and overriding of built-in header buttons.
 
 If you declare `headerMenu`, you **must** implement `getButtons`. You may also implement `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton`.
 

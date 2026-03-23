@@ -24,12 +24,12 @@ Extensions should use the `aem/assets/details/1` extension point to utilize exte
 
 ## Custom header buttons in Details View
 
-The top header on the Details View exposes **header buttons** (for example **Assign tasks** and **Download**) that are separate from the ActionBar and QuickActions on browse screens.
+The top header on the Details View exposes header buttons (for example "Assign tasks" and "Download").
 
 Using the optional [`headerMenu`](#headermenu-namespace) namespace, a details extension can add custom header buttons, hide built-in header buttons by id (removing them from the header), and override built-in header button clicks so the default handler does not run.
 If you implement `headerMenu`, the only required method is `getButtons`; `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton` are optional.
 
-Built-in header button ids for the Details View (`aem/assets/details/1`) are listed in the [Built-in header buttons](../browse-view/index.md#built-in-header-buttons) table (`details` row).
+Built-in header button ids for the Details View (`aem/assets/details/1`) are listed in the [Built-in header buttons](#built-in-header-buttons) table below.
 
 ## Custom side panels
 
@@ -96,8 +96,8 @@ Each array element is a custom panel descriptor that is a JSON with the followin
 
 #### Built-in header buttons
 
-Details extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize **header buttons** in the top bar.
-The host exposes the following built-in header **button** ids that can be hidden or overridden.
+Details extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize header buttons in the top bar.
+The host exposes the following built-in header button ids that can be hidden or overridden.
 
 | Context |  Header button IDs that can be hidden or overridden |
 |------------|------------|
@@ -105,7 +105,7 @@ The host exposes the following built-in header **button** ids that can be hidden
 
 #### headerMenu namespace
 
-The `headerMenu` namespace supports custom **header buttons** in the Details View header and optional customization of built-in header buttons there.
+The `headerMenu` namespace supports adding custom **header buttons** in the Details View header and optionally hiding and overriding of built-in header buttons there.
 
 If you declare `headerMenu`, you **must** implement `getButtons`. You may also implement `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton`.
 
@@ -117,13 +117,46 @@ If you declare `headerMenu`, you **must** implement `getButtons`. You may also i
 
 `getButtons({ context, resource })`
 
-**Description:** Returns an array of custom header button definitions for the Details View header, using the same descriptor shape as [`getButtons` in the Browse View `headerMenu` namespace](../browse-view/index.md#headermenu-namespace).
+**Description:** Returns an array of custom header button definitions that will be added to the Details View header. These header buttons are rendered alongside built-in header buttons and let extensions surface actions in the top header while viewing an asset or folder.
 
-**Returns:** (`array`) An array of button configuration objects (see Browse View headerMenu for property list).
+**Parameters:**
+- context (`string`): Current context for the Details View, as communicated by the Host.
+- resource (`object`): The asset or folder currently shown in the Details View.
+  - id (`string`): Resource URN.
+  - path (`string`): Resource path.
+  - Matches the object returned by [`details.getCurrentResourceInfo()`](#host-api-reference).
+
+**Returns:** (`array`) An array of button configuration objects. Each object contains:
+- id (`string`): Unique identifier for the button within the extension
+- label (`string`): Display text for the button
+- icon (`string`): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)
+- onClick (`function`): Callback when the header button is clicked; receives `{ context, resource }`
+- variant (`string`, optional): Button visual style, defaults to `'primary'`
+  - Supported values: `'accent'`, `'primary'`, `'secondary'`, `'negative'`
+
+**Example:**
+
+```javascript
+headerMenu: {
+  async getButtons({ context, resource }) {
+    return [
+      {
+        id: 'details-export',
+        label: 'Export',
+        icon: 'Download',
+        variant: 'secondary',
+        onClick: async ({ context, resource }) => {
+          // resource is the asset or folder open in Details View
+        },
+      },
+    ];
+  },
+},
+```
 
 `getHiddenHeaderButtonIds({ context, resource })`
 
-**Description:** Returns an array of built-in header button ids to hide in the Details View. See the `details` row under [Built-in header buttons](../browse-view/index.md#built-in-header-buttons) (`assignTasks`, `download`).
+**Description:** Returns an array of built-in header button ids to hide in the Details View. For this extension point the ids are `assignTasks` and `download` (see [Built-in header buttons](#built-in-header-buttons)).
 
 The host calls this method when the asset or context relevant to the header changes. Return quickly; avoid slow or blocking work while the host resolves header button visibility.
 
@@ -134,7 +167,7 @@ The host calls this method when the asset or context relevant to the header chan
 **Description:** Return `true` if the extension handled the click and the built-in header button handler should **not** run. Return `false` to let the Host run the default behavior.
 
 **Parameters:**
-- buttonId (`string`): Built-in header button id (`assignTasks` or `download` for Details View; see [Built-in header buttons](../browse-view/index.md#built-in-header-buttons)).
+- buttonId (`string`): Built-in header button id for Details View: `assignTasks` or `download` (see [Built-in header buttons](#built-in-header-buttons)).
 
 **Returns:** (`boolean`) `false` for the Host to use the built-in handler, `true` to skip the built-in handler.
 

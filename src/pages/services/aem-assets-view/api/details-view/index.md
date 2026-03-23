@@ -22,6 +22,15 @@ You can provide documentation feedback by clicking "Log an issue".
 
 Extensions should use the `aem/assets/details/1` extension point to utilize extensibility services of the Details View.
 
+## Custom header buttons in Details View
+
+The top header on the Details View exposes **header buttons** (for example **Assign tasks** and **Download**) that are separate from the ActionBar and QuickActions on browse screens.
+
+Using the optional [`headerMenu`](#headermenu-namespace) namespace, a details extension can add custom header buttons, hide built-in header buttons by id (removing them from the header), and override built-in header button clicks so the default handler does not run.
+If you implement `headerMenu`, the only required method is `getButtons`; `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton` are optional.
+
+Built-in header button ids for the Details View (`aem/assets/details/1`) are listed in the [Built-in header buttons](../browse-view/index.md#built-in-header-buttons) table (`details` row).
+
 ## Custom side panels
 
 The extensibility feature allows adding new panels and corresponding icon buttons to the side rail 
@@ -44,9 +53,9 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 
 ### Host API Reference
 
-In addition to the [Common API](../commons/index.md) provided by AEM Assets View to all extensions, 
-the host application provides the following API specific to the `aem/assets/details/1` extension point 
-and the [`detailSidePanel`](#detailsidepanel-namespace) namespace.
+In addition to the [Common API](../commons/index.md) provided by AEM Assets View to all extensions,
+the host application provides the following API specific to the `aem/assets/details/1` extension point,
+the [`detailSidePanel`](#detailsidepanel-namespace) namespace, and the optional [`headerMenu`](#headermenu-namespace) namespace.
 
 `details.getCurrentResourceInfo()`
 
@@ -63,7 +72,7 @@ const { path, id } = await guestConnection.host.details.getCurrentResourceInfo()
 
 ### Extension API Reference
 
-The extension definition object passed by the extension to the `register()` function defines the [`detailSidePanel`](#detailsidepanel-namespace) namespace.
+The extension definition object passed by the extension to the `register()` function defines the [`detailSidePanel`](#detailsidepanel-namespace) namespace and may optionally define the [`headerMenu`](#headermenu-namespace) namespace.
 
 #### detailSidePanel namespace
 
@@ -84,6 +93,41 @@ Each array element is a custom panel descriptor that is a JSON with the followin
 - `icon` (`string`): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons).
 - `contentUrl` (`string`): Relative root to the panel's content.
 - `reloadOnThemeChange` (`boolean`): Whether to reload custom panel when application theme changes.
+
+#### headerMenu namespace
+
+The `headerMenu` namespace supports custom **header buttons** in the Details View header and optional customization of built-in header buttons there.
+
+If you declare `headerMenu`, you **must** implement `getButtons`. You may also implement `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton`.
+
+- `getButtons({ context, resource })` — **required** when `headerMenu` is present
+- `getHiddenHeaderButtonIds({ context, resource })` — optional
+- `overrideHeaderMenuButton({ buttonId, context, resource })` — optional
+
+`resource` describes the asset or folder currently shown in the Details View (see [`details.getCurrentResourceInfo()`](#host-api-reference)).
+
+`getButtons({ context, resource })`
+
+**Description:** Returns an array of custom header button definitions for the Details View header, using the same descriptor shape as [`getButtons` in the Browse View `headerMenu` namespace](../browse-view/index.md#headermenu-namespace).
+
+**Returns:** (`array`) An array of button configuration objects (see Browse View headerMenu for property list).
+
+`getHiddenHeaderButtonIds({ context, resource })`
+
+**Description:** Returns an array of built-in header button ids to hide in the Details View. See the `details` row under [Built-in header buttons](../browse-view/index.md#built-in-header-buttons) (`assignTasks`, `download`).
+
+The host calls this method when the asset or context relevant to the header changes. Return quickly; avoid slow or blocking work while the host resolves header button visibility.
+
+**Returns:** (`array`) An array of built-in header button ids to hide, or an empty array if none should be hidden.
+
+`overrideHeaderMenuButton({ buttonId, context, resource })`
+
+**Description:** Return `true` if the extension handled the click and the built-in header button handler should **not** run. Return `false` to let the Host run the default behavior.
+
+**Parameters:**
+- buttonId (`string`): Built-in header button id (`assignTasks` or `download` for Details View; see [Built-in header buttons](../browse-view/index.md#built-in-header-buttons)).
+
+**Returns:** (`boolean`) `false` for the Host to use the built-in handler, `true` to skip the built-in handler.
 
 ## Example of adding custom side panels
 
@@ -134,8 +178,8 @@ The `ExtensionRegistration` component initializes the extension registration pro
 provided by the `@adobe/uix-guest` library. 
 
 The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares that the
-extension uses the `detailSidePanel` namespace and declares `getPanels` method which returns an array of custom panels.
-The custom panel, among other properties, specifies the icon's tooltip, the custom panel title and the route to the panel content.
+extension uses the `detailSidePanel` namespace and its `getPanels` method, and may include the optional `headerMenu` namespace.
+For `headerMenu`, only `getButtons` is required if you add that namespace.
 
 ```js
 function ExtensionRegistration() {
@@ -157,6 +201,11 @@ function ExtensionRegistration() {
                         ];
                     },
                 },
+                headerMenu: {
+                    async getButtons({ context, resource }) {
+                        return [];
+                    },
+                },
             },
         });
     };
@@ -166,6 +215,19 @@ function ExtensionRegistration() {
 }
 
 export default ExtensionRegistration;
+```
+
+To hide or override built-in header buttons in the Details View, add the optional `getHiddenHeaderButtonIds` or `overrideHeaderMenuButton` methods alongside `getButtons`. For example, to hide the built-in **Download** header button:
+
+```js
+headerMenu: {
+    async getButtons({ context, resource }) {
+        return [];
+    },
+    async getHiddenHeaderButtonIds({ context, resource }) {
+        return ['download'];
+    },
+},
 ```
 
 The `PanelExtensionTemplate` component is responsible for rendering the custom panel content. It uses the `attach()` function

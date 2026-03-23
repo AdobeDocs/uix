@@ -8,7 +8,7 @@ contributors:
 # Browse View
 
 AEM Assets View offers the ability to customize the ActionBar, QuickActions and HeaderMenu in the Browse View.
-Extensions can add, hide, and remove **header buttons** in the top header: add custom header buttons, hide built-in header buttons (removing them from the header), and override built-in header button clicks so the default handler does not run.
+
 
 <InlineAlert variant="info" slots="text" />
 
@@ -33,7 +33,7 @@ Browse View are selected.
 **QuickActions** is the dropdown menu from the More action button (shown as `⋯`) next to each asset.
 ![quick actions](quick-actions.png)
 
-**HeaderMenu** is the set of **header buttons** at the top right of the browse screen. Custom header buttons may be added between the ellipses menu and default HeaderMenu buttons.
+**HeaderMenu** is the set of buttons at the top right of the browse screen. Custom header buttons may be added between the ellipses menu and default HeaderMenu buttons.
 ![header buttons](header-menu.png)
 
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
@@ -58,9 +58,9 @@ Using the [`quickActions`](#quickactions-namespace) namespace, built-in QuickAct
 selected asset.
 
 ## Custom HeaderMenu buttons 
-This extensibility feature allows context-aware customization of header buttons in the HeaderMenu.
+This extensibility feature allows context-aware customization of the HeaderMenu buttons.
 
-Using the [`headerMenu`](#headermenu-namespace) namespace, you can add custom header buttons before built-in header buttons, hide built-in header buttons by id (removing them from the header), and override built-in header button clicks so the default handler does not or is run conditionally.
+Using the [`headerMenu`](#headermenu-namespace) namespace, you can add custom header buttons before built-in header buttons, hide built-in header buttons by id (removing them from the header), and override built-in header button clicks so the default handler does not run or runs conditionally.
 
 In this example, a custom button is added to the HeaderMenu before the list of built-in HeaderMenu buttons.
 
@@ -107,19 +107,17 @@ action ids of actions that can be hidden:
 
 #### Built-in header buttons
 
-Browse extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize **header buttons** in the top bar (not ActionBar actions).
+Browse extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize **header buttons** in the top bar.
 Depending on context and extension point, the host exposes the following built-in header **button** ids that can be hidden or overridden.
 
-| Context | Extension point | Header button IDs |
-|------------|------------|------------|
-| `assets` | `aem/assets/browse/1` | `createFolder`, `addAssets` |
-| `collections` | `aem/assets/browse/1` | `createCollection`, `addToCollection`, `editSmartCollection` |
-| `recent` | `aem/assets/browse/1` | — |
-| `search` | `aem/assets/browse/1` | — |
-| `trash` | `aem/assets/browse/1` | — |
-| `details` | `aem/assets/details/1` | `assignTasks`, `download` |
+| Context |  Header button IDs that can be hidden or overridden |
+|------------|------------|
+| `assets` | "createFolder", "addAssets" |
+| `collections` | "createCollection", "addToCollection", "editSmartCollection" |
+| `recent` | — |
+| `search` | — |
+| `trash` | — |
 
-The `details` row applies to the [Details View](../details-view/index.md) extension point only; browse extensions do not receive those built-in header buttons.
 In `recent`, `search`, and `trash`, there are no built-in header buttons to hide, but extensions can still add custom header buttons via [`getButtons`](#headermenu-namespace).
 
 ### Extension API Reference

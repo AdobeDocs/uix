@@ -94,6 +94,15 @@ Each array element is a custom panel descriptor that is a JSON with the followin
 - `contentUrl` (`string`): Relative root to the panel's content.
 - `reloadOnThemeChange` (`boolean`): Whether to reload custom panel when application theme changes.
 
+#### Built-in header buttons
+
+Details extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize **header buttons** in the top bar.
+The host exposes the following built-in header **button** ids that can be hidden or overridden.
+
+| Context |  Header button IDs that can be hidden or overridden |
+|------------|------------|
+| `details` | "assignTasks", "download" |
+
 #### headerMenu namespace
 
 The `headerMenu` namespace supports custom **header buttons** in the Details View header and optional customization of built-in header buttons there.
@@ -128,6 +137,8 @@ The host calls this method when the asset or context relevant to the header chan
 - buttonId (`string`): Built-in header button id (`assignTasks` or `download` for Details View; see [Built-in header buttons](../browse-view/index.md#built-in-header-buttons)).
 
 **Returns:** (`boolean`) `false` for the Host to use the built-in handler, `true` to skip the built-in handler.
+
+
 
 ## Example of adding custom side panels
 

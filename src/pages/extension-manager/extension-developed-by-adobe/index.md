@@ -27,9 +27,9 @@ Explore the AEM Universal Editor extension that provides a content draft managem
 
 <DiscoverBlock slots="link, text"/>
 
-[Configurable Asset Picker](configurable-asset-picker/index.md)
+[Configurable Content Advisor](configurable-asset-picker/index.md)
 
-Create a configurable, custom asset picker for Universal Editor that is tailored to your need
+Create a configurable, custom content advisor for Universal Editor that is tailored to your need
 
 <DiscoverBlock slots="link, text"/>
 

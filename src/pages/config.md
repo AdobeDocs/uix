@@ -65,7 +65,7 @@
         - [Export Content Fragments to Adobe Target](/extension-manager/extension-developed-by-adobe/exporting-content-fragment-to-adobe-target/index.md)
         - [Content Fragments Workflows](/extension-manager/extension-developed-by-adobe/content-fragments-workflows/index.md)
         - [Universal Editor Content Drafts](/extension-manager/extension-developed-by-adobe/universal-editor-content-drafts/index.md)
-        - [Configurable Asset Picker](/extension-manager/extension-developed-by-adobe/configurable-asset-picker/index.md)
+        - [Configurable Content Advisor](/extension-manager/extension-developed-by-adobe/configurable-asset-picker/index.md)
         - [Product Picker for Universal Editor](/extension-manager/extension-developed-by-adobe/ue-product-picker/index.md)
     - [Universal Editor](/services/aem-universal-editor/index.md)
     - [Extension Points](/services/aem-universal-editor/api/index.md)

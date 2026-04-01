@@ -7,8 +7,13 @@ contributors:
 
 # Universal Editor Custom Content Advisor
 
-This extension allows creating a configurable, custom content advisor for Universal Editor that is tailored to your need by simply providing a JSON configuration file. Relevant crosswalk project needs to follow certain guidelines.
-It's useful in case where we want to enable authors to select assets of certain file types only from specified repositories etc.
+<small>This extension allows creating a configurable, custom content advisor for Universal Editor that is tailored to your need by simply providing a JSON configuration file. Relevant crosswalk project needs to follow certain guidelines.</small>
+
+<small>It's useful in case where we want to enable authors to select assets of certain file types only from specified repositories etc.</small>
+
+<small>See [Content Advisor latest documentation](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/content-advisor-adobe-applications) (Experience League).</small>
+
+<small>**Note:** Content Advisor in Universal Editor does not include every feature covered in that guide. For what is supported in UE versus other Adobe applications, see the **Content Advisor feature support across Adobe applications** table at the bottom of the [same Experience League page](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/content-advisor-adobe-applications).</small>
 
 ## Extension Overview
 <video controls width="100%" title="Universal Editor custom content advisor demo">

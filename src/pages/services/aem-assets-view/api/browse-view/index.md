@@ -40,7 +40,7 @@ Extensions should use the `aem/assets/browse/1` extension point to utilize exten
 
 An extension needs to implement both `actionBar` and `quickActions` namespace to be recognized by Assets View.
 The `headerMenu` namespace is optional for browse extensions.
-If you implement `headerMenu`, the only required method is `getButtons`; `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton` are optional.
+If you implement `headerMenu`, all of its methods are optional: `getButtons`, `getHiddenButtonIds`, and `overrideButton`. Implement only the methods your extension needs.
 
 ## Custom ActionBar actions and QuickActions menu actions
 
@@ -287,11 +287,12 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 
 The `headerMenu` namespace supports adding custom header menu buttons in the browse view header menu and optionally hiding and overriding built-in header menu buttons.
 
-If you declare `headerMenu`, you **must** implement `getButtons`. You may also implement `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton`.
+All `headerMenu` methods are optional:
 
-- `getButtons({ context, resource })` — **required** when `headerMenu` is present
-- `getHiddenHeaderButtonIds({ context, resource })` — optional
-- `overrideHeaderMenuButton({ buttonId, context, resource })` — optional
+- `getButtons({ context, resource })` — optional
+- `getHiddenButtonIds({ context, resource })` — optional
+- `overrideButton({ buttonId, context, resource })` — optional
+
 
 `getButtons({ context, resource })`
 
@@ -344,7 +345,7 @@ headerMenu: {
 },
 ```
 
-`getHiddenHeaderButtonIds({ context, resource })`
+`getHiddenButtonIds({ context, resource })`
 
 **Description:** Returns an array of [built-in header menu button ids](#built-in-header-menu-buttons) that should be hidden.
 
@@ -359,7 +360,7 @@ The host calls this method when the browse location or context changes. Extensio
 **Example:**
 
 ```js
-getHiddenHeaderButtonIds: ({ context, resource }) => {
+getHiddenButtonIds: ({ context, resource }) => {
   if (context === 'assets') {
     return ['createFolder'];
   }
@@ -367,7 +368,7 @@ getHiddenHeaderButtonIds: ({ context, resource }) => {
 },
 ```
 
-`overrideHeaderMenuButton({ buttonId, context, resource })`
+`overrideButton({ buttonId, context, resource })`
 
 **Description:** Return `true` if the extension handled the click and the built-in header menu button handler should **not** run. Return `false` to let the Host run the default behavior.
 
@@ -381,7 +382,7 @@ getHiddenHeaderButtonIds: ({ context, resource }) => {
 **Example:**
 
 ```js
-overrideHeaderMenuButton: ({ buttonId, context, resource }) => {
+overrideButton: ({ buttonId, context, resource }) => {
   if (buttonId === 'addAssets') {
     // Custom handling; skip built-in handler
     return true;
@@ -403,7 +404,7 @@ provided by the `@adobe/uix-guest` library.
 
 The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares
 that the extension uses the `actionBar` and `quickActions` namespaces with their required methods, and may include the
-optional `headerMenu` namespace. For `headerMenu`, only `getButtons` is required; other `headerMenu` methods are optional.
+optional `headerMenu` namespace. All `headerMenu` methods are optional; implement `getButtons`, `getHiddenButtonIds`, and/or `overrideButton` as needed.
 
 This example demonstrates the minimal set of namespaces and methods required for a browse extension to be recognized
 by the Host application.
@@ -434,8 +435,14 @@ function ExtensionRegistration() {
                     },
                 },
                 headerMenu: {
-                    async getButtons ({ context, resource }) {
-                        return []
+                    async getButtons({ context, resource }) {
+                        return [];
+                    },
+                    async getHiddenButtonIds({ context, resource }) {
+                        return [];
+                    },
+                    async overrideButton({ buttonId, context, resource }) {
+                        return false;
                     },
                 },
             },
@@ -698,11 +705,14 @@ function ExtensionRegistration() {
                     async getButtons({ context, resource }) {
                         return [];
                     },
-                    async getHiddenHeaderButtonIds({ context, resource }) {
+                    async getHiddenButtonIds({ context, resource }) {
                         if (context === 'assets') {
                             return ['createFolder'];
                         }
                         return [];
+                    },
+                    async overrideButton({ buttonId, context, resource }) {
+                        return false;
                     },
                 },
             },
@@ -737,7 +747,10 @@ function ExtensionRegistration() {
                     async getButtons({ context, resource }) {
                         return [];
                     },
-                    async overrideHeaderMenuButton({ buttonId, context, resource }) {
+                    async getHiddenButtonIds({ context, resource }) {
+                        return [];
+                    },
+                    async overrideButton({ buttonId, context, resource }) {
                         if (buttonId === 'addAssets') {
                             // Custom upload or validation flow
                             return true;

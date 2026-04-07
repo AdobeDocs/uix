@@ -7,7 +7,7 @@ contributors:
 
 # Browse View
 
-AEM Assets View offers the ability to customize the ActionBar, QuickActions and HeaderMenu in the Browse View.
+AEM Assets View offers the ability to customize the ActionBar, QuickActions, and header menu in the Browse View.
 
 
 <InlineAlert variant="info" slots="text" />
@@ -33,8 +33,8 @@ Browse View are selected.
 **QuickActions** is the dropdown menu from the More action button (shown as `⋯`) next to each asset.
 ![quick actions](quick-actions.png)
 
-**HeaderMenu** is the set of buttons at the top right of the browse screen. Custom header buttons may be added between the ellipses menu and default HeaderMenu buttons.
-![header buttons](header-menu.png)
+**Header menu** is the set of buttons at the top right of the browse screen. Custom buttons may be added to the header menu between the ellipses menu and the default header menu buttons.
+![header menu](header-menu.png)
 
 Extensions should use the `aem/assets/browse/1` extension point to utilize extensibility services of the Browse View.
 
@@ -57,14 +57,14 @@ In this example, a custom action is added to the ActionBar after the list of bui
 Using the [`quickActions`](#quickactions-namespace) namespace, built-in QuickActions menu actions can be overridden or hidden based on the context and the
 selected asset.
 
-## Custom HeaderMenu buttons 
-This extensibility feature allows context-aware customization of the HeaderMenu buttons.
+## Custom header menu buttons
+This extensibility feature allows context-aware customization of the header menu buttons.
 
-Using the [`headerMenu`](#headermenu-namespace) namespace, you can add custom header buttons before built-in header buttons, hide built-in header buttons by id (removing them from the header), and override built-in header button clicks so the default handler does not run or runs conditionally.
+Using the [`headerMenu`](#headermenu-namespace) namespace, you can add custom header menu buttons before built-in header menu buttons, hide built-in header menu buttons by id (removing them from the header menu), and override built-in header menu button clicks so the default handler does not run or runs conditionally.
 
-In this example, a custom button is added to the HeaderMenu before the list of built-in HeaderMenu buttons.
+In this example, a custom button is added to the header menu before the list of built-in header menu buttons.
 
-![headerMenu buttons](add-custom-action.jpg)
+![header menu buttons](add-custom-action.jpg)
 
 ## API Reference
 
@@ -105,12 +105,12 @@ action ids of actions that can be hidden:
 | `search` | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
 | `trash` | "delete" |
 
-#### Built-in header buttons
+#### Built-in header menu buttons
 
-Browse extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize header buttons in the top bar.
-Depending on context and extension point, the host exposes the following built-in header button ids that can be hidden or overridden.
+Browse extensions use the [`headerMenu`](#headermenu-namespace) namespace to customize header menu buttons in the top bar.
+Depending on context and extension point, the host exposes the following built-in header menu button ids that can be hidden or overridden.
 
-| Context |  Header button IDs that can be hidden or overridden |
+| Context | Header menu button IDs that can be hidden or overridden |
 |------------|------------|
 | `assets` | "createFolder", "addAssets" |
 | `collections` | "createCollection", "addToCollection", "editSmartCollection" |
@@ -118,7 +118,7 @@ Depending on context and extension point, the host exposes the following built-i
 | `search` | — |
 | `trash` | — |
 
-In `recent`, `search`, and `trash`, there are no built-in header buttons to hide, but extensions can still add custom header buttons via [`getButtons`](#headermenu-namespace).
+In `recent`, `search`, and `trash`, there are no built-in header menu buttons to hide, but extensions can still add custom header menu buttons via [`getButtons`](#headermenu-namespace).
 
 ### Extension API Reference
 
@@ -127,7 +127,7 @@ The extension definition object passed by the extension to the `register()` func
 The methods in these namespaces provide the capabilities to
 - Add custom actions to the ActionBar
 - Hide or customize built-in actions in the ActionBar and QuickActions
-- Add custom header buttons to the HeaderMenu, and optionally hide or override built-in header buttons
+- Add custom header menu buttons, and optionally hide or override built-in header menu buttons
 
 
 
@@ -285,7 +285,7 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 
 #### headerMenu namespace
 
-The `headerMenu` namespace supports adding custom header buttons in the browse header and optionally hiding and overriding of built-in header buttons.
+The `headerMenu` namespace supports adding custom header menu buttons in the browse view header menu and optionally hiding and overriding built-in header menu buttons.
 
 If you declare `headerMenu`, you **must** implement `getButtons`. You may also implement `getHiddenHeaderButtonIds` and `overrideHeaderMenuButton`.
 
@@ -295,7 +295,7 @@ If you declare `headerMenu`, you **must** implement `getButtons`. You may also i
 
 `getButtons({ context, resource })`
 
-**Description:** Returns an array of custom header button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header buttons and provide a way for extensions to add custom functionality accessible from the top header area on browse screens.
+**Description:** Returns an array of custom header menu button definitions that will be added to the application's header menu. These buttons are rendered alongside built-in header menu buttons and provide a way for extensions to add custom functionality accessible from the header menu on browse screens.
 
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context).
@@ -309,7 +309,7 @@ If you declare `headerMenu`, you **must** implement `getButtons`. You may also i
 - id (`string`): Unique identifier for the button within the extension
 - label (`string`): Display text for the button
 - icon (`string`): Name of the [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons)
-- onClick (`function`): Callback function executed when the header button is clicked; receives `{ context, resource }`
+- onClick (`function`): Callback function executed when the header menu button is clicked; receives `{ context, resource }`
 - variant (`string`, optional): Button visual style, defaults to `'primary'`
   - Supported values: `'accent'`, `'primary'`, `'secondary'`, `'negative'`
 
@@ -346,15 +346,15 @@ headerMenu: {
 
 `getHiddenHeaderButtonIds({ context, resource })`
 
-**Description:** Returns an array of [built-in header button ids](#built-in-header-buttons) that should be hidden.
+**Description:** Returns an array of [built-in header menu button ids](#built-in-header-menu-buttons) that should be hidden.
 
-The host calls this method when the browse location or context changes. Extension code should return quickly; avoid slow or blocking work (for example backend calls), because the host may wait on the result before rendering header buttons.
+The host calls this method when the browse location or context changes. Extension code should return quickly; avoid slow or blocking work (for example backend calls), because the host may wait on the result before rendering header menu buttons.
 
 **Parameters:**
 - context (`string`): current [browsing context](#browsing-context).
 - resource (`object`): Same semantics as for [`getButtons`](#headermenu-namespace).
 
-**Returns:** (`array`) An array of built-in header button ids to hide, or an empty array if none should be hidden.
+**Returns:** (`array`) An array of built-in header menu button ids to hide, or an empty array if none should be hidden.
 
 **Example:**
 
@@ -369,10 +369,10 @@ getHiddenHeaderButtonIds: ({ context, resource }) => {
 
 `overrideHeaderMenuButton({ buttonId, context, resource })`
 
-**Description:** Return `true` if the extension handled the click and the built-in header button handler should **not** run. Return `false` to let the Host run the default behavior.
+**Description:** Return `true` if the extension handled the click and the built-in header menu button handler should **not** run. Return `false` to let the Host run the default behavior.
 
 **Parameters:**
-- buttonId (`string`): Built-in header button id from [Built-in header buttons](#built-in-header-buttons).
+- buttonId (`string`): Built-in header menu button id from [Built-in header menu buttons](#built-in-header-menu-buttons).
 - context (`string`): current [browsing context](#browsing-context).
 - resource (`object`): Same semantics as for [`getButtons`](#headermenu-namespace).
 
@@ -393,9 +393,9 @@ overrideHeaderMenuButton: ({ buttonId, context, resource }) => {
 
 ## Examples
 
-These code snippets demonstrate how to add a custom action to the ActionBar, add header buttons to the HeaderMenu,
+These code snippets demonstrate how to add a custom action to the ActionBar, add buttons to the header menu,
 hide built-in actions or override built-in action handlers from the ActionBar and QuickActions menu, and optionally
-hide or override built-in header buttons in the Browse View. (The examples below serve illustrative purposes thus omit
+hide or override built-in header menu buttons in the Browse View. (The examples below serve illustrative purposes thus omit
 certain import statements and other non-important parts.)
 
 The ExtensionRegistration component initializes the extension registration process by calling the `register()` function
@@ -678,9 +678,9 @@ function ExtensionRegistration() {
 }
 ```
 
-### Example of hiding built-in header buttons
+### Example of hiding built-in header menu buttons
 
-In this example, the built-in **Create folder** header button (`createFolder`) is hidden in the `assets` context.
+In this example, the built-in **Create folder** header menu button (`createFolder`) is hidden in the `assets` context.
 
 ```js
 function ExtensionRegistration() {
@@ -716,9 +716,9 @@ function ExtensionRegistration() {
 export default ExtensionRegistration;
 ```
 
-### Example of overriding a built-in header button
+### Example of overriding a built-in header menu button
 
-In this example, when the user activates the **Add assets** header button (`addAssets`), the extension runs custom logic
+In this example, when the user activates the **Add assets** header menu button (`addAssets`), the extension runs custom logic
 and skips the Host's default handler by returning `true`.
 
 ```js
@@ -756,6 +756,6 @@ function ExtensionRegistration() {
 export default ExtensionRegistration;
 ```
 
-To open a custom dialog from custom ActionBar actions, QuickActions menu actions or HeaderMenu header buttons, refer to the
+To open a custom dialog from custom ActionBar actions, QuickActions menu actions, or header menu buttons, refer to the
 [Modal API](../commons/index.md#modal-api) provided by AEM Assets View to all extensions for implementation of
 dialog management.

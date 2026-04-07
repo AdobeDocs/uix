@@ -261,7 +261,7 @@ function ExtensionRegistration() {
 export default ExtensionRegistration;
 ```
 
-To hide or override built-in header buttons in the Details View, add the optional `getHiddenHeaderButtonIds` or `overrideHeaderMenuButton` methods alongside `getButtons`. For example, to hide the built-in **Download** header button:
+To hide or override built-in header buttons in the Details View, add the optional `getHiddenHeaderButtonIds` or `overrideHeaderMenuButton` methods alongside `getButtons`. For example, hide the built-in **Download** header button and take over the **Assign tasks** click (skipping the Host handler when you return `true`):
 
 ```js
 headerMenu: {
@@ -270,6 +270,13 @@ headerMenu: {
     },
     async getHiddenHeaderButtonIds({ context, resource }) {
         return ['download'];
+    },
+    async overrideHeaderMenuButton({ buttonId, context, resource }) {
+        if (buttonId === 'assignTasks') {
+            // Custom assign-tasks flow; skip built-in handler
+            return true;
+        }
+        return false;
     },
 },
 ```

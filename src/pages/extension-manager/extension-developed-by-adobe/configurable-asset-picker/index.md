@@ -19,7 +19,7 @@ See [Content Advisor latest documentation](https://experienceleague.adobe.com/en
 
 >[!VIDEO](https://video.tv.adobe.com/v/3483370)
 
-This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces the standard content advisor with a custom version, with provided configuration applied while selecting assets.
+This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces the standard content advisor with a custom version, with provided configuration applied while selecting assets. 
 
 The extension will enable you to list the repositories your authors will be able to pick from.
 

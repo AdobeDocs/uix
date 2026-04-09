@@ -16,9 +16,8 @@ See [Content Advisor latest documentation](https://experienceleague.adobe.com/en
 **Note:** Content Advisor in Universal Editor does not include every feature covered in that guide. For what is supported in UE versus other Adobe applications, see the **Content Advisor feature support across Adobe applications** table at the bottom of the [same Experience League page](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/content-advisor-adobe-applications).
 
 ## Extension Overview
-<video controls width="100%" title="Universal Editor custom content advisor demo">
-  <source src="./Custom%20Content%20Advisor%20UE.mp4" type="video/mp4" />
-</video>
+
+>[!VIDEO](https://video.tv.adobe.com/v/3483370)
 
 This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces the standard content advisor with a custom version, with provided configuration applied while selecting assets.
 

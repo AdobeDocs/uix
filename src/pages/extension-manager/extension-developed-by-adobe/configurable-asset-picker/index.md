@@ -1,19 +1,25 @@
 ---
-title: Universal Editor Custom Asset Picker
-description: Create a configurable, custom asset picker for Universal Editor that tailored to your need by simply providing a JSON configuration file.
+title: Universal Editor Custom Content Advisor
+description: Create a configurable, custom content advisor for Universal Editor that is tailored to your need by simply providing a JSON configuration file.
 contributors:
   - AdobeDocs/uix
 ---
 
-# Universal Editor Custom Asset Picker
+# Universal Editor Custom Content Advisor
 
-This extension allows creating a configurable, custom asset picker for Universal Editor that is tailored to your need by simply providing a JSON configuration file. Relevant crosswalk project needs to follow certain guidelines.
+This extension allows creating a configurable, custom content advisor for Universal Editor that is tailored to your need by simply providing a JSON configuration file. Relevant crosswalk project needs to follow certain guidelines.
+
 It's useful in case where we want to enable authors to select assets of certain file types only from specified repositories etc.
 
-## Extension Overview
-![Asset picker](asset-picker-extension.gif)
+See [Content Advisor latest documentation](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/content-advisor-adobe-applications) (Experience League).
 
-This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces standard asset picker with a custom version of asset picker, with provided configuration applied while selecting assets.
+**Note:** Content Advisor in Universal Editor does not include every feature covered in that guide. For what is supported in UE versus other Adobe applications, see the **Content Advisor feature support across Adobe applications** table at the bottom of the [same Experience League page](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/content-advisor-adobe-applications).
+
+## Extension Overview
+
+>[!VIDEO](https://video.tv.adobe.com/v/3483370)
+
+This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces the standard content advisor with a custom version, with provided configuration applied while selecting assets. 
 
 The extension will enable you to list the repositories your authors will be able to pick from.
 
@@ -27,7 +33,7 @@ Adding a component for author in crosswalk site is like adding any other custom 
 
 ### A new Component Model in `component-models.json`
 
-This model is necessary for Universal Editor to use the Custom Asset Picker.
+This model is necessary for Universal Editor to use the Custom Content Advisor.
 
 For assets hosted in AEM Assets, the component model can be configured to use [Dynamic Media with OpenAPI capabilities](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/dynamicmedia/dynamic-media-open-apis/dynamic-media-open-apis-overview) via [URL references](https://www.aem.live/docs/media#approach-b-asset-management-delivery), or [Edge Delivery Media Bus](https://www.aem.live/docs/media#approach-a-built-in-media-bus-delivery).
 
@@ -57,8 +63,8 @@ For assets hosted in AEM Assets, the component model can be configured to use [D
 ]
 ```
 - `id`: can be any value. In the example above it is called `custom-asset-one`.
-- `fields[name="image"].component`: MUST have `custom-asset-namespace:custom-asset` as value, because it has been overridden in the extension to display customized asset selector popup.
-- `fields[name="image"].configUrl`: points to JSON configuration file, can be hosted anywhere you prefer. Must be accessible to the extension, which runs in author's web browser. It can be hosted on same AEM environment as well and relative path (for example `/content/dam/assets/asset-selector.json`) can be used. Extension will fetch this JSON file and configure asset picker for this component accordingly.
+- `fields[name="image"].component`: MUST have `custom-asset-namespace:custom-asset` as value, because it has been overridden in the extension to display a customized content advisor popup.
+- `fields[name="image"].configUrl`: points to JSON configuration file, can be hosted anywhere you prefer. Must be accessible to the extension, which runs in author's web browser. It can be hosted on same AEM environment as well and relative path (for example `/content/dam/assets/asset-selector.json`) can be used. Extension will fetch this JSON file and configure the content advisor for this component accordingly.
 - `fields[name="imageTitle"]`: Optional. For Dynamic Media delivery, anchor tag is being generated in the markup. To add alt text for such images in the markup, title property of the anchor tag can be leveraged. For assets not using Dynamic Media with Open API delivery, the regular picture element property i.e `imageAlt` should be used.
 
 #### Configure `component-models.json` to leverage Edge Delivery Media Bus
@@ -145,7 +151,7 @@ Note that the value of model is the id of model we created in `component-models.
   }
 ]
 ```
-## Overriding name of component for using custom asset picker
+## Overriding name of component for using custom content advisor
 in `component-models.json` file, the component property need to have component as `custom-asset-namespace:custom-asset` and `custom-asset-namespace:custom-asset-mimetype`. 
 If desired, this can be overridden by following method: 
 - [Adding a parameter in extension configuration](https://developer.adobe.com/uix/docs/extension-manager/feature-highlights/#configuring-extension-parameters) with key as `asset-namespace` and any desired value (e.g. `my-namespace`). 
@@ -153,11 +159,11 @@ If desired, this can be overridden by following method:
 
 
 ## Configuration File
-This is sample asset picker configuration file that allows filtering assets. Following are the fields that can be configured:
+This is a sample content advisor configuration file that allows filtering assets. Following are the fields that can be configured:
 - `repoNames`: List of AEM environments from which assets can be picked. These will show up in the selector dropdown.
 - `aemTierType`: It allows you to select whether you want to show assets from delivery tier, author tier, or both.
-- `expiryOptions`: It allows you to select whether you want enable/disable expired assets to be selected in the asset selector.
-- `filterSchema`: List of filters that can be applied when the asset selector is rendered.
+- `expiryOptions`: It allows you to select whether you want enable/disable expired assets to be selected in the content advisor.
+- `filterSchema`: List of filters that can be applied when the content advisor is rendered.
 - `filterSchemaMapping`: It allows to apply different filter schemas to different repositories.
 - `rootPath`: It allows definining rootpath from where the assets would be shown. Its applicable for author view. If this config is unset then default is Assets ROOT i.e. content/dam
 - `assetDomainMapping`: It allows mapping between repo name and its corresponding custom assets delivery domain.
@@ -289,7 +295,7 @@ This is sample asset picker configuration file that allows filtering assets. Fol
 ### CORS Issues
 
 **Problem:**
-The Asset Selector doesn't behave as configured (missing filters, unexpected AEM repositories, undesirable selection actions, etc. - essentially any/everything defined in [this configuration file](https://developer.adobe.com/uix/docs/extension-manager/extension-developed-by-adobe/configurable-asset-picker/#configuration-file) not be honored)
+The Content Advisor doesn't behave as configured (missing filters, unexpected AEM repositories, undesirable selection actions, etc. - essentially any/everything defined in [this configuration file](https://developer.adobe.com/uix/docs/extension-manager/extension-developed-by-adobe/configurable-asset-picker/#configuration-file) not be honored)
 
 **Diagnosis:**
 The most common issue behind the behaviour above is [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors) (Cross-Origin Resource Sharing) errors when fetching the configuration file.
@@ -322,4 +328,4 @@ access-control-allow-origin: https://experience.adobe.com
 ```
 
 ## Limitations
-- This custom asset picker can only be opened by clicking on selector in its properties panel. Unlike default asset picker, we can't click the asset to open it.
+- This custom content advisor can only be opened by clicking on selector in its properties panel. Unlike the default content advisor, we can't click the asset to open it.

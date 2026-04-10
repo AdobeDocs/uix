@@ -11,13 +11,13 @@ Welcome to the Extensions Developed By Adobe! Explore user guides here to learn 
 
 [Exporting Content Fragment to Adobe Target](exporting-content-fragment-to-adobe-target/index.md)
 
-Explore Exporting Content Fragments to Adobe Target
+Explore Exporting Content Fragments to Adobe Target.
 
 <DiscoverBlock slots="link, text"/>
 
 [Content Fragments workflows](content-fragments-workflows/index.md)
 
-Explore enhanced functionality in the Content Fragments Console and AEM Content Fragment Editor, simplifying workflow initiation
+Explore enhanced functionality in the Content Fragments Console and AEM Content Fragment Editor, simplifying workflow initiation.
 
 <DiscoverBlock slots="link, text"/>
 
@@ -27,9 +27,9 @@ Explore the AEM Universal Editor extension that provides a content draft managem
 
 <DiscoverBlock slots="link, text"/>
 
-[Configurable Asset Picker](configurable-asset-picker/index.md)
+[Configurable Content Advisor](configurable-asset-picker/index.md)
 
-Create a configurable, custom asset picker for Universal Editor that is tailored to your need
+Create a configurable, custom content advisor for Universal Editor that is tailored to your need.
 
 <DiscoverBlock slots="link, text"/>
 

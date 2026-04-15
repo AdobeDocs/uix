@@ -19,7 +19,7 @@ See [Content Advisor latest documentation](https://experienceleague.adobe.com/en
 
 <Embed slots="video" />
 
-https://video.tv.adobe.com/v/3483370
+uix/src/pages/extension-manager/extension-developed-by-adobe/configurable-asset-picker/Custom Content Advisor UE.mp4
 
 This extension enhances [Universal Editor](../../../services/aem-universal-editor/index.md) properties panel for media elements. It replaces the standard content advisor with a custom version, with provided configuration applied while selecting assets. 
 

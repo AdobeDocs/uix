@@ -1,27 +1,29 @@
 ---
-title: UI Extensions Development Flow - UI Extensibility
+title: Create a New UI Extension
 description: Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder
 contributors:
   - AdobeDocs/uix
 ---
-# UI Extensions Development Flow
+# Create a New UI Extension
 
-The document provides high level overview for developers what to expect when creating UI Extension. For detailed instructions please refer to [step-by-step guide](../../services/aem-cf-console-admin/extension-development/).
+The document provides high level overview for developers what to expect when creating UI Extension. 
+For detailed instructions please refer to step-by-step guides for [AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/index.md)
+or [AEM Assets View](../../services/aem-assets-view/extension-development/index.md).
 
 ## Get access
 
 To start writing UI Extensions you will need the:
 
-1. Access to service that we are about to extend, e.g. [Content Fragment Console](../../services/aem-cf-console-admin) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
+1. Access to service that we are about to extend, e.g. [Content Fragment Console](../../services/aem-cf-console-admin/index.md) available as part of Adobe Experience Manager (AEM) as a Cloud Service.
 2. Access to App Builder, which we will use to create an extension.
 3. Assign developer roles to these IMS organization members who will create UI Extensions.
-4. Ensure that users who should be able to [publish](../publication/) UI Extensions have a `system admin` role.
+4. Ensure that users who should be able to [publish](../publication/index.md) UI Extensions have a `system admin` role.
 
-For more details, please refer to [How to Get Access](../get-access/).
+For more details, please refer to [How to Get Access](../get-access/index.md).
 
 ## Create a new project in Adobe Developer Console
 
-UI Extensions, as any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
+UI Extensions, as with any App Builder application, are represented as projects in [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/).
 
 Adobe Developer Console gives you access to APIs, SDKs and developer tools to integrate, and extend Adobe products.
 
@@ -34,7 +36,8 @@ Once your project is set up in [Adobe Developer Console](https://developer.adobe
 There are several ways how to do it.
 
 We will initialize the UI Extension Project using [AIO CLI](https://github.com/adobe/aio-cli).
-You may find detailed guide at [Initialize the UI Extension Project using AIO CLI](../../services/aem-cf-console-admin/code-generation#launch-code-generation-during-project-initialization).
+You may find detailed guide for [AEM Content Fragments Console](../../services/aem-cf-console-admin/code-generation/index.md#launch-code-generation-during-project-initialization)
+or [AEM Assets View](../../services/aem-assets-view/code-generation/index.md#launch-code-generation-during-project-initialization).
 
 If necessary, you can find other options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
 
@@ -60,7 +63,8 @@ During project initialization, you will be able to select a specific template fo
 
 ## Implement logic of application
 
-As the next step, we need to implement a logic which will use existing [Extension Points](../../services/aem-cf-console-admin/api) and provide necessary functionality.
+As the next step, we need to implement a logic which will use existing Extension Points exposed by one of the Adobe
+Services listed under `Extensible Services` in this documentation and provide necessary functionality.
 UI Extensions has default structure and preselected technology stack such as [React Spectrum](https://developer.adobe.com/app-builder/docs/resources/spectrum-intro/lesson3/) but developers are free to choose tools that they prefer to. The only requirements to make a proper UI Extension:
 
 1. Supply configuration file that will declare application as an [extension](https://developer.adobe.com/app-builder/docs/guides/extensions/).
@@ -70,7 +74,7 @@ UI Extensions has default structure and preselected technology stack such as [Re
 
 After development is done you may check yor application locally (`aio app run`) or at `Stage` or any other workspace at Adobe I/O (`aio app deploy`).
 
-Once you've started or deployed application  AIO CLI will return you an extension endpoint URL that you may use to embed UI Extension into production Adobe Service. As it is not always suitable to test extensions with production data, extensible service as well provide configuration parameters that allows to change data source. For example, AEM Content Fragments Console [allows to target development environment](../../services/aem-cf-console-admin/debug/).
+Once you've started or deployed application  AIO CLI will return you an extension endpoint URL that you may use to embed UI Extension into production Adobe Service. As it is not always suitable to test extensions with production data, extensible service as well provide configuration parameters that allows to change data source. For example, AEM Content Fragments Console [allows to target development environment](../../services/aem-cf-console-admin/debug/index.md).
 
 ## Deploy on Production
 
@@ -133,10 +137,39 @@ Also, data about your extension will be added to *Adobe App Registry* and will b
 This means, that the new functionality will be available, for example, in the AEM admin panel for your organization.
 ![New functionality in AEM admin panel](publishing-2.png)
 
-These steps are described in more detail in [UI Extensions Management](../publication).
+These steps are described in more detail in [UI Extensions Management](../publication/index.md).
+
+## Remove the extension
+
+To remove an extension, you need to follow those steps:
+
+1. Log in to Adobe Exchange.
+2. Navigate to Manage > App Builder Apps.
+3. Click revoke button, next to extension you would like to remove.
+4. Click revoke on the popup to confirm.
+
+![Delete button](extension-revoke.png)
+
+After revoking extension, it is still visible with revoked status in Extention Manager. To remove it completely you needs to remove the project.
+
+The button to remove project is on top right:
+
+![Delete button](extension-delete-button.png)
+
+Until the extension is not revoked it will not be possible to delete the project:
+
+![Project can not be delete](extension-can-not-delete-project.png)
+
+When extension is revoked then the project can be removed:
+
+![Project can not be delete](extension-delete-procject.png)
+
+After removing the project, the extension is not visible anymore in Extension Manager.
 
 ## Additional resources
 
-- [Step-by-step Extension Development Guide](../../services/aem-cf-console-admin/extension-development/)
-- [UI Extensibility Overview](../../)
-- [FAQ](../../overview/faq/)
+- [Step-by-step Extension Development Guide in AEM Content Fragments Console](../../services/aem-cf-console-admin/extension-development/index.md)
+- [Step-by-step Extension Development Guide in AEM Assets View](../../services/aem-assets-view/extension-development/index.md)
+- [UI Extensibility Overview](../../index.md)
+- [FAQ](../../getting-started/faq/index.md)
+

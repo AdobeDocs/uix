@@ -11,36 +11,36 @@ The guides below provide you with general information regarding UI Extensibility
 
 <DiscoverBlock slots="link, text"/>
 
-[How to Get Access](get-access)
+[Get Access](get-access/index.md)
 
-Discover what is needed to use UI Extensibility
-
-<DiscoverBlock slots="link, text"/>
-
-[Creating a project](creating-project-in-dev-console)
-
-Discover how to create a project in Adobe Developer Console
+Discover what is needed to start using UI Extensibility
 
 <DiscoverBlock slots="link, text"/>
 
-[Set Up Local Environment](local-environment)
+[Set Up Local Environment](local-environment/index.md)
 
 Prepare your local environment for UI extension development
 
 <DiscoverBlock slots="link, text"/>
 
-[Local Preview of UI Extensions](preview-extension-locally)
+[Create a New Project](creating-project-in-dev-console/index.md)
 
-Discover how to run UI extensions locally and preview result during development.
-
-<DiscoverBlock slots="link, text"/>
-
-[UI Extensions Development Flow](development-flow)
-    
-Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder
+Discover how to create a project in Adobe Developer Console
 
 <DiscoverBlock slots="link, text"/>
 
-[UI Extension Publication and Management](publication)
+[Create a New Extension](development-flow/index.md)
     
-Know how to bring your extension to users and manage it
+Know what to expect when creating a UI Extension
+
+<DiscoverBlock slots="link, text"/>
+
+[Local Preview](preview-extension-locally/index.md)
+
+Discover how to run UI extensions locally and preview result during development
+
+<DiscoverBlock slots="link, text"/>
+
+[Publish and Manage](publication/index.md)
+    
+Learn to distribute and manage your extension for users

@@ -45,6 +45,15 @@ await api.setValue(fieldName, "New value");
 //await api.setValue(fieldName, "New value", 0); - A last parameter specifies an index in multi-field values
 ```
 
+## Setting styles to the field
+```js
+const api = await guestConnection.host.dataApi.get();
+const fieldName = "test-field";
+await api.setStyles(fieldName, {"display": "none"});
+// Second parameter is the object that is used to pass the styles that will be applied on field
+```
+
+
 ## Consistency
 
 `guestConnection.host.dataApi.get()` makes a snapshot of canvas data at the moment of invocation. Changes made by other extensions or direct users will not be automatically propagated to existing API instances.
@@ -66,7 +75,7 @@ Consider calling this method multiple times during long-running processes to get
 | Type | Value format | Description |
 | ----- | ---- | -------- |
 | `text-signle` | `string` | A single line text field |
-| `text-multi` | `object` | A multi line text field. Object structure: { "contentType": `string`, "value": `string`}. Allowed types are `text/x-markdown`, `text/plain`, `text/html` |
+| `text-multi` | `object` | A multi line text field. Object structure: \{ "contentType": `string`, "value": `string`\}. Allowed types are `text/x-markdown`, `text/plain`, `text/html` |
 | `boolean` | `boolean` | A boolean field |
 | `date` | `string` | A date or time field in ISO 8601 format |
 | `number` | `number` | A number field |

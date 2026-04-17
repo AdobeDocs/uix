@@ -18,15 +18,15 @@ Additionally, you can generate a demo project to observe and understand extensib
 
 Before starting, ensure that you have followed all the necessary requirements:
 
-- Ensure that you have access to the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/). If not, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
-- Verify that you have already created an App Builder Project within your IMS Organization. If not, follow the steps outlined in the [Creating a Project in the Adobe Developer Console](../../../guides/creating-project-in-dev-console) guide.
-- Make sure your local environment is properly set up and up to date. For instructions on setting up your local environment, refer to the [Local Environment Setup](../../../guides/local-environment).
+- Ensure that you have access to the [Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/). If not, refer to the [How to Get Access](../../../guides/get-access/index.md) guide for instructions.
+- Verify that you have already created an App Builder Project within your IMS Organization. If not, follow the steps outlined in the [Creating a Project in the Adobe Developer Console](../../../guides/creating-project-in-dev-console/index.md) guide.
+- Make sure your local environment is properly set up and up to date. For instructions on setting up your local environment, refer to the [Local Environment Setup](../../../guides/local-environment/index.md).
 
 ## Launch code generation
 
 <InlineAlert slots="text" />
 
-You need to have latest AIO CLI version to use the  all available templates. Please refer to [Local Environment Set Up](../../../guides/local-environment).
+You need to have latest AIO CLI version to use the  all available templates. Please refer to [Local Environment Set Up](../../../guides/local-environment/index.md).
 
 ### 1. Initialize a project
 
@@ -149,10 +149,10 @@ AEM Content Fragment Editor Template Overview:
 
 You can generate code `stubs` for any combination of the following functionalities. Detailed information about each extension point can be found in the related section.
 
-- Add [a custom button to Header Menu](../api/header-menu)
-- Add [Rich Text Editor (RTE) Toolbar Button](../api/rte-toolbar)
-- Add [Rich Text Editor (RTE) Toolbar Widget](../api/rte-widgets)
-- Add [Rich Text Editor (RTE) Toolbar Badge](../api/rte-badges)
+- Add [a custom button to Header Menu](../api/header-menu/index.md)
+- Add [Rich Text Editor (RTE) Toolbar Button](../api/rte-toolbar/index.md)
+- Add [Rich Text Editor (RTE) Toolbar Widget](../api/rte-widgets/index.md)
+- Add [Rich Text Editor (RTE) Toolbar Badge](../api/rte-badges/index.md)
 
 After generation, all necessary files for utilizing the chosen extension points will be created, and placeholders will be added in the generated texts to indicate where you can add your custom logic.
 
@@ -317,7 +317,7 @@ From the extension project directory, begin by running the following command:
 aio app run
 ```
 
-This will deploy the actions to Adobe I/O Runtime, while running the UI part on the local machine.
+This will deploy the actions to Adobe I/O Runtime while running the UI part on the local machine.
 
 ```shell
 ➜  demo-extension-project % aio app run
@@ -342,7 +342,7 @@ A self signed development certificate has been generated, you will need to accep
 Waiting for the certificate to be accepted.... timed out
 ```
 
-This message pops up because we use a development SSL certificate for secure communication. Understand more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
+This message pops up because we use a development SSL certificate for secure communication. Learn more about the purpose of this certificate [here](https://letsencrypt.org/docs/certificates-for-localhost/).
 
 If you see this message, please navigate to `https://localhost:9080`, you should see a screen similar to this.
 
@@ -362,7 +362,7 @@ https://experience.adobe.com/?repo=<CURTOMER_AEM_HOST>#/@<CUSTOMER_IMS_ORG>/aem/
 
 - repo (host name of AEM instance): `repo=<CURTOMER_AEM_HOST>`
 
-For previewing and testing, you don't need to [publish the extension](../../../guides/publication). Instead, you can add extra parameters in the URL:
+For previewing and testing, you don't need to [publish the extension](../../../guides/publication/index.md). Instead, you can add extra parameters in the URL:
 
 - ext (extension): `ext=https://localhost:9080`
 - devMode (development mode): `devMode=true` (required to allow access to resources on `production` env from localhost)
@@ -413,7 +413,7 @@ These components are optional and will be generated if you chose "adding UI" dur
 
 <InlineAlert variant="warning" slots="text" />
 
-For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons).
+For further information regarding the common concepts in creating extensions, you can refer to the [Common Concepts in Creating Extensions](../api/commons/index.md).
 
 ## Known limitations
 
@@ -425,18 +425,18 @@ In future versions, a more intelligent mechanism will be introduced to merge the
 
 <DiscoverBlock slots="link, text"/>
 
-[AEM Content Fragment Editor](../)
+[AEM Content Fragment Editor](../index.md)
 
 Read about AEM Content Fragments Editor Extensibility
 
 <DiscoverBlock slots="link, text"/>
 
-[Common Concepts in Creating Extensions](../api/commons)
+[Common Concepts in Creating Extensions](../api/commons/index.md)
 
 Learn about common concepts, extension registration, and methods that can be used in any extension
 
 <DiscoverBlock slots="link, text"/>
 
-[UI Extensions Development Flow](../../../guides/development-flow)
+[UI Extensions Development Flow](../../../guides/development-flow/index.md)
 
 Learn how to implement, test and deploy your own UI Extensions with Adobe App Builder

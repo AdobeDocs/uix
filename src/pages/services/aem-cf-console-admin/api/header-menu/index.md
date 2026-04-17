@@ -7,7 +7,7 @@ contributors:
 
 # Header Menu
 
-The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
+The Header Menu is an area above the content fragments list in the [Content Fragments Console](../../index.md) that displays action items unrelated to any particular content fragment. It includes buttons or links for common actions such as creating new content fragments, importing content fragments, and performing other operations that are not tied to a specific content fragment.
 
 ![Header Menu](header-menu.png)
 
@@ -19,6 +19,7 @@ You have the ability to:
 - implement drop-down menu buttons;
 - use different [variations](https://spectrum.adobe.com/page/button/#Options) of buttons from React Spectrum;
 - use any [icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) from React Spectrum;
+- delete default or added by extension buttons;
 
 ## Custom button with callback
 
@@ -47,6 +48,8 @@ const guestConnection = await register({
     },
 });
 ```
+
+The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
 
 ## Custom button with sub menu
 
@@ -93,9 +96,28 @@ const guestConnection = await register({
 
 The `onClick` callback is invoked when a user clicks on the button. It does not receive any arguments.
 
-<InlineAlert variant="warning" slots="text" />
+## Delete button
 
-The `getButton` method is deprecated. When defining a single button, use `getButtons` and provide a single-item array.
+```js
+import { register } from "@adobe/uix-guest";
+
+// ...
+
+const guestConnection = await register({
+    id: "my.company.extension-with-header-menu-button",
+    methods: {
+        headerMenu: {
+            deleteButtons() {
+                return [
+                    {
+                        id: "my.company.export-button"
+                    },
+                ];
+            },
+        },
+    },
+});
+```
 
 ## API Reference
 
@@ -106,7 +128,7 @@ The `getButton` method is deprecated. When defining a single button, use `getBut
 | id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
 | label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
 | icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
-| variant  | `cta` <br /> `primary` <br /> `secondary` <br /> `negative` <br /> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
+| variant  | `cta` \<br/\> `primary` \<br/\> `secondary` \<br/\> `negative` \<br/\> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
 | subItems | `array`                                                                     |    | A list with sub menu items                                                                                                    |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
 
@@ -118,3 +140,9 @@ The `getButton` method is deprecated. When defining a single button, use `getBut
 | label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                     |
 | icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                     |
+
+### Delete button API
+
+| Field    | Type                                                                        | Required | Description                                                                  |
+|----------|-----------------------------------------------------------------------------| ------ |------------------------------------------------------------------------------|
+| id       | `string`                                                                    | ✔️  | "id" is a "data-id" attribute of the button (please use browser developer console to find actual value). |

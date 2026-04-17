@@ -97,4 +97,4 @@ const model = await connection.host.field.getModel();
 Both `register` and `attach` function of `@adobe/uix-guest` returns same connection object that has `host` property and
 expose API of Universal Editor exposed for UI Extensions. Through this api you can access data from the universal editor as well as send data to it.
 
-Check [this section](../data) to learn about common concepts on how to achive this 
+Check [this section](../data/index.md) to learn about common concepts on how to achive this 

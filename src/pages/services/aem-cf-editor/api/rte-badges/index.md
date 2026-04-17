@@ -5,7 +5,9 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Rich Text Editor Badges
+# Rich Text Editor Badges (DEPRECATED)
+
+**Note: This feature has been deprecated due to the planned change of the underlying Rich Text Editor which will come with a new extensibility API.**
 
 A badge is a non-editable block inside RTE that could be styled differently and may have a custom behavior. At this point, the only custom behavior is that badges are non-editable and could be only removed as a whole item.
 A badge could be added using the following API:

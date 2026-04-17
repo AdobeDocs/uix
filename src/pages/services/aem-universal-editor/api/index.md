@@ -11,30 +11,30 @@ This section covers the utilization of existing extension points, extension regi
 
 <DiscoverBlock slots="link, text"/>
 
-[Common Concepts in Creating Extensions](commons)
+[Common Concepts in Creating Extensions](commons/index.md)
 
 Learn about common concepts, extension registration, and methods that can be used in any extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Header Menu](header-menu)
+[Header Menu](header-menu/index.md)
 
 Explore the ways to extend and customize Header Menu
 
 <DiscoverBlock slots="link, text"/>
 
-[Modal Dialogs](modal)
+[Modal Dialogs](modal/index.md)
 
 Learn about modal host API methods that can be used in any extension
 
 <DiscoverBlock slots="link, text"/>
 
-[Custom data types renderers for properties rail](item-types-renderers)
+[Custom data types renderers for properties rail](custom-data-types/index.md)
 
 Learn how to customize the user interface of a data type field within the properties rail of Universal Editor.
 
 <DiscoverBlock slots="link, text"/>
 
-[Properties Rail](properties-rails)
+[Properties Rail](properties-rails/index.md)
 
 Explore the ways to extend and customize Properties Rail in Universal Editor.

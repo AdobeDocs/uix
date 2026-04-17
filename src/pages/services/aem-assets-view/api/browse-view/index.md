@@ -70,7 +70,7 @@ to the extension and the API provided by the extension to the AEM Assets View ho
 
 ### Host API Reference
 
-In addition to the [Common API](../commons) provided by AEM Assets View to all extensions,
+In addition to the [Common API](../commons/index.md) provided by AEM Assets View to all extensions,
 the host application provides the following definitions that are specific to the `aem/assets/browse/1` extension point: [`actionBar`](#actionbar-namespace), [`quickActions`](#quickactions-namespace) and [`headerMenu`](#headermenu-namespace) namespaces.
 
 #### Browsing context
@@ -547,7 +547,7 @@ function ExtensionRegistration() {
 ```
 
 ### Example of user interaction with overriding built-in actions 
-In this example, the [Modal API](../commons/#modal-api) is used to let the user confirm or cancel a default action based on their selection. The extension presents a confirmation dialog and waits for the user's response. If the user confirms, the built-in handler is executed by returning `false`. If the user cancels, the built-in handler is skipped by returning `true`.
+In this example, the [Modal API](../commons/index.md#modal-api) is used to let the user confirm or cancel a default action based on their selection. The extension presents a confirmation dialog and waits for the user's response. If the user confirms, the built-in handler is executed by returning `false`. If the user cancels, the built-in handler is skipped by returning `true`.
 
 ```js
 actionBar: {
@@ -615,5 +615,5 @@ function ExtensionRegistration() {
 ```
 
 To open a custom dialog from custom ActionBar actions, QuickActions menu actions or HeaderMenu, refer to the
-[Modal API](../commons/#modal-api) provided by AEM Assets View to all extensions for implementation of
+[Modal API](../commons/index.md#modal-api) provided by AEM Assets View to all extensions for implementation of
 dialog management.

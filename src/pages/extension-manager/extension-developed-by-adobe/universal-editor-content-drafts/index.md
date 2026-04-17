@@ -7,11 +7,11 @@ contributors:
 
 # Universal Editor Content Drafts
 
-This extension expands functionality in the [AEM Universal Editor](../../../services/aem-universal-editor/) by providing users with capabilities to create, edit, and manage multiple drafts of their content directly within the editor.
+This extension expands functionality in the [AEM Universal Editor](../../../services/aem-universal-editor/index.md) by providing users with capabilities to create, edit, and manage multiple drafts of their content directly within the editor.
 
 ##  Extension overview
 
-The extension enhances the [AEM Universal Editor service](../../../services/aem-universal-editor/) capabilities. It adds a button to the `Rails Bar`.
+The extension enhances the [AEM Universal Editor service](../../../services/aem-universal-editor/index.md) capabilities. It adds a button to the `Rails Bar`.
 
 When clicked, it shows the content fragments of type reach text located in the page.
 

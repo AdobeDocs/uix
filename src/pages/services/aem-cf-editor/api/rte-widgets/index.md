@@ -5,7 +5,9 @@ contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Rich Text Editor Widgets
+# Rich Text Editor Widgets (DEPRECATED)
+
+**Note: This feature has been deprecated due to the planned change of the underlying Rich Text Editor which will come with a new extensibility API.**
 
 Widgets functionality provides a way to add UI of any complexity and seamlessly integrate these UIs in Rich Text Editor experiences. The widget could be introduced by the following code:
 

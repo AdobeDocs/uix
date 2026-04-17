@@ -78,8 +78,8 @@ Available data in the editor state:
 
 | Key | Type                      | Sample                                                                | Description |
 |-----|---------------------------|-----------------------------------------------------------------------|-------------|
-| connections | `obj`                     | { "aemconnection": "aem:%auth_instance_url%" }                        | [Connections](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/getting-started#connections) which are used in the app are stored as `<meta>` tags in the page’s `<head>`.  |
-| selected | `obj<string, boolean>`    | {fcb38012-c4c7-51a8-896c-79e76kjk: true}                              | Element that is currently edited. |
-| editables | `[objects]`               | Array[{id: '33661..", type: 'reference', resource: "urn:..., ..}, {}] | List of elements that might be edited. The editable element object includes [proper metadata](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/attributes-types). |
-| location | `string`                  | "%locationString%"                                                    | The current page location | 
-| customTokens | `obj<string, string>`     | {"aemconnection":""}                                                  | Custom tokens available for connections |
+| connections | `obj`                     | `{ "aemconnection": "aem:%auth_instance_url%" }`                   | [Connections](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/getting-started#connections) which are used in the app are stored as `<meta>` tags in the page’s `<head>`.  |
+| selected | `obj<string, boolean>`    | `{ "fcb38012-c4c7-51a8-896c-79e76kjk": true }`                             | Element that is currently edited. |
+| editables | `[objects]`               | `Array[{id: '33661..", type: 'reference', resource: "urn:..., ..}, {}]` | List of elements that might be edited. The editable element object includes [proper metadata](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/attributes-types). |
+| location | `string`                  | `"%locationString%"`                                                    | The current page location | 
+| customTokens | `obj<string, string>`     | `{"aemconnection":"<custom header token>"}`                                                  | Custom tokens available for connections |

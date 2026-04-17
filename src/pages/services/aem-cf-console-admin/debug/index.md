@@ -69,7 +69,7 @@ This will deploy the actions to a local [OpenWhisk](https://openwhisk.apache.org
 ➜  demo-extension-project % aio app run
 ```
 
-This will deploy the actions to [Adobe I/O Runtime](/apis/experienceplatform/runtime) while running the UI part on the local machine. 
+This will deploy the actions to [Adobe I/O Runtime](https://developer.adobe.com/apis/experienceplatform/runtime) while running the UI part on the local machine. 
 
 ```shell
 ➜  demo-extension-project % aio app run

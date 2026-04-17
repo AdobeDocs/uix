@@ -21,11 +21,11 @@ You can provide documentation feedback by clicking "Log an issue".
 
 ## About application
 
-This example application will use the [Details View extension point](../api/details-view). It will render
+This example application will use the [Details View extension point](../api/details-view/index.md). It will render
 a custom icon in the side panel rail only if the selected asset has the "jpeg" extension. When the user clicks on the icon, 
 the extension will display a custom panel with a button. Clicking the button will display a toast message with the asset's path.
 
-More information about AEM Assets View extension points can be found at [AEM Assets View Extension Points](../api).
+More information about AEM Assets View extension points can be found at [AEM Assets View Extension Points](../api/index.md).
 
 ## Create a project in Adobe Developer Console
 
@@ -33,7 +33,7 @@ UI Extensions, as with any App Builder application, are represented as projects 
 
 <InlineAlert slots="text" />
 
-If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access) guide for instructions.
+If you don't have access to the Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access/index.md) guide for instructions.
 
 To begin, we need to create a new Project which will supply us with the configuration and resources.
 
@@ -109,12 +109,12 @@ If your version is outdated, update your `Adobe I/O CLI` by running
 npm install -g @adobe/aio-cli
 ```
 
-More details are described in [Local environment set up](../../../guides/local-environment).
+More details are described in [Local environment set up](../../../guides/local-environment/index.md).
 
 ## Initialize your extension using the AIO CLI and generate a base structure from the template
 
 First, we need to [sign in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
-Please complete all the steps described in [Code Generation for the Details View Extension in AEM Assets View](../code-generation).
+Please complete all the steps described in [Code Generation for the Details View Extension in AEM Assets View](../code-generation/index.md).
 
 For the purposes of this guide, we will use
 - `Asset Info Extension` as the extension name and description
@@ -267,7 +267,7 @@ export default ExtensionRegistration;
 We use the [UIX SDK Guest library](https://github.com/adobe/uix-sdk) and call the `register()` function, which connects to the host application
 and declares methods the host can call on the extension. 
 
-The extension descriptor passed to the `register()` function in particular declares the [`getPanels()`](../api/details-view/#extension-api-reference) 
+The extension descriptor passed to the `register()` function in particular declares the [`getPanels()`](../api/details-view/index.md#extension-api-reference) 
 method, which in turns returns an array of custom panel descriptors upon a request from the AEM Assets View.
 
 In case of our extension, we check the selected asset's path and return a custom panel descriptor only if the asset has a "png" extension,
@@ -380,7 +380,7 @@ within AEM Assets View by adding the following URL parameters:
 
 **Sample AEM Assets View URL:** `https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&#/assets/workspace/
 
-You may have to accept self-signed certificate as described in the [Troubleshooting](../debug/#accept-the-certificate) section.
+You may have to accept self-signed certificate as described in the [Troubleshooting](../debug/index.md#accept-the-certificate) section.
 
 ## Run on Stage
 
@@ -417,7 +417,7 @@ Successful deployment 🏄
 ```
 
 You can use the staging deployment URL (`https://123456-yournamespace-stage.adobeio-static.net/index.html` in this  example) 
-to test the extension with AEM Assets View by passing this URL to the `ext=` URL parameter as described in [Load UI Extension](../debug/#load-ui-extension) section.
+to test the extension with AEM Assets View by passing this URL to the `ext=` URL parameter as described in [Load UI Extension](../debug/index.md#load-ui-extension) section.
 
 ![Testing on Stage](asset-info-extension.png)
 
@@ -427,13 +427,13 @@ and [Deployment Overview](https://developer.adobe.com/app-builder/docs/guides/de
 ## Deploy on Production and create approval request
 
 After the application has been completed, tested locally, and on `Stage`: we are ready to deploy it to `Production`.
-Refer to the [UI Extensions Development Flow](../../../guides/development-flow#deploy-on-production) to learn how to do this.
+Refer to the [UI Extensions Development Flow](../../../guides/development-flow/index.md#deploy-on-production) to learn how to do this.
 
 Also in this document you can find the whole development flow of a UI Extensions.
 
 ## Additional resources
 
-- [UI Extensions Development Flow](../../../guides/development-flow)
-- [UI Extensions Management](../../../guides/publication)
-- [Troubleshooting](../debug)
-- [FAQ](../../../getting-started/faq/)
+- [UI Extensions Development Flow](../../../guides/development-flow/index.md)
+- [UI Extensions Management](../../../guides/publication/index.md)
+- [Troubleshooting](../debug/index.md)
+- [FAQ](../../../getting-started/faq/index.md)

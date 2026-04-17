@@ -33,7 +33,7 @@ npm install -g @adobe/aio-cli
 
 After that, you can simply run `aio update` to ensure all plugins are updated.
 
-Find more details on [Prepare your local environment](../../guides/local-environment).
+Find more details on [Prepare your local environment](../../guides/local-environment/index.md).
 
 ## My UI Extension is not loaded
 
@@ -69,7 +69,7 @@ The extension point is functionality in Adobe Service UI that allows the executi
 
 You will need NodeJS and [AIO CLI](https://github.com/adobe/aio-cli). All other tools are optional and you may replace them with your preferred one.
 
-For more information see [Set Up Local Environment](../../guides/local-environment/).
+For more information see [Set Up Local Environment](../../guides/local-environment/index.md).
 
 ## Do I need to deploy any services locally
 
@@ -78,7 +78,7 @@ No! The only thing that you will run locally is your own extension. You will be 
 ## Can I test my extension before deploying it to the cloud
 
 Yes! It is possible to run the extension locally and embed it into production Adobe Service to check if it works as expected.
-For more information see [Troubleshooting](../../services/aem-cf-console-admin/debug).
+For more information see [Troubleshooting](../../services/aem-cf-console-admin/debug/index.md).
 
 ## Should I write all extension code by myself
 
@@ -86,11 +86,11 @@ No! We provide a template that allows you to generate most of the code required 
 
 But you still can write everything from scratch if you wish to.
 
-For more information see [Code Generation](../../services/aem-cf-console-admin/code-generation/).
+For more information see [Code Generation](../../services/aem-cf-console-admin/code-generation/index.md).
 
 ## What is the simplest way to start
 
-Our [code generator](../../services/aem-cf-console-admin/code-generation/) supplies a demo project that you may generate and deploy for your IMS organization. Explore it and change to learn what is possible with UI Extensibility.
+Our [code generator](../../services/aem-cf-console-admin/code-generation/index.md) supplies a demo project that you may generate and deploy for your IMS organization. Explore it and change to learn what is possible with UI Extensibility.
 
 
 ## How I can ask for additional extension point

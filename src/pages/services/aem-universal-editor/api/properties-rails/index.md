@@ -7,7 +7,7 @@ contributors:
 
 # Properties Rail
 
-The [properties rail](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/authoring/universal-editor/authoring#properties-rail) is always present along the right side of [Universal Editor](../../). The extensibility feature allows adding new panels to it, ensuring seamless integration.
+The [properties rail](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/authoring/universal-editor/authoring#properties-rail) is always present along the right side of [Universal Editor](../../index.md). The extensibility feature allows adding new panels to it, ensuring seamless integration.
 
 ![Properties Rail](properties-rail-initial.png)
 

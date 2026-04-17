@@ -24,5 +24,5 @@ You can provide documentation feedback by clicking "Log an issue".
 
 UI Extensibility allows 3rd party developers to extend and customize AEM Assets View with modern front-end technology stack with JavaScript, Node.js and React.
 
-In this section, you will find the available [extension points](api) and examples of how to utilize them.
+In this section, you will find the available [extension points](api/index.md) and examples of how to utilize them.
 

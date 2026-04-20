@@ -89,9 +89,9 @@ The extension definition object passed by the extension to the `register()` func
 
 The `detailSidePanel` namespace can implement the following methods:
 
-- [`getPanels`](#detailsidepanelgetpanels) — required
-- [`getHiddenBuiltInPanels`](#detailsidepanelgethiddenbuiltinpanels) — optional 
-- [`overrideBuiltInPanel`](#detailsidepaneloverridebuiltinpanel) — optional
+- [`getPanels`](#detailsidepanelgetpanels) 
+- [`getHiddenBuiltInPanels`](#detailsidepanelgethiddenbuiltinpanels) 
+- [`overrideBuiltInPanel`](#detailsidepaneloverridebuiltinpanel) 
 
 ##### detailSidePanel.getPanels()
 

@@ -128,7 +128,7 @@ Each array element is a custom panel descriptor that is a JSON with the followin
 
 ##### detailSidePanel.overrideBuiltInPanel()
 
-**Description:** for a single built-in panel, return replacement content hosted by the extension, or `null` to keep the default implementation. The host calls this when the user selects a built-in rail button whose panel is eligible for override. 
+**Description:** Return replacement content hosted by the extension, or `null` to keep the default implementation. The host calls this when the user selects a built-in rail button whose panel is eligible for override. 
 
 **Parameters**
 
@@ -196,7 +196,7 @@ The `ExtensionRegistration` component initializes the extension registration pro
 provided by the `@adobe/uix-guest` library. 
 
 The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares that the
-extension uses the `detailSidePanel` namespace and implements `getPanels` (and optionally `getHiddenBuiltInPanels` and `overrideBuiltInPanel`). 
+extension uses the `detailSidePanel` namespace and implements at least one of the following: `getPanels`, `getHiddenBuiltInPanels` or `overrideBuiltInPanel`. 
 The custom panel objects returned by `getPanels`, specifies the icon's tooltip, the custom panel title and the route to the panel content.
 
 ```js
@@ -218,11 +218,9 @@ function ExtensionRegistration() {
                             },
                         ];
                     },
-                    // Optional: only used when the host supports hiding built-in panels
                     getHiddenBuiltInPanels({ resource }) {
                         return ['dynamicmedia', 'comment'];
                     },
-                    // Optional: only used when the host supports overriding built-in panel content
                     overrideBuiltInPanel({ panelId, resource }) {
                         if (panelId === 'renditions') {
                             return {

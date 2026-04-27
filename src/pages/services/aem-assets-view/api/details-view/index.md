@@ -107,6 +107,8 @@ The host exposes the following built-in header menu button ids that can be hidde
 
 The `headerMenu` namespace supports adding custom **header menu buttons** in the Details View header menu and optionally hiding and overriding built-in header menu buttons there.
 
+`headerMenu` behavior is shared between Browse View and Details View. If an extension implements `headerMenu` in either `aem/assets/browse/1` or `aem/assets/details/1`, those methods are used for header menu handling in both screens. The built-in button set and button ids still differ by screen/context, so use the appropriate ids from each page's [Built-in header menu buttons](#built-in-header-menu-buttons) table.
+
 All `headerMenu` methods are optional:
 
 - `getButtons({ context, resource })` — optional

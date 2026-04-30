@@ -160,7 +160,7 @@ headerMenu: {
 
 `getHiddenButtonIds({ context, resource })`
 
-**Description:** Returns an array of built-in header menu button ids to hide in the Details View. For this extension point the ids are `assignTasks` and `download` (see [Built-in header menu buttons](#built-in-header-menu-buttons)).
+**Description:** Returns an array of built-in header menu button ids to hide in the Details View. Supported ids are those listed for the `details` context in [Built-in header menu buttons](#built-in-header-menu-buttons).
 
 The host calls this method when the asset or context relevant to the header menu changes. Return quickly; avoid slow or blocking work while the host resolves header menu button visibility.
 
@@ -171,7 +171,7 @@ The host calls this method when the asset or context relevant to the header menu
 **Description:** Return `true` if the extension handled the click and the built-in header menu button handler should **not** run. Return `false` to let the Host run the default behavior.
 
 **Parameters:**
-- buttonId (`string`): Built-in header menu button id for Details View: `assignTasks` or `download` (see [Built-in header menu buttons](#built-in-header-menu-buttons)).
+- buttonId (`string`): Built-in header menu button id for the Details View; must be one of the ids listed for the `details` context in [Built-in header menu buttons](#built-in-header-menu-buttons).
 
 **Returns:** (`boolean`) `false` for the Host to use the built-in handler, `true` to skip the built-in handler.
 

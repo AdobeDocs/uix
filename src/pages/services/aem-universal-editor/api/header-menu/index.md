@@ -14,7 +14,7 @@ You have the ability to:
 - create multiple buttons from single extension;
 - implement drop-down menu buttons;
 - use different [variations](https://spectrum.adobe.com/page/button/#Options) of buttons from React Spectrum;
-- use any [icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) from React Spectrum;
+- use any [icon](https://react-spectrum.adobe.com/icons#available-icons) from React Spectrum;
 
 ## Custom button with callback
 
@@ -99,7 +99,7 @@ const guestConnection = await register({
 |----------|-----------------------------------------------------------------------------| ------ |-------------------------------------------------------------------------------------------------------------------------------|
 | id       | `string`                                                                    | ✔️  | **Must be unique** across all extensions. Consider adding a vendor prefix to this field                                       |
 | label    | `string`                                                                    | ✔️  | Button label that will be visible on UI                                                                                       |
-| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| icon     | `string`                                                                    |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/icons#available-icons) |
 | variant  | `cta` \<br/\> `primary` \<br/\> `secondary` \<br/\> `negative` \<br/\> `action` |    | The [visual style](https://spectrum.adobe.com/page/button/#Options) of the button                                             |
 | subItems | `array`                                                                     |    | A list with sub menu items.                                                                                                   |
 | onClick  | `callback(): void`                                                          |  ✔️ | A callback for a button `onClick` event                                                                                       |
@@ -110,6 +110,6 @@ const guestConnection = await register({
 |----------|-------------------------------------------------------------------------| ------ |--------------------------------------------------------------------------------------------------------------|
 | id       | `string`                                                                | ✔️  | **Must be unique** across the current button sub menu                                                        |
 | label    | `string`                                                                | ✔️  | Button label that will be visible on UI                                                                      |
-| icon     | `string`                                                                |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) |
+| icon     | `string`                                                                |    | Name of a [React-Spectrum workflow icon](https://react-spectrum.adobe.com/icons#available-icons) |
 | onClick  | `callback(): void`                                                      |  ✔️ | A callback for a button `onClick` event                                                                      |
 

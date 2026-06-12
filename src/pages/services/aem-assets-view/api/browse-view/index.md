@@ -100,7 +100,7 @@ action ids of actions that can be hidden:
 | Browsing Context | Action IDs that can be hidden or overridden |
 |------------|------------|
 | `assets` | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
-| `collections` | "openInExpress", "rename", "managePermissions", "delete", "download", "share" |
+| `collections` | "openInExpress", "rename", "managePermissions", "delete", "publish", "download", "share" |
 | `recent` | - |
 | `search` | "edit", "openInExpress", "reprocess", "copy", "move", "rename", "bulkRename", "managePermissions", "delete", "publish", "download", "share" |
 | `trash` | "delete" |

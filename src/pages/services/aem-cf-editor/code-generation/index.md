@@ -149,7 +149,7 @@ AEM Content Fragment Editor Template Overview:
 
 You can generate code `stubs` for any combination of the following functionalities. Detailed information about each extension point can be found in the related section.
 
-- Add [a custom button to Header Menu](../api/header-menu)
+- Add [a custom button to Header Menu](../api/header-menu/index.md)
 
 After generation, all necessary files for utilizing the chosen extension points will be created, and placeholders will be added in the generated texts to indicate where you can add your custom logic.
 

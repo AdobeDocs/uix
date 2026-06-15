@@ -17,7 +17,7 @@ Learn about common concepts, extension registration, and methods that can be use
 
 <DiscoverBlock slots="link, text"/>
 
-[Header Menu](header-menu)
+[Header Menu](header-menu/index.md)
 
 Explore the ways to extend and customize Header Menu
 

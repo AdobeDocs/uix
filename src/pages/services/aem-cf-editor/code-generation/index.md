@@ -149,14 +149,11 @@ AEM Content Fragment Editor Template Overview:
 
 You can generate code `stubs` for any combination of the following functionalities. Detailed information about each extension point can be found in the related section.
 
-- Add [a custom button to Header Menu](../api/header-menu/index.md)
-- Add [Rich Text Editor (RTE) Toolbar Button](../api/rte-toolbar/index.md)
-- Add [Rich Text Editor (RTE) Toolbar Widget](../api/rte-widgets/index.md)
-- Add [Rich Text Editor (RTE) Toolbar Badge](../api/rte-badges/index.md)
+- Add [a custom button to Header Menu](../api/header-menu)
 
 After generation, all necessary files for utilizing the chosen extension points will be created, and placeholders will be added in the generated texts to indicate where you can add your custom logic.
 
-### Example: Header Menu Button and RTE Toolbar Widget generation
+### Example: Header Menu Button
 
 #### 1. Add a custom button to Header Menu
 
@@ -173,32 +170,7 @@ In our example, we specified that the UI Modal functionality is required and sho
 ? Do you need to show a modal for the button? y
 ```
 
-#### 2. Add Rich Text Editor (RTE) Toolbar Widget
-
-Afterwards, choose the `Add Rich Text Editor (RTE) Toolbar Widget` option and provide the desired label for the button.
-
-As a final result, you will see the output in the CLI:
-
-```shell
-...
-? What do you want to name your extension? myorg-cf-editor-test-extension
-? Please provide a short description of your extension: A test extension for experimenting with functionalities
-? What version would you like to start with? 0.0.1
-? What would you like to do next? Add a custom button to Header Menu
-? Please provide label name for the button: Export data
-? Do you need to show a modal for the button? y
-? What would you like to do next? Add Rich Text Editor (RTE) Toolbar Widget
-? Please provide label name for the widget: RTE Widget Custom Functionallity
-? What would you like to do next? 
-  Add Rich Text Editor (RTE) Toolbar Widget 
-  Add Rich Text Editor (RTE) Toolbar Badge 
-  ──────────────
-❯ I'm done 
-  I don't know 
-  ──────────────
-```
-
-#### 3. Generate final result
+#### 2. Generate final result
 
 Now, you can select `I'm done` to initiate the generation process, which will include code generation and installation of project dependencies.
 

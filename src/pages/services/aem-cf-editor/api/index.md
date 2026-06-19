@@ -17,30 +17,6 @@ Learn about common concepts, extension registration, and methods that can be use
 
 <DiscoverBlock slots="link, text"/>
 
-[Rich Text Editor Toolbar](rte-toolbar/index.md)
-
-Learn how to extend and customize Rich Text Editor Toolbar
-
-<DiscoverBlock slots="link, text"/>
-
-[Rich Text Editor Widgets](rte-widgets/index.md)
-
-Learn how to customize Rich Text Editor Widgets
-
-<DiscoverBlock slots="link, text"/>
-
-[Rich Text Editor Badges](rte-badges/index.md)
-
-Learn how to customize Rich Text Editor Badges
-
-<DiscoverBlock slots="link, text"/>
-
-[Rich Text Editor Color Picker](rte-colorpicker/index.md)
-
-Learn how to customize Rich Text Editor Color Picker
-
-<DiscoverBlock slots="link, text"/>
-
 [Header Menu](header-menu/index.md)
 
 Explore the ways to extend and customize Header Menu

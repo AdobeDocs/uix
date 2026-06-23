@@ -192,3 +192,84 @@ This `contentFragment` object holds the last received state from AEM instance. I
 <InlineAlert variant="warning" slots="text" />
 
 The API is experimental and might change or disappear at any time. The result object structure is part of a low level API that could be changed in the future.
+
+### Get Domain Tiers
+
+The `host.getDomains()` method lets your extension discover which domains are configured for the current environment, organized by tier — author, publish, and preview. This is useful when you need to build links or reference content across the different tiers:
+
+```ts
+import { register } from "@adobe/uix-guest";
+import type { CFEditor } from "@adobe/uix-cf-editor-contract";
+// ...
+const init = async () => {
+    const registrationConfig = {
+        id: extensionId,
+        methods: {
+            headerMenu: {
+                async getButtons() {
+                    const { domainTiers } = await guestConnection.host.instance.getDomains();
+                    
+                    return [
+                        {
+                            id: 'get-domain-tiers',
+                            label: 'Get Domain Tiers',
+                            icon: 'OpenIn',
+                            subItems: [
+                                {
+                                    id: 'author',
+                                    label: 'Author',
+                                    onClick: () => {
+                                        console.log("Author URL: ", domainTiers?.["author"].domainURLs);
+                                    },
+                                },
+                                {
+                                    id: 'publish',
+                                    label: 'Publish',
+                                    onClick: () => {
+                                        console.log("Publish URL: ", domainTiers?.["publish"].domainURLs)
+                                    },
+                                },
+                                {
+                                    id: 'preview',
+                                    label: 'Preview',
+                                    onClick: () => {
+                                        console.log("Preview URL: ", domainTiers?.["preview"].domainURLs)
+                                    },
+                                },
+                            ],
+                        },
+                    ];
+                },
+            },
+        },
+    };
+    const guestConnection = await register<CFEditor>(registrationConfig);
+}
+init().catch(console.error)
+```
+
+#### Result object
+
+`getDomains()` resolves to an object with two parts:
+- `domainTiers` - the domains grouped by tier (`author`, `publish`, `preview`). Each entry includes the tier name and its `domainURLs` (one or more addresses for that tier).
+- `status` - the outcome of the request: `DONE` on success, or `FAILED` if the domains could not be retrieved.
+
+```js
+{
+    domainTiers: {
+        author: {
+            tier: "author", 
+            domainURLs: ["https://author-p12345-e67890.adobeaemcloud.com"]
+        },
+        publish: {
+            tier: "publish",
+            domainURLs: ["https://publish-p12345-e67890.adobeaemcloud.com"]
+        },
+        preview: {
+            tier: "preview",
+            domainURLs: ["https://preview-p12345-e67890.adobeaemcloud.com"]
+        },
+    },
+    status: "DONE" // or "FAILED"
+}
+```

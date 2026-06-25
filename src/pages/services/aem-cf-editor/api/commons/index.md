@@ -195,7 +195,7 @@ The API is experimental and might change or disappear at any time. The result ob
 
 ### Get Domain Tiers
 
-The `host.getDomains()` method lets your extension discover which domains are configured for the current environment, organized by tier — author, publish, and preview. This is useful when you need to build links or reference content across the different tiers:
+The `host.domains.getDomains()` method lets your extension discover which domains are configured for the current environment, organized by tier — author, publish, and preview. This is useful when you need to build links or reference content across the different tiers:
 
 ```ts
 import { register } from "@adobe/uix-guest";
@@ -207,7 +207,7 @@ const init = async () => {
         methods: {
             headerMenu: {
                 async getButtons() {
-                    const { domainTiers } = await guestConnection.host.instance.getDomains();
+                    const { domainTiers } = await guestConnection.host.domains.getDomains();
                     
                     return [
                         {

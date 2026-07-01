@@ -100,7 +100,7 @@ function ExtensionRegistration() {
 
 ## Building Extension UI
 
-Extension panels and modal dialogs are rendered inside iframes. A panel or dialog component calls `attach()` (not `register()`) to get the connection object:
+Extension panels and modal dialogs are rendered inside iframes. A panel or dialog component calls `attach()` to get the connection object:
 
 ```js
 import { attach } from '@adobe/uix-guest';

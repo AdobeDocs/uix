@@ -19,7 +19,7 @@ Asset card actions appear wherever asset cards or collection tiles are rendered.
 | `'collections'` | Collection tile on the Collections grid |
 | `'share'` | Asset card in a link-share view |
 
-Extensions use the `aem/assets/contenthub/1` extension point and implement the `card` namespace inside a single `register()` call (together with `assetDetails` and `selectionBar`).
+Extensions use the `aem/assets/contenthub/1` extension point and implement the `card` namespace inside a single `register()` call.
 
 ## Extension API Reference
 

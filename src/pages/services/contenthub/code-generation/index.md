@@ -1,179 +1,153 @@
 ---
-title: Code Generation Guide - Content Hub Extensibility
-description: Scaffold a Content Hub UI extension project using the AIO CLI template.
+title: Sample Extension - Content Hub Extensibility
+description: Get started quickly by cloning the Content Hub sample extension from adobe/aem-uix-examples.
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Code Generation for Content Hub Extensions
+# Content Hub Sample Extension
 
-The Content Hub extension template for the AIO CLI bootstraps an App Builder project with the correct structure, dependencies, and starter code for a Content Hub UI extension.
+The quickest way to start building a Content Hub extension is to clone the official sample from [adobe/aem-uix-examples](https://github.com/adobe/aem-uix-examples). The sample is a working App Builder project that demonstrates all three extension surfaces — Asset Details tab panels, asset card actions, and Selection Bar bulk actions — in a single extension.
 
-The template is optional, but strongly recommended: it sets up the `aem/assets/contenthub/1` extension point, routing, extension registration, and a sample panel component — so you can focus on your business logic from the start.
-
-Template provides code generation targeted at three types of developers:
-
-1. **Novices** — generate a working demo with links to documentation.
-2. **Seasoned developers** — generate skeleton code for specific surfaces and jump straight into business logic.
-3. **Experts** — generate a bare-bones project and write everything from scratch.
+Clone it, run it locally, then delete the parts you don't need and replace the rest with your business logic.
 
 ## Prerequisites
 
-You need AIO CLI version ≥ 9.1.0. See [Local Environment Set Up](../../../guides/local-environment/index.md).
+- Node.js 18 or higher
+- [Adobe I/O CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/): `npm install -g @adobe/aio-cli`
+- An Adobe Developer Console account with an App Builder project (I/O Runtime must be enabled on the project)
+- Access to a Content Hub environment with the extensibility feature flag enabled
 
-## Launch code generation during project initialization
-
-Create a directory for your extension and run the following commands from that directory.
-
-1. **Select the organization.**
-
-    ```shell
-    ➜  my-contenthub-extension % aio app init
-    ? Select Org:
-    ❯ My Org
-      Other Org
-    ```
-
-2. **Select a project** within that organization.
-
-    ```shell
-    ? Select a Project, or press + to create new:
-    ❯ my-contenthub-project
-      another-project
-    ```
-
-3. **Choose which templates to search for.** Select `All Extension Points`.
-
-    ```shell
-    ? What templates do you want to search for?
-      All Templates
-    ❯ All Extension Points
-      Only Templates Supported By My Org
-    ```
-
-4. **Select the Content Hub template** using the spacebar.
-
-    ```shell
-    ✔ Downloaded the list of templates
-    ? Choose the template(s) to install:
-    |    | Template                                     | Description                                             | Extension Point       | Categories |
-    |----|----------------------------------------------|---------------------------------------------------------|-----------------------|------------|
-    | ❯◉ | @adobe/aem-contenthub-ext-tpl *              | Content Hub Extension Template                          | aem/assets/contenthub/1   | action, ui |
-    |  ◯ | @adobe/aem-assets-details-ext-tpl *          | Asset Details extension Template for AEM Assets View    | aem/assets/details/1  | action, ui |
-    |  ◯ | @adobe/aem-assets-browse-ext-tpl *           | Asset Browse extension Template for AEM Assets View     | aem/assets/browse/1   | action, ui |
-    |  ◯ | @adobe/generator-app-excshell *              | Extensibility template for generator-aio-app            | dx/excshell/1         | action, ui |
-
-    * = recommended by Adobe
-    ```
-
-    > You can also skip the interactive selection by running:
-    > ```shell
-    > aio app init --template=@adobe/aem-contenthub-ext-tpl
-    > ```
-
-## Provide basic extension information
-
-5. **Answer the metadata prompts.**
-
-    ```shell
-    ? What do you want to name your extension? My Content Hub Extension
-    ? Please provide a short description of your extension: Adds custom actions and panels to Content Hub
-    ? What version would you like to start with? 0.0.1
-    ```
-
-## Choose code generation strategy
-
-6. **Select the features you want to generate.** Select from the menu and press Enter. When done, select `I'm done`.
-
-    ```shell
-    ? What would you like to do next? (Use arrow keys)
-      ──────────────
-      Add a tab panel to the Asset Details dialog
-      Add asset card actions
-      Add collection card actions
-      Add selection bar actions
-      Add server-side handler
-      ──────────────
-    ❯ I'm done
-      I don't know
-    ```
-
-### Generate a tab panel for the Asset Details dialog
-
-> 6.1. Select `Add a tab panel to the Asset Details dialog` to generate the `assetDetails` namespace and a sample panel component.
+## Clone the sample
 
 ```shell
-? What would you like to do next? Add a tab panel to the Asset Details dialog
-? Please provide a tooltip for the tab: My Panel
-? Please provide a title for the tab: My Panel
-? Please select a React Spectrum icon for the tab: Info
+git clone https://github.com/adobe/aem-uix-examples.git
+cd aem-uix-examples/aem-contenthub-sample
 ```
 
-### Generate asset card actions
-
-> 6.2. Select `Add asset card actions` to generate the `card` namespace with `getActionButtons` and `onActionClick` stubs.
-
-```shell
-? What would you like to do next? Add asset card actions
-? Please provide a label for the card action button: Export
-? Please select a React Spectrum icon: Export
-```
-
-### Generate selection bar actions
-
-> 6.3. Select `Add selection bar actions` to generate the `selectionBar` namespace.
-
-```shell
-? What would you like to do next? Add selection bar actions
-? Please provide a label for the selection bar button: Bulk Export
-? Please select a React Spectrum icon: Export
-```
-
-### Add a server-side handler (optional)
-
-> 6.4. If your extension needs server-to-server communication, add a serverless action:
-
-```shell
-? What would you like to do next? Add server-side handler
-? How would you like to name this action? call-remote-api
-```
-
-## Generated project structure
-
-After selecting `I'm done`, the template installs dependencies and generates:
+## Project structure
 
 ```text
-.
-|-- README.md
-|-- app.config.yaml
-|-- extension-manifest.json
-|-- hooks
-|   `-- post-deploy.js
-|-- package.json
-`-- src
-    `-- aem-assets-contenthub-1
-        |-- ext.config.yaml
-        `-- web-src
-            |-- index.html
-            `-- src
-                |-- components
-                |   |-- App.js
-                |   |-- Constants.js
-                |   |-- ExtensionRegistration.js
-                |   `-- MyPanel.js          <- generated for tab panel option
-                |-- index.css
-                `-- index.js
+aem-contenthub-sample/
+├── app.config.yaml
+├── extension-manifest.json
+├── hooks/
+│   └── post-deploy.js
+├── package.json
+└── src/
+    └── aem-assets-contenthub-1/
+        ├── actions/
+        │   └── generic/
+        │       └── index.js          ← server-side web action (optional)
+        ├── ext.config.yaml
+        └── web-src/
+            └── src/
+                └── components/
+                    ├── App.js                    ← routing
+                    ├── Constants.js              ← extension ID
+                    ├── ExtensionRegistration.js  ← registers all namespaces
+                    ├── TabPanel.js               ← assetDetails tab panel
+                    ├── CardActionModal.js        ← card action modal
+                    └── SelectionBarModal.js      ← selection bar modal
 ```
 
 ```yaml
-# app.config.yaml
+# app.config.yaml — declares the extension point
 extensions:
   aem/assets/contenthub/1:
     $include: src/aem-assets-contenthub-1/ext.config.yaml
 ```
 
-## Add business logic
+`ExtensionRegistration.js` is the entry point — it registers all three namespaces with Content Hub. `App.js` maps URL routes to each panel or modal component.
 
-Navigate to `src/aem-assets-contenthub-1/web-src/src/components/ExtensionRegistration.js`. This is where the extension declares its capabilities to Content Hub. Edit the generated stub code to implement your business logic.
+## Setup and run locally
 
-For a detailed walkthrough of each generated component, see [Step-by-step Extension Development](../extension-development/index.md).
+```shell
+# 1. Install dependencies
+npm install
+
+# 2. Log in to Adobe I/O
+aio login
+
+# 3. Select your org, project, and workspace
+aio console org select
+aio console project select
+aio console workspace select
+
+# 4. Link the app to the selected project and populate .env
+aio app use -g
+
+# 5. Start the local dev server (https://localhost:9080)
+aio app run
+```
+
+## Accept the self-signed certificate
+
+The first time you run the dev server, open `https://localhost:9080` in your browser and accept the certificate (click **Advanced → Proceed to localhost**, or type `thisisunsafe` on the warning page).
+
+You only need to do this once per browser session.
+
+## Load the extension in Content Hub
+
+Open Content Hub with `devMode=true` and `ext=` pointing to your local server:
+
+```text
+https://experience.adobe.com/?devMode=true&ext=https://localhost:9080#/assets/contenthub/
+```
+
+## Verify each surface
+
+**Asset Details tab panel (`assetDetails`)**
+1. Click any asset to open the Asset Details dialog
+2. Look for the **"Asset Details Tab"** in the side rail
+3. Click it — the panel loads and displays the asset's URN
+
+**Asset card action (`card`)**
+1. Hover over any asset card — a **"Card Action"** button appears
+2. Click it — a modal opens showing the resource type and ID
+
+**Collection tile action (`card`)**
+1. Navigate to the Collections grid
+2. Hover over a collection tile — a **"Collection Action"** button appears
+3. Click it — a modal opens showing `resourceType: collection`
+
+**Selection Bar bulk action (`selectionBar`)**
+1. Select one or more assets
+2. The Selection Bar appears — click **"Bulk Action"**
+3. A modal opens listing all selected asset URNs
+
+## Customize the sample
+
+Open `ExtensionRegistration.js` and edit the three namespace blocks to implement your logic. Remove any namespace block you don't need, and delete the matching route from `App.js` and the matching component file.
+
+For a detailed walkthrough of each surface and its API, see the [Extension Development guide](../extension-development/index.md) and the [API reference](../api/index.md).
+
+## Restrict to specific repositories
+
+`ExtensionRegistration.js` has an `allowedRepos` array that is empty by default — the extension registers for any Content Hub repository, which is correct for local development. Before deploying to Production, add your delivery repository IDs:
+
+```js
+const allowedRepos = [
+  'delivery-p12345-e167890.adobeaemcloud.com',
+];
+```
+
+## Deploy
+
+```shell
+# Deploy to Stage
+aio app use -w Stage
+aio app deploy
+
+# Deploy to Production
+aio app use -w Production
+aio app deploy
+```
+
+After deploying to Production, approve the extension in [Extension Manager](https://experience.adobe.com/aem/extension-manager) to make it visible to all users without the `ext=` parameter.
+
+## Additional resources
+
+- [Step-by-step Extension Development](../extension-development/index.md)
+- [API Reference](../api/index.md)
+- [Troubleshooting](../debug/index.md)

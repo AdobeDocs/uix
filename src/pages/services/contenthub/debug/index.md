@@ -75,13 +75,12 @@ Waiting for the certificate to be accepted....
 
 In Chrome you can also type `thisisunsafe` on the warning page to bypass it. Refer to your browser's documentation for other browsers.
 
-3. Exit the running process and run `aio app run` again.
 
 ## Load UI Extension
 
 Once the extension is running locally, embed it in Content Hub:
 
-1. Navigate to Content Hub: `https://experience.adobe.com/#/assets/contenthub`
+1. Navigate to Content Hub: `https://experience.adobe.com/#/assets/contenthub/`
 2. Append the following query parameters to the URL:
    - `devMode=true` — tells Adobe Experience Shell to allow content from localhost.
    - `ext=<extension_endpoint_url>` — the full URL of your local extension.
@@ -90,13 +89,13 @@ Once the extension is running locally, embed it in Content Hub:
 **Example URL:**
 
 ```text
-https://experience.adobe.com/?devMode=true&ext=https://localhost:9080#/assets/contenthub
+https://experience.adobe.com/?devMode=true&ext=https://localhost:9080#/assets/contenthub/
 ```
 
 You can specify multiple `ext=` parameters to load more than one extension simultaneously:
 
 ```text
-https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&ext=https://localhost:9081#/assets/contenthub
+https://experience.adobe.com/?devMode=true&ext=https://localhost:9080&ext=https://localhost:9081#/assets/contenthub/
 ```
 
 ### `ext=` query parameter syntax

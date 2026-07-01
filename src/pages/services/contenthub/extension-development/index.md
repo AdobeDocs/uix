@@ -16,7 +16,7 @@ The extension built in this guide adds:
 - A **Custom Action** button on asset cards (shown in the Assets grid and inside collections)
 - A **Bulk Action** button in the Selection Bar for bulk operations on selected assets
 
-Each action opens a modal dialog. The extension demonstrates how all three surfaces are registered in a single `register()` call and how modal data is passed via URL query parameters.
+The extension demonstrates how all three surfaces are registered in a single `register()` call and how modal data is passed via URL query parameters.
 
 ## Create a project in Adobe Developer Console
 
@@ -62,17 +62,27 @@ npm install -g @adobe/aio-cli
 
 More details: [Local Environment Set Up](../../../guides/local-environment/index.md).
 
-## Step 1: Scaffold the project
+## Step 1: Get the sample project
 
-Sign in from the CLI and bootstrap your project:
+The quickest way to start is to clone the official Content Hub sample from [adobe/aem-uix-examples](https://github.com/adobe/aem-uix-examples):
+
+```shell
+git clone https://github.com/adobe/aem-uix-examples.git
+cd aem-uix-examples/aem-contenthub-sample
+npm install
+```
+
+Then log in to Adobe I/O and link the project to your Console workspace:
 
 ```shell
 aio login
-mkdir my-contenthub-extension && cd my-contenthub-extension
-aio app init
+aio console org select
+aio console project select
+aio console workspace select
+aio app use -g
 ```
 
-Select your org and project, choose `All Extension Points`, and select the `@adobe/aem-contenthub-ext-tpl` template. See [Code Generation](../code-generation/index.md) for the full interactive flow.
+See [Code Generation](../code-generation/index.md) for the full setup walkthrough.
 
 ## Step 2: Project structure
 
@@ -429,7 +439,7 @@ export default function SelectionBarModal() {
       // assetIds are passed as a JSON-encoded URL parameter.
       const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
       const raw = params.get('assetIds');
-      setPayload({ assetIds: raw ? JSON.parse(decodeURIComponent(raw)) : [] });
+      setPayload({ assetIds: raw ? JSON.parse(raw) : [] });
     })();
   }, []);
 
@@ -493,7 +503,7 @@ press CTRL+C to terminate dev environment
 Open Content Hub with the `ext=` parameter to load your locally running extension:
 
 ```text
-https://experience.adobe.com/?devMode=true&ext=https://localhost:9080#/assets/contenthub
+https://experience.adobe.com/?devMode=true&ext=https://localhost:9080#/assets/contenthub/
 ```
 
 You may need to accept the self-signed certificate first — see [Accept the Certificate](../debug/index.md#accept-the-certificate).
@@ -528,7 +538,7 @@ Successful deployment 🏄
 Use the staging deployment URL with the `ext=` parameter to verify the extension in Content Hub:
 
 ```text
-https://experience.adobe.com/?devMode=true&ext=https://123456-yournamespace-stage.adobeio-static.net/index.html#/assets/contenthub
+https://experience.adobe.com/?devMode=true&ext=https://123456-yournamespace-stage.adobeio-static.net/index.html#/assets/contenthub/
 ```
 
 ![Extension running on Stage](extension-on-stage.png)
@@ -543,7 +553,7 @@ const allowedRepos = [
 ];
 ```
 
-Then redeploy using the Production workspace and publish through the Extension Manager in Adobe Developer Console.
+Then redeploy using the Production workspace and publish through the Extension Manager.
 
 Refer to [UI Extensions Development Flow](../../../guides/development-flow/index.md#deploy-on-production) for the full publication and approval process.
 

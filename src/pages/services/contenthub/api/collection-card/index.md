@@ -103,6 +103,42 @@ function ExtensionRegistration() {
 export default ExtensionRegistration;
 ```
 
+### `App.js` — routing
+
+```js
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import ExtensionRegistration from './ExtensionRegistration';
+import CollectionModal from './CollectionModal';
+
+function App() {
+  return (
+    <Router>
+      <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
+        <Routes>
+          <Route index element={<ExtensionRegistration />} />
+          <Route path="index.html" element={<ExtensionRegistration />} />
+          <Route path="collection-modal" element={<CollectionModal />} />
+        </Routes>
+      </ErrorBoundary>
+    </Router>
+  );
+
+  function onError(e, componentStack) {}
+  function fallbackComponent({ componentStack, error }) {
+    return (
+      <React.Fragment>
+        <h1 style={{ textAlign: 'center', marginTop: '20px' }}>Extension rendering error</h1>
+        <pre>{componentStack + '\n' + error.message}</pre>
+      </React.Fragment>
+    );
+  }
+}
+
+export default App;
+```
+
 ### `CollectionModal.js` — dialog content
 
 ```js

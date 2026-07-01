@@ -169,7 +169,7 @@ export default function SelectionBarModal() {
       const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
       const raw = params.get('assetIds');
       setPayload({
-        assetIds: raw ? JSON.parse(decodeURIComponent(raw)) : [],
+        assetIds: raw ? JSON.parse(raw) : [],
       });
     })();
   }, []);

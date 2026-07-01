@@ -35,7 +35,7 @@ Add custom tab panels to the Asset Details dialog that opens when a user clicks 
 
 [Selection Bar Actions](api/selection-bar/index.md)
 
-Add custom bulk-action buttons to the blue Selection Bar that appears when one or more assets are selected
+Add custom bulk-action buttons to the Selection Bar that appears when one or more assets are selected
 
 ## Guides
 
@@ -55,7 +55,7 @@ Build and deploy a complete Content Hub extension from scratch
 
 [Code Generation](code-generation/index.md)
 
-Scaffold a new extension project using the AIO CLI template
+Get started quickly by cloning the official Content Hub sample extension
 
 <DiscoverBlock slots="link, text"/>
 

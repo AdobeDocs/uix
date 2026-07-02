@@ -224,7 +224,7 @@ const { locale } = await guestConnection.host.i18n.getLocalizationInfo();
 **Description:** Opens a dialog. The dialog content is loaded from `contentUrl`.
 
 **Parameters (`options` object):**
-- `title` (`string`, optional): Dialog heading.
+- `title` (`string`, required): Dialog heading.
 - `contentUrl` (`string`, required): Hash-relative URL to the dialog content page within the extension (e.g. `/#my-dialog`). To pass data, either embed it as URL query parameters (e.g. `/#my-dialog?assetId=...`) or use the `payload` field below.
 - `type` (`string`, optional): `'modal'` (default) or `'fullscreen'`.
 - `size` (`string`, optional): `'S'`, `'M'` (default), or `'L'`. Ignored when `type` is `'fullscreen'`.

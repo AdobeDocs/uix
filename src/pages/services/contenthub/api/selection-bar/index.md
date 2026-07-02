@@ -223,5 +223,7 @@ export default function SelectionBarModal() {
 ## Additional resources
 
 - [Common Concepts](../commons/index.md)
+- [Card Actions](../card-actions/index.md)
+- [Asset Details Tab Panels](../asset-details/index.md)
 - [Step-by-step Extension Development](../../extension-development/index.md)
 - [Troubleshooting](../../debug/index.md)

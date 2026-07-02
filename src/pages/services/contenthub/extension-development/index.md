@@ -288,7 +288,7 @@ export default ExtensionRegistration;
 
 The tab panel is a separate component rendered inside an iframe when the user clicks the custom tab. It calls `attach()`  to connect to Content Hub and retrieves the current asset.
 
-`getCurrentAsset()` is asynchronous and returns a plain string (the asset URN). Normalize it to `{ id }` so the rest of your code works consistently regardless of future API changes.
+`getCurrentAsset()` is asynchronous and returns the asset id as a plain string (the asset URN). Wrap it as `{ id: assetId }` if your downstream code expects an object; otherwise use it directly.
 
 ```js
 import React, { useState, useEffect } from 'react';
@@ -309,13 +309,9 @@ export default function TabPanel() {
         const connection = await attach({ id: extensionId });
         setGuestConnection(connection);
 
-        // getCurrentAsset() returns a plain string (the asset URN).
-        // Normalize to { id } for consistent downstream usage.
-        const currentAssetId = await connection.host.assetDetails.getCurrentAsset();
-        const currentAsset = typeof currentAssetId === 'string'
-          ? { id: currentAssetId }
-          : currentAssetId;
-        setAsset(currentAsset);
+        // getCurrentAsset() returns the asset id as a plain string (e.g. "urn:aaid:aem:...").
+        const assetId = await connection.host.assetDetails.getCurrentAsset();
+        setAsset({ id: assetId });
       } finally {
         setLoading(false);
       }
@@ -576,7 +572,7 @@ Refer to [UI Extensions Development Flow](../../../guides/development-flow/index
 ## Additional resources
 
 - [Common Concepts](../api/commons/index.md)
-- [Asset Card Actions](../api/asset-card/index.md)
+- [Card Actions](../api/card-actions/index.md)
 - [Asset Details Tab Panels](../api/asset-details/index.md)
 - [Selection Bar Actions](../api/selection-bar/index.md)
 - [Code Generation](../code-generation/index.md)

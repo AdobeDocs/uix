@@ -1,16 +1,19 @@
 ---
-title: Asset Card Actions - Content Hub Extensibility
-description: Add custom action buttons to asset cards in Content Hub.
+title: Card Actions - Content Hub Extensibility
+description: Add custom action buttons to asset cards and collection tiles in Content Hub.
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
 
-# Asset Card Actions
+# Card Actions
 
-Content Hub lets extensions add custom action buttons to the **asset card menu** .
+Content Hub lets extensions add custom action buttons to the **asset card menu** and the **collection tile menu** using a single shared `card` namespace.
+
 ![Asset card with custom actions](asset-card-actions.png)
 
-Asset card actions appear wherever asset cards or collection tiles are rendered. The `card` namespace is shared by both surfaces; use the `context` value to differentiate:
+![Collection card with custom actions](collection-card-actions.png)
+
+Card actions appear wherever asset cards or collection tiles are rendered. Use the `context` value passed to each method to differentiate the surface:
 
 | `context` value | Surface |
 |---|---|
@@ -50,7 +53,7 @@ Return an empty array if no buttons should be shown for the given context.
 - `resourceId` (`string`): The URN or ID of the asset or collection the card represents.
 - `actionContext` (`object`): Same context object passed to `getActionButtons`.
 
-## Example
+## Example: asset card action
 
 This example adds a custom button to asset cards in the main Assets grid and inside collections.
 
@@ -219,9 +222,175 @@ export default function CardActionModal() {
 }
 ```
 
+## Example: collection tile action
+
+This example adds a custom button that appears only on collection tiles. It is registered in the same `card` block as the asset card action above — a single extension can handle both.
+
+### `ExtensionRegistration.js` — registration
+
+```js
+import React from 'react';
+import { Text } from '@adobe/react-spectrum';
+import { register } from '@adobe/uix-guest';
+import { extensionId } from './Constants';
+
+function ExtensionRegistration() {
+  const init = async () => {
+    let guestConnection = await register({
+      id: extensionId,
+      methods: {
+        card: {
+          getActionButtons(actionContext) {
+            const { context } = actionContext || {};
+
+            // Button for collection tiles only
+            if (context === 'collections') {
+              return [
+                {
+                  id: 'customId',
+                  label: 'Custom label',
+                  icon: 'Form',
+                },
+              ];
+            }
+
+            return [];
+          },
+
+          async onActionClick(resourceType, buttonId, resourceId, actionContext) {
+            if (buttonId === 'customId') {
+              await guestConnection.host.modal.openDialog({
+                title: 'Custom Dialog',
+                contentUrl: `/#collection-modal?resourceId=${encodeURIComponent(resourceId)}&resourceType=${encodeURIComponent(resourceType)}`,
+                type: 'modal',
+                size: 'M',
+              });
+            }
+          },
+        },
+      },
+    });
+  };
+
+  init().catch(console.error);
+  return <Text>IFrame for integration with Host (Content Hub)...</Text>;
+}
+
+export default ExtensionRegistration;
+```
+
+### `App.js` — routing
+
+```js
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import ExtensionRegistration from './ExtensionRegistration';
+import CollectionModal from './CollectionModal';
+
+function App() {
+  return (
+    <Router>
+      <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
+        <Routes>
+          <Route index element={<ExtensionRegistration />} />
+          <Route path="index.html" element={<ExtensionRegistration />} />
+          <Route path="collection-modal" element={<CollectionModal />} />
+        </Routes>
+      </ErrorBoundary>
+    </Router>
+  );
+
+  function onError(e, componentStack) {}
+  function fallbackComponent({ componentStack, error }) {
+    return (
+      <React.Fragment>
+        <h1 style={{ textAlign: 'center', marginTop: '20px' }}>Extension rendering error</h1>
+        <pre>{componentStack + '\n' + error.message}</pre>
+      </React.Fragment>
+    );
+  }
+}
+
+export default App;
+```
+
+### `CollectionModal.js` — dialog content
+
+```js
+import React, { useState, useEffect } from 'react';
+import { attach } from '@adobe/uix-guest';
+import {
+  Provider,
+  defaultTheme,
+  View,
+  Heading,
+  Text,
+  Button,
+  ButtonGroup,
+  Divider,
+  ProgressCircle,
+} from '@adobe/react-spectrum';
+import { extensionId } from './Constants';
+
+export default function CollectionModal() {
+  const [guestConnection, setGuestConnection] = useState(null);
+  const [payload, setPayload] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const connection = await attach({ id: extensionId });
+      setGuestConnection(connection);
+
+      const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+      setPayload({
+        resourceId: params.get('resourceId'),
+        resourceType: params.get('resourceType'),
+      });
+    })();
+  }, []);
+
+  if (!payload) {
+    return (
+      <Provider theme={defaultTheme}>
+        <View padding="size-400" height="100vh"
+          UNSAFE_style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <ProgressCircle aria-label="Loading..." isIndeterminate />
+        </View>
+      </Provider>
+    );
+  }
+
+  return (
+    <Provider theme={defaultTheme}>
+      <View padding="size-400">
+        <Heading level={3}>Custom Dialog</Heading>
+        <Divider marginY="size-200" />
+        <View marginBottom="size-300">
+          <Text><strong>Collection ID:</strong></Text>
+          <View marginTop="size-100" padding="size-100" backgroundColor="gray-100" borderRadius="regular">
+            <Text UNSAFE_style={{ fontFamily: 'monospace', fontSize: '12px', wordBreak: 'break-all' }}>
+              {payload.resourceId}
+            </Text>
+          </View>
+        </View>
+        <ButtonGroup>
+          <Button variant="accent" onPress={() => {
+            guestConnection?.host.toast.display({ variant: 'positive', message: 'Action completed!' });
+            guestConnection?.host.modal.closeDialog();
+          }}>Confirm</Button>
+          <Button variant="secondary" onPress={() => guestConnection?.host.modal.closeDialog()}>Cancel</Button>
+        </ButtonGroup>
+      </View>
+    </Provider>
+  );
+}
+```
+
 ## Additional resources
 
 - [Common Concepts](../commons/index.md)
-- [Collection Card Actions](../collection-card/index.md)
+- [Asset Details Tab Panels](../asset-details/index.md)
+- [Selection Bar Actions](../selection-bar/index.md)
 - [Step-by-step Extension Development](../../extension-development/index.md)
 - [Troubleshooting](../../debug/index.md)

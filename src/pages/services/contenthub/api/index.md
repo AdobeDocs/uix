@@ -19,15 +19,9 @@ Learn about extension registration, the Host API, and APIs available to every ex
 
 <DiscoverBlock slots="link, text"/>
 
-[Asset Card Actions](asset-card/index.md)
+[Card Actions](card-actions/index.md)
 
-Add custom action buttons to asset cards in the Assets grid, inside Collections, and in-app Link Share
-
-<DiscoverBlock slots="link, text"/>
-
-[Collection Card Actions](collection-card/index.md)
-
-Add custom action buttons to collection tiles on the Collections grid
+Add custom action buttons to asset cards and collection tiles in the Assets grid, inside Collections, and in-app Link Share
 
 <DiscoverBlock slots="link, text"/>
 

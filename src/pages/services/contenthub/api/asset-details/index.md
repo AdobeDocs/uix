@@ -25,13 +25,11 @@ In addition to the [Common APIs](../commons/index.md), the `assetDetails` namesp
 
 **Returns** (`string`): Asset URN (e.g. `urn:aaid:aem:...`).
 
-**Important:** `getCurrentAsset()` returns a **plain string**, not an object. Normalize it to `{ id }` so downstream code works consistently regardless of future API changes:
+**Important:** `getCurrentAsset()` returns a **plain string**, not an object. If your downstream code expects an object, wrap it as `{ id: assetId }`; otherwise use the string directly:
 
 ```js
-const currentAssetId = await connection.host.assetDetails.getCurrentAsset();
-const currentAsset = typeof currentAssetId === 'string'
-  ? { id: currentAssetId }
-  : currentAssetId;
+const assetId = await connection.host.assetDetails.getCurrentAsset();
+// use assetId directly, or wrap: const asset = { id: assetId };
 ```
 
 ## Extension API Reference
@@ -156,13 +154,9 @@ export default function TabPanel() {
         const connection = await attach({ id: extensionId });
         setGuestConnection(connection);
 
-        // getCurrentAsset() returns a plain string (the asset URN).
-        // Normalize to { id } for consistent downstream usage.
-        const currentAssetId = await connection.host.assetDetails.getCurrentAsset();
-        const currentAsset = typeof currentAssetId === 'string'
-          ? { id: currentAssetId }
-          : currentAssetId;
-        setAsset(currentAsset);
+        // getCurrentAsset() returns the asset id as a plain string (e.g. "urn:aaid:aem:...").
+        const assetId = await connection.host.assetDetails.getCurrentAsset();
+        setAsset({ id: assetId });
       } finally {
         setLoading(false);
       }
@@ -234,5 +228,7 @@ const data = await response.json();
 ## Additional resources
 
 - [Common Concepts](../commons/index.md)
+- [Card Actions](../card-actions/index.md)
+- [Selection Bar Actions](../selection-bar/index.md)
 - [Step-by-step Extension Development](../../extension-development/index.md)
 - [Troubleshooting](../../debug/index.md)

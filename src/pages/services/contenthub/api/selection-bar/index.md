@@ -46,7 +46,7 @@ Return an empty array if no buttons should be shown.
 
 ## Example
 
-This example adds a **Bulk Export** button to the Selection Bar that opens a dialog showing all selected asset IDs.
+This example adds a custom button to the Selection Bar that opens a dialog showing all selected asset IDs.
 
 ### `App.js` — routing
 
@@ -106,16 +106,16 @@ function ExtensionRegistration() {
             }
             return [
               {
-                id: 'bulk-export',
-                label: 'Bulk Export',
-                icon: 'Export',
+                id: 'customId',
+                label: 'Custom label',
+                icon: 'Form',
               },
             ];
           },
           async onActionClick(buttonId, assetIds) {
-            if (buttonId === 'bulk-export') {
+            if (buttonId === 'customId') {
               await guestConnection.host.modal.openDialog({
-                title: 'Bulk Export',
+                title: `Custom Dialog (${assetIds.length} asset${assetIds.length !== 1 ? 's' : ''} selected)`,
                 contentUrl: `/#selection-bar-modal?assetIds=${encodeURIComponent(JSON.stringify(assetIds))}`,
                 type: 'modal',
                 size: 'M',
@@ -189,7 +189,7 @@ export default function SelectionBarModal() {
     // Add your bulk export logic here
     await guestConnection?.host.toast.display({
       variant: 'positive',
-      message: `Exported ${payload.assetIds.length} asset(s)`,
+      message: `Custom action on ${payload.assetIds.length} asset(s)`,
     });
     guestConnection?.host.modal.closeDialog();
   };
@@ -197,7 +197,7 @@ export default function SelectionBarModal() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>Bulk Export — {payload.assetIds.length} asset(s) selected</Heading>
+        <Heading level={3}>Custom Dialog — {payload.assetIds.length} asset(s) selected</Heading>
         <Divider marginY="size-200" />
         <ListView
           items={payload.assetIds.map((id) => ({ id, name: id }))}
@@ -211,7 +211,7 @@ export default function SelectionBarModal() {
           )}
         </ListView>
         <ButtonGroup marginTop="size-300">
-          <Button variant="accent" onPress={handleExport}>Export All</Button>
+          <Button variant="accent" onPress={handleExport}>Confirm</Button>
           <Button variant="secondary" onPress={() => guestConnection?.host.modal.closeDialog()}>Cancel</Button>
         </ButtonGroup>
       </View>

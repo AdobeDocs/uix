@@ -12,9 +12,9 @@ This guide walks through building a complete Content Hub extension that implemen
 ## About the extension
 
 The extension built in this guide adds:
-- A custom **tab panel** to the Asset Details dialog showing the current asset's ID
-- A **Custom Action** button on asset cards (shown in the Assets grid and inside collections)
-- A **Bulk Action** button in the Selection Bar for bulk operations on selected assets
+- A custom **tab panel** (Extension Template) to the Asset Details dialog showing the current asset's ID
+- A custom button on asset cards (shown in the Assets grid and inside collections)
+- A custom button in the Selection Bar for bulk operations on selected assets
 
 The extension demonstrates how all three surfaces are registered in a single `register()` call and how modal data is passed via URL query parameters.
 
@@ -27,11 +27,36 @@ UI Extensions are represented as projects in [Adobe Developer Console](https://d
 If you don't have access to Adobe Developer Console, refer to the [How to Get Access](../../../guides/get-access/index.md) guide.
 
 1. Sign in to [Adobe Developer Console](https://developer.adobe.com/console) with your Adobe ID.
-2. Make sure you are in the correct organization (switcher in the top right corner).
-3. Click **Create new project** → **Project from template** → **App Builder**.
-4. Fill in **Project Title** (display name) and **App Name** (unique identifier — cannot be changed after creation).
+
+![Sign in to Adobe Developer Console](../../../guides/creating-project-in-dev-console/create-project-1.png)
+
+2. Choose your account.
+
+![Choose your account](../../../guides/creating-project-in-dev-console/create-project-2.png)
+
+3. Choose your profile or organization.
+
+![Choose your profile](../../../guides/creating-project-in-dev-console/create-project-3.png)
+
+4. Make sure you are in the correct organization (a switcher is in the top right corner).
+
+![Check organization](../../../guides/creating-project-in-dev-console/create-project-4.png)
+
+5. Click **Create new project** → **Project from template**:
+
+![Create project from template](../../../guides/creating-project-in-dev-console/create-project-5.png)
+
+And choose **App Builder**:
+
+![Choose "App Builder"](../../../guides/creating-project-in-dev-console/create-project-6.png)
+
+6. Fill in **Project Title** (display name) and **App Name** (unique identifier — cannot be changed after creation).
+
+![Fill the project data](../../../guides/creating-project-in-dev-console/create-project-7.png)
 
 After creating, you will see a project with two default workspaces: **Production** and **Stage**. Use **Stage** for development and testing before pushing to Production.
+
+![A new project with 2 default Workspaces](../../../guides/creating-project-in-dev-console/create-project-8.png)
 
 ## Set up local environment
 
@@ -131,7 +156,7 @@ function App() {
         <Routes>
           <Route index element={<ExtensionRegistration />} />
           <Route path="index.html" element={<ExtensionRegistration />} />
-          <Route path="tab-panel" element={<TabPanel />} />
+          <Route path="extension-template" element={<TabPanel />} />
           <Route path="card-action-modal" element={<CardActionModal />} />
           <Route path="selection-bar-modal" element={<SelectionBarModal />} />
           {/* YOUR CUSTOM ROUTES SHOULD BE HERE */}
@@ -195,11 +220,11 @@ function ExtensionRegistration() {
           getTabPanels() {
             return [
               {
-                id: 'tab-panel',
-                tooltip: 'My Custom Tab',
+                id: 'extension-template',
+                tooltip: 'Extension Template',
                 icon: 'Extension',
-                title: 'My Custom Tab',
-                contentUrl: '/#tab-panel',
+                title: 'Extension Template',
+                contentUrl: '/#extension-template',
               },
             ];
           },
@@ -210,26 +235,17 @@ function ExtensionRegistration() {
           getActionButtons(actionContext) {
             const { context } = actionContext || {};
             if (context === 'assets' || context === 'collection') {
-              return [{ id: 'custom-export', label: 'Custom Export', icon: 'Export' }];
+              return [{ id: 'customId', label: 'Custom label', icon: 'Form' }];
             }
             if (context === 'collections') {
-              return [{ id: 'share-collection', label: 'Share Collection', icon: 'Share' }];
+              return [{ id: 'customId', label: 'Custom label', icon: 'Form' }];
             }
             return [];
           },
           async onActionClick(resourceType, buttonId, resourceId, actionContext) {
-            if (buttonId === 'custom-export') {
+            if (buttonId === 'customId') {
               await guestConnection.host.modal.openDialog({
-                title: 'Custom Export',
-                contentUrl: `/#card-action-modal?resourceId=${encodeURIComponent(resourceId)}&resourceType=${encodeURIComponent(resourceType)}`,
-                type: 'modal',
-                size: 'M',
-              });
-            }
-            if (buttonId === 'share-collection') {
-              // Reuses CardActionModal for simplicity. In a real extension, create a separate CollectionModal component.
-              await guestConnection.host.modal.openDialog({
-                title: 'Share Collection',
+                title: 'Custom Dialog',
                 contentUrl: `/#card-action-modal?resourceId=${encodeURIComponent(resourceId)}&resourceType=${encodeURIComponent(resourceType)}`,
                 type: 'modal',
                 size: 'M',
@@ -243,12 +259,12 @@ function ExtensionRegistration() {
           getActionButtons(actionContext) {
             const { context } = actionContext || {};
             if (context !== 'assets') return [];
-            return [{ id: 'bulk-export', label: 'Bulk Export', icon: 'Export' }];
+            return [{ id: 'customId', label: 'Custom label', icon: 'Form' }];
           },
           async onActionClick(buttonId, assetIds) {
-            if (buttonId === 'bulk-export') {
+            if (buttonId === 'customId') {
               await guestConnection.host.modal.openDialog({
-                title: 'Bulk Export',
+                title: `Custom Dialog (${assetIds.length} asset${assetIds.length !== 1 ? 's' : ''} selected)`,
                 contentUrl: `/#selection-bar-modal?assetIds=${encodeURIComponent(JSON.stringify(assetIds))}`,
                 type: 'modal',
                 size: 'M',
@@ -320,7 +336,7 @@ export default function TabPanel() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>My Custom Tab</Heading>
+        <Heading level={3}>Extension Template</Heading>
         <Divider marginY="size-200" />
         {asset && (
           <View marginBottom="size-200">
@@ -335,7 +351,7 @@ export default function TabPanel() {
         <Button
           variant="accent"
           marginTop="size-300"
-          onPress={() => guestConnection?.host.toast.display({ variant: 'positive', message: 'Hello from My Custom Tab!' })}
+          onPress={() => guestConnection?.host.toast.display({ variant: 'positive', message: 'Custom action!' })}
         >
           Show Toast
         </Button>
@@ -391,7 +407,7 @@ export default function CardActionModal() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>Custom Export</Heading>
+        <Heading level={3}>Custom Dialog</Heading>
         <Divider marginY="size-200" />
         <View marginBottom="size-300">
           <Text><strong>Type:</strong> {payload.resourceType}</Text>
@@ -403,9 +419,9 @@ export default function CardActionModal() {
         </View>
         <ButtonGroup>
           <Button variant="accent" onPress={async () => {
-            await guestConnection?.host.toast.display({ variant: 'positive', message: 'Exported!' });
+            await guestConnection?.host.toast.display({ variant: 'positive', message: 'Action completed!' });
             guestConnection?.host.modal.closeDialog();
-          }}>Export</Button>
+          }}>Confirm</Button>
           <Button variant="secondary" onPress={() => guestConnection?.host.modal.closeDialog()}>Cancel</Button>
         </ButtonGroup>
       </View>
@@ -457,7 +473,7 @@ export default function SelectionBarModal() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>Bulk Export — {payload.assetIds.length} asset(s) selected</Heading>
+        <Heading level={3}>Custom Dialog — {payload.assetIds.length} asset(s) selected</Heading>
         <Divider marginY="size-200" />
         <ListView
           items={payload.assetIds.map((id) => ({ id, name: id }))}
@@ -472,9 +488,9 @@ export default function SelectionBarModal() {
         </ListView>
         <ButtonGroup marginTop="size-300">
           <Button variant="accent" onPress={async () => {
-            await guestConnection?.host.toast.display({ variant: 'positive', message: `Exported ${payload.assetIds.length} asset(s)` });
+            await guestConnection?.host.toast.display({ variant: 'positive', message: `Custom action on ${payload.assetIds.length} asset(s)` });
             guestConnection?.host.modal.closeDialog();
-          }}>Export All</Button>
+          }}>Confirm</Button>
           <Button variant="secondary" onPress={() => guestConnection?.host.modal.closeDialog()}>Cancel</Button>
         </ButtonGroup>
       </View>

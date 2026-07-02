@@ -28,7 +28,7 @@ The `card` namespace methods are the same as documented in [Asset Card Actions](
 
 ## Example
 
-This example adds a **Share Collection** button that appears only on collection tiles. It is registered in the same `card` block as any asset card actions — a single extension can handle both.
+This example adds a custom button that appears only on collection tiles. It is registered in the same `card` block as any asset card actions — a single extension can handle both.
 
 ### `ExtensionRegistration.js` — registration
 
@@ -51,20 +51,9 @@ function ExtensionRegistration() {
             if (context === 'collections') {
               return [
                 {
-                  id: 'share-collection',
-                  label: 'Share Collection',
-                  icon: 'Share',
-                },
-              ];
-            }
-
-            // Button for asset cards in the main grid and inside collections
-            if (context === 'assets' || context === 'collection') {
-              return [
-                {
-                  id: 'custom-export',
-                  label: 'Custom Export',
-                  icon: 'Export',
+                  id: 'customId',
+                  label: 'Custom label',
+                  icon: 'Form',
                 },
               ];
             }
@@ -73,19 +62,10 @@ function ExtensionRegistration() {
           },
 
           async onActionClick(resourceType, buttonId, resourceId, actionContext) {
-            if (buttonId === 'share-collection') {
+            if (buttonId === 'customId') {
               await guestConnection.host.modal.openDialog({
-                title: 'Share Collection',
+                title: 'Custom Dialog',
                 contentUrl: `/#collection-modal?resourceId=${encodeURIComponent(resourceId)}&resourceType=${encodeURIComponent(resourceType)}`,
-                type: 'modal',
-                size: 'M',
-              });
-            }
-
-            if (buttonId === 'custom-export') {
-              await guestConnection.host.modal.openDialog({
-                title: 'Custom Export',
-                contentUrl: `/#card-action-modal?resourceId=${encodeURIComponent(resourceId)}&resourceType=${encodeURIComponent(resourceType)}`,
                 type: 'modal',
                 size: 'M',
               });
@@ -188,7 +168,7 @@ export default function CollectionModal() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>Share Collection</Heading>
+        <Heading level={3}>Custom Dialog</Heading>
         <Divider marginY="size-200" />
         <View marginBottom="size-300">
           <Text><strong>Collection ID:</strong></Text>
@@ -200,9 +180,9 @@ export default function CollectionModal() {
         </View>
         <ButtonGroup>
           <Button variant="accent" onPress={() => {
-            guestConnection?.host.toast.display({ variant: 'positive', message: 'Collection shared!' });
+            guestConnection?.host.toast.display({ variant: 'positive', message: 'Action completed!' });
             guestConnection?.host.modal.closeDialog();
-          }}>Share</Button>
+          }}>Confirm</Button>
           <Button variant="secondary" onPress={() => guestConnection?.host.modal.closeDialog()}>Cancel</Button>
         </ButtonGroup>
       </View>

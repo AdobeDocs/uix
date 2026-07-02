@@ -52,7 +52,7 @@ Return an empty array if no buttons should be shown for the given context.
 
 ## Example
 
-This example adds a **Custom Export** button to asset cards in the main Assets grid and inside collections.
+This example adds a custom button to asset cards in the main Assets grid and inside collections.
 
 ### `App.js` — routing
 
@@ -112,16 +112,16 @@ function ExtensionRegistration() {
             }
             return [
               {
-                id: 'custom-export',
-                label: 'Custom Export',
-                icon: 'Export',
+                id: 'customId',
+                label: 'Custom label',
+                icon: 'Form',
               },
             ];
           },
           async onActionClick(resourceType, buttonId, resourceId, actionContext) {
-            if (buttonId === 'custom-export') {
+            if (buttonId === 'customId') {
               await guestConnection.host.modal.openDialog({
-                title: 'Custom Export',
+                title: 'Custom Dialog',
                 contentUrl: `/#card-action-modal?resourceId=${encodeURIComponent(resourceId)}&resourceType=${encodeURIComponent(resourceType)}`,
                 type: 'modal',
                 size: 'M',
@@ -191,7 +191,7 @@ export default function CardActionModal() {
     // Add your export logic here
     await guestConnection?.host.toast.display({
       variant: 'positive',
-      message: `Exported ${payload.resourceType}: ${payload.resourceId}`,
+      message: `Custom action on ${payload.resourceType}: ${payload.resourceId}`,
     });
     guestConnection?.host.modal.closeDialog();
   };
@@ -199,7 +199,7 @@ export default function CardActionModal() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>Custom Export</Heading>
+        <Heading level={3}>Custom Dialog</Heading>
         <Divider marginY="size-200" />
         <View marginBottom="size-300">
           <Text><strong>Type:</strong> {payload.resourceType}</Text>
@@ -210,7 +210,7 @@ export default function CardActionModal() {
           </View>
         </View>
         <ButtonGroup>
-          <Button variant="accent" onPress={handleExport}>Export</Button>
+          <Button variant="accent" onPress={handleExport}>Confirm</Button>
           <Button variant="secondary" onPress={() => guestConnection?.host.modal.closeDialog()}>Cancel</Button>
         </ButtonGroup>
       </View>

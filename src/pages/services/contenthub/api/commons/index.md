@@ -117,7 +117,7 @@ The `modal.openDialog()` `contentUrl` is a hash-relative URL rendered inside an 
 ```js
 // In ExtensionRegistration.js — opening the dialog:
 await guestConnection.host.modal.openDialog({
-  title: 'My Dialog',
+  title: 'Custom Dialog',
   contentUrl: `/#my-dialog?assetId=${encodeURIComponent(assetId)}`,
   type: 'modal',
   size: 'M',
@@ -234,7 +234,7 @@ const { locale } = await guestConnection.host.i18n.getLocalizationInfo();
 
 ```js
 await guestConnection.host.modal.openDialog({
-  title: 'Custom Export',
+  title: 'Custom Dialog',
   contentUrl: `/#export-dialog?assetId=${encodeURIComponent(assetId)}`,
   type: 'modal',
   size: 'M',
@@ -250,7 +250,7 @@ const assetId = params.get('assetId');
 ```js
 // In ExtensionRegistration.js — opening the dialog with a payload:
 await guestConnection.host.modal.openDialog({
-  title: 'Custom Export',
+  title: 'Custom Dialog',
   contentUrl: '/#export-dialog',
   type: 'modal',
   size: 'M',

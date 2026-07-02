@@ -47,11 +47,11 @@ const currentAsset = typeof currentAssetId === 'string'
 - `tooltip` (`string`): Tooltip shown on the tab icon.
 - `title` (`string`): Tab label text.
 - `icon` (`string`): [React Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) name.
-- `contentUrl` (`string`): Hash-relative URL to the panel content (e.g. `/#tab-panel`).
+- `contentUrl` (`string`): Hash-relative URL to the panel content (e.g. `/#extension-template`).
 
 ## Example
 
-This example adds a **Asset Details Tab** that displays the current asset's URN and a button that shows a toast notification.
+This example adds an **Extension Template** panel that displays the current asset's URN and a button that shows a toast notification.
 
 ### `ExtensionRegistration.js` — registration
 
@@ -70,11 +70,11 @@ function ExtensionRegistration() {
           getTabPanels() {
             return [
               {
-                id: 'tab-panel',
-                tooltip: 'Asset Details Tab',
+                id: 'extension-template',
+                tooltip: 'Extension Template',
                 icon: 'Extension',
-                title: 'Asset Details Tab',
-                contentUrl: '/#tab-panel',
+                title: 'Extension Template',
+                contentUrl: '/#extension-template',
               },
             ];
           },
@@ -106,7 +106,7 @@ function App() {
         <Routes>
           <Route index element={<ExtensionRegistration />} />
           <Route path="index.html" element={<ExtensionRegistration />} />
-          <Route path="tab-panel" element={<TabPanel />} />
+          <Route path="extension-template" element={<TabPanel />} />
         </Routes>
       </ErrorBoundary>
     </Router>
@@ -183,7 +183,7 @@ export default function TabPanel() {
   return (
     <Provider theme={defaultTheme}>
       <View padding="size-400">
-        <Heading level={3}>Asset Details Tab</Heading>
+        <Heading level={3}>Extension Template</Heading>
         <Divider marginY="size-200" />
         {asset && (
           <View marginBottom="size-200">
@@ -198,7 +198,7 @@ export default function TabPanel() {
         <Button
           variant="accent"
           marginTop="size-300"
-          onPress={() => guestConnection?.host.toast.display({ variant: 'positive', message: 'Action from Asset Details Tab!' })}
+          onPress={() => guestConnection?.host.toast.display({ variant: 'positive', message: 'Custom action!' })}
         >
           Show Toast
         </Button>

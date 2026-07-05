@@ -13,7 +13,7 @@ This guide walks through building a complete Content Hub extension that implemen
 
 The extension built in this guide adds:
 - A custom **tab panel** (Extension Template) to the Asset Details dialog showing the current asset's ID
-- A custom button on asset cards (shown in the Assets grid and inside collections)
+- A custom button on asset cards and collection tiles (shown in the Assets grid, inside collections, and on the Collections grid)
 - A custom button in the Selection Bar for bulk operations on selected assets
 
 The extension demonstrates how all three surfaces are registered in a single `register()` call and how modal data is passed via URL query parameters.
@@ -231,16 +231,16 @@ function ExtensionRegistration() {
         },
 
         // ── Asset card & collection tile actions ─────────────────────────
+        // A single button configuration and a single modal serve both asset
+        // cards and collection tiles — `resourceType` tells the modal which
+        // kind of resource was clicked.
         card: {
           getActionButtons(actionContext) {
             const { context } = actionContext || {};
-            if (context === 'assets' || context === 'collection') {
-              return [{ id: 'customId', label: 'Custom label', icon: 'Form' }];
+            if (context !== 'assets' && context !== 'collection' && context !== 'collections') {
+              return [];
             }
-            if (context === 'collections') {
-              return [{ id: 'customId', label: 'Custom label', icon: 'Form' }];
-            }
-            return [];
+            return [{ id: 'customId', label: 'Custom label', icon: 'Form' }];
           },
           async onActionClick(resourceType, buttonId, resourceId, actionContext) {
             if (buttonId === 'customId') {

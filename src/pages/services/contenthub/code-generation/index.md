@@ -46,7 +46,7 @@ aem-contenthub-sample/
                     ├── App.js                    ← routing
                     ├── Constants.js              ← extension ID
                     ├── ExtensionRegistration.js  ← registers all namespaces
-                    ├── TabPanel.js               ← assetDetails tab panel
+                    ├── PanelAssetDetailsExtensionTab.js  ← assetDetails tab panel
                     ├── CardActionModal.js        ← card action modal
                     └── SelectionBarModal.js      ← selection bar modal
 ```

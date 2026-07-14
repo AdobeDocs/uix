@@ -124,7 +124,7 @@ src/
           App.js
           Constants.js
           ExtensionRegistration.js
-          TabPanel.js
+          PanelAssetDetailsExtensionTab.js
           CardActionModal.js
           SelectionBarModal.js
 ```
@@ -145,7 +145,7 @@ import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ExtensionRegistration from './ExtensionRegistration';
-import TabPanel from './TabPanel';
+import PanelAssetDetailsExtensionTab from './PanelAssetDetailsExtensionTab';
 import CardActionModal from './CardActionModal';
 import SelectionBarModal from './SelectionBarModal';
 
@@ -156,7 +156,7 @@ function App() {
         <Routes>
           <Route index element={<ExtensionRegistration />} />
           <Route path="index.html" element={<ExtensionRegistration />} />
-          <Route path="extension-template" element={<TabPanel />} />
+          <Route path="asset-details-extension-tab" element={<PanelAssetDetailsExtensionTab />} />
           <Route path="card-action-modal" element={<CardActionModal />} />
           <Route path="selection-bar-modal" element={<SelectionBarModal />} />
           {/* YOUR CUSTOM ROUTES SHOULD BE HERE */}
@@ -224,7 +224,7 @@ function ExtensionRegistration() {
                 tooltip: 'Extension Template',
                 icon: 'Extension',
                 title: 'Extension Template',
-                contentUrl: '/#extension-template',
+                contentUrl: '/#asset-details-extension-tab',
               },
             ];
           },
@@ -284,7 +284,7 @@ function ExtensionRegistration() {
 export default ExtensionRegistration;
 ```
 
-## Step 5: Build the tab panel — `TabPanel.js`
+## Step 5: Build the tab panel — `PanelAssetDetailsExtensionTab.js`
 
 The tab panel is a separate component rendered inside an iframe when the user clicks the custom tab. It calls `attach()`  to connect to Content Hub and retrieves the current asset.
 
@@ -298,7 +298,7 @@ import {
 } from '@adobe/react-spectrum';
 import { extensionId } from './Constants';
 
-export default function TabPanel() {
+export default function PanelAssetDetailsExtensionTab() {
   const [guestConnection, setGuestConnection] = useState(null);
   const [asset, setAsset] = useState(null);
   const [loading, setLoading] = useState(true);

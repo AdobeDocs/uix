@@ -45,7 +45,7 @@ const assetId = await connection.host.assetDetails.getCurrentAsset();
 - `tooltip` (`string`): Tooltip shown on the tab icon.
 - `title` (`string`): Tab label text.
 - `icon` (`string`): [React Spectrum workflow icon](https://react-spectrum.adobe.com/react-spectrum/workflow-icons.html#available-icons) name.
-- `contentUrl` (`string`): Hash-relative URL to the panel content (e.g. `/#extension-template`).
+- `contentUrl` (`string`): Hash-relative URL to the panel content (e.g. `/#asset-details-extension-tab`).
 
 ## Example
 
@@ -72,7 +72,7 @@ function ExtensionRegistration() {
                 tooltip: 'Extension Template',
                 icon: 'Extension',
                 title: 'Extension Template',
-                contentUrl: '/#extension-template',
+                contentUrl: '/#asset-details-extension-tab',
               },
             ];
           },
@@ -95,7 +95,7 @@ import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ExtensionRegistration from './ExtensionRegistration';
-import TabPanel from './TabPanel';
+import PanelAssetDetailsExtensionTab from './PanelAssetDetailsExtensionTab';
 
 function App() {
   return (
@@ -104,7 +104,7 @@ function App() {
         <Routes>
           <Route index element={<ExtensionRegistration />} />
           <Route path="index.html" element={<ExtensionRegistration />} />
-          <Route path="extension-template" element={<TabPanel />} />
+          <Route path="asset-details-extension-tab" element={<PanelAssetDetailsExtensionTab />} />
         </Routes>
       </ErrorBoundary>
     </Router>
@@ -124,7 +124,7 @@ function App() {
 export default App;
 ```
 
-### `TabPanel.js` — panel content
+### `PanelAssetDetailsExtensionTab.js` — panel content
 
 The panel component calls `attach()` to connect to Content Hub and retrieves the current asset. Note that `getCurrentAsset()` is **asynchronous** and returns a plain string — normalize it to `{ id }`.
 
@@ -143,7 +143,7 @@ import {
 } from '@adobe/react-spectrum';
 import { extensionId } from './Constants';
 
-export default function TabPanel() {
+export default function PanelAssetDetailsExtensionTab() {
   const [guestConnection, setGuestConnection] = useState(null);
   const [asset, setAsset] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -207,7 +207,7 @@ export default function TabPanel() {
 To make AEM API calls from the panel, retrieve auth info from the host and call your Adobe I/O Runtime action:
 
 ```js
-// Add this import at the top of TabPanel.js alongside the other imports:
+// Add this import at the top of PanelAssetDetailsExtensionTab.js alongside the other imports:
 import actions from '../config.json';
 
 // Inside the useEffect, after attach():

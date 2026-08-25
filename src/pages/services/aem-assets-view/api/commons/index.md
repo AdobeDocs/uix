@@ -21,15 +21,15 @@ You can provide documentation feedback by clicking "Log an issue".
 
 ## Extension Point
 
-AEM Assets View has an `aem/assets/details/1` [extension point](https://developer.adobe.com/app-builder/docs/guides/extensions/) 
-that allows you to extend its functionality in the Details View.
+AEM Assets View has a unified `aem/assets/assetsview/1` [extension point](https://developer.adobe.com/app-builder/docs/guides/extensions/)
+that allows you to extend its functionality in both the Browse View and the Details View from a single extension.
 To declare it to be used by your extension, you need to add the following configuration to your `app.config.yaml` at the
 root of your extension:
 
 ```yaml
 extensions:
-  aem/assets/details/1:
-    $include: src/aem-assets-details-1/ext.config.yaml
+  aem/assets/assetsview/1:
+    $include: src/aem-assets-assetsview-1/ext.config.yaml
 ```
 Here is an example of `ext.config.yaml` file:
 
@@ -42,7 +42,11 @@ actions: actions
 web: web-src
 ```
 
-More **extension points** may be added in future releases to add extensibility features to other parts of the AEM Assets View.
+<InlineAlert variant="info" slots="text" />
+
+The standalone `aem/assets/browse/1` and `aem/assets/details/1` extension points remain supported for existing
+extensions, but new extensions should use the unified `aem/assets/assetsview/1` extension point. It exposes the same
+namespaces and methods, so a single extension can customize both screens without registering multiple extension points.
 
 ## Extension Registration
 
@@ -59,10 +63,14 @@ Extension registration data must include:
 View and extension and is needed if extension provides custom UI.
 - `methods` - objects with the extension APIs exposed to the AEM Assets View. All methods are grouped into 
 **namespaces** that represent more granular areas of AEM Assets View functionality within the extension point.
-Currently, only the following **namespace** is available:
-  - `detailSidePanel`, that allows to add custom side panels in the Details View
+The following **namespaces** are available under the unified `aem/assets/assetsview/1` extension point:
+  - `actionBar`, that allows adding, hiding, or overriding [ActionBar actions](../browse-view/index.md#actionbar-namespace) in the Browse View
+  - `quickActions`, that allows hiding or overriding [QuickActions menu actions](../browse-view/index.md#quickactions-namespace) in the Browse View
+  - `detailSidePanel`, that allows adding [custom side panels](../details-view/index.md#detailsidepanel-namespace) in the Details View
+  - `headerMenu`, that allows adding, hiding, or overriding [header menu buttons](../header-menu/index.md) in the Browse View and the Details View
 
-More **namespaces** may be added in future releases to add more extensibility features within the Details View.
+Implement only the namespaces your extension needs. A single extension can mix Browse View and Details View
+namespaces in one `register()` call.
 
 ```js
 import { register } from '@adobe/uix-guest';
@@ -72,6 +80,13 @@ import { register } from '@adobe/uix-guest';
       const guestConnection = await register({
         id: 'extension-id',
         methods: {
+          // Browse View
+          actionBar: {
+            getActions() {
+              // ..
+            }
+          },
+          // Details View
           detailSidePanel: {
             getPanels() {
               // ..
@@ -83,9 +98,9 @@ import { register } from '@adobe/uix-guest';
 ```
 ## Building Extension UI
 
-The `aem/assets/details/1` extension point and its `detailSidePanel` **namespace** requires UI extension to provide 
-its own interface for the custom side panel. This interface should be implemented as a separate entry point within the extension
-web application.
+Namespaces that render extension content — such as `detailSidePanel` (custom side panels) and the `modal` dialogs used
+by ActionBar actions, QuickActions, and header menu buttons — require the UI extension to provide its own interface.
+This interface should be implemented as a separate entry point within the extension web application.
 
 Normally this interface needs data from the AEM Assets View or needs to trigger certain action within the host application. 
 To support this the interface page should establish its own connection with AEM Assets View  using the `attach()` function

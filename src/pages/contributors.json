@@ -1,7 +1,7 @@
 {
-  "total": 69,
+  "total": 70,
   "offset": 0,
-  "limit": 69,
+  "limit": 70,
   "data": [
     {
       "page": "/",
@@ -19,11 +19,12 @@
     {
       "page": "/config",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/1811207?v=4",
         "https://avatars.githubusercontent.com/u/10518278?v=4",
         "https://avatars.githubusercontent.com/u/97342793?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "6/22/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/extension-manager/",
@@ -220,31 +221,31 @@
     {
       "page": "/services/aem-assets-view/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "3/10/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/api/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/52085417?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "3/10/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/api/browse-view/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/50008403?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
+        "https://avatars.githubusercontent.com/u/50008403?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/52085417?v=4"
       ],
-      "lastUpdated": "6/12/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/api/commons/",
@@ -253,7 +254,7 @@
         "https://avatars.githubusercontent.com/u/52085417?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "9/29/2025"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/api/details-view/",
@@ -263,35 +264,42 @@
         "https://avatars.githubusercontent.com/u/52085417?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "5/1/2026"
+      "lastUpdated": "8/26/2026"
+    },
+    {
+      "page": "/services/aem-assets-view/api/header-menu/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/1811207?v=4"
+      ],
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/code-generation/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/52085417?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "3/10/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/debug/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "3/10/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-assets-view/extension-development/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
+        "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4"
       ],
-      "lastUpdated": "3/10/2026"
+      "lastUpdated": "8/26/2026"
     },
     {
       "page": "/services/aem-cf-console-admin/",

@@ -21,9 +21,14 @@ You can provide documentation feedback by clicking "Log an issue".
 
 ## About application
 
-This example application will use the [Details View extension point](../api/details-view/index.md). It will render
+This example application will use the unified `aem/assets/assetsview/1` extension point and the
+[Details View](../api/details-view/index.md) `detailSidePanel` namespace. It will render
 a custom icon in the side panel rail only if the selected asset has the "jpeg" extension. When the user clicks on the icon, 
 the extension will display a custom panel with a button. Clicking the button will display a toast message with the asset's path.
+
+Because it uses the unified extension point, the same extension could also customize the
+[Browse View](../api/browse-view/index.md) — for example, adding an ActionBar action — by declaring the corresponding
+namespaces in the same `register()` call. This guide focuses on a single Details View side panel to keep the example concise.
 
 More information about AEM Assets View extension points can be found at [AEM Assets View Extension Points](../api/index.md).
 
@@ -114,7 +119,7 @@ More details are described in [Local environment set up](../../../guides/local-e
 ## Initialize your extension using the AIO CLI and generate a base structure from the template
 
 First, we need to [sign in from CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#3-signing-in-from-cli) and bootstrap our project.
-Please complete all the steps described in [Code Generation for the Details View Extension in AEM Assets View](../code-generation/index.md).
+Please complete all the steps described in [Code Generation for the AEM Assets View Extension](../code-generation/index.md).
 
 For the purposes of this guide, we will use
 - `Asset Info Extension` as the extension name and description
@@ -139,7 +144,7 @@ of a UI Extension that implements [extension points](https://developer.adobe.com
 |-- package-lock.json
 |-- package.json
 `-- src
-    `-- aem-assets-details-1
+    `-- aem-assets-assetsview-1
         |-- ext.config.yaml
         `-- web-src
             |-- index.html
@@ -157,8 +162,8 @@ of a UI Extension that implements [extension points](https://developer.adobe.com
 ```yaml
 # app.config.yaml
 extensions:
-  aem/assets/details/1:
-    $include: src/aem-assets-details-1/ext.config.yaml
+  aem/assets/assetsview/1:
+    $include: src/aem-assets-assetsview-1/ext.config.yaml
 ```
 
 If necessary, you can find other bootstrap options in [Bootstrapping new App using the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli).
@@ -167,7 +172,7 @@ If necessary, you can find other bootstrap options in [Bootstrapping new App usi
 
 ### Routing
 
-The root component `src/aem-assets-details-1/web-src/src/components/App.js` contains the routing of our application. It defines three routes:
+The root component `src/aem-assets-assetsview-1/web-src/src/components/App.js` contains the routing of our application. It defines three routes:
 - the first two are the default routes which trigger the `ExtensionRegistration` component responsible for initial extension registration
   within the AEM Assets View application.
 - the `asset-info` route which invokes the `PanelAssetInfo` component responsible for rendering the
@@ -222,7 +227,7 @@ Please note that your code may slightly differ from the given example depending 
 
 ### Extension registration
 
-This logic component `src/aem-assets-view-1/web-src/src/components/ExtensionRegistration.js` registers our extension 
+This logic component `src/aem-assets-assetsview-1/web-src/src/components/ExtensionRegistration.js` registers our extension 
 with the host AEM instance as soon as it loads, so they can share data and communicate with each other.
 
 ```js
@@ -287,7 +292,7 @@ Note that we have to `await` the `getCurrentResourceInfo()` method call to get t
 
 ### Custom panel
 
-The `src/aem-assets-details-1/web-src/src/components/PanelAssetInfo.js` component is responsible for rendering the custom panel content.
+The `src/aem-assets-assetsview-1/web-src/src/components/PanelAssetInfo.js` component is responsible for rendering the custom panel content.
 
 ```js
 import React, { useState, useEffect } from 'react';
@@ -402,17 +407,17 @@ After that, we build and deploy the frontend files/assets:
 
 ```shell
 aio app deploy
-  no backend or a build already exists, skipping action build for 'aem/assets/details/1'
-✔ Building web assets for 'aem/assets/details/1'
-no backend, skipping action deploy 'aem/assets/details/1'
-✔ Deploying web assets for 'aem/assets/details/1'
+  no backend or a build already exists, skipping action build for 'aem/assets/assetsview/1'
+✔ Building web assets for 'aem/assets/assetsview/1'
+no backend, skipping action deploy 'aem/assets/assetsview/1'
+✔ Deploying web assets for 'aem/assets/assetsview/1'
 To view your deployed application:
   -> https://123456-yournamespace-stage.adobeio-static.net/index.html
 To view your deployed application in the Experience Cloud shell:
   -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://123456-yournamespace-stage.adobeio-static.net/index.html
 For a developer preview of your UI extension in the AEM Assets View environment, follow the URL:
   -> https://experience.adobe.com/aem/extension-manager/preview/<preview hash>
-New Extension Point(s) in Workspace 'Stage': 'aem/assets/details/1'
+New Extension Point(s) in Workspace 'Stage': 'aem/assets/assetsview/1'
 Successful deployment 🏄
 ```
 

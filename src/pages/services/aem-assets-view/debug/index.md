@@ -47,7 +47,7 @@ To view your deployed application in the Experience Cloud shell:
   -> https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://localhost:9080
 Your actions:
 web actions:
-  -> https://localhost:9080/api/v1/web/aem-assets-details-1/my-action
+  -> https://localhost:9080/api/v1/web/aem-assets-assetsview-1/my-action
 non-web actions:
 press CTRL+C to terminate the dev environment
 2024-10-16T13:53:10.658Z [serve] info: server running on port : 9080
@@ -140,8 +140,8 @@ for the same extension point by separating them with a comma.
 
 **Example:**
 
-`ext.aem%2fassets%2fdetails%2f1=https://localhost:9080` loads locally running extension from `https://localhost:9080` 
-and applies it to the `aem/assets/details/1` extension point.  
+`ext.aem%2fassets%2fassetsview%2f1=https://localhost:9080` loads locally running extension from `https://localhost:9080` 
+and applies it to the `aem/assets/assetsview/1` extension point.  
 
 The `ext=` parameter can also be used without specifying the extension point ID:
 ```

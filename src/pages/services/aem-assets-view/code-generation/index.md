@@ -1,15 +1,16 @@
 ---
-title: Code Generation Guide - Details View Extensibility in AEM Assets View
+title: Code Generation Guide - AEM Assets View Extensibility
 description: Learn how to generate base structure of AEM Assets View Extension.
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
-# Code Generation for the Details View Extension in AEM Assets View
+# Code Generation for the AEM Assets View Extension
 
 
-The [Asset Browse extension Template](https://github.com/adobe/aem-assets-browse-ext-tpl) and
-[Asset Details extension Template](https://github.com/adobe/aem-assets-details-ext-tpl) for the AEM Assets View help developers 
-to bootstrap their App Builder apps when using the [AIO CLI](https://github.com/adobe/aio-cli) and generates basic extension structure and all required code.
+The [Assets View extension Template](https://github.com/adobe/aem-assets-assetsview-ext-tpl) for the AEM Assets View helps
+developers to bootstrap their App Builder apps when using the [AIO CLI](https://github.com/adobe/aio-cli) and generates
+basic extension structure and all required code. It scaffolds the unified `aem/assets/assetsview/1` extension point, so a
+single generated extension can customize both the Browse View and the Details View.
 
 <InlineAlert variant="info" slots="text" />
 
@@ -74,7 +75,7 @@ Create a directory and run the following commands from that directory:
       Only Templates Supported By My Org
     ```
 
-4. Use the spacebar to select the template named `@adobe/aem-assets-details-ext-tpl` (Template for an AIO CLI App Builder plugin that generates code for a UI extension in the Asset Details section of the AEM Assets View).
+4. Use the spacebar to select the template named `@adobe/aem-assets-assetsview-ext-tpl` (Template for an AIO CLI App Builder plugin that generates code for a UI extension of the AEM Assets View, combining Browse View and Details View extensibility).
 
     ```shell
     ➜  demo-extension-project % aio app init
@@ -84,9 +85,7 @@ Create a directory and run the following commands from that directory:
     ✔ Downloaded the list of templates
     ? Choose the template(s) to install:
     |    | Template                                | Description                                                | Extension Point           | Categories           |
-    |----|-----------------------------------------|------------------------------------------------------------|---------------------------|----------------------|
-    |  ◯ | @adobe/aem-assets-browse-ext-tpl *      | Asset Browse extension Template for the AEM Assets View    | aem/assets/browse/1       | action, ui           |
-    | ❯◉ | @adobe/aem-assets-details-ext-tpl *     | Asset Details extension Template for the AEM Assets View   | aem/assets/details/1      | action, ui           |
+    | ❯◉ | @adobe/aem-assets-assetsview-ext-tpl *  | Assets View extension Template for the AEM Assets View     | aem/assets/assetsview/1   | action, ui           |
     |  ◯ | @adobe/generator-app-api-mesh *         | Extensibility template for Adobe API Mesh, for App Builder | N/A                       | action, graphql-mesh |
     |  ◯ | @adobe/generator-app-excshell *         | Extensibility template for generator-aio-app               | dx/excshell/1             | action, ui           |
     |  - | @adobe/generator-app-asset-compute *    | Extensibility template for generator-aio-app               | dx/asset-compute/worker/1 | action               |
@@ -95,22 +94,23 @@ Create a directory and run the following commands from that directory:
 
     ...
 
-    ✔ Installed npm package @adobe/aem-assets-details-ext-tpl
-    ℹ Running template @adobe/aem-assets-details-ext-tpl
+    ✔ Installed npm package @adobe/aem-assets-assetsview-ext-tpl
+    ℹ Running template @adobe/aem-assets-assetsview-ext-tpl
 
-    Overview of the Asset Details extension Template for the AEM Assets View:
+    Overview of the Assets View extension Template for the AEM Assets View:
 
-    * You have the option to generate boilerplate code for your extensible side panel.
+    * You have the option to generate boilerplate code for a Details View side panel and/or a Browse View ActionBar action.
     * You can get help regarding documentation at any time from the menu.
     * An App Builder project will be created with Node.js packages pre-configured.
     ```
 
-> If you are experienced user you may also simplify process of template selection by running the command
+If you are experienced user you may also simplify process of template selection by running the command:
 
-> ```shell
-aio app init --template=@adobe/aem-assets-details-ext-tpl
+```shell
+aio app init --template=@adobe/aem-assets-assetsview-ext-tpl
+```
 
-> At this point Asset Details extension Template for the AEM Assets View is added to your project and ready to use.
+At this point the Assets View extension Template for the AEM Assets View is added to your project and ready to use.
 
 ## Provide basic information about extension
 
@@ -129,7 +129,9 @@ aio app init --template=@adobe/aem-assets-details-ext-tpl
     ```shell
     ? What would you like to do next? (Use arrow keys)
       ──────────────
-      Add a side panel to the Details View 
+      Add a side panel to the Details View
+      Add an action to the ActionBar
+      Add a button to the header menu
       Add server-side handler
       ──────────────
     ❯ I'm done 
@@ -138,41 +140,45 @@ aio app init --template=@adobe/aem-assets-details-ext-tpl
 
 ### Novice, explore what is possible
 
-> 6.1. If you are only starting with exploring UI Extensibility feel no hesitation to choose `I don't know`.
+6.1. If you are only starting with exploring UI Extensibility feel no hesitation to choose `I don't know`.
 
-> ```shell
+```shell
 ? What would you like to do next? I don't know
 ? What about this then? (Use arrow keys)
   ──────────────
 ❯ Find some help 
   ──────────────
   Go back
+```
 
-> `Find some help` displays list of useful links.  
+`Find some help` displays list of useful links.
 
 ### Seasoned developer, choose what you need
 
-> 6.2. If you already know what you want to do, start add features to you extensions by selecting items from the main part of the menu. Each part correspond to single Extension Point in AEM Assets View. 
+6.2. If you already know what you want to do, start add features to you extensions by selecting items from the main part of the menu. Each item corresponds to a capability of the unified `aem/assets/assetsview/1` extension point — a Details View side panel, a Browse View ActionBar action, or a header menu button. You can add as many of each as you need.
 
-> ```shell
+```shell
 ? What would you like to do next? Add a side panel to the Details View
 ? Please provide tooltip for the side panel icon: Demo panel icon
 ? Please provide title for the side panel: Demo panel
 ? Please select React Spectrum icon for the side panel: Extension
+```
 
-> In addition, if your extension requires server-to-server communication add as many server-side handlers as you need.
-> ```shell
+In addition, if your extension requires server-to-server communication add as many server-side handlers as you need.
+
+```shell
 ? What would you like to do next? Add server-side handler
 ? Adobe I/O Runtime lets you invoke serverless code on demand. How would you like to name this action? export-to-remote-service
+```
 
 ### Experts, have full control
 
-> 6.3. If you know what you are doing and want to tweak implementation on low level hit `I'm done` as first answer and you will get bare bone project structure.
+6.3. If you know what you are doing and want to tweak implementation on low level hit `I'm done` as first answer and you will get bare bone project structure.
 
 ## Add business logic
 
 7. After you choose `I'm done` template starts installation of project's package dependencies and generates code.
 
 At this point you already have fully functional UI Extension and it's time to add functionality that you business needs. 
-The best place to start is navigating directly to `src/aem-assets-details-1/web-src/src/components/ExtensionRegistration.js` 
+The best place to start is navigating directly to `src/aem-assets-assetsview-1/web-src/src/components/ExtensionRegistration.js` 
 which contains code that defines capabilities of the extension and provides information to the AEM Assets View when and how extension should be invoked.

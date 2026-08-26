@@ -52,6 +52,7 @@
         - [Common Concepts](/services/aem-assets-view/api/commons/index.md)
         - [Browse View](/services/aem-assets-view/api/browse-view/index.md)
         - [Details View](/services/aem-assets-view/api/details-view/index.md)
+        - [Header Menu](/services/aem-assets-view/api/header-menu/index.md)
     - [Step-by-step Extension Development](/services/aem-assets-view/extension-development/index.md)
     - [Code Generation](/services/aem-assets-view/code-generation/index.md)
     - [Troubleshooting](/services/aem-assets-view/debug/index.md)

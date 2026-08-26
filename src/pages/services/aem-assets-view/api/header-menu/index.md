@@ -84,7 +84,7 @@ header menu buttons. All of its methods are optional — implement only the ones
 
 For example, you can implement only `getHiddenButtonIds` or `overrideButton` without implementing `getButtons`.
 
-### getButtons({ context, resource })
+### `getButtons({ context, resource })`
 
 **Description:** Returns an array of custom header menu button definitions that are added to the application's header
 menu. These buttons are rendered alongside built-in header menu buttons and let extensions surface actions in the header
@@ -133,7 +133,7 @@ headerMenu: {
 },
 ```
 
-### getHiddenButtonIds({ context, resource })
+### `getHiddenButtonIds({ context, resource })`
 
 **Description:** Returns an array of [built-in header menu button ids](#built-in-header-menu-buttons) that should be hidden.
 
@@ -158,7 +158,7 @@ getHiddenButtonIds: ({ context, resource }) => {
 },
 ```
 
-### overrideButton({ buttonId, context, resource })
+### `overrideButton({ buttonId, context, resource })`
 
 **Description:** Return `true` if the extension handled the click and the built-in header menu button handler should
 **not** run. Return `false` to let the Host run the default behavior.

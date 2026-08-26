@@ -132,8 +132,8 @@ All API invocations are asynchronous and return a `Promise`.
 
 ### Authentication API
 
-This API provides information about the current Org, access token and API key in the AEM Assets View. 
-The API uses `auth` namespace.
+This API provides information about the current Org, access token and API key in the AEM Assets View, as well as
+the signed-in user's profile and group membership. The API uses `auth` namespace.
 
 `auth.getIMSInfo()`
 
@@ -155,6 +155,35 @@ The API uses `auth` namespace.
 const { imsOrg, accessToken } = await guestConnection.host.auth.getIMSInfo();
 
 const apiKey = await guestConnection.host.auth.getApiKey();
+```
+
+`auth.getCurrentUserProfile()`
+
+**Description:** returns basic profile information about the currently signed-in user.
+
+**Return Object Structure**
+- `name` (`string`): The user's display name.
+- `userId` (`string`): The user's IMS identifier.
+- `email` (`string`): The user's email address.
+
+**Example:**
+```js
+const { name, userId, email } = guestConnection.host.auth.getCurrentUserProfile();
+```
+
+`auth.getCurrentUserGroupMembership()`
+
+**Description:** returns the groups the currently signed-in user belongs to within the current Org. Only groups linked
+to an IMS group are returned. This API is asynchronous and returns a `Promise`.
+
+**Return Object Structure** (`Array` of objects, each with the following properties):
+- `name` (`string`): The group name.
+- `linkedGroupId` (`number`): The identifier of the linked IMS group.
+
+**Example:**
+```js
+const groups = await guestConnection.host.auth.getCurrentUserGroupMembership();
+// groups: [{ name: 'Marketing', linkedGroupId: 875881973 }, ...]
 ```
 
 ### Discovery API

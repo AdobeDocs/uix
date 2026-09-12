@@ -76,7 +76,7 @@ aio app init
   Only Templates Supported By My Org 
 ```
 
-Using the `<Up and Down>` keys, please navigate and select the template named `@adobe/aem-cf-admin-ui-ext-tpl` (Extensibility template for AEM Content Fragment Editor) by pressing the `<Space>` key.
+Using the `<Up and Down>` keys, please navigate and select the template named `@adobe/aem-cf-editor-ui-ext-tpl` (Extensibility template for AEM Content Fragment Editor) by pressing the `<Space>` key.
 
 ```shell
 aio app init

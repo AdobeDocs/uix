@@ -69,6 +69,7 @@ For assets hosted in AEM Assets, the component model can be configured to use [D
 - `fields[name="image"].component`: MUST have `custom-asset-namespace:custom-asset` as value, because it has been overridden in the extension to display customized asset selector popup.
 - `fields[name="image"].configUrl`: points to JSON configuration file, can be hosted anywhere you prefer. Must be accessible to the extension, which runs in author's web browser. It can be hosted on same AEM environment as well and relative path (for example `/content/dam/assets/asset-selector.json`) can be used. Extension will fetch this JSON file and configure asset picker for this component accordingly.
 - `fields[name="imageTitle"]`: Optional. For Dynamic Media delivery, anchor tag is being generated in the markup. To add alt text for such images in the markup, title property of the anchor tag can be leveraged. For assets not using Dynamic Media with Open API delivery, the regular picture element property i.e `imageAlt` should be used.
+  > :information_source: If your project uses [`aem-assets-plugin`](https://github.com/adobe-rnd/aem-assets-plugin) to decorate these anchor tags client-side into `<picture>` elements, alt text is resolved automatically without needing `imageTitle` to be set: if the anchor's `title` attribute is present, it's used as the alt text; otherwise, the anchor's own display text is used, unless that text is just the raw URL (e.g. a pasted link with no author-supplied text), in which case alt text is left empty.
 
 #### Configure `component-models.json` to leverage Edge Delivery Media Bus
 
@@ -173,6 +174,7 @@ This is a sample content advisor configuration file that allows filtering assets
 - `filterSchemaMapping`: It allows to apply different filter schemas to different repositories.
 - `rootPath`: It allows definining rootpath from where the assets would be shown. Its applicable for author view. If this config is unset then default is Assets ROOT i.e. content/dam
 - `assetDomainMapping`: It allows mapping between repo name and its corresponding custom assets delivery domain.
+- `vanityPath`: Replaces the default `/adobe` path segment in the generated delivery URL (`https://{repoId}/{vanityPath}/assets/{assetId}`). Defaults to `"adobe"` when unset — existing configurations without this key see no change in behavior. Set it to a custom string to match a vanity path configured on your delivery domain, or to an empty string (`""`) to omit the segment entirely. Leading/trailing slashes are stripped automatically.
 - `alwaysUseDMDelivery`: If this configuration is set to true, the Delivery URL will be returned even when the Author repository is selected, provided that a corresponding Delivery repository is enabled for that Author repository.
 
 
@@ -287,6 +289,7 @@ This is a sample content advisor configuration file that allows filtering assets
       "author-pxxxxxx-eyyyyyy.adobeaemcloud.com": []
     },
     "alwaysUseDMDelivery": true,
+    "vanityPath": "adobe",
     "assetDomainMapping": {
     	  "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com":"mediapreprod.store.testdomain.com",
         "delivery-pxxxxxx-eyyyyyy.adobeaemcloud.com": "media.store.testdomain.com",
@@ -296,6 +299,68 @@ This is a sample content advisor configuration file that allows filtering assets
     "rootPath": "/content/dam"
 }
 ```
+
+## Same site delivery for Dynamic Media with OpenAPI Assets
+
+> :information_source: This setup applies to an EDS site configured to host on the Adobe Managed CDN option.
+
+This lets Dynamic Media with OpenAPI asset URLs be served from the same custom domain as your EDS site, instead of a separate `adobeaemcloud.com` domain, avoiding the cross-origin connection overhead of a separate domain.
+
+### Prerequisites
+
+1. Your EDS site is onboarded on Cloud Manager (see [Introduction to Edge Delivery Services](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/using-cloud-manager/edge-delivery-sites/introduction-to-edge-delivery-services)) and mapped to a custom domain with the Adobe Managed CDN option (see [BYO CDN: Adobe Managed](https://www.aem.live/docs/byo-cdn-adobe-managed)).
+2. An Edge Delivery configuration pipeline is configured for this site. See [Configuring CDN Traffic](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/cdn-configuring-traffic).
+3. The AEM Assets environment has a custom domain mapped to its delivery tier - for example, `assets-custom.adobeaemcloud.com`. See [Configure a Custom Domain for Dynamic Media with OpenAPI](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/dynamicmedia/dynamic-media-open-apis/configure-custom-domain).
+
+### Steps
+
+1. In the Content Advisor configuration file, set `assetDomainMapping` to your EDS site's own custom domain from prerequisite 1 - not the assets environment's delivery tier domain from prerequisite 3. This makes the authored asset URL land on the same domain as the EDS site itself, e.g. `delivery-pxx-eyy.adobeaemcloud.com` → `<eds-site-custom-domain>`. The assets delivery tier's own custom domain (`assets-custom.adobeaemcloud.com`) is used later, in step 4, purely as the backend origin the CDN routes to internally - it never appears in the authored URL.
+2. In the same configuration file, set `vanityPath` to your custom vanity path, e.g. `"customer"`. Asset delivery URLs on the site's pages will now look like `/customer/assets/urn:aaid:aem:...`.
+3. Deploy a CDN configuration file, `cdn.yaml`, with the Edge Delivery configuration pipeline (see [Configuring CDN Traffic](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/cdn-configuring-traffic)). It should contain a request transformation rule such as:
+
+   ```yaml
+   requestTransformations:
+     rules:
+       - name: rewrite-adobe-assets-to-custom-assets
+         when:
+           allOf:
+             - reqProperty: domain
+               equals: <eds-site-custom-domain>
+             - anyOf:
+                 - reqProperty: originalPath
+                   matches: ^/customer/assets(/.*)?$
+         actions:
+           - type: transform
+             reqProperty: path
+             op: replace
+             match: ^/customer/assets(.*)$
+             replacement: '/adobe/assets\1'
+   ```
+
+   This rule transforms an incoming URL like `/customer/assets/urn:aaid:aem:...` to `/adobe/assets/urn:aaid:aem:...`.
+
+4. `cdn.yaml` should also contain an `originSelectors` rule such as:
+
+   ```yaml
+   originSelectors:
+     rules:
+       - name: route-assets-at-eds-to-delivery
+         when:
+           allOf:
+             - reqProperty: domain
+               equals: <eds-site-custom-domain>
+             - reqProperty: path
+               matches: ^/adobe/assets/.*
+         action:
+           type: selectOrigin
+           originName: assets-dynamic-media-openapi-origin
+     origins:
+       - name: assets-dynamic-media-openapi-origin
+         domain: assets-custom.adobeaemcloud.com
+   ```
+
+5. Commit `cdn.yaml` to git, then run the Edge Delivery configuration pipeline to deploy these rules.
+
 ## Troubleshooting
 
 ### CORS Issues

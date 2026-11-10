@@ -118,6 +118,12 @@ Start building extensions for Adobe Commerce Admin
 
 Start building extensions for AEM Assets View (Assets Ultimate only)
 
+<DiscoverBlock slots="link, text"/>
+
+[AEM Assets Content Hub](services/aem-assets-content-hub/index.md)
+
+Customize Content Hub workflows with asset details, card, and selection bar extensions
+
 <DiscoverBlock slots="heading, link, text"/>
 
 ## Experiment

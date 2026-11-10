@@ -1,30 +1,31 @@
 {
-  "total": 70,
+  "total": 79,
   "offset": 0,
-  "limit": 70,
+  "limit": 79,
   "data": [
     {
       "page": "/",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/59531204?v=4",
         "https://avatars.githubusercontent.com/u/73936497?v=4",
         "https://avatars.githubusercontent.com/u/7125318?v=4",
         "https://avatars.githubusercontent.com/u/17548019?v=4",
-        "https://avatars.githubusercontent.com/u/1295148?v=4",
         "https://avatars.githubusercontent.com/u/537688?v=4"
       ],
-      "lastUpdated": "3/10/2026"
+      "lastUpdated": "11/10/2026"
     },
     {
       "page": "/config",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4",
         "https://avatars.githubusercontent.com/u/1811207?v=4",
         "https://avatars.githubusercontent.com/u/10518278?v=4",
         "https://avatars.githubusercontent.com/u/97342793?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4"
       ],
-      "lastUpdated": "8/26/2026"
+      "lastUpdated": "11/10/2026"
     },
     {
       "page": "/extension-manager/",
@@ -218,6 +219,69 @@
         "https://avatars.githubusercontent.com/u/1295148?v=4"
       ],
       "lastUpdated": "3/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/api/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/api/asset-details/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/api/card-actions/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/api/commons/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/api/selection-bar/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/code-generation/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/debug/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
+    },
+    {
+      "page": "/services/aem-assets-content-hub/extension-development/",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/175919106?v=4"
+      ],
+      "lastUpdated": "11/10/2026"
     },
     {
       "page": "/services/aem-assets-view/",

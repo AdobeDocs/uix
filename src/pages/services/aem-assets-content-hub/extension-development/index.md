@@ -149,7 +149,7 @@ If you have worked with an Adobe App Builder App before, you will notice that yo
 # app.config.yaml
 extensions:
   aem/assets/contenthub/1:
-  $include: src/aem-assets-contenthub-1/ext.config.yaml
+    $include: src/aem-assets-contenthub-1/ext.config.yaml
 ```
 
 ## Overview of generated components
@@ -322,9 +322,9 @@ export default function PanelAssetDetailsExtensionTab() {
 }
 ```
 
-The `PanelAssetDetailsExtensionTab` establishes a connection with AEM Assets Content Hub using the `attach()` function and sets up the React Spectrum color scheme based on information obtained from AEM Assets Content Hub.
+The `PanelAssetDetailsExtensionTab` establishes a connection with AEM Assets Content Hub using the `attach()` function. The React Spectrum `Provider` applies the default theme to the panel content.
 
-The `displayToast()` function is used to display a toast message with the selected asset's path when the user clicks the button.
+The `displayToast()` function displays a fixed toast message when the user clicks the button.
 
 For more information about `register()`, `attach()`, and the common host APIs, see [Common Concepts in Creating Extensions](../api/commons/index.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Selection Bar - AEM Assets Content Hub Extensibility
-description: Add custom actions for selected assets in AEM Assets Content Hub.
+description: Add custom actions for selected resources in AEM Assets Content Hub.
 contributors:
   - https://github.com/AdobeDocs/uix
 ---
@@ -9,7 +9,7 @@ contributors:
 
 **Selection Bar** is the bar with actions that appears when one or more assets or collections in AEM Assets Content Hub are selected.
 
-The Selection Bar API adds commands that operate on multiple selected assets. Content Hub displays these commands when the user selects assets in a supported browsing surface.
+The Selection Bar API adds commands that operate on multiple selected resources. Content Hub displays these commands when the user selects assets or collections in a supported browsing surface.
 
 In this example, a custom action is added to the Selection Bar after the built-in actions:
 
@@ -28,7 +28,7 @@ Implement `selectionBar.getActionButtons(actionContext)` to return action button
 }
 ```
 
-Implement `selectionBar.onActionClick(buttonId, assetIds)` to handle a selected command.
+Implement `selectionBar.onActionClick(buttonId, resourceIds)` to handle a selected command. The array contains asset IDs when assets are selected and collection IDs when collections are selected.
 
 ```jsx
 const guestConnection = await register({
@@ -48,14 +48,14 @@ const guestConnection = await register({
           }
         ];
       },
-      async onActionClick(buttonId, assetIds) {
+      async onActionClick(buttonId, resourceIds) {
         if (buttonId !== 'copy-urls') {
           return;
         }
 
         await guestConnection.host.modal.openDialog({
-          title: 'Copy asset URLs',
-          contentUrl: `/#copy-urls?assetIds=${encodeURIComponent(JSON.stringify(assetIds))}`,
+          title: 'Selected resources',
+          contentUrl: `/#selected-resources?resourceIds=${encodeURIComponent(JSON.stringify(resourceIds))}`,
           type: 'modal',
           size: 'M'
         });
@@ -65,6 +65,6 @@ const guestConnection = await register({
 });
 ```
 
-Selection Bar buttons use the same `id`, `label`, and `icon` properties as card action buttons. Content Hub passes `onActionClick()` an array containing the IDs of the selected assets.
+Selection Bar buttons use the same `id`, `label`, and `icon` properties as card action buttons. Content Hub passes `onActionClick()` an array containing the IDs of the selected resources. Use `actionContext.context` in `getActionButtons()` to determine the current browsing surface and return actions appropriate for that resource type.
 
 See the [sample registration component](https://github.com/adobe/aem-uix-examples/blob/main/aem-assets-contenthub-sample/src/aem-assets-contenthub-1/web-src/src/components/ExtensionRegistration.js) and [sample Selection Bar dialog](https://github.com/adobe/aem-uix-examples/blob/main/aem-assets-contenthub-sample/src/aem-assets-contenthub-1/web-src/src/components/SelectionBarModal.js) for a complete implementation.

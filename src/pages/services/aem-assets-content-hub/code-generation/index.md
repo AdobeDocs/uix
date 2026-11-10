@@ -51,24 +51,20 @@ You should see:
 
 ```shell
 ➜ demo-extension-project % aio app init --repo adobe/aem-uix-examples/aem-assets-contenthub-sample --github-pat <your-github-pat>
+```
+
+5. The same initialization command prompts you to select your organization and then your project within that organization.
+
+You can either select the project by scrolling or filter the list of projects by beginning to type the project name.
+
+```shell
+:heavy_check_mark: Downloaded quickstart repo
 
 ? Select Org:
 
 ❯ Alpha Org
   Beta Org
   Delta Org
-```
-
-5. Then, select your project from within that organization.
-
-You can either select the project by scrolling or filter the list of projects by beginning to type the project name.
-
-```shell
-➜ demo-extension-project % aio app init --repo adobe/aem-uix-examples/aem-assets-contenthub-sample
-
-:heavy_check_mark: Downloaded quickstart repo
-
-? Select Org: Alpha Org
 
 ? Select a Project, or press + to create new:
   great-project

@@ -42,7 +42,8 @@ extensions should use `aem/assets/assetsview/1`, which also lets the same extens
 [Details View](../details-view/index.md). Regardless of the extension point, the Browse View capabilities are provided
 through the same `actionBar`, `quickActions`, and `headerMenu` namespaces described below.
 
-An extension needs to implement both `actionBar` and `quickActions` namespace to be recognized by Assets View.
+An extension needs to register both `actionBar` and `quickActions` namespaces to be recognized by Assets View.
+All methods within these namespaces are optional; implement only the capabilities the extension uses.
 Header menu buttons are customized through the optional, cross-cutting `headerMenu` namespace, documented on the
 dedicated [Header Menu](../header-menu/index.md) page.
 
@@ -58,8 +59,9 @@ In this example, a custom action is added to the ActionBar after the list of bui
 
 ![ActionBar actions](action-bar-action.png)
 
-Using the [`quickActions`](#quickactions-namespace) namespace, built-in QuickActions menu actions can be overridden or hidden based on the context and the
-selected asset.
+Using the [`quickActions`](#quickactions-namespace) namespace, custom actions can be added alongside built-in QuickActions
+menu actions, and built-in actions can be overridden or hidden based on the context and the individual resource.
+Custom actions use the same per-resource contract for assets and collections.
 
 ## Custom header menu buttons
 
@@ -111,13 +113,13 @@ action ids of actions that can be hidden:
 The extension definition object passed by the extension to the `register()` function defines the [`actionBar`](#actionbar-namespace) and [`quickActions`](#quickactions-namespace) namespaces. For header menu customization, see the [Header Menu](../header-menu/index.md) page.
 
 The methods in these namespaces provide the capabilities to
-- Add custom actions to the ActionBar
+- Add custom actions to the ActionBar and QuickActions menu
 - Hide or customize built-in actions in the ActionBar and QuickActions
 
 
 
 #### actionBar namespace
-The `actionBar` namespace includes these 3 methods
+The `actionBar` namespace includes these 3 optional methods
 - `getActions({ context, resourceSelection })`
 - `getHiddenBuiltInActions({ context, resourceSelection })`
 - `overrideBuiltInAction({ actionId, context, resourceSelection })`
@@ -213,9 +215,47 @@ overrideBuiltInAction: ({ actionId, context, resourceSelection }) => {
 
 #### quickActions namespace
 
-The `quickActions` namespace include these 2 methods
+The `quickActions` namespace includes these 3 optional methods
+- `getActions({ context, resource })`
 - `getHiddenBuiltInActions({ context, resource })`
 - `overrideBuiltInAction({ actionId, context, resource })`
+
+`quickActions.getActions({ context, resource })`
+
+**Description:** returns an array of custom action descriptors or an empty array if no custom actions should be added
+to the QuickActions menu in the specified context for the resource.
+
+The host calls this method when deriving or opening the resource's QuickActions menu. Custom actions appear alongside
+the built-in actions. The same contract applies to individual assets and collections.
+
+**Parameters:**
+- context (`string`): current [browsing context](#browsing-context).
+- **resource** (`object`): an object representing the resource whose menu is being opened.
+  - id (`string`): resource identifier.
+  - path (`string`): resource path.
+
+**Returns** (`array`) an array of custom action descriptors or an empty array if no custom actions should be added.
+
+Each custom action descriptor has the following properties:
+- `id` (`string`): action id, unique within the extension. The host namespaces action ids per extension.
+- `label` (`string`): title displayed in the QuickActions menu.
+- `onClick` (`function`): activation handler, which may be asynchronous. The host invokes `onClick()` without arguments.
+  Use a closure to access the `resource` passed to `getActions`.
+
+**Example:**
+```js
+quickActions: {
+    getActions: ({ context, resource }) => {
+        return [{
+            'id': 'logResource',
+            'label': 'Log resource details',
+            'onClick': async () => {
+                console.log(context, resource.id, resource.path);
+            }
+        }];
+    },
+}
+```
 
 `getHiddenBuiltInActions({ context, resource })`
 
@@ -270,7 +310,7 @@ overrideBuiltInAction: ({ actionId, context, resource }) => {
 
 ## Examples
 
-These code snippets demonstrate how to add a custom action to the ActionBar and
+These code snippets demonstrate how to add custom actions to the ActionBar and QuickActions menu and
 hide built-in actions or override built-in action handlers from the ActionBar and QuickActions menu in the Browse View.
 (The examples below serve illustrative purposes thus omit certain import statements and other non-important parts.)
 For header menu button examples, see the [Header Menu](../header-menu/index.md) page.
@@ -279,11 +319,11 @@ The ExtensionRegistration component initializes the extension registration proce
 provided by the `@adobe/uix-guest` library.
 
 The objects passed to the `register()` function describe the extension and its capabilities. In particular, it declares
-that the extension uses the `actionBar` and `quickActions` namespaces with their required methods. Header menu buttons
-are declared through the optional [`headerMenu`](../header-menu/index.md) namespace.
+that the extension uses the `actionBar` and `quickActions` namespaces. Methods within both namespaces are optional.
+Header menu buttons are declared through the optional [`headerMenu`](../header-menu/index.md) namespace.
 
-This example demonstrates the minimal set of namespaces and methods required for a browse extension to be recognized
-by the Host application.
+This example registers both namespaces with stubs for all optional methods, including `quickActions.getActions`.
+Implement only the methods needed for your extension's capabilities.
 
 ```js
 function ExtensionRegistration() {
@@ -303,6 +343,9 @@ function ExtensionRegistration() {
                     },
                 },
                 quickActions: {
+                    async getActions({ context, resource }) {
+                        return [];
+                    },
                     async getHiddenBuiltInActions({ context, resource }) {
                         return [];
                     },
